@@ -20,19 +20,20 @@ export default function AboutPage() {
 
   return (
     <>
-      {/* Hero */}
-      <section className="relative min-h-[420px] flex items-center">
+      {/* Hero - About (warm, approachable with visible team image) */}
+      <section className="relative min-h-[400px] flex items-end overflow-hidden">
         <Image
           src={stockImages.aboutHero}
           alt=""
           fill
           className="object-cover"
           priority
+          sizes="100vw"
         />
-        <div className="absolute inset-0 bg-navy-deep/70" />
-        <div className="absolute inset-0 bg-gradient-to-r from-navy-deep/80 to-transparent" />
-        <div className="relative z-10 mx-auto w-full max-w-[1600px] px-5 md:px-10 py-20 lg:py-28">
-          <nav className="text-sm text-white/50 mb-6">
+        {/* Warm overlay with slight blue */}
+        <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(20,23,51,0.3) 0%, rgba(20,23,51,0.6) 60%, rgba(20,23,51,0.9) 100%)" }} />
+        <div className="relative z-10 mx-auto w-full max-w-[1600px] px-5 md:px-10 pb-10 lg:pb-14 pt-28">
+          <nav className="text-sm text-white/60 mb-5 hero-subtitle">
             <Link href={prefix} className="hover:text-white transition-colors">
               {locale === "es" ? "Inicio" : "Home"}
             </Link>
@@ -40,17 +41,18 @@ export default function AboutPage() {
             <span className="text-white">{t("title")}</span>
           </nav>
           <h1
-            className="font-heading text-white mb-4"
+            className="font-heading text-white mb-3 hero-text"
             style={{
-              fontWeight: 400,
+              fontWeight: 500,
               fontSize: "clamp(2.2rem, 5vw, 3.75rem)",
             }}
           >
             {t("title")}
           </h1>
-          <p className="text-white/80 text-lg max-w-2xl leading-relaxed">
+          <p className="text-white/85 text-lg max-w-2xl leading-relaxed hero-subtitle">
             {t("subtitle")}
           </p>
+          <div className="mt-5 w-16 h-[3px] bg-gold" />
         </div>
       </section>
 

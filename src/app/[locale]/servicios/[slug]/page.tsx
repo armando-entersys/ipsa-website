@@ -109,12 +109,13 @@ export default async function ServicePage({ params }: { params: Promise<{ locale
           className="object-cover"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-navy-deep/75" />
-        <div className="absolute inset-0 bg-gradient-to-r from-navy-deep/90 via-navy-deep/60 to-transparent" />
+        <div className="absolute inset-0 bg-black/25" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#141733]/90 via-[#141733]/50 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0d0f1f]/60 to-transparent" />
 
         <div className="relative mx-auto max-w-[1600px] px-5 md:px-10 flex items-center" style={{ minHeight: "55vh" }}>
           <div className="max-w-3xl py-20 lg:py-28">
-            <nav className="text-sm text-white/50 mb-6">
+            <nav className="text-sm text-white/60 hero-subtitle mb-6">
               <Link href={prefix} className="hover:text-white transition-colors">
                 {locale === "es" ? "Inicio" : "Home"}
               </Link>
@@ -126,12 +127,12 @@ export default async function ServicePage({ params }: { params: Promise<{ locale
               <span className="text-white">{data.name}</span>
             </nav>
             <h1
-              className="font-heading text-white leading-tight mb-6"
-              style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)", fontWeight: 400 }}
+              className="font-heading text-white leading-tight mb-6 hero-text"
+              style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)", fontWeight: 500 }}
             >
               {data.name}
             </h1>
-            <p className="text-white/80 max-w-2xl leading-relaxed" style={{ fontSize: "1.1rem", lineHeight: 1.7 }}>
+            <p className="text-white/85 hero-subtitle max-w-2xl leading-relaxed" style={{ fontSize: "1.1rem", lineHeight: 1.7 }}>
               {data.desc}
             </p>
           </div>

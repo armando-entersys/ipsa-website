@@ -60,8 +60,8 @@ export default function IndustriesHub() {
 
   return (
     <>
-      {/* ═══ HERO with background image ═══════════════ */}
-      <section className="relative overflow-hidden" style={{ minHeight: "60vh" }}>
+      {/* ═══ HERO - Industries (dramatic, image-forward with warm tint) ═══ */}
+      <section className="relative overflow-hidden" style={{ minHeight: "55vh" }}>
         <Image
           src={stockImages.industriesHero}
           alt=""
@@ -70,12 +70,14 @@ export default function IndustriesHub() {
           className="object-cover"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-navy-deep/75" />
-        <div className="absolute inset-0 bg-gradient-to-r from-navy-deep/90 via-navy-deep/60 to-transparent" />
+        {/* Warm dramatic overlay - different from other pages */}
+        <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, rgba(20,23,51,0.85) 0%, rgba(20,23,51,0.3) 40%, rgba(187,144,52,0.15) 100%)" }} />
+        {/* Bottom gradient for text */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0d0f1f]/80 via-transparent to-transparent" />
 
-        <div className="relative mx-auto max-w-[1600px] px-5 md:px-10 flex items-center" style={{ minHeight: "60vh" }}>
-          <div className="max-w-3xl py-24 lg:py-32">
-            <nav className="text-sm text-white/50 mb-6">
+        <div className="relative mx-auto max-w-[1600px] px-5 md:px-10 flex items-end" style={{ minHeight: "55vh" }}>
+          <div className="max-w-3xl pb-12 lg:pb-16 pt-32">
+            <nav className="text-sm text-white/60 mb-5 hero-subtitle">
               <Link href={prefix} className="hover:text-white transition-colors">
                 {locale === "es" ? "Inicio" : "Home"}
               </Link>
@@ -83,14 +85,16 @@ export default function IndustriesHub() {
               <span className="text-white">{t("title")}</span>
             </nav>
             <h1
-              className="font-heading text-white leading-tight mb-6"
-              style={{ fontSize: "clamp(2.5rem, 5vw, 4.5rem)", fontWeight: 400 }}
+              className="font-heading text-white leading-tight mb-4 hero-text-strong"
+              style={{ fontSize: "clamp(2.5rem, 5vw, 4rem)", fontWeight: 500 }}
             >
               {t("title")}
             </h1>
-            <p className="text-white/80 max-w-2xl leading-relaxed" style={{ fontSize: "1.15rem", lineHeight: 1.7 }}>
+            <p className="text-white/85 max-w-2xl leading-relaxed hero-subtitle" style={{ fontSize: "1.15rem", lineHeight: 1.7 }}>
               {t("subtitle")}
             </p>
+            {/* Gold decorative line */}
+            <div className="mt-6 w-24 h-[3px] bg-gradient-to-r from-gold to-gold-light" />
           </div>
         </div>
       </section>

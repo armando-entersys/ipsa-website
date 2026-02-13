@@ -98,8 +98,8 @@ export default function ServicesHub() {
 
   return (
     <>
-      {/* ═══ HERO with background image ═══════════════ */}
-      <section className="relative overflow-hidden" style={{ minHeight: "60vh" }}>
+      {/* ═══ HERO - Services (split: solid left + image right) ═══ */}
+      <section className="relative overflow-hidden" style={{ minHeight: "50vh" }}>
         <Image
           src={stockImages.servicesHero}
           alt=""
@@ -108,27 +108,32 @@ export default function ServicesHub() {
           className="object-cover"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-navy-deep/75" />
-        <div className="absolute inset-0 bg-gradient-to-r from-navy-deep/90 via-navy-deep/60 to-transparent" />
+        {/* Diagonal solid block on left for text */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#141733] via-[#141733]/95 to-transparent" style={{ clipPath: "polygon(0 0, 65% 0, 50% 100%, 0 100%)" }} />
+        {/* Subtle overlay on image side */}
+        <div className="absolute inset-0 bg-black/20" />
 
-        <div className="relative mx-auto max-w-[1600px] px-5 md:px-10 flex items-center" style={{ minHeight: "60vh" }}>
-          <div className="max-w-3xl py-20 lg:py-32">
-            <nav className="text-sm text-white/50 mb-6">
+        <div className="relative mx-auto max-w-[1600px] px-5 md:px-10 flex items-center" style={{ minHeight: "50vh" }}>
+          <div className="max-w-xl py-16 lg:py-24">
+            <nav className="text-sm text-white/50 mb-5">
               <Link href={prefix} className="hover:text-white transition-colors">
                 {locale === "es" ? "Inicio" : "Home"}
               </Link>
               <ChevronRight size={14} className="inline mx-1" />
               <span className="text-white">{t("title")}</span>
             </nav>
-            <h1
-              className="font-heading text-white leading-tight mb-6"
-              style={{ fontSize: "clamp(2.25rem, 4.5vw, 4rem)", fontWeight: 400 }}
-            >
-              {t("title")}
-            </h1>
-            <p className="text-white/80 max-w-2xl leading-relaxed" style={{ fontSize: "1.15rem", lineHeight: 1.7 }}>
-              {t("subtitle")}
-            </p>
+            {/* Gold left border accent */}
+            <div className="border-l-4 border-gold pl-6">
+              <h1
+                className="font-heading text-white leading-tight mb-4"
+                style={{ fontSize: "clamp(2.25rem, 4.5vw, 3.5rem)", fontWeight: 500 }}
+              >
+                {t("title")}
+              </h1>
+              <p className="text-white/80 leading-relaxed" style={{ fontSize: "1.1rem", lineHeight: 1.7 }}>
+                {t("subtitle")}
+              </p>
+            </div>
           </div>
         </div>
       </section>

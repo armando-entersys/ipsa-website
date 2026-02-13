@@ -55,8 +55,8 @@ export default function SuppliersHub() {
 
   return (
     <>
-      {/* ═══ HERO ═══════════════════════════════════════ */}
-      <section className="relative overflow-hidden" style={{ minHeight: "50vh" }}>
+      {/* ═══ HERO - Suppliers (centered, clean with visible image) ═══ */}
+      <section className="relative overflow-hidden" style={{ minHeight: "45vh" }}>
         <Image
           src={stockImages.suppliersHero}
           alt=""
@@ -65,12 +65,13 @@ export default function SuppliersHub() {
           className="object-cover"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-navy-deep/75" />
-        <div className="absolute inset-0 bg-gradient-to-r from-navy-deep/90 via-navy-deep/60 to-transparent" />
+        {/* Softer centered gradient */}
+        <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at 30% 50%, rgba(20,23,51,0.8) 0%, rgba(20,23,51,0.4) 50%, rgba(20,23,51,0.25) 100%)" }} />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0d0f1f]/70 to-transparent" />
 
-        <div className="relative mx-auto max-w-[1600px] px-5 md:px-10 flex items-center" style={{ minHeight: "50vh" }}>
-          <div className="max-w-3xl py-20 lg:py-28">
-            <nav className="text-sm text-white/50 mb-8">
+        <div className="relative mx-auto max-w-[1600px] px-5 md:px-10 flex items-end" style={{ minHeight: "45vh" }}>
+          <div className="max-w-3xl pb-10 lg:pb-14 pt-28">
+            <nav className="text-sm text-white/60 mb-5 hero-subtitle">
               <Link href={prefix} className="hover:text-white transition-colors">
                 {locale === "es" ? "Inicio" : "Home"}
               </Link>
@@ -80,12 +81,12 @@ export default function SuppliersHub() {
               </span>
             </nav>
             <h1
-              className="font-heading text-white leading-tight mb-6"
-              style={{ fontSize: "clamp(2.2rem, 4.5vw, 4rem)", fontWeight: 400 }}
+              className="font-heading text-white leading-tight mb-4 hero-text"
+              style={{ fontSize: "clamp(2.2rem, 4.5vw, 3.5rem)", fontWeight: 500 }}
             >
               {t("title")}
             </h1>
-            <p className="text-white/80 max-w-2xl leading-relaxed" style={{ fontSize: "1.15rem", lineHeight: 1.7 }}>
+            <p className="text-white/85 max-w-2xl leading-relaxed hero-subtitle" style={{ fontSize: "1.1rem", lineHeight: 1.7 }}>
               {t("subtitle")}
             </p>
           </div>

@@ -38,9 +38,8 @@ export default function ProductsHub() {
 
   return (
     <>
-      {/* ═══ HERO with background image ═══════════════ */}
-      <section className="relative overflow-hidden" style={{ minHeight: "50vh" }}>
-        {/* Background image */}
+      {/* ═══ HERO - Products (image-forward with bottom gradient) ═══ */}
+      <section className="relative overflow-hidden" style={{ minHeight: "45vh" }}>
         <Image
           src={stockImages.productsHero}
           alt=""
@@ -49,28 +48,30 @@ export default function ProductsHub() {
           className="object-cover"
           sizes="100vw"
         />
-        {/* Dark overlay */}
-        <div className="absolute inset-0 bg-navy-deep/75" />
-        {/* Gradient accent */}
-        <div className="absolute inset-0 bg-gradient-to-r from-navy-deep/90 via-navy-deep/60 to-transparent" />
+        {/* Light overlay - let image breathe */}
+        <div className="absolute inset-0 bg-black/30" />
+        {/* Strong bottom gradient for text */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0d0f1f]/95 via-[#0d0f1f]/40 to-transparent" />
 
-        <div className="relative mx-auto max-w-[1600px] px-5 md:px-10 flex items-center" style={{ minHeight: "50vh" }}>
-          <div className="max-w-3xl py-20 lg:py-28">
-            {/* Breadcrumb */}
-            <nav className="text-sm text-white/50 mb-6">
+        <div className="relative mx-auto max-w-[1600px] px-5 md:px-10 flex items-end" style={{ minHeight: "45vh" }}>
+          <div className="max-w-3xl pb-10 lg:pb-14 pt-28">
+            <nav className="text-sm text-white/60 mb-4 hero-subtitle">
               <Link href={prefix} className="hover:text-white transition-colors">
                 {locale === "es" ? "Inicio" : "Home"}
               </Link>
               <ChevronRight size={14} className="inline mx-1" />
               <span className="text-white">{t("title")}</span>
             </nav>
-            <h1
-              className="font-heading text-white leading-tight mb-6"
-              style={{ fontSize: "clamp(2.25rem, 4.5vw, 3.75rem)", fontWeight: 400 }}
-            >
-              {t("title")}
-            </h1>
-            <p className="text-white/80 max-w-2xl leading-relaxed" style={{ fontSize: "1.1rem", lineHeight: 1.7 }}>
+            <div className="flex items-center gap-4 mb-4">
+              <div className="w-10 h-[3px] bg-gold" />
+              <h1
+                className="font-heading text-white leading-tight hero-text"
+                style={{ fontSize: "clamp(2.25rem, 4.5vw, 3.75rem)", fontWeight: 500 }}
+              >
+                {t("title")}
+              </h1>
+            </div>
+            <p className="text-white/85 max-w-2xl leading-relaxed hero-subtitle" style={{ fontSize: "1.1rem", lineHeight: 1.7 }}>
               {locale === "es"
                 ? "Valvulas, actuadores, paneles de control e instrumentacion de fabricantes internacionales para la industria de proceso."
                 : "Valves, actuators, control panels and instrumentation from international manufacturers for the process industry."}

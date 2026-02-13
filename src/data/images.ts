@@ -12,7 +12,7 @@ export const stockImages = {
   productsHero: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=1920&q=80&auto=format",
   servicesHero: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=1920&q=80&auto=format",
   industriesHero: "https://images.unsplash.com/photo-1513828583688-c52646db42da?w=1920&q=80&auto=format",
-  suppliersHero: "https://images.unsplash.com/photo-1565043666747-69f6646db940?w=1920&q=80&auto=format",
+  suppliersHero: "https://images.unsplash.com/photo-1590959651373-a3db0f38a961?w=1920&q=80&auto=format",
   aboutHero: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1920&q=80&auto=format",
   contactHero: "https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=1920&q=80&auto=format",
   catalogHero: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=1920&q=80&auto=format",
@@ -23,7 +23,7 @@ export const stockImages = {
   oils: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=1200&q=80&auto=format",
 
   // Services
-  automation: "https://images.unsplash.com/photo-1565043666747-69f6646db940?w=1200&q=80&auto=format",
+  automation: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=1200&q=80&auto=format",
   engineering: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=1200&q=80&auto=format",
   workshop: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=1200&q=80&auto=format",
 

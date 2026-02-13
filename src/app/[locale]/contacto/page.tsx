@@ -48,37 +48,40 @@ export default function ContactPage() {
 
   return (
     <>
-      {/* Hero */}
-      <section className="relative min-h-[420px] flex items-center">
+      {/* Hero - Contact (clean, inviting with gold accent) */}
+      <section className="relative min-h-[380px] flex items-end overflow-hidden">
         <Image
           src={stockImages.contactHero}
           alt=""
           fill
           className="object-cover"
           priority
+          sizes="100vw"
         />
-        <div className="absolute inset-0 bg-navy-deep/70" />
-        <div className="absolute inset-0 bg-gradient-to-r from-navy-deep/80 to-transparent" />
-        <div className="relative z-10 mx-auto w-full max-w-[1600px] px-5 md:px-10 py-20 lg:py-28">
-          <nav className="text-sm text-white/50 mb-6">
+        {/* Gradient bottom */}
+        <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(20,23,51,0.2) 0%, rgba(20,23,51,0.7) 50%, rgba(20,23,51,0.95) 100%)" }} />
+        <div className="relative z-10 mx-auto w-full max-w-[1600px] px-5 md:px-10 pb-10 lg:pb-14 pt-28">
+          <nav className="text-sm text-white/60 mb-5 hero-subtitle">
             <Link href={prefix} className="hover:text-white transition-colors">
               {locale === "es" ? "Inicio" : "Home"}
             </Link>
             <ChevronRight size={14} className="inline mx-1" />
             <span className="text-white">{t("title")}</span>
           </nav>
-          <h1
-            className="font-heading text-white mb-4"
-            style={{
-              fontWeight: 400,
-              fontSize: "clamp(2.2rem, 5vw, 3.75rem)",
-            }}
-          >
-            {t("title")}
-          </h1>
-          <p className="text-white/80 text-lg max-w-2xl leading-relaxed">
-            {t("subtitle")}
-          </p>
+          <div className="border-l-4 border-gold pl-6">
+            <h1
+              className="font-heading text-white mb-3 hero-text"
+              style={{
+                fontWeight: 500,
+                fontSize: "clamp(2.2rem, 5vw, 3.75rem)",
+              }}
+            >
+              {t("title")}
+            </h1>
+            <p className="text-white/85 text-lg max-w-2xl leading-relaxed hero-subtitle">
+              {t("subtitle")}
+            </p>
+          </div>
         </div>
       </section>
 

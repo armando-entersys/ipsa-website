@@ -82,7 +82,7 @@ export default function HomePage() {
   return (
     <>
       {/* ═══ HERO with video background ═══════════════ */}
-      <section className="relative overflow-hidden" style={{ minHeight: "75vh" }}>
+      <section className="relative overflow-hidden" style={{ minHeight: "80vh" }}>
         {/* Background video */}
         <video
           autoPlay
@@ -94,26 +94,30 @@ export default function HomePage() {
         >
           <source src="/videos/hero-refinery.mp4" type="video/mp4" />
         </video>
-        {/* Dark overlay */}
-        <div className="absolute inset-0 bg-navy-deep/70" />
-        {/* Gradient accent */}
-        <div className="absolute inset-0 bg-gradient-to-r from-navy-deep/85 via-navy-deep/55 to-transparent" />
+        {/* Lighter overlay - lets video show through */}
+        <div className="absolute inset-0 bg-black/40" />
+        {/* Bottom gradient for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0d0f1f]/90 via-[#0d0f1f]/30 to-transparent" />
+        {/* Left gradient for text side */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0d0f1f]/60 via-transparent to-transparent" />
 
-        <div className="relative mx-auto max-w-[1600px] px-5 md:px-10 flex items-center" style={{ minHeight: "75vh" }}>
-          <div className="max-w-3xl py-24 lg:py-36">
+        <div className="relative mx-auto max-w-[1600px] px-5 md:px-10 flex items-end" style={{ minHeight: "80vh" }}>
+          <div className="max-w-3xl pb-16 lg:pb-24 pt-32">
+            {/* Gold accent line */}
+            <div className="w-16 h-1 bg-gold mb-8" />
             <h1
-              className="font-heading text-white leading-tight mb-6"
-              style={{ fontSize: "clamp(2.5rem, 5vw, 4.5rem)", fontWeight: 400 }}
+              className="font-heading text-white leading-tight mb-6 hero-text-strong"
+              style={{ fontSize: "clamp(2.5rem, 5vw, 4.5rem)", fontWeight: 500 }}
             >
               {t("hero.title")}
             </h1>
-            <p className="text-white/80 mb-10 max-w-2xl leading-relaxed" style={{ fontSize: "1.15rem", lineHeight: 1.7 }}>
+            <p className="text-white/90 mb-10 max-w-2xl leading-relaxed hero-subtitle" style={{ fontSize: "1.15rem", lineHeight: 1.7 }}>
               {t("hero.subtitle")}
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 href={`${prefix}/productos`}
-                className="inline-flex items-center justify-center px-8 py-4 bg-gold text-white font-semibold rounded btn-lift hover:bg-gold-dark"
+                className="inline-flex items-center justify-center px-8 py-4 bg-gold text-white font-semibold rounded-sm btn-lift hover:bg-gold-dark"
                 style={{ fontSize: "1.05rem" }}
               >
                 {t("hero.cta")}
@@ -121,7 +125,7 @@ export default function HomePage() {
               </Link>
               <Link
                 href={`${prefix}/contacto`}
-                className="inline-flex items-center justify-center px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/25 text-white font-medium rounded btn-lift hover:bg-white/20"
+                className="inline-flex items-center justify-center px-8 py-4 bg-white/15 backdrop-blur-sm border border-white/30 text-white font-medium rounded-sm btn-lift hover:bg-white/25"
                 style={{ fontSize: "1.05rem" }}
               >
                 {t("hero.ctaSecondary")}
