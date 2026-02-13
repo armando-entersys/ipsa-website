@@ -46,7 +46,7 @@ export default function Steps({ steps, activeStep, className = '' }: StepsProps)
                 </div>
               </div>
               {/* Content */}
-              <h3 className="mt-4 font-heading text-base font-semibold text-navy">{step.title}</h3>
+              <h3 className="mt-4 font-heading text-base font-semibold text-gray-900">{step.title}</h3>
               <p className="mt-2 max-w-[200px] text-sm text-gray-600 leading-relaxed">
                 {step.description}
               </p>
@@ -80,7 +80,7 @@ export default function Steps({ steps, activeStep, className = '' }: StepsProps)
               </div>
               {/* Content */}
               <div className="pb-8">
-                <h3 className="font-heading text-base font-semibold text-navy">{step.title}</h3>
+                <h3 className="font-heading text-base font-semibold text-gray-900">{step.title}</h3>
                 <p className="mt-1 text-sm text-gray-600 leading-relaxed">{step.description}</p>
               </div>
             </div>

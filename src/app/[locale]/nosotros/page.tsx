@@ -64,14 +64,14 @@ export default function AboutPage() {
               <span className="text-gold font-medium text-sm tracking-widest uppercase mb-3 block">
                 {locale === "es" ? "Quienes somos" : "Who we are"}
               </span>
-              <h2 className="font-heading font-bold text-navy text-3xl md:text-4xl mb-6">
+              <h2 className="font-heading font-bold text-gray-900 text-3xl md:text-4xl mb-6">
                 {t("whoWeAre")}
               </h2>
               <p className="text-gray-700 leading-relaxed text-lg">
                 {t("whoWeAreText")}
               </p>
             </div>
-            <div className="relative h-[360px] lg:h-[440px] rounded-lg overflow-hidden">
+            <div className="relative h-[360px] lg:h-[440px] rounded-2xl overflow-hidden">
               <Image
                 src={stockImages.team}
                 alt={locale === "es" ? "Nuestro equipo" : "Our team"}
@@ -85,13 +85,13 @@ export default function AboutPage() {
       </section>
 
       {/* Group */}
-      <section className="py-16 lg:py-24" style={{ backgroundColor: "#f8f9fb" }}>
+      <section className="py-16 lg:py-24 bg-surface-alt">
         <div className="mx-auto max-w-[1600px] px-5 md:px-10">
           <div className="text-center mb-14">
             <span className="text-gold font-medium text-sm tracking-widest uppercase mb-3 block">
               {locale === "es" ? "Nuestras empresas" : "Our companies"}
             </span>
-            <h2 className="font-heading font-bold text-navy text-3xl md:text-4xl mb-4">
+            <h2 className="font-heading font-bold text-gray-900 text-3xl md:text-4xl mb-4">
               {t("group")}
             </h2>
             <p className="text-gray-600 text-lg max-w-3xl mx-auto">
@@ -106,15 +106,14 @@ export default function AboutPage() {
             ].map(({ key, color, icon: Icon }) => (
               <div
                 key={key}
-                className="bg-white rounded-lg p-8 text-center card-hover"
-                style={{ border: "1px solid #e5e7eb" }}
+                className="bg-white rounded-2xl p-8 text-center card-hover shadow-card"
               >
                 <div
-                  className={`w-16 h-16 ${color} rounded-lg flex items-center justify-center mx-auto mb-4`}
+                  className={`w-16 h-16 ${color} rounded-2xl flex items-center justify-center mx-auto mb-4`}
                 >
                   <Icon size={28} className="text-white" />
                 </div>
-                <h3 className="font-heading font-bold text-navy text-xl mb-2">
+                <h3 className="font-heading font-bold text-gray-900 text-xl mb-2">
                   {t(key)}
                 </h3>
                 <p className="text-gray-600 text-sm leading-relaxed">
@@ -133,7 +132,7 @@ export default function AboutPage() {
             <span className="text-gold font-medium text-sm tracking-widest uppercase mb-3 block">
               {locale === "es" ? "Presencia" : "Presence"}
             </span>
-            <h2 className="font-heading font-bold text-navy text-3xl md:text-4xl">
+            <h2 className="font-heading font-bold text-gray-900 text-3xl md:text-4xl">
               {t("locations")}
             </h2>
           </div>
@@ -160,11 +159,10 @@ export default function AboutPage() {
             ].map((loc) => (
               <div
                 key={loc.city}
-                className="bg-white rounded-lg p-5 text-center card-hover"
-                style={{ border: "1px solid #edf0f3" }}
+                className="bg-white rounded-2xl p-5 text-center card-hover shadow-card"
               >
                 <MapPin size={20} className="text-gold mx-auto mb-2" />
-                <div className="font-heading font-semibold text-navy text-sm">
+                <div className="font-heading font-semibold text-gray-900 text-sm">
                   {loc.city}
                 </div>
                 <div className="text-[11px] text-gray-500">{loc.full}</div>
@@ -178,7 +176,7 @@ export default function AboutPage() {
       </section>
 
       {/* Values */}
-      <section className="py-16 lg:py-24" style={{ backgroundColor: "#1a1f3d" }}>
+      <section className="py-16 lg:py-24 bg-navy-section">
         <div className="mx-auto max-w-[1600px] px-5 md:px-10">
           <div className="text-center mb-14">
             <span className="text-gold font-medium text-sm tracking-widest uppercase mb-3 block">
@@ -220,7 +218,7 @@ export default function AboutPage() {
               },
             ].map(({ icon: Icon, ...val }) => (
               <div key={val.es} className="text-center p-6">
-                <div className="w-14 h-14 bg-gold/20 rounded-lg flex items-center justify-center mx-auto mb-4">
+                <div className="w-14 h-14 bg-gold/20 rounded-xl flex items-center justify-center mx-auto mb-4">
                   <Icon size={28} className="text-gold-light" />
                 </div>
                 <h3 className="font-heading font-semibold text-white text-lg mb-2">
@@ -236,15 +234,14 @@ export default function AboutPage() {
       </section>
 
       {/* Sub-pages links */}
-      <section className="py-16 lg:py-24" style={{ backgroundColor: "#f4f5f7" }}>
+      <section className="py-16 lg:py-24 bg-surface-muted">
         <div className="mx-auto max-w-[1600px] px-5 md:px-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <Link
               href={`${prefix}/nosotros/alianzas`}
-              className="group bg-white rounded-lg p-8 card-hover"
-              style={{ border: "1px solid #e5e7eb" }}
+              className="group bg-white rounded-2xl p-8 card-hover shadow-card"
             >
-              <h3 className="font-heading font-bold text-navy text-xl mb-2">
+              <h3 className="font-heading font-bold text-gray-900 text-xl mb-2">
                 {locale === "es" ? "Alianzas estrategicas" : "Strategic alliances"}
               </h3>
               <p className="text-gray-600 text-sm mb-4">
@@ -259,10 +256,9 @@ export default function AboutPage() {
             </Link>
             <Link
               href={`${prefix}/nosotros/historia`}
-              className="group bg-white rounded-lg p-8 card-hover"
-              style={{ border: "1px solid #e5e7eb" }}
+              className="group bg-white rounded-2xl p-8 card-hover shadow-card"
             >
-              <h3 className="font-heading font-bold text-navy text-xl mb-2">
+              <h3 className="font-heading font-bold text-gray-900 text-xl mb-2">
                 {locale === "es" ? "Nuestra historia" : "Our history"}
               </h3>
               <p className="text-gray-600 text-sm mb-4">
@@ -300,7 +296,7 @@ export default function AboutPage() {
           </p>
           <Link
             href={`${prefix}/contacto`}
-            className="inline-flex items-center px-8 py-3.5 bg-gold text-white font-medium rounded btn-lift hover:bg-gold-dark transition-colors"
+            className="inline-flex items-center px-8 py-3.5 bg-gold text-white font-medium rounded-xl btn-lift hover:bg-gold-dark transition-colors"
           >
             {t("ctaWork")}
             <ArrowRight size={16} className="ml-2" />

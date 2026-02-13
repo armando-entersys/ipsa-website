@@ -94,14 +94,13 @@ export default function ContactPage() {
               <span className="text-gold font-medium text-sm tracking-widest uppercase mb-3 block">
                 {locale === "es" ? "Escribenos" : "Write to us"}
               </span>
-              <h2 className="font-heading font-bold text-navy text-2xl mb-6">
+              <h2 className="font-heading font-bold text-gray-900 text-2xl mb-6">
                 {t("formTitle")}
               </h2>
 
               {submitted ? (
                 <div
-                  className="bg-green-50 rounded-lg p-8 text-center"
-                  style={{ border: "1px solid #bbf7d0" }}
+                  className="bg-green-50 rounded-2xl p-8 text-center shadow-card"
                 >
                   <CheckCircle size={48} className="text-green-500 mx-auto mb-4" />
                   <p className="text-green-800 font-medium text-lg">
@@ -118,16 +117,7 @@ export default function ContactPage() {
                       <input
                         type="text"
                         required
-                        className="w-full px-4 py-3 rounded text-sm outline-none transition-colors"
-                        style={{ border: "1px solid #e5e7eb" }}
-                        onFocus={(e) => {
-                          e.currentTarget.style.border = "1px solid var(--color-gold, #c8a951)";
-                          e.currentTarget.style.boxShadow = "0 0 0 3px rgba(200,169,81,0.3)";
-                        }}
-                        onBlur={(e) => {
-                          e.currentTarget.style.border = "1px solid #e5e7eb";
-                          e.currentTarget.style.boxShadow = "none";
-                        }}
+                        className="input-field rounded-xl w-full px-4 py-3 text-sm"
                       />
                     </div>
                     <div>
@@ -137,16 +127,7 @@ export default function ContactPage() {
                       <input
                         type="text"
                         required
-                        className="w-full px-4 py-3 rounded text-sm outline-none transition-colors"
-                        style={{ border: "1px solid #e5e7eb" }}
-                        onFocus={(e) => {
-                          e.currentTarget.style.border = "1px solid var(--color-gold, #c8a951)";
-                          e.currentTarget.style.boxShadow = "0 0 0 3px rgba(200,169,81,0.3)";
-                        }}
-                        onBlur={(e) => {
-                          e.currentTarget.style.border = "1px solid #e5e7eb";
-                          e.currentTarget.style.boxShadow = "none";
-                        }}
+                        className="input-field rounded-xl w-full px-4 py-3 text-sm"
                       />
                     </div>
                   </div>
@@ -158,16 +139,7 @@ export default function ContactPage() {
                       <input
                         type="email"
                         required
-                        className="w-full px-4 py-3 rounded text-sm outline-none transition-colors"
-                        style={{ border: "1px solid #e5e7eb" }}
-                        onFocus={(e) => {
-                          e.currentTarget.style.border = "1px solid var(--color-gold, #c8a951)";
-                          e.currentTarget.style.boxShadow = "0 0 0 3px rgba(200,169,81,0.3)";
-                        }}
-                        onBlur={(e) => {
-                          e.currentTarget.style.border = "1px solid #e5e7eb";
-                          e.currentTarget.style.boxShadow = "none";
-                        }}
+                        className="input-field rounded-xl w-full px-4 py-3 text-sm"
                       />
                     </div>
                     <div>
@@ -177,16 +149,7 @@ export default function ContactPage() {
                       <input
                         type="tel"
                         required
-                        className="w-full px-4 py-3 rounded text-sm outline-none transition-colors"
-                        style={{ border: "1px solid #e5e7eb" }}
-                        onFocus={(e) => {
-                          e.currentTarget.style.border = "1px solid var(--color-gold, #c8a951)";
-                          e.currentTarget.style.boxShadow = "0 0 0 3px rgba(200,169,81,0.3)";
-                        }}
-                        onBlur={(e) => {
-                          e.currentTarget.style.border = "1px solid #e5e7eb";
-                          e.currentTarget.style.boxShadow = "none";
-                        }}
+                        className="input-field rounded-xl w-full px-4 py-3 text-sm"
                       />
                     </div>
                   </div>
@@ -196,16 +159,7 @@ export default function ContactPage() {
                         {t("industry")}
                       </label>
                       <select
-                        className="w-full px-4 py-3 rounded text-sm outline-none transition-colors bg-white"
-                        style={{ border: "1px solid #e5e7eb" }}
-                        onFocus={(e) => {
-                          e.currentTarget.style.border = "1px solid var(--color-gold, #c8a951)";
-                          e.currentTarget.style.boxShadow = "0 0 0 3px rgba(200,169,81,0.3)";
-                        }}
-                        onBlur={(e) => {
-                          e.currentTarget.style.border = "1px solid #e5e7eb";
-                          e.currentTarget.style.boxShadow = "none";
-                        }}
+                        className="input-field rounded-xl w-full px-4 py-3 text-sm bg-white"
                       >
                         <option value="">{t("selectOption")}</option>
                         <option value="oil">{t("industries.oil")}</option>
@@ -219,16 +173,7 @@ export default function ContactPage() {
                         {t("queryType")}
                       </label>
                       <select
-                        className="w-full px-4 py-3 rounded text-sm outline-none transition-colors bg-white"
-                        style={{ border: "1px solid #e5e7eb" }}
-                        onFocus={(e) => {
-                          e.currentTarget.style.border = "1px solid var(--color-gold, #c8a951)";
-                          e.currentTarget.style.boxShadow = "0 0 0 3px rgba(200,169,81,0.3)";
-                        }}
-                        onBlur={(e) => {
-                          e.currentTarget.style.border = "1px solid #e5e7eb";
-                          e.currentTarget.style.boxShadow = "none";
-                        }}
+                        className="input-field rounded-xl w-full px-4 py-3 text-sm bg-white"
                       >
                         <option value="">{t("selectOption")}</option>
                         <option value="quote">{t("queryTypes.quote")}</option>
@@ -244,16 +189,7 @@ export default function ContactPage() {
                     </label>
                     <textarea
                       rows={4}
-                      className="w-full px-4 py-3 rounded text-sm outline-none transition-colors resize-none"
-                      style={{ border: "1px solid #e5e7eb" }}
-                      onFocus={(e) => {
-                        e.currentTarget.style.border = "1px solid var(--color-gold, #c8a951)";
-                        e.currentTarget.style.boxShadow = "0 0 0 3px rgba(200,169,81,0.3)";
-                      }}
-                      onBlur={(e) => {
-                        e.currentTarget.style.border = "1px solid #e5e7eb";
-                        e.currentTarget.style.boxShadow = "none";
-                      }}
+                      className="input-field rounded-xl w-full px-4 py-3 text-sm resize-none"
                     />
                   </div>
                   <div className="flex items-start gap-2">
@@ -264,7 +200,7 @@ export default function ContactPage() {
                   </div>
                   <button
                     type="submit"
-                    className="inline-flex items-center px-8 py-3.5 bg-gold text-white font-medium rounded btn-lift hover:bg-gold-dark transition-colors"
+                    className="inline-flex items-center px-8 py-3.5 bg-gold text-white font-medium rounded-xl btn-lift hover:bg-gold-dark transition-colors"
                   >
                     <Send size={16} className="mr-2" />
                     {t("submit")}
@@ -275,7 +211,7 @@ export default function ContactPage() {
 
             {/* Sidebar */}
             <div className="lg:col-span-2 space-y-8">
-              <div className="bg-navy-deep rounded-lg p-6 text-white">
+              <div className="bg-navy-deep rounded-2xl p-6 text-white">
                 <h3 className="font-heading font-semibold text-gold-light mb-4">
                   {t("directContact")}
                 </h3>
@@ -306,21 +242,20 @@ export default function ContactPage() {
               </div>
 
               <div>
-                <h3 className="font-heading font-semibold text-navy text-lg mb-4">
+                <h3 className="font-heading font-semibold text-gray-900 text-lg mb-4">
                   {t("offices")}
                 </h3>
                 <div className="space-y-3">
                   {offices.map((office) => (
                     <div
                       key={office.city}
-                      className="bg-white rounded-lg p-4 card-hover"
-                      style={{ border: "1px solid #edf0f3" }}
+                      className="bg-white rounded-2xl p-4 card-hover shadow-card"
                     >
                       <div className="flex items-center justify-between mb-1">
-                        <span className="font-medium text-navy text-sm">
+                        <span className="font-medium text-gray-900 text-sm">
                           {office.city}
                         </span>
-                        <span className="text-[10px] bg-gold/10 text-gold font-medium px-2 py-0.5 rounded">
+                        <span className="text-[10px] bg-gold/10 text-gold font-medium px-2 py-0.5 rounded-full">
                           {office.role}
                         </span>
                       </div>

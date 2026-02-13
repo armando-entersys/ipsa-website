@@ -110,8 +110,8 @@ export default async function ServicePage({ params }: { params: Promise<{ locale
           sizes="100vw"
         />
         <div className="absolute inset-0 bg-black/25" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#141733]/90 via-[#141733]/50 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0d0f1f]/60 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-navy-alt/90 via-navy-alt/50 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/60 to-transparent" />
 
         <div className="relative mx-auto max-w-[1600px] px-5 md:px-10 flex items-center" style={{ minHeight: "55vh" }}>
           <div className="max-w-3xl py-20 lg:py-28">
@@ -140,7 +140,7 @@ export default async function ServicePage({ params }: { params: Promise<{ locale
       </section>
 
       {/* ═══ WHAT WE OFFER ════════════════════════════ */}
-      <section className="py-20 lg:py-24" style={{ background: "#ffffff" }}>
+      <section className="py-20 lg:py-24 bg-surface">
         <div className="mx-auto max-w-[1600px] px-5 md:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
             {/* Main content */}
@@ -148,7 +148,7 @@ export default async function ServicePage({ params }: { params: Promise<{ locale
               <p className="text-gold font-medium text-sm tracking-widest uppercase mb-3">
                 {locale === "es" ? "Capacidades" : "Capabilities"}
               </p>
-              <h2 className="font-heading text-heading mb-8" style={{ fontSize: "2rem", fontWeight: 600 }}>
+              <h2 className="font-heading text-gray-900 mb-8" style={{ fontSize: "2rem", fontWeight: 600 }}>
                 {locale === "es" ? "Que ofrecemos" : "What we offer"}
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4">
@@ -165,8 +165,7 @@ export default async function ServicePage({ params }: { params: Promise<{ locale
             <div className="space-y-6">
               {/* CTA card */}
               <div
-                className="bg-navy-deep p-7"
-                style={{ border: "1px solid #2d3068" }}
+                className="bg-navy-deep p-7 rounded-2xl shadow-card"
               >
                 <h3 className="font-heading font-semibold text-gold-light mb-2" style={{ fontSize: "1.15rem" }}>
                   {locale === "es" ? "Comienza tu proyecto" : "Start your project"}
@@ -178,7 +177,7 @@ export default async function ServicePage({ params }: { params: Promise<{ locale
                 </p>
                 <Link
                   href={`${prefix}/contacto`}
-                  className="block w-full text-center px-6 py-3 bg-gold text-white font-medium rounded btn-lift hover:bg-gold-dark transition-colors mb-3"
+                  className="block w-full text-center px-6 py-3 bg-gold text-white font-medium rounded-xl btn-lift hover:bg-gold-dark transition-colors mb-3"
                 >
                   {locale === "es" ? "Solicitar asesoria" : "Request advisory"}
                 </Link>
@@ -192,10 +191,9 @@ export default async function ServicePage({ params }: { params: Promise<{ locale
 
               {/* Other services */}
               <div
-                className="p-7"
-                style={{ background: "#f8f9fb", border: "1px solid #edf0f3" }}
+                className="p-7 rounded-2xl bg-surface-alt shadow-card"
               >
-                <h3 className="font-heading font-semibold text-heading mb-4" style={{ fontSize: "1.05rem" }}>
+                <h3 className="font-heading font-semibold text-gray-900 mb-4" style={{ fontSize: "1.05rem" }}>
                   {locale === "es" ? "Otros servicios" : "Other services"}
                 </h3>
                 <div className="space-y-1">
@@ -206,7 +204,7 @@ export default async function ServicePage({ params }: { params: Promise<{ locale
                         key={key}
                         href={`${prefix}/servicios/${key}`}
                         className="flex items-center gap-2 py-2.5 text-sm text-gray-600 hover:text-gold transition-colors duration-300"
-                        style={{ borderBottom: "1px solid #edf0f3" }}
+                        style={{ borderBottom: "1px solid var(--color-border-soft, #edf0f3)" }}
                       >
                         <ArrowRight size={13} className="text-gold shrink-0" />
                         <span>{s[l].name}</span>
@@ -220,13 +218,13 @@ export default async function ServicePage({ params }: { params: Promise<{ locale
       </section>
 
       {/* ═══ OUR PROCESS - Timeline ═══════════════════ */}
-      <section className="py-20 lg:py-24" style={{ background: "#f8f9fb" }}>
+      <section className="py-20 lg:py-24 bg-surface-alt">
         <div className="mx-auto max-w-[1600px] px-5 md:px-10">
           <div className="text-center mb-14">
             <p className="text-gold font-medium text-sm tracking-widest uppercase mb-3">
               {locale === "es" ? "Metodologia" : "Methodology"}
             </p>
-            <h2 className="font-heading text-heading" style={{ fontSize: "2rem", fontWeight: 600 }}>
+            <h2 className="font-heading text-gray-900" style={{ fontSize: "2rem", fontWeight: 600 }}>
               {locale === "es" ? "Nuestro proceso" : "Our process"}
             </h2>
           </div>
@@ -245,8 +243,7 @@ export default async function ServicePage({ params }: { params: Promise<{ locale
                     {/* Number circle */}
                     <div className="relative z-10 shrink-0">
                       <div
-                        className="w-12 h-12 rounded-full flex items-center justify-center"
-                        style={{ background: "#242751", border: "3px solid #bb9034" }}
+                        className="w-12 h-12 rounded-full flex items-center justify-center bg-navy-alt border-[3px] border-gold"
                       >
                         <span className="text-white font-heading font-bold text-sm">
                           {String(i + 1).padStart(2, "0")}
@@ -257,10 +254,10 @@ export default async function ServicePage({ params }: { params: Promise<{ locale
                     {/* Content */}
                     <div
                       className="flex-1 pb-8"
-                      style={{ borderBottom: i < data.steps.length - 1 ? "1px solid #e5e7eb" : "none" }}
+                      style={{ borderBottom: i < data.steps.length - 1 ? "1px solid var(--color-border-soft, #edf0f3)" : "none" }}
                     >
-                      <div className="bg-white p-6" style={{ border: "1px solid #e5e7eb" }}>
-                        <h3 className="font-heading font-semibold text-heading text-lg mb-2">
+                      <div className="bg-white p-6 rounded-2xl shadow-card">
+                        <h3 className="font-heading font-semibold text-gray-900 text-lg mb-2">
                           {step.title}
                         </h3>
                         <p className="text-gray-500 leading-relaxed text-sm">
@@ -299,7 +296,7 @@ export default async function ServicePage({ params }: { params: Promise<{ locale
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 href={`${prefix}/contacto`}
-                className="inline-flex items-center px-8 py-4 bg-gold text-white font-semibold rounded btn-lift hover:bg-gold-dark"
+                className="inline-flex items-center px-8 py-4 bg-gold text-white font-semibold rounded-xl btn-lift hover:bg-gold-dark"
                 style={{ fontSize: "1.05rem" }}
               >
                 {locale === "es" ? "Solicitar asesoria" : "Request advisory"}
@@ -307,7 +304,7 @@ export default async function ServicePage({ params }: { params: Promise<{ locale
               </Link>
               <a
                 href="tel:+525553973703"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/20 text-white font-medium rounded btn-lift hover:bg-white/20"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/20 text-white font-medium rounded-xl btn-lift hover:bg-white/20"
               >
                 <Phone size={16} />
                 +52 55 5397 3703

@@ -109,7 +109,7 @@ export default function ServicesHub() {
           sizes="100vw"
         />
         {/* Diagonal solid block on left for text */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#141733] via-[#141733]/95 to-transparent" style={{ clipPath: "polygon(0 0, 65% 0, 50% 100%, 0 100%)" }} />
+        <div className="absolute inset-0 bg-gradient-to-r from-navy-alt via-navy-alt/95 to-transparent" style={{ clipPath: "polygon(0 0, 65% 0, 50% 100%, 0 100%)" }} />
         {/* Subtle overlay on image side */}
         <div className="absolute inset-0 bg-black/20" />
 
@@ -139,13 +139,13 @@ export default function ServicesHub() {
       </section>
 
       {/* ═══ SERVICES - Alternating layout ═══════════ */}
-      <section className="py-20 lg:py-24" style={{ background: "#ffffff" }}>
+      <section className="py-20 lg:py-24 bg-surface">
         <div className="mx-auto max-w-[1600px] px-5 md:px-10">
           <div className="text-center mb-16">
             <p className="text-gold font-medium text-sm tracking-widest uppercase mb-3">
               {locale === "es" ? "Soluciones integrales" : "Comprehensive solutions"}
             </p>
-            <h2 className="font-heading text-heading" style={{ fontSize: "2rem", fontWeight: 600 }}>
+            <h2 className="font-heading text-gray-900" style={{ fontSize: "2rem", fontWeight: 600 }}>
               {t("title")}
             </h2>
             <p className="text-gray-500 max-w-2xl mx-auto mt-3 leading-relaxed">
@@ -160,11 +160,10 @@ export default function ServicesHub() {
               return (
                 <div
                   key={service.slug}
-                  className={`flex flex-col ${isEven ? "lg:flex-row" : "lg:flex-row-reverse"} gap-0 items-stretch card-hover`}
-                  style={{ border: "1px solid #e5e7eb" }}
+                  className={`flex flex-col ${isEven ? "lg:flex-row" : "lg:flex-row-reverse"} gap-0 items-stretch rounded-2xl overflow-hidden shadow-card-lg card-hover`}
                 >
                   {/* Image side */}
-                  <div className="lg:w-1/2 relative overflow-hidden" style={{ minHeight: "400px" }}>
+                  <div className="lg:w-1/2 relative rounded-2xl overflow-hidden" style={{ minHeight: "400px" }}>
                     <Image
                       src={service.image}
                       alt={service[l].name}
@@ -176,20 +175,19 @@ export default function ServicesHub() {
                   </div>
 
                   {/* Content side */}
-                  <div className="lg:w-1/2 p-8 lg:p-12 flex flex-col justify-center" style={{ background: "#ffffff" }}>
+                  <div className="lg:w-1/2 p-8 lg:p-12 flex flex-col justify-center">
                     <div className="flex items-center gap-4 mb-5">
                       <div
-                        className="w-14 h-14 rounded flex items-center justify-center shrink-0"
-                        style={{ background: "rgba(36, 39, 81, 0.06)" }}
+                        className="icon-bg-navy w-14 h-14 rounded-xl flex items-center justify-center shrink-0"
                       >
-                        <Icon size={26} className="text-heading" strokeWidth={1.5} />
+                        <Icon size={26} className="text-gray-700" strokeWidth={1.5} />
                       </div>
                       <p className="text-gold font-medium text-sm tracking-widest uppercase">
                         {locale === "es" ? `Servicio ${String(index + 1).padStart(2, "0")}` : `Service ${String(index + 1).padStart(2, "0")}`}
                       </p>
                     </div>
                     <h3
-                      className="font-heading text-heading mb-4"
+                      className="font-heading text-gray-900 mb-4"
                       style={{ fontSize: "1.65rem", fontWeight: 600 }}
                     >
                       {service[l].name}
@@ -216,7 +214,7 @@ export default function ServicesHub() {
                     <div>
                       <Link
                         href={`${prefix}/servicios/${service.slug}`}
-                        className="inline-flex items-center px-7 py-3.5 bg-gold text-white font-medium rounded btn-lift hover:bg-gold-dark"
+                        className="inline-flex items-center px-7 py-3.5 bg-gold text-white font-medium rounded-xl btn-lift hover:bg-gold-dark"
                         style={{ fontSize: "0.95rem" }}
                       >
                         {t("learnMore")}
@@ -232,13 +230,13 @@ export default function ServicesHub() {
       </section>
 
       {/* ═══ CAPABILITIES overview ════════════════════ */}
-      <section className="py-20 lg:py-24" style={{ background: "#f8f9fb" }}>
+      <section className="py-20 lg:py-24 bg-surface-alt">
         <div className="mx-auto max-w-[1600px] px-5 md:px-10">
           <div className="text-center mb-14">
             <p className="text-gold font-medium text-sm tracking-widest uppercase mb-3">
               {locale === "es" ? "Capacidades" : "Capabilities"}
             </p>
-            <h2 className="font-heading text-heading" style={{ fontSize: "2rem", fontWeight: 600 }}>
+            <h2 className="font-heading text-gray-900" style={{ fontSize: "2rem", fontWeight: 600 }}>
               {locale === "es" ? "Un socio integral para tu operacion" : "A comprehensive partner for your operation"}
             </h2>
           </div>
@@ -249,16 +247,14 @@ export default function ServicesHub() {
               return (
                 <div
                   key={service.slug}
-                  className="bg-white p-8 card-hover"
-                  style={{ border: "1px solid #e5e7eb" }}
+                  className="bg-white rounded-2xl p-8 shadow-card card-hover"
                 >
                   <div
-                    className="w-14 h-14 rounded flex items-center justify-center mb-5"
-                    style={{ background: "rgba(187, 144, 52, 0.08)" }}
+                    className="icon-bg-gold w-14 h-14 rounded-xl flex items-center justify-center mb-5"
                   >
                     <Icon size={26} className="text-gold" strokeWidth={1.5} />
                   </div>
-                  <h3 className="font-heading font-semibold text-heading text-lg mb-4">
+                  <h3 className="font-heading font-semibold text-gray-900 text-lg mb-4">
                     {t("capabilities")}
                   </h3>
                   <ul className="space-y-2.5">
@@ -299,7 +295,7 @@ export default function ServicesHub() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 href={`${prefix}/contacto`}
-                className="inline-flex items-center px-8 py-4 bg-gold text-white font-semibold rounded btn-lift hover:bg-gold-dark"
+                className="inline-flex items-center px-8 py-4 bg-gold text-white font-semibold rounded-xl btn-lift hover:bg-gold-dark"
                 style={{ fontSize: "1.05rem" }}
               >
                 {t("ctaAdvisory")}
@@ -307,7 +303,7 @@ export default function ServicesHub() {
               </Link>
               <a
                 href="tel:+525553973703"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/20 text-white font-medium rounded btn-lift hover:bg-white/20"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/20 text-white font-medium rounded-xl btn-lift hover:bg-white/20"
               >
                 <Phone size={16} />
                 +52 55 5397 3703

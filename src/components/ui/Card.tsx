@@ -55,7 +55,7 @@ function ProductCard({ title, description, image, href, className = '' }: Produc
         />
       </div>
       <div className="flex flex-1 flex-col p-5">
-        <h3 className="font-heading text-lg font-semibold text-navy">{title}</h3>
+        <h3 className="font-heading text-lg font-semibold text-gray-900">{title}</h3>
         <p className="mt-2 flex-1 text-sm text-gray-600 leading-relaxed">{description}</p>
         {href && (
           <Link
@@ -84,11 +84,11 @@ function ServiceCard({ title, description, icon: Icon, href, className = '' }: S
     <div
       className={`group flex flex-row items-start gap-5 rounded-2xl bg-white p-6 shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ${className}`}
     >
-      <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-navy/10 text-navy transition-colors group-hover:bg-gold group-hover:text-white">
+      <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl icon-bg-navy text-gray-700 transition-colors group-hover:bg-gold group-hover:text-white">
         <Icon className="h-7 w-7" />
       </div>
       <div className="flex flex-1 flex-col">
-        <h3 className="font-heading text-lg font-semibold text-navy">{title}</h3>
+        <h3 className="font-heading text-lg font-semibold text-gray-900">{title}</h3>
         <p className="mt-2 text-sm text-gray-600 leading-relaxed">{description}</p>
         {href && (
           <Link

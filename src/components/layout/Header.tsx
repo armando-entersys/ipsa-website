@@ -240,7 +240,7 @@ export default function Header() {
     <>
       <header className={`fixed top-0 left-0 right-0 z-[1000] transition-shadow duration-300 ${scrolled ? "shadow-lg" : ""}`}>
         {/* ── Top utility bar ─────────────────────────── */}
-        <div className="bg-[#0d0f1f] text-white">
+        <div className="bg-navy-dark text-white">
           <div className="mx-auto max-w-[1600px] px-5 md:px-10 flex items-center justify-between h-9 text-xs">
             <div className="flex items-center gap-6">
               <a
@@ -273,14 +273,14 @@ export default function Header() {
         {/* ── Main navigation bar ─────────────────────── */}
         <nav
           className={`relative transition-all duration-300 ${
-            scrolled ? "bg-[#141733]/98 backdrop-blur-md" : "bg-[#141733]"
+            scrolled ? "bg-navy-alt/98 backdrop-blur-md" : "bg-navy-alt"
           }`}
         >
           <div className="mx-auto max-w-[1600px] px-5 md:px-10 flex items-center justify-between h-[72px]">
             {/* Logo */}
             <Link href={prefix} className="flex items-center gap-3 shrink-0 group relative z-10">
               <div className="w-11 h-11 bg-gradient-to-br from-gold-light to-gold rounded-lg flex items-center justify-center transition-all duration-300 group-hover:shadow-lg group-hover:shadow-gold/20">
-                <span className="text-[#0d0f1f] font-heading font-bold text-xl">IP</span>
+                <span className="text-navy-dark font-heading font-bold text-xl">IP</span>
               </div>
               <div className="hidden sm:block">
                 <div className="font-heading font-bold text-white text-lg leading-tight tracking-wide">
@@ -413,7 +413,7 @@ export default function Header() {
                             className="object-cover transition-transform duration-500 group-hover/col:scale-110"
                             sizes="200px"
                           />
-                          <div className="absolute inset-0 bg-gradient-to-t from-[#141733]/80 to-transparent" />
+                          <div className="absolute inset-0 bg-gradient-to-t from-navy-alt/80 to-transparent" />
                           <div className="absolute bottom-0 left-0 right-0 p-3">
                             <span className="text-white text-sm font-bold tracking-wide">
                               {col.title}
@@ -427,7 +427,7 @@ export default function Header() {
                           <li key={item.label}>
                             <Link
                               href={`${prefix}${item.href}`}
-                              className="flex items-center gap-2 text-[0.82rem] text-gray-500 hover:text-[#141733] px-3 py-1.5 -mx-1 rounded-xl transition-all duration-200 hover:bg-gray-50 group/item"
+                              className="flex items-center gap-2 text-[0.82rem] text-gray-500 hover:text-navy-alt px-3 py-1.5 -mx-1 rounded-xl transition-all duration-200 hover:bg-gray-50 group/item"
                             >
                               <span className="w-1 h-1 rounded-full bg-gray-300 group-hover/item:bg-gold group-hover/item:w-1.5 group-hover/item:h-1.5 transition-all duration-200 shrink-0" />
                               {item.label}
@@ -445,7 +445,7 @@ export default function Header() {
                     <Link
                       key={item.label}
                       href={`${prefix}${item.href}`}
-                      className="text-[0.82rem] text-gray-400 hover:text-[#141733] hover:bg-gray-50 px-3 py-1.5 rounded-xl transition-all duration-200"
+                      className="text-[0.82rem] text-gray-400 hover:text-navy-alt hover:bg-gray-50 px-3 py-1.5 rounded-xl transition-all duration-200"
                     >
                       {item.label}
                     </Link>
@@ -467,7 +467,7 @@ export default function Header() {
                       className="object-cover"
                       sizes="224px"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#141733]/90 to-[#141733]/20" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-navy-alt/90 to-navy-alt/20" />
                     <div className="absolute bottom-0 left-0 right-0 p-4">
                       <p className="text-gold-light text-[10px] font-bold uppercase tracking-widest mb-1">
                         {l === "es" ? "Catalogo" : "Catalog"}
@@ -481,7 +481,7 @@ export default function Header() {
                   </div>
                   <Link
                     href={`${prefix}/productos`}
-                    className="flex items-center gap-1.5 text-[#141733] text-sm font-bold hover:text-gold transition-colors duration-200"
+                    className="flex items-center gap-1.5 text-navy-alt text-sm font-bold hover:text-gold transition-colors duration-200"
                   >
                     {l === "es" ? "Ver todos los productos" : "View all products"}
                     <ChevronRight size={14} />
@@ -521,7 +521,7 @@ export default function Header() {
                       href={`${prefix}${item.href}`}
                       className="group inline-block"
                     >
-                      <h3 className="font-heading text-[#141733] text-2xl font-normal mb-2 group-hover:text-gold transition-colors duration-300">
+                      <h3 className="font-heading text-navy-alt text-2xl font-normal mb-2 group-hover:text-gold transition-colors duration-300">
                         {t(item.key)}
                       </h3>
                       <span className="flex items-center gap-1 text-sm text-gold font-semibold">
@@ -544,7 +544,7 @@ export default function Header() {
                             <ChevronRight size={14} className="text-gold" />
                           </div>
                           <div>
-                            <span className="block text-[0.95rem] text-[#141733] font-semibold mb-1 group-hover/child:text-gold transition-colors duration-200">
+                            <span className="block text-[0.95rem] text-navy-alt font-semibold mb-1 group-hover/child:text-gold transition-colors duration-200">
                               {child.label}
                             </span>
                             {"desc" in child && (
@@ -589,7 +589,7 @@ export default function Header() {
 
           {/* Menu panel */}
           <div
-            className="absolute top-0 right-0 w-full max-w-md h-full bg-[#141733] overflow-y-auto"
+            className="absolute top-0 right-0 w-full max-w-md h-full bg-navy-alt overflow-y-auto"
             style={{ boxShadow: "-10px 0 40px rgba(0, 0, 0, 0.3)" }}
           >
             <div className="py-4">
@@ -615,7 +615,7 @@ export default function Header() {
                   </button>
                 </div>
                 {mobileAccordion === "products" && (
-                  <div className="bg-[#0d0f1f]/60">
+                  <div className="bg-navy-dark/60">
                     {productColumns[l].map((col) => (
                       <div key={col.title}>
                         <Link
@@ -687,7 +687,7 @@ export default function Header() {
                   </div>
 
                   {item.children && mobileAccordion === item.key && (
-                    <div className="bg-[#0d0f1f]/60">
+                    <div className="bg-navy-dark/60">
                       {item.children[l].map((child) => (
                         <Link
                           key={child.href}

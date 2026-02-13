@@ -67,7 +67,7 @@ export default function SuppliersHub() {
         />
         {/* Softer centered gradient */}
         <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at 30% 50%, rgba(20,23,51,0.8) 0%, rgba(20,23,51,0.4) 50%, rgba(20,23,51,0.25) 100%)" }} />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0d0f1f]/70 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/70 to-transparent" />
 
         <div className="relative mx-auto max-w-[1600px] px-5 md:px-10 flex items-end" style={{ minHeight: "45vh" }}>
           <div className="max-w-3xl pb-10 lg:pb-14 pt-28">
@@ -94,13 +94,13 @@ export default function SuppliersHub() {
       </section>
 
       {/* ═══ SUPPLIERS LIST ═════════════════════════════ */}
-      <section className="py-20 lg:py-24" style={{ background: "#ffffff" }}>
+      <section className="py-20 lg:py-24 bg-surface">
         <div className="mx-auto max-w-[1600px] px-5 md:px-10">
           <div className="text-center mb-16">
             <p className="text-gold font-medium text-sm tracking-widest uppercase mb-3">
               {locale === "es" ? "Nuestros socios" : "Our partners"}
             </p>
-            <h2 className="font-heading text-heading" style={{ fontSize: "2rem", fontWeight: 600 }}>
+            <h2 className="font-heading text-gray-900" style={{ fontSize: "2rem", fontWeight: 600 }}>
               {locale === "es"
                 ? "Alianzas con fabricantes de clase mundial"
                 : "World-class manufacturer partnerships"}
@@ -117,12 +117,11 @@ export default function SuppliersHub() {
               <Link
                 key={supplier.slug}
                 href={`${prefix}/proveedores/${supplier.slug}`}
-                className="group block card-hover"
-                style={{ border: "1px solid #e5e7eb" }}
+                className="group block rounded-2xl overflow-hidden shadow-card-lg"
               >
                 <div className="flex flex-col md:flex-row">
                   {/* Product image */}
-                  <div className="shrink-0 w-full md:w-56 relative overflow-hidden" style={{ background: "#f8f9fb", minHeight: "180px" }}>
+                  <div className="shrink-0 w-full md:w-56 relative overflow-hidden bg-surface-alt" style={{ minHeight: "180px" }}>
                     <Image
                       src={supplier.image}
                       alt={supplier.name}
@@ -135,12 +134,11 @@ export default function SuppliersHub() {
                   {/* Content */}
                   <div className="flex-1 p-7 md:p-8">
                     <div className="flex items-center gap-3 mb-3">
-                      <h2 className="font-heading text-heading text-xl md:text-2xl" style={{ fontWeight: 600 }}>
+                      <h2 className="font-heading text-gray-900 text-xl md:text-2xl" style={{ fontWeight: 600 }}>
                         {supplier.name}
                       </h2>
                       <span
-                        className="inline-flex items-center gap-1 text-xs font-medium px-2.5 py-1 rounded"
-                        style={{ background: "rgba(36, 39, 81, 0.06)", color: "#4b5563" }}
+                        className="inline-flex items-center gap-1 text-xs font-medium px-2.5 py-1 rounded-xl icon-bg-navy text-gray-600"
                       >
                         <MapPin size={11} />
                         {supplier.country}
@@ -149,8 +147,8 @@ export default function SuppliersHub() {
                     <p className="text-gray-600 leading-relaxed mb-4 text-sm md:text-base">
                       {supplier[l].desc}
                     </p>
-                    <p className="text-sm text-gray-500 mb-5" style={{ borderTop: "1px solid #f3f4f6", paddingTop: "0.75rem" }}>
-                      <span className="font-semibold text-heading">
+                    <p className="text-sm text-gray-500 mb-5 border-t border-border-light pt-3">
+                      <span className="font-semibold text-gray-900">
                         {locale === "es" ? "Productos:" : "Products:"}
                       </span>{" "}
                       {l === "es" ? supplier.products_es : supplier.products_en}
@@ -168,13 +166,13 @@ export default function SuppliersHub() {
       </section>
 
       {/* ═══ ADDITIONAL BRANDS ══════════════════════════ */}
-      <section className="py-20 lg:py-24" style={{ background: "#f8f9fb" }}>
+      <section className="py-20 lg:py-24 bg-surface-alt">
         <div className="mx-auto max-w-[1600px] px-5 md:px-10">
           <div className="max-w-3xl mx-auto text-center">
             <p className="text-gold font-medium text-sm tracking-widest uppercase mb-3">
               {locale === "es" ? "Marcas adicionales" : "Additional brands"}
             </p>
-            <h2 className="font-heading text-heading mb-4" style={{ fontSize: "2rem", fontWeight: 600 }}>
+            <h2 className="font-heading text-gray-900 mb-4" style={{ fontSize: "2rem", fontWeight: 600 }}>
               {locale === "es"
                 ? "Tambien representamos"
                 : "We also represent"}
@@ -188,16 +186,15 @@ export default function SuppliersHub() {
               {["Consolidated", "Masoneilan", "Yokogawa", "Emerson/Bettis"].map((brand) => (
                 <div
                   key={brand}
-                  className="px-6 py-3 bg-white card-hover"
-                  style={{ border: "1px solid #e5e7eb" }}
+                  className="px-6 py-3 bg-white rounded-xl shadow-card"
                 >
-                  <span className="font-heading font-semibold text-heading text-sm">{brand}</span>
+                  <span className="font-heading font-semibold text-gray-900 text-sm">{brand}</span>
                 </div>
               ))}
             </div>
             <Link
               href={`${prefix}/contacto`}
-              className="inline-flex items-center px-8 py-3.5 bg-gold text-white font-medium rounded btn-lift hover:bg-gold-dark"
+              className="inline-flex items-center px-8 py-3.5 bg-gold text-white font-medium rounded-xl btn-lift hover:bg-gold-dark"
             >
               {locale === "es" ? "Consultar disponibilidad" : "Check availability"}
               <ArrowRight size={16} className="ml-2" />
@@ -231,7 +228,7 @@ export default function SuppliersHub() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 href={`${prefix}/contacto`}
-                className="inline-flex items-center px-8 py-4 bg-gold text-white font-semibold rounded btn-lift hover:bg-gold-dark"
+                className="inline-flex items-center px-8 py-4 bg-gold text-white font-semibold rounded-xl btn-lift hover:bg-gold-dark"
                 style={{ fontSize: "1.05rem" }}
               >
                 {locale === "es" ? "Solicitar cotizacion" : "Request a quote"}
@@ -239,7 +236,7 @@ export default function SuppliersHub() {
               </Link>
               <a
                 href="tel:+525553973703"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/20 text-white font-medium rounded btn-lift hover:bg-white/20"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/20 text-white font-medium rounded-xl btn-lift hover:bg-white/20"
               >
                 <Phone size={16} />
                 +52 55 5397 3703

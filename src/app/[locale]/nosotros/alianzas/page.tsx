@@ -72,7 +72,7 @@ export default function AlliancesPage() {
             <span className="text-gold font-medium text-sm tracking-widest uppercase mb-3 block">
               {locale === "es" ? "Socios comerciales" : "Business partners"}
             </span>
-            <h2 className="font-heading font-bold text-navy text-3xl md:text-4xl mb-4">
+            <h2 className="font-heading font-bold text-gray-900 text-3xl md:text-4xl mb-4">
               {locale === "es"
                 ? "Fabricantes de clase mundial"
                 : "World-class manufacturers"}
@@ -82,15 +82,14 @@ export default function AlliancesPage() {
             {alliances.map((alliance) => {
               const content = (
                 <div
-                  className="bg-white rounded-lg p-6 card-hover h-full"
-                  style={{ border: "1px solid #e5e7eb" }}
+                  className="bg-white rounded-2xl p-6 card-hover h-full shadow-card"
                 >
-                  <div className="w-16 h-16 bg-navy-deep rounded-lg flex items-center justify-center mb-4">
+                  <div className="w-16 h-16 bg-navy-deep rounded-2xl flex items-center justify-center mb-4">
                     <span className="text-white font-heading font-bold text-xs text-center leading-tight px-1">
                       {alliance.name.split(" ")[0]}
                     </span>
                   </div>
-                  <h3 className="font-heading font-semibold text-navy text-lg mb-1">
+                  <h3 className="font-heading font-semibold text-gray-900 text-lg mb-1">
                     {alliance.name}
                   </h3>
                   <div className="flex items-center gap-2 mb-2">
@@ -142,7 +141,7 @@ export default function AlliancesPage() {
           </p>
           <Link
             href={`${prefix}/proveedores`}
-            className="inline-flex items-center px-8 py-3.5 bg-gold text-white font-medium rounded btn-lift hover:bg-gold-dark transition-colors"
+            className="inline-flex items-center px-8 py-3.5 bg-gold text-white font-medium rounded-xl btn-lift hover:bg-gold-dark transition-colors"
           >
             {locale === "es" ? "Ver todos los fabricantes" : "View all manufacturers"}
             <ArrowRight size={16} className="ml-2" />

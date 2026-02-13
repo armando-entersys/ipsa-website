@@ -49,13 +49,13 @@ export default function CatalogPage() {
       <section className="py-20 lg:py-32">
         <div className="mx-auto max-w-[1600px] px-5 md:px-10">
           <div className="max-w-2xl mx-auto text-center">
-            <div className="w-20 h-20 bg-gold/10 rounded-lg flex items-center justify-center mx-auto mb-6">
+            <div className="w-20 h-20 bg-gold/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
               <BookOpen size={40} className="text-gold" />
             </div>
             <span className="text-gold font-medium text-sm tracking-widest uppercase mb-3 block">
               {locale === "es" ? "Proximamente" : "Coming soon"}
             </span>
-            <h2 className="font-heading font-bold text-navy text-3xl mb-4">
+            <h2 className="font-heading font-bold text-gray-900 text-3xl mb-4">
               {t("comingSoon")}
             </h2>
             <p className="text-gray-600 text-lg leading-relaxed mb-8">
@@ -63,7 +63,7 @@ export default function CatalogPage() {
             </p>
             <Link
               href={`${prefix}/contacto`}
-              className="inline-flex items-center px-8 py-3.5 bg-gold text-white font-medium rounded btn-lift hover:bg-gold-dark transition-colors"
+              className="inline-flex items-center px-8 py-3.5 bg-gold text-white font-medium rounded-xl btn-lift hover:bg-gold-dark transition-colors"
             >
               {t("cta")}
               <ArrowRight size={16} className="ml-2" />

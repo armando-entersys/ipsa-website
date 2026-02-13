@@ -105,7 +105,7 @@ export default async function SupplierPage({ params }: { params: Promise<{ local
         />
         <div className="absolute inset-0 bg-black/30" />
         <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at 30% 50%, rgba(20,23,51,0.75) 0%, rgba(20,23,51,0.35) 60%, rgba(20,23,51,0.2) 100%)" }} />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0d0f1f]/60 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/60 to-transparent" />
 
         <div className="relative mx-auto max-w-[1600px] px-5 md:px-10 flex items-center" style={{ minHeight: "45vh" }}>
           <div className="py-20 lg:py-24">
@@ -124,8 +124,7 @@ export default async function SupplierPage({ params }: { params: Promise<{ local
             <div className="flex items-center gap-6">
               {/* Product image */}
               <div
-                className="w-24 h-24 md:w-28 md:h-28 shrink-0 relative rounded overflow-hidden"
-                style={{ background: "rgba(255,255,255,0.1)", border: "1px solid rgba(255,255,255,0.15)" }}
+                className="w-24 h-24 md:w-28 md:h-28 shrink-0 relative rounded-2xl overflow-hidden bg-white/10 border border-white/15"
               >
                 <Image
                   src={supplier.image}
@@ -153,7 +152,7 @@ export default async function SupplierPage({ params }: { params: Promise<{ local
       </section>
 
       {/* ═══ MAIN CONTENT ══════════════════════════════ */}
-      <section className="py-20 lg:py-24" style={{ background: "#ffffff" }}>
+      <section className="py-20 lg:py-24 bg-surface">
         <div className="mx-auto max-w-[1600px] px-5 md:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
 
@@ -165,7 +164,7 @@ export default async function SupplierPage({ params }: { params: Promise<{ local
                 <p className="text-gold font-medium text-sm tracking-widest uppercase mb-3">
                   {locale === "es" ? "Acerca de" : "About"}
                 </p>
-                <h2 className="font-heading text-heading mb-6" style={{ fontSize: "1.75rem", fontWeight: 600 }}>
+                <h2 className="font-heading text-gray-900 mb-6" style={{ fontSize: "1.75rem", fontWeight: 600 }}>
                   {locale === "es" ? `Sobre ${supplier.name}` : `About ${supplier.name}`}
                 </h2>
                 <p className="text-gray-600 leading-relaxed" style={{ fontSize: "1.05rem", lineHeight: 1.8 }}>
@@ -174,11 +173,11 @@ export default async function SupplierPage({ params }: { params: Promise<{ local
               </div>
 
               {/* Products */}
-              <div className="p-8 md:p-10" style={{ background: "#f8f9fb" }}>
+              <div className="p-8 md:p-10 rounded-2xl bg-surface-alt shadow-card">
                 <p className="text-gold font-medium text-sm tracking-widest uppercase mb-3">
                   {locale === "es" ? "Catalogo" : "Catalog"}
                 </p>
-                <h2 className="font-heading text-heading mb-6" style={{ fontSize: "1.75rem", fontWeight: 600 }}>
+                <h2 className="font-heading text-gray-900 mb-6" style={{ fontSize: "1.75rem", fontWeight: 600 }}>
                   {locale === "es" ? `Productos ${supplier.name}` : `${supplier.name} Products`}
                 </h2>
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -196,15 +195,14 @@ export default async function SupplierPage({ params }: { params: Promise<{ local
                 <p className="text-gold font-medium text-sm tracking-widest uppercase mb-3">
                   {locale === "es" ? "Calidad" : "Quality"}
                 </p>
-                <h2 className="font-heading text-heading mb-6" style={{ fontSize: "1.75rem", fontWeight: 600 }}>
+                <h2 className="font-heading text-gray-900 mb-6" style={{ fontSize: "1.75rem", fontWeight: 600 }}>
                   {locale === "es" ? "Certificaciones" : "Certifications"}
                 </h2>
                 <div className="flex flex-wrap gap-2.5">
                   {supplier.certifications.map((cert) => (
                     <span
                       key={cert}
-                      className="text-heading text-sm font-medium px-4 py-2 rounded flex items-center gap-1.5"
-                      style={{ background: "rgba(36, 39, 81, 0.06)" }}
+                      className="text-gray-900 text-sm font-medium px-4 py-2 rounded-xl flex items-center gap-1.5 bg-navy-deep/[0.06]"
                     >
                       <Award size={13} strokeWidth={1.5} />
                       {cert}
@@ -219,8 +217,7 @@ export default async function SupplierPage({ params }: { params: Promise<{ local
 
               {/* Quote CTA */}
               <div
-                className="p-7 rounded"
-                style={{ background: "#242751", border: "1px solid rgba(255,255,255,0.08)" }}
+                className="p-7 rounded-2xl bg-navy-alt shadow-card"
               >
                 <h3 className="font-heading text-gold-light mb-2" style={{ fontWeight: 600, fontSize: "1.1rem" }}>
                   {locale === "es" ? `Cotizar productos ${supplier.name}` : `Quote ${supplier.name} products`}
@@ -232,7 +229,7 @@ export default async function SupplierPage({ params }: { params: Promise<{ local
                 </p>
                 <Link
                   href={`${prefix}/contacto`}
-                  className="block w-full text-center px-6 py-3.5 bg-gold text-white font-medium rounded btn-lift hover:bg-gold-dark mb-4"
+                  className="block w-full text-center px-6 py-3.5 bg-gold text-white font-medium rounded-xl btn-lift hover:bg-gold-dark mb-4"
                 >
                   {locale === "es" ? "Solicitar cotizacion" : "Request a quote"}
                 </Link>
@@ -246,10 +243,9 @@ export default async function SupplierPage({ params }: { params: Promise<{ local
 
               {/* Industries */}
               <div
-                className="p-7 rounded"
-                style={{ background: "#f8f9fb", border: "1px solid #edf0f3" }}
+                className="p-7 rounded-2xl bg-surface-alt shadow-card"
               >
-                <h3 className="font-heading text-heading mb-4" style={{ fontWeight: 600 }}>
+                <h3 className="font-heading text-gray-900 mb-4" style={{ fontWeight: 600 }}>
                   {locale === "es" ? "Industrias" : "Industries"}
                 </h3>
                 <div className="space-y-1">
@@ -258,7 +254,7 @@ export default async function SupplierPage({ params }: { params: Promise<{ local
                       key={ind.slug}
                       href={`${prefix}/industrias/${ind.slug}`}
                       className="flex items-center justify-between py-2.5 text-sm text-gray-600 hover:text-gold transition-colors duration-300"
-                      style={{ borderBottom: "1px solid #edf0f3" }}
+                      style={{ borderBottom: "1px solid var(--color-border-soft, #edf0f3)" }}
                     >
                       <span>{ind[l]}</span>
                       <ArrowRight size={13} className="text-gold" />
@@ -269,10 +265,9 @@ export default async function SupplierPage({ params }: { params: Promise<{ local
 
               {/* Other suppliers */}
               <div
-                className="p-7 rounded"
-                style={{ background: "#f8f9fb", border: "1px solid #edf0f3" }}
+                className="p-7 rounded-2xl bg-surface-alt shadow-card"
               >
-                <h3 className="font-heading text-heading mb-4" style={{ fontWeight: 600 }}>
+                <h3 className="font-heading text-gray-900 mb-4" style={{ fontWeight: 600 }}>
                   {locale === "es" ? "Otros fabricantes" : "Other manufacturers"}
                 </h3>
                 <div className="space-y-1">
@@ -281,7 +276,7 @@ export default async function SupplierPage({ params }: { params: Promise<{ local
                       key={key}
                       href={`${prefix}/proveedores/${key}`}
                       className="flex items-center justify-between py-2.5 text-sm text-gray-600 hover:text-gold transition-colors duration-300"
-                      style={{ borderBottom: "1px solid #edf0f3" }}
+                      style={{ borderBottom: "1px solid var(--color-border-soft, #edf0f3)" }}
                     >
                       <span>{s.name}</span>
                       <ArrowRight size={13} className="text-gold" />
@@ -319,7 +314,7 @@ export default async function SupplierPage({ params }: { params: Promise<{ local
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 href={`${prefix}/contacto`}
-                className="inline-flex items-center px-8 py-4 bg-gold text-white font-semibold rounded btn-lift hover:bg-gold-dark"
+                className="inline-flex items-center px-8 py-4 bg-gold text-white font-semibold rounded-xl btn-lift hover:bg-gold-dark"
                 style={{ fontSize: "1.05rem" }}
               >
                 {locale === "es" ? "Enviar mensaje" : "Send a message"}
@@ -327,7 +322,7 @@ export default async function SupplierPage({ params }: { params: Promise<{ local
               </Link>
               <a
                 href="tel:+525553973703"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/20 text-white font-medium rounded btn-lift hover:bg-white/20"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/20 text-white font-medium rounded-xl btn-lift hover:bg-white/20"
               >
                 <Phone size={16} />
                 +52 55 5397 3703

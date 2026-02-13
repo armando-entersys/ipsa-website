@@ -67,7 +67,7 @@ export default async function ProductCategoryPage({
           sizes="100vw"
         />
         <div className="absolute inset-0 bg-black/30" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0d0f1f]/90 via-[#0d0f1f]/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/90 via-navy-dark/40 to-transparent" />
 
         <div
           className="relative mx-auto max-w-[1600px] px-5 md:px-10 flex items-center"
@@ -109,7 +109,7 @@ export default async function ProductCategoryPage({
       </section>
 
       {/* ======== CONTENT ======== */}
-      <section className="py-16 lg:py-20" style={{ background: "#ffffff" }}>
+      <section className="py-16 lg:py-20 bg-surface">
         <div className="mx-auto max-w-[1600px] px-5 md:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             {/* ---- Main content ---- */}
@@ -121,7 +121,7 @@ export default async function ProductCategoryPage({
                     {locale === "es" ? "Configuraciones" : "Configurations"}
                   </p>
                   <h2
-                    className="font-heading text-heading mb-6"
+                    className="font-heading text-gray-900 mb-6"
                     style={{ fontSize: "1.75rem", fontWeight: 600 }}
                   >
                     {locale === "es" ? "Tipos disponibles" : "Available types"}
@@ -131,11 +131,7 @@ export default async function ProductCategoryPage({
                       <Link
                         key={st.slug}
                         href={`${prefix}/productos/${slug}/${st.slug}`}
-                        className="group card-hover rounded-lg overflow-hidden transition-all duration-300"
-                        style={{
-                          background: "#f8f9fb",
-                          border: "1px solid #edf0f3",
-                        }}
+                        className="group card-hover rounded-2xl overflow-hidden transition-all duration-300 bg-surface-alt shadow-card"
                       >
                         {/* Thumbnail */}
                         {st.image && (
@@ -153,7 +149,7 @@ export default async function ProductCategoryPage({
                           </div>
                         )}
                         <div className="p-5">
-                          <h3 className="font-heading text-heading text-sm font-semibold mb-1.5 group-hover:text-gold transition-colors duration-300">
+                          <h3 className="font-heading text-gray-900 text-sm font-semibold mb-1.5 group-hover:text-gold transition-colors duration-300">
                             {st[l].name}
                           </h3>
                           <p className="text-gray-500 text-xs leading-relaxed line-clamp-2 mb-3">
@@ -176,14 +172,13 @@ export default async function ProductCategoryPage({
               {/* Specifications (sizes + pressure classes) */}
               {(category.sizes || category.pressureClasses) && (
                 <div
-                  className="p-8 rounded-lg"
-                  style={{ background: "#f8f9fb", border: "1px solid #edf0f3" }}
+                  className="p-8 rounded-2xl bg-surface-alt shadow-card"
                 >
                   <p className="text-gold font-medium text-sm tracking-widest uppercase mb-3">
                     {locale === "es" ? "Datos tecnicos" : "Technical data"}
                   </p>
                   <h2
-                    className="font-heading text-heading mb-6"
+                    className="font-heading text-gray-900 mb-6"
                     style={{ fontSize: "1.5rem", fontWeight: 600 }}
                   >
                     {locale === "es" ? "Especificaciones" : "Specifications"}
@@ -195,7 +190,7 @@ export default async function ProductCategoryPage({
                           {locale === "es" ? "Tamanos" : "Sizes"}
                         </dt>
                         <dd
-                          className="text-heading font-semibold"
+                          className="text-gray-900 font-semibold"
                           style={{ fontSize: "1.05rem" }}
                         >
                           {category.sizes}
@@ -208,7 +203,7 @@ export default async function ProductCategoryPage({
                           {locale === "es" ? "Clases de presion" : "Pressure classes"}
                         </dt>
                         <dd
-                          className="text-heading font-semibold"
+                          className="text-gray-900 font-semibold"
                           style={{ fontSize: "1.05rem" }}
                         >
                           {category.pressureClasses}
@@ -226,7 +221,7 @@ export default async function ProductCategoryPage({
                     {locale === "es" ? "Cumplimiento" : "Compliance"}
                   </p>
                   <h2
-                    className="font-heading text-heading mb-6"
+                    className="font-heading text-gray-900 mb-6"
                     style={{ fontSize: "1.5rem", fontWeight: 600 }}
                   >
                     {locale === "es"
@@ -237,8 +232,7 @@ export default async function ProductCategoryPage({
                     {standards.map((std) => (
                       <span
                         key={std}
-                        className="text-heading text-sm font-medium px-4 py-2 rounded"
-                        style={{ background: "rgba(36, 39, 81, 0.06)" }}
+                        className="text-gray-900 text-sm font-medium px-4 py-2 rounded-xl bg-navy-deep/[0.06]"
                       >
                         {std}
                       </span>
@@ -254,7 +248,7 @@ export default async function ProductCategoryPage({
                     {locale === "es" ? "Representaciones" : "Partnerships"}
                   </p>
                   <h2
-                    className="font-heading text-heading mb-6"
+                    className="font-heading text-gray-900 mb-6"
                     style={{ fontSize: "1.5rem", fontWeight: 600 }}
                   >
                     {locale === "es" ? "Marcas disponibles" : "Available brands"}
@@ -265,15 +259,10 @@ export default async function ProductCategoryPage({
                         <Link
                           key={s.slug}
                           href={`${prefix}/proveedores/${s.slug}`}
-                          className="group flex items-center gap-3 p-4 rounded-lg transition-all duration-300 hover:shadow-sm"
-                          style={{
-                            background: "#f8f9fb",
-                            border: "1px solid #edf0f3",
-                          }}
+                          className="group flex items-center gap-3 p-4 rounded-2xl transition-all duration-300 hover:shadow-sm bg-surface-alt shadow-card"
                         >
                           <div
-                            className="w-10 h-10 rounded-lg flex items-center justify-center relative overflow-hidden"
-                            style={{ background: "#242751" }}
+                            className="w-10 h-10 rounded-2xl flex items-center justify-center relative overflow-hidden bg-navy-alt"
                           >
                             {s.image ? (
                               <Image
@@ -293,7 +282,7 @@ export default async function ProductCategoryPage({
                             )}
                           </div>
                           <div>
-                            <span className="text-sm font-semibold text-heading group-hover:text-gold transition-colors duration-300">
+                            <span className="text-sm font-semibold text-gray-900 group-hover:text-gold transition-colors duration-300">
                               {s.name}
                             </span>
                           </div>
@@ -313,8 +302,7 @@ export default async function ProductCategoryPage({
             <div className="space-y-6">
               {/* CTA */}
               <div
-                className="p-7 rounded-lg relative overflow-hidden"
-                style={{ background: "#1a1f3d" }}
+                className="p-7 rounded-2xl relative overflow-hidden bg-navy-section"
               >
                 <div className="relative">
                   <p className="text-gold-light font-medium text-sm tracking-widest uppercase mb-2">
@@ -335,7 +323,7 @@ export default async function ProductCategoryPage({
                   </p>
                   <Link
                     href={`${prefix}/contacto`}
-                    className="block w-full text-center px-6 py-3.5 bg-gold text-white font-semibold rounded btn-lift hover:bg-gold-dark transition-colors"
+                    className="block w-full text-center px-6 py-3.5 bg-gold text-white font-semibold rounded-xl btn-lift hover:bg-gold-dark transition-colors"
                   >
                     {locale === "es"
                       ? "Solicitar cotizacion"
@@ -354,14 +342,13 @@ export default async function ProductCategoryPage({
               {/* Related services */}
               {services.length > 0 && (
                 <div
-                  className="p-7 rounded-lg"
-                  style={{ background: "#f8f9fb", border: "1px solid #edf0f3" }}
+                  className="p-7 rounded-2xl bg-surface-alt shadow-card"
                 >
                   <p className="text-gold font-medium text-sm tracking-widest uppercase mb-2">
                     {locale === "es" ? "Soporte" : "Support"}
                   </p>
                   <h3
-                    className="font-heading text-heading mb-4"
+                    className="font-heading text-gray-900 mb-4"
                     style={{ fontSize: "1.1rem", fontWeight: 600 }}
                   >
                     {locale === "es"
@@ -374,9 +361,9 @@ export default async function ProductCategoryPage({
                         <li key={s.slug}>
                           <Link
                             href={`${prefix}/servicios/${s.slug}`}
-                            className="group flex items-center justify-between py-2 px-3 rounded-lg hover:bg-white transition-colors duration-300"
+                            className="group flex items-center justify-between py-2 px-3 rounded-2xl hover:bg-white transition-colors duration-300"
                           >
-                            <span className="text-sm text-gray-700 group-hover:text-heading font-medium transition-colors duration-300">
+                            <span className="text-sm text-gray-700 group-hover:text-gray-900 font-medium transition-colors duration-300">
                               {s[l]}
                             </span>
                             <ArrowRight
@@ -394,14 +381,13 @@ export default async function ProductCategoryPage({
               {/* Related industries */}
               {industries.length > 0 && (
                 <div
-                  className="p-7 rounded-lg"
-                  style={{ background: "#f8f9fb", border: "1px solid #edf0f3" }}
+                  className="p-7 rounded-2xl bg-surface-alt shadow-card"
                 >
                   <p className="text-gold font-medium text-sm tracking-widest uppercase mb-2">
                     {locale === "es" ? "Sectores" : "Sectors"}
                   </p>
                   <h3
-                    className="font-heading text-heading mb-4"
+                    className="font-heading text-gray-900 mb-4"
                     style={{ fontSize: "1.1rem", fontWeight: 600 }}
                   >
                     {locale === "es" ? "Industrias" : "Industries"}
@@ -412,9 +398,9 @@ export default async function ProductCategoryPage({
                         <li key={ind.slug}>
                           <Link
                             href={`${prefix}/industrias/${ind.slug}`}
-                            className="group flex items-center justify-between py-2 px-3 rounded-lg hover:bg-white transition-colors duration-300"
+                            className="group flex items-center justify-between py-2 px-3 rounded-2xl hover:bg-white transition-colors duration-300"
                           >
-                            <span className="text-sm text-gray-700 group-hover:text-heading font-medium transition-colors duration-300">
+                            <span className="text-sm text-gray-700 group-hover:text-gray-900 font-medium transition-colors duration-300">
                               {ind[l]}
                             </span>
                             <ArrowRight
@@ -464,7 +450,7 @@ export default async function ProductCategoryPage({
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 href={`${prefix}/contacto`}
-                className="inline-flex items-center px-8 py-4 bg-gold text-white font-semibold rounded btn-lift hover:bg-gold-dark"
+                className="inline-flex items-center px-8 py-4 bg-gold text-white font-semibold rounded-xl btn-lift hover:bg-gold-dark"
                 style={{ fontSize: "1.05rem" }}
               >
                 {locale === "es" ? "Enviar mensaje" : "Send a message"}
@@ -472,7 +458,7 @@ export default async function ProductCategoryPage({
               </Link>
               <a
                 href="tel:+525553973703"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/20 text-white font-medium rounded btn-lift hover:bg-white/20"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/20 text-white font-medium rounded-xl btn-lift hover:bg-white/20"
               >
                 <Phone size={16} />
                 +52 55 5397 3703

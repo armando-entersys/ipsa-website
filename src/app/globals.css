@@ -1,16 +1,37 @@
 @import "tailwindcss";
 
 @theme inline {
+  /* ── Brand: Navy palette ──────────────────────────── */
   --color-navy: #1e3a5f;
   --color-navy-deep: #0f1b2d;
   --color-navy-light: #2a5298;
-  --color-heading: #1a2332;
+  --color-navy-dark: #0d0f1f;
+  --color-navy-alt: #141733;
+  --color-navy-section: #1a1f3d;
+
+  /* ── Brand: Gold palette ──────────────────────────── */
   --color-gold: #c8922a;
   --color-gold-light: #e7bd58;
   --color-gold-lighter: #fcdb9b;
   --color-gold-dark: #976d10;
   --color-gold-mid: #c9971f;
   --color-gold-muted: #a77c1f;
+
+  /* ── Semantic: Text ───────────────────────────────── */
+  --color-heading: #1a2332;
+  --color-body: #374151;
+  --color-muted: #6b7280;
+  --color-subtle: #9ca3af;
+
+  /* ── Semantic: Surfaces ───────────────────────────── */
+  --color-surface: #ffffff;
+  --color-surface-alt: #f8f9fb;
+  --color-surface-muted: #f4f5f7;
+  --color-surface-dim: #eef0f4;
+  --color-border: #e5e7eb;
+  --color-border-light: #f3f4f6;
+
+  /* ── Gray scale ───────────────────────────────────── */
   --color-white: #ffffff;
   --color-black: #000000;
   --color-gray-50: #f9fafb;
@@ -23,14 +44,16 @@
   --color-gray-700: #374151;
   --color-gray-800: #1f2937;
   --color-gray-900: #111827;
+
+  /* ── Typography ───────────────────────────────────── */
   --font-heading: "Montagu Slab", Georgia, serif;
   --font-body: "Gantari", system-ui, sans-serif;
 }
 
 /* ── Base ──────────────────────────────────────────── */
 body {
-  background: var(--color-white);
-  color: #374151;
+  background: var(--color-surface);
+  color: var(--color-body);
   font-family: var(--font-body);
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
@@ -40,10 +63,10 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   line-height: 1.25;
-  color: var(--color-heading);
+  color: var(--color-gray-900);
 }
 
-/* ── Hero text readability ─────────────────────────────── */
+/* ── Hero text readability ─────────────────────────── */
 .hero-text {
   text-shadow:
     0 0 40px rgba(0, 0, 0, 0.8),
@@ -123,6 +146,17 @@ a {
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
 }
 
+/* ── Soft shadow tokens ──────────────────────────── */
+.shadow-card {
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+}
+.shadow-card-lg {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+}
+.shadow-float {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+}
+
 /* ── Glass effect ─────────────────────────────────── */
 .glass {
   background: rgba(255, 255, 255, 0.7);
@@ -135,6 +169,25 @@ a {
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ── Section gradient backgrounds ────────────────── */
+.bg-section-light {
+  background: linear-gradient(180deg, var(--color-surface) 0%, var(--color-surface-alt) 100%);
+}
+.bg-section-warm {
+  background: linear-gradient(180deg, var(--color-surface-alt) 0%, var(--color-surface-dim) 100%);
+}
+.bg-section-dark {
+  background: linear-gradient(160deg, var(--color-navy-alt) 0%, #1a2550 50%, #1e2d5a 100%);
+}
+
+/* ── Icon background ─────────────────────────────── */
+.icon-bg-gold {
+  background: linear-gradient(135deg, rgba(200, 146, 42, 0.12), rgba(200, 146, 42, 0.04));
+}
+.icon-bg-navy {
+  background: linear-gradient(135deg, rgba(26, 35, 50, 0.08), rgba(42, 82, 152, 0.06));
 }
 
 /* ── Organic section divider ──────────────────────── */
@@ -155,7 +208,7 @@ a {
 
 /* ── Gradient text ────────────────────────────────── */
 .gradient-text {
-  background: linear-gradient(135deg, var(--color-heading) 0%, var(--color-navy-light) 100%);
+  background: linear-gradient(135deg, var(--color-gray-900) 0%, var(--color-navy-light) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -183,6 +236,18 @@ a {
 .icon-lift:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* ── Form inputs ─────────────────────────────────── */
+.input-field {
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.input-field:focus {
+  border-color: var(--color-gold);
+  box-shadow: 0 0 0 3px rgba(200, 146, 42, 0.15);
+  outline: none;
 }
 
 /* ── Scrollbar styling ─────────────────────────────── */

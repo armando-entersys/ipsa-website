@@ -18,7 +18,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-[#0f1b2d] text-white" style={{ padding: "4rem 0 2rem 0" }}>
+    <footer className="bg-navy-deep text-white pt-16 pb-8">
       <div className="mx-auto max-w-[1600px] px-5 md:px-10">
         {/* ── Main grid ────────────────────────────── */}
         <div
@@ -30,11 +30,7 @@ export default function Footer() {
           {/* Col 1: Brand + Tagline */}
           <div className="col-span-full lg:col-span-1" style={{ gridColumn: "1" }}>
             <p
-              className="font-heading font-normal leading-tight mb-20 max-w-[80%]"
-              style={{
-                fontSize: "2rem",
-                color: "rgba(255, 255, 255, 0.95)",
-              }}
+              className="font-heading font-normal leading-tight mb-20 max-w-[80%] text-3xl text-white/95"
             >
               {locale === "es"
                 ? "Tus expertos en valvulas y automatizacion industrial"
@@ -42,7 +38,7 @@ export default function Footer() {
             </p>
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 bg-gradient-to-br from-gold-light to-gold rounded-lg flex items-center justify-center">
-                <span className="text-[#0d0f1f] font-heading font-bold text-xl">IP</span>
+                <span className="text-navy-dark font-heading font-bold text-xl">IP</span>
               </div>
               <div>
                 <div className="font-heading font-bold text-lg">IPSA</div>
@@ -56,8 +52,7 @@ export default function Footer() {
           {/* Col 2: Mexico HQ */}
           <div className="hidden lg:block">
             <h3
-              className="text-white font-semibold mb-4"
-              style={{ fontSize: "1.1rem", fontFamily: "var(--font-body)" }}
+              className="text-white font-semibold mb-4 text-lg font-body"
             >
               IPSA (Mexico)
             </h3>
@@ -89,8 +84,7 @@ export default function Footer() {
           {/* Col 3: Houston */}
           <div className="hidden lg:block">
             <h3
-              className="text-white font-semibold mb-4"
-              style={{ fontSize: "1.1rem", fontFamily: "var(--font-body)" }}
+              className="text-white font-semibold mb-4 text-lg font-body"
             >
               IPSA (Houston)
             </h3>
@@ -106,8 +100,7 @@ export default function Footer() {
           {/* Col 4: Discover */}
           <div>
             <h3
-              className="text-white font-semibold mb-4"
-              style={{ fontSize: "1.1rem", fontFamily: "var(--font-body)" }}
+              className="text-white font-semibold mb-4 text-lg font-body"
             >
               {locale === "es" ? "Descubre" : "Discover"}
             </h3>
@@ -128,25 +121,22 @@ export default function Footer() {
 
         {/* ── Bottom bar ───────────────────────────── */}
         <div
-          className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6"
-          style={{ borderTop: "1px solid rgba(255, 255, 255, 0.15)" }}
+          className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-white/15"
         >
-          <p className="text-white/70" style={{ fontSize: "0.85rem" }}>
+          <p className="text-white/70 text-sm">
             &copy; {new Date().getFullYear()} Ingenieria de Partes S.A. de C.V.{" "}
             {t("rights")}
           </p>
           <div className="flex items-center gap-6 flex-wrap">
             <Link
               href={`${prefix}/nosotros`}
-              className="text-white/70 hover:text-gold-light transition-colors duration-300 whitespace-nowrap"
-              style={{ fontSize: "0.85rem" }}
+              className="text-white/70 hover:text-gold-light transition-colors duration-300 whitespace-nowrap text-sm"
             >
               {t("privacy")}
             </Link>
             <Link
               href={`${prefix}/nosotros`}
-              className="text-white/70 hover:text-gold-light transition-colors duration-300 whitespace-nowrap"
-              style={{ fontSize: "0.85rem" }}
+              className="text-white/70 hover:text-gold-light transition-colors duration-300 whitespace-nowrap text-sm"
             >
               {t("terms")}
             </Link>

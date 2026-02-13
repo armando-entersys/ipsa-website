@@ -73,7 +73,7 @@ export default function IndustriesHub() {
         {/* Warm dramatic overlay - different from other pages */}
         <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, rgba(20,23,51,0.85) 0%, rgba(20,23,51,0.3) 40%, rgba(187,144,52,0.15) 100%)" }} />
         {/* Bottom gradient for text */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0d0f1f]/80 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/80 via-transparent to-transparent" />
 
         <div className="relative mx-auto max-w-[1600px] px-5 md:px-10 flex items-end" style={{ minHeight: "55vh" }}>
           <div className="max-w-3xl pb-12 lg:pb-16 pt-32">
@@ -100,13 +100,13 @@ export default function IndustriesHub() {
       </section>
 
       {/* ═══ INDUSTRIES (full-bleed image cards) ═══════ */}
-      <section className="py-20 lg:py-24" style={{ background: "#ffffff" }}>
+      <section className="py-20 lg:py-24 bg-surface">
         <div className="mx-auto max-w-[1600px] px-5 md:px-10">
           <div className="text-center mb-14">
             <p className="text-gold font-medium text-sm tracking-widest uppercase mb-3">
               {locale === "es" ? "Sectores que atendemos" : "Sectors we serve"}
             </p>
-            <h2 className="font-heading text-heading" style={{ fontSize: "2rem", fontWeight: 600 }}>
+            <h2 className="font-heading text-gray-900" style={{ fontSize: "2rem", fontWeight: 600 }}>
               {locale === "es"
                 ? "Soluciones especializadas por industria"
                 : "Specialized solutions by industry"}
@@ -119,7 +119,7 @@ export default function IndustriesHub() {
                 <Link
                   key={industry.slug}
                   href={`${prefix}/industrias/${industry.slug}`}
-                  className="group block relative overflow-hidden card-hover"
+                  className="group block relative rounded-2xl overflow-hidden shadow-card-lg"
                   style={{ minHeight: "320px" }}
                 >
                   <Image
@@ -151,7 +151,7 @@ export default function IndustriesHub() {
       </section>
 
       {/* ═══ STATS (dark background) ══════════════════ */}
-      <section className="py-20 lg:py-24 relative overflow-hidden" style={{ background: "#1a1f3d" }}>
+      <section className="py-20 lg:py-24 relative overflow-hidden bg-navy-section">
         <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)", backgroundSize: "40px 40px" }} />
         <div className="relative mx-auto max-w-[1600px] px-5 md:px-10">
           <div className="text-center mb-14">
@@ -212,7 +212,7 @@ export default function IndustriesHub() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 href={`${prefix}/contacto`}
-                className="inline-flex items-center px-8 py-4 bg-gold text-white font-semibold rounded btn-lift hover:bg-gold-dark"
+                className="inline-flex items-center px-8 py-4 bg-gold text-white font-semibold rounded-xl btn-lift hover:bg-gold-dark"
                 style={{ fontSize: "1.05rem" }}
               >
                 {t("ctaSpecialist")}
@@ -220,7 +220,7 @@ export default function IndustriesHub() {
               </Link>
               <a
                 href="tel:+525553973703"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/20 text-white font-medium rounded btn-lift hover:bg-white/20"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/20 text-white font-medium rounded-xl btn-lift hover:bg-white/20"
               >
                 <Phone size={16} />
                 +52 55 5397 3703

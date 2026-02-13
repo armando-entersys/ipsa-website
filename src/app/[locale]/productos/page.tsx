@@ -51,7 +51,7 @@ export default function ProductsHub() {
         {/* Light overlay - let image breathe */}
         <div className="absolute inset-0 bg-black/30" />
         {/* Strong bottom gradient for text */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0d0f1f]/95 via-[#0d0f1f]/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/95 via-navy-dark/40 to-transparent" />
 
         <div className="relative mx-auto max-w-[1600px] px-5 md:px-10 flex items-end" style={{ minHeight: "45vh" }}>
           <div className="max-w-3xl pb-10 lg:pb-14 pt-28">
@@ -80,14 +80,14 @@ export default function ProductsHub() {
         </div>
       </section>
 
-      {/* ═══ PRODUCTS GRID (gap-px pattern) ═══════════ */}
-      <section className="py-20 lg:py-24" style={{ background: "#f8f9fb" }}>
+      {/* ═══ PRODUCTS GRID (modern cards) ═══════════ */}
+      <section className="py-20 lg:py-24 bg-surface-alt">
         <div className="mx-auto max-w-[1600px] px-5 md:px-10">
           <div className="text-center mb-14">
             <p className="text-gold font-medium text-sm tracking-widest uppercase mb-3">
               {locale === "es" ? "Catalogo completo" : "Full catalog"}
             </p>
-            <h2 className="font-heading text-heading" style={{ fontSize: "2rem", fontWeight: 600 }}>
+            <h2 className="font-heading text-gray-900" style={{ fontSize: "2rem", fontWeight: 600 }}>
               {locale === "es" ? "Nuestros productos" : "Our products"}
             </h2>
             <p className="text-gray-500 mt-2 max-w-xl mx-auto leading-relaxed">
@@ -97,24 +97,23 @@ export default function ProductsHub() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px" style={{ background: "#e5e7eb" }}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {allProducts.map((product) => {
               const PIcon = product.Icon;
               return (
                 <Link
                   key={product.slug}
                   href={`${prefix}/productos/${product.slug}`}
-                  className="group block bg-white p-8 hover:bg-gray-50/80 transition-all duration-300 relative"
+                  className="group block bg-white rounded-2xl shadow-card card-modern p-8 hover:bg-gray-50/80 transition-all duration-300 relative"
                 >
                   <div className="flex items-start gap-5">
                     <div
-                      className="w-12 h-12 shrink-0 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:scale-105"
-                      style={{ background: "rgba(36, 39, 81, 0.06)" }}
+                      className="icon-bg-navy w-12 h-12 shrink-0 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:scale-105"
                     >
-                      <PIcon size={22} className="text-heading group-hover:text-gold transition-colors duration-300" strokeWidth={1.5} />
+                      <PIcon size={22} className="text-gray-700 group-hover:text-gold transition-colors duration-300" strokeWidth={1.5} />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <h3 className="font-heading font-semibold text-heading text-base mb-1">
+                      <h3 className="font-heading font-semibold text-gray-900 text-base mb-1">
                         {product[l]}
                       </h3>
                       <p className="text-gray-400 text-sm leading-relaxed mb-3">
@@ -164,7 +163,7 @@ export default function ProductsHub() {
           </div>
           <Link
             href={`${prefix}/servicios/automatizacion`}
-            className="inline-flex items-center px-8 py-4 bg-gold text-white font-semibold rounded btn-lift hover:bg-gold-dark shrink-0"
+            className="inline-flex items-center px-8 py-4 bg-gold text-white font-semibold rounded-xl btn-lift hover:bg-gold-dark shrink-0"
             style={{ fontSize: "1.05rem" }}
           >
             {locale === "es" ? "Conoce el servicio" : "Learn about the service"}
@@ -193,7 +192,7 @@ export default function ProductsHub() {
             </p>
             <Link
               href={`${prefix}/contacto`}
-              className="inline-flex items-center px-8 py-4 bg-gold text-white font-semibold rounded btn-lift hover:bg-gold-dark"
+              className="inline-flex items-center px-8 py-4 bg-gold text-white font-semibold rounded-xl btn-lift hover:bg-gold-dark"
               style={{ fontSize: "1.05rem" }}
             >
               {t("notFoundCta")}

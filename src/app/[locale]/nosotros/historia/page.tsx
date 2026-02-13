@@ -105,7 +105,7 @@ export default function HistoryPage() {
             <span className="text-gold font-medium text-sm tracking-widest uppercase mb-3 block">
               {locale === "es" ? "Nuestra trayectoria" : "Our trajectory"}
             </span>
-            <h2 className="font-heading font-bold text-navy text-3xl md:text-4xl">
+            <h2 className="font-heading font-bold text-gray-900 text-3xl md:text-4xl">
               {locale === "es"
                 ? "Mas de tres decadas de experiencia"
                 : "Over three decades of experience"}
@@ -159,7 +159,7 @@ export default function HistoryPage() {
           </p>
           <Link
             href={`${prefix}/contacto`}
-            className="inline-flex items-center px-8 py-3.5 bg-gold text-white font-medium rounded btn-lift hover:bg-gold-dark transition-colors"
+            className="inline-flex items-center px-8 py-3.5 bg-gold text-white font-medium rounded-xl btn-lift hover:bg-gold-dark transition-colors"
           >
             {locale === "es" ? "Conoce nuestros servicios" : "Discover our services"}
             <ArrowRight size={16} className="ml-2" />

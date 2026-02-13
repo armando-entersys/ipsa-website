@@ -114,7 +114,7 @@ export default async function SubtypeDetailPage({
       </section>
 
       {/* ======== MAIN CONTENT (2-col + sidebar) ======== */}
-      <section className="py-16 lg:py-20" style={{ background: "#ffffff" }}>
+      <section className="py-16 lg:py-20 bg-surface">
         <div className="mx-auto max-w-[1600px] px-5 md:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             {/* ── Main column ── */}
@@ -126,7 +126,7 @@ export default async function SubtypeDetailPage({
                     {locale === "es" ? "Representaciones" : "Partnerships"}
                   </p>
                   <h2
-                    className="font-heading text-heading mb-6"
+                    className="font-heading text-gray-900 mb-6"
                     style={{ fontSize: "1.75rem", fontWeight: 600 }}
                   >
                     {locale === "es" ? "Disponible de" : "Available from"}
@@ -136,8 +136,7 @@ export default async function SubtypeDetailPage({
                       const inner = (
                         <div className="flex items-center gap-4">
                           <div
-                            className="w-16 h-16 shrink-0 relative rounded-lg overflow-hidden"
-                            style={{ background: "#f8f9fb", border: "1px solid #edf0f3" }}
+                            className="w-16 h-16 shrink-0 relative rounded-2xl overflow-hidden bg-surface-alt shadow-card"
                           >
                             <Image
                               src={mfr.image}
@@ -148,7 +147,7 @@ export default async function SubtypeDetailPage({
                             />
                           </div>
                           <div className="min-w-0">
-                            <span className="block text-heading font-semibold text-sm group-hover:text-gold transition-colors duration-300 truncate">
+                            <span className="block text-gray-900 font-semibold text-sm group-hover:text-gold transition-colors duration-300 truncate">
                               {mfr.name}
                             </span>
                             <span className="flex items-center gap-1.5 text-xs text-gray-400 mt-1">
@@ -167,22 +166,14 @@ export default async function SubtypeDetailPage({
                         <Link
                           key={mfr.slug}
                           href={`${prefix}/proveedores/${mfr.slug}`}
-                          className="group card-hover p-4 rounded-lg transition-all duration-300"
-                          style={{
-                            background: "#f8f9fb",
-                            border: "1px solid #edf0f3",
-                          }}
+                          className="group card-hover p-4 rounded-2xl transition-all duration-300 bg-surface-alt shadow-card"
                         >
                           {inner}
                         </Link>
                       ) : (
                         <div
                           key={mfr.name}
-                          className="group p-4 rounded-lg"
-                          style={{
-                            background: "#f8f9fb",
-                            border: "1px solid #edf0f3",
-                          }}
+                          className="group p-4 rounded-2xl bg-surface-alt shadow-card"
                         >
                           {inner}
                         </div>
@@ -194,7 +185,7 @@ export default async function SubtypeDetailPage({
 
               {/* Product image */}
               {subtypeData.image && (
-                <div className="relative w-full rounded-lg overflow-hidden" style={{ aspectRatio: "16/9" }}>
+                <div className="relative w-full rounded-2xl overflow-hidden" style={{ aspectRatio: "16/9" }}>
                   <Image
                     src={subtypeData.image}
                     alt={stName}
@@ -208,14 +199,13 @@ export default async function SubtypeDetailPage({
               {/* Specifications */}
               {(subtypeData.sizes || subtypeData.pressureClasses) && (
                 <div
-                  className="p-8 rounded-lg"
-                  style={{ background: "#f8f9fb", border: "1px solid #edf0f3" }}
+                  className="p-8 rounded-2xl bg-surface-alt shadow-card"
                 >
                   <p className="text-gold font-medium text-sm tracking-widest uppercase mb-3">
                     {locale === "es" ? "Datos tecnicos" : "Technical data"}
                   </p>
                   <h2
-                    className="font-heading text-heading mb-6"
+                    className="font-heading text-gray-900 mb-6"
                     style={{ fontSize: "1.5rem", fontWeight: 600 }}
                   >
                     {locale === "es" ? "Especificaciones" : "Specifications"}
@@ -227,7 +217,7 @@ export default async function SubtypeDetailPage({
                           {locale === "es" ? "Tamanos" : "Sizes"}
                         </dt>
                         <dd
-                          className="text-heading font-semibold"
+                          className="text-gray-900 font-semibold"
                           style={{ fontSize: "1.05rem" }}
                         >
                           {subtypeData.sizes}
@@ -240,7 +230,7 @@ export default async function SubtypeDetailPage({
                           {locale === "es" ? "Clases de presion" : "Pressure classes"}
                         </dt>
                         <dd
-                          className="text-heading font-semibold"
+                          className="text-gray-900 font-semibold"
                           style={{ fontSize: "1.05rem" }}
                         >
                           {subtypeData.pressureClasses}
@@ -258,7 +248,7 @@ export default async function SubtypeDetailPage({
                     {locale === "es" ? "Cumplimiento" : "Compliance"}
                   </p>
                   <h2
-                    className="font-heading text-heading mb-6"
+                    className="font-heading text-gray-900 mb-6"
                     style={{ fontSize: "1.5rem", fontWeight: 600 }}
                   >
                     {locale === "es"
@@ -269,8 +259,7 @@ export default async function SubtypeDetailPage({
                     {standards.map((std) => (
                       <span
                         key={std}
-                        className="text-heading text-sm font-medium px-4 py-2 rounded"
-                        style={{ background: "rgba(36, 39, 81, 0.06)" }}
+                        className="text-gray-900 text-sm font-medium px-4 py-2 rounded-xl bg-navy-deep/[0.06]"
                       >
                         {std}
                       </span>
@@ -284,8 +273,7 @@ export default async function SubtypeDetailPage({
             <div className="space-y-6">
               {/* Quote CTA */}
               <div
-                className="p-7 rounded-lg relative overflow-hidden"
-                style={{ background: "#1a1f3d" }}
+                className="p-7 rounded-2xl relative overflow-hidden bg-navy-section"
               >
                 <div className="relative">
                   <p className="text-gold-light font-medium text-sm tracking-widest uppercase mb-2">
@@ -304,7 +292,7 @@ export default async function SubtypeDetailPage({
                   </p>
                   <Link
                     href={`${prefix}/contacto`}
-                    className="block w-full text-center px-6 py-3.5 bg-gold text-white font-semibold rounded btn-lift hover:bg-gold-dark transition-colors"
+                    className="block w-full text-center px-6 py-3.5 bg-gold text-white font-semibold rounded-xl btn-lift hover:bg-gold-dark transition-colors"
                   >
                     {locale === "es" ? "Solicitar cotizacion" : "Request a quote"}
                   </Link>
@@ -328,14 +316,13 @@ export default async function SubtypeDetailPage({
               {/* Other types */}
               {siblings.length > 0 && (
                 <div
-                  className="p-7 rounded-lg"
-                  style={{ background: "#f8f9fb", border: "1px solid #edf0f3" }}
+                  className="p-7 rounded-2xl bg-surface-alt shadow-card"
                 >
                   <p className="text-gold font-medium text-sm tracking-widest uppercase mb-2">
                     {locale === "es" ? "Mas opciones" : "More options"}
                   </p>
                   <h3
-                    className="font-heading text-heading mb-4"
+                    className="font-heading text-gray-900 mb-4"
                     style={{ fontSize: "1.1rem", fontWeight: 600 }}
                   >
                     {locale === "es" ? "Otros tipos" : "Other types"}
@@ -345,9 +332,9 @@ export default async function SubtypeDetailPage({
                       <li key={sib.slug}>
                         <Link
                           href={`${prefix}/productos/${slug}/${sib.slug}`}
-                          className="group flex items-center justify-between py-2.5 px-3 rounded-lg hover:bg-white transition-colors duration-300"
+                          className="group flex items-center justify-between py-2.5 px-3 rounded-2xl hover:bg-white transition-colors duration-300"
                         >
-                          <span className="text-sm text-gray-700 group-hover:text-heading font-medium transition-colors duration-300">
+                          <span className="text-sm text-gray-700 group-hover:text-gray-900 font-medium transition-colors duration-300">
                             {sib[l].name}
                           </span>
                           <ArrowRight
@@ -364,14 +351,13 @@ export default async function SubtypeDetailPage({
               {/* Related services */}
               {relatedServices.length > 0 && (
                 <div
-                  className="p-7 rounded-lg"
-                  style={{ background: "#f8f9fb", border: "1px solid #edf0f3" }}
+                  className="p-7 rounded-2xl bg-surface-alt shadow-card"
                 >
                   <p className="text-gold font-medium text-sm tracking-widest uppercase mb-2">
                     {locale === "es" ? "Soporte" : "Support"}
                   </p>
                   <h3
-                    className="font-heading text-heading mb-4"
+                    className="font-heading text-gray-900 mb-4"
                     style={{ fontSize: "1.1rem", fontWeight: 600 }}
                   >
                     {locale === "es" ? "Servicios relacionados" : "Related services"}
@@ -381,9 +367,9 @@ export default async function SubtypeDetailPage({
                       <li key={s.slug}>
                         <Link
                           href={`${prefix}/servicios/${s.slug}`}
-                          className="group flex items-center justify-between py-2.5 px-3 rounded-lg hover:bg-white transition-colors duration-300"
+                          className="group flex items-center justify-between py-2.5 px-3 rounded-2xl hover:bg-white transition-colors duration-300"
                         >
-                          <span className="text-sm text-gray-700 group-hover:text-heading font-medium transition-colors duration-300">
+                          <span className="text-sm text-gray-700 group-hover:text-gray-900 font-medium transition-colors duration-300">
                             {s[l]}
                           </span>
                           <ArrowRight
@@ -432,7 +418,7 @@ export default async function SubtypeDetailPage({
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 href={`${prefix}/contacto`}
-                className="inline-flex items-center px-8 py-4 bg-gold text-white font-semibold rounded btn-lift hover:bg-gold-dark"
+                className="inline-flex items-center px-8 py-4 bg-gold text-white font-semibold rounded-xl btn-lift hover:bg-gold-dark"
                 style={{ fontSize: "1.05rem" }}
               >
                 {locale === "es" ? "Enviar mensaje" : "Send a message"}
@@ -440,7 +426,7 @@ export default async function SubtypeDetailPage({
               </Link>
               <a
                 href="tel:+525553973703"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/20 text-white font-medium rounded btn-lift hover:bg-white/20"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/20 text-white font-medium rounded-xl btn-lift hover:bg-white/20"
               >
                 <Phone size={16} />
                 +52 55 5397 3703
