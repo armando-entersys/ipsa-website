@@ -1,34 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
-import {
-  ArrowRight,
-  ChevronRight,
-  Zap,
-  CircleDot,
-  Layers,
-  SlidersHorizontal,
-  ShieldCheck,
-  Cpu,
-  Settings,
-  Gauge,
-  Activity,
-  Wrench,
-} from "lucide-react";
+import { ArrowRight, ChevronRight, Zap, Phone } from "lucide-react";
 import { stockImages } from "@/data/images";
-
-const allProducts = [
-  { slug: "valvulas-bola", es: "Valvulas de Bola", en: "Ball Valves", desc_es: "Floating, trunnion mounted, fully welded. Tamanos de 1/2\" a 64\".", desc_en: "Floating, trunnion mounted, fully welded. Sizes from 1/2\" to 64\".", Icon: CircleDot },
-  { slug: "valvulas-compuerta", es: "Valvulas de Compuerta", en: "Gate Valves", desc_es: "Wedge gate, slab gate, conduit. API 600, API 602, API 6D.", desc_en: "Wedge gate, slab gate, conduit. API 600, API 602, API 6D.", Icon: Layers },
-  { slug: "valvulas-control", es: "Valvulas de Control", en: "Control Valves", desc_es: "Globe, rotary, butterfly, anti-surge para control de proceso.", desc_en: "Globe, rotary, butterfly, anti-surge for process control.", Icon: SlidersHorizontal },
-  { slug: "valvulas-seguridad", es: "Valvulas de Seguridad", en: "Safety Relief Valves", desc_es: "Convencionales, balanceadas y pilot-operated. API 526.", desc_en: "Conventional, balanced and pilot-operated. API 526.", Icon: ShieldCheck },
-  { slug: "valvulas-solenoides", es: "Valvulas Solenoides", en: "Solenoid Valves", desc_es: "Control direccional neumatico, hidraulico. Montaje NAMUR.", desc_en: "Pneumatic, hydraulic directional control. NAMUR mount.", Icon: Cpu },
-  { slug: "actuadores", es: "Actuadores", en: "Actuators", desc_es: "Neumaticos, electricos, hidraulicos. Rack & pinion, scotch yoke.", desc_en: "Pneumatic, electric, hydraulic. Rack & pinion, scotch yoke.", Icon: Settings },
-  { slug: "actuadores-auto-contenidos", es: "Actuadores Auto-Contenidos", en: "Self-Contained Actuators", desc_es: "Operan sin fuente de energia externa. Thrust hasta 600,000 lbs.", desc_en: "Operate without external power. Thrust up to 600,000 lbs.", Icon: Cpu },
-  { slug: "paneles-de-control", es: "Paneles de Control", en: "Control Panels", desc_es: "Paneles neumaticos, electrohidraulicos, sistemas ESD custom.", desc_en: "Pneumatic, electrohydraulic panels, custom ESD systems.", Icon: Gauge },
-  { slug: "instrumentacion", es: "Instrumentacion", en: "Instrumentation", desc_es: "Transmisores, DCS, SIS, SCADA. Soluciones Yokogawa.", desc_en: "Transmitters, DCS, SIS, SCADA. Yokogawa solutions.", Icon: Activity },
-  { slug: "accesorios-refacciones", es: "Accesorios y Refacciones", en: "Accessories & Spare Parts", desc_es: "Filtros reguladores, posicionadores, switch boxes, refacciones.", desc_en: "Filter regulators, positioners, switch boxes, spare parts.", Icon: Wrench },
-];
+import { productCategories, categoryList, manufacturers } from "@/data/products";
 
 export default function ProductsHub() {
   const t = useTranslations("products");
@@ -38,7 +13,7 @@ export default function ProductsHub() {
 
   return (
     <>
-      {/* ═══ HERO - Products (image-forward with bottom gradient) ═══ */}
+      {/* ═══ HERO ═══ */}
       <section className="relative overflow-hidden" style={{ minHeight: "45vh" }}>
         <Image
           src={stockImages.productsHero}
@@ -48,9 +23,7 @@ export default function ProductsHub() {
           className="object-cover"
           sizes="100vw"
         />
-        {/* Base overlay */}
         <div className="absolute inset-0 bg-black/55" />
-        {/* Bottom gradient for text */}
         <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/70 via-navy-dark/25 to-transparent" />
 
         <div className="relative mx-auto max-w-[1600px] px-5 md:px-10 flex items-end" style={{ minHeight: "45vh" }}>
@@ -80,9 +53,9 @@ export default function ProductsHub() {
         </div>
       </section>
 
-      {/* ═══ PRODUCTS GRID (modern cards) ═══════════ */}
-      <section className="py-20 lg:py-24 bg-surface-alt">
-        <div className="mx-auto max-w-[1600px] px-5 md:px-10">
+      {/* ═══ PRODUCT CATEGORIES - ACV-style image cards ═══ */}
+      <section style={{ background: "linear-gradient(180deg, #ffffff 0%, #f9fafb 100%)" }}>
+        <div className="mx-auto max-w-[1600px] px-5 md:px-10 py-20 lg:py-24">
           <div className="text-center mb-14">
             <p className="text-gold font-medium text-sm tracking-widest uppercase mb-3">
               {locale === "es" ? "Catalogo completo" : "Full catalog"}
@@ -90,40 +63,87 @@ export default function ProductsHub() {
             <h2 className="font-heading text-gray-900" style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)", fontWeight: 500 }}>
               {locale === "es" ? "Nuestros productos" : "Our products"}
             </h2>
-            <p className="text-gray-500 mt-2 max-w-xl mx-auto leading-relaxed">
+            <p className="text-gray-500 mt-2 max-w-2xl mx-auto leading-relaxed">
               {locale === "es"
-                ? "Soluciones completas en control de fluidos para la industria de proceso."
-                : "Complete fluid control solutions for the process industry."}
+                ? "Soluciones completas en control de fluidos para la industria de proceso. Cada categoria incluye multiples configuraciones, fabricantes y servicios asociados."
+                : "Complete fluid control solutions for the process industry. Each category includes multiple configurations, manufacturers, and associated services."}
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {allProducts.map((product) => {
-              const PIcon = product.Icon;
+          {/* Main product grid - large image cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+            {categoryList.map((cat) => {
+              const data = cat[l];
+              const supplierNames = (cat.suppliers ?? [])
+                .map((id) => manufacturers[id])
+                .filter(Boolean)
+                .map((m) => m.name);
+              const subtypeCount = cat.subtypes?.length ?? 0;
+
               return (
                 <Link
-                  key={product.slug}
-                  href={`${prefix}/productos/${product.slug}`}
-                  className="group block bg-white rounded-xl shadow-card card-modern p-8 hover:bg-gray-50/80 transition-all duration-300 relative"
+                  key={cat.slug}
+                  href={`${prefix}/productos/${cat.slug}`}
+                  className="group block bg-white rounded-xl overflow-hidden card-modern transition-all duration-300"
                 >
-                  <div className="flex items-start gap-5">
-                    <div
-                      className="icon-bg-navy w-12 h-12 shrink-0 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:scale-105"
-                    >
-                      <PIcon size={22} className="text-gray-700 group-hover:text-gold transition-colors duration-300" strokeWidth={1.5} />
+                  {/* Product image */}
+                  <div className="relative overflow-hidden" style={{ aspectRatio: "16/10" }}>
+                    <Image
+                      src={cat.image}
+                      alt={data.name}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                    />
+                    {/* Subtle gradient overlay at bottom */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+                    {/* Subtype count badge */}
+                    {subtypeCount > 0 && (
+                      <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm text-gray-700 text-xs font-semibold px-3 py-1 rounded-lg">
+                        {subtypeCount} {locale === "es" ? "tipos" : "types"}
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Content */}
+                  <div className="p-6">
+                    <h3 className="font-heading text-gray-900 text-lg font-semibold mb-2 group-hover:text-gold transition-colors duration-300">
+                      {data.name}
+                    </h3>
+                    <p className="text-gray-500 text-sm leading-relaxed mb-4 line-clamp-2">
+                      {data.desc}
+                    </p>
+
+                    {/* Specs row */}
+                    <div className="flex flex-wrap gap-x-4 gap-y-1 mb-4">
+                      {cat.sizes && (
+                        <span className="text-xs text-gray-400">
+                          <span className="font-medium text-gray-600">{locale === "es" ? "Tamanos" : "Sizes"}:</span> {cat.sizes}
+                        </span>
+                      )}
+                      {cat.pressureClasses && (
+                        <span className="text-xs text-gray-400">
+                          <span className="font-medium text-gray-600">{locale === "es" ? "Clases" : "Classes"}:</span> {cat.pressureClasses}
+                        </span>
+                      )}
                     </div>
-                    <div className="flex-1 min-w-0">
-                      <h3 className="font-heading font-semibold text-gray-900 text-base mb-1">
-                        {product[l]}
-                      </h3>
-                      <p className="text-gray-500 text-sm leading-relaxed mb-3">
-                        {l === "es" ? product.desc_es : product.desc_en}
-                      </p>
-                      <span className="text-sm text-gold font-medium inline-flex items-center gap-1 group-hover:text-gold-dark transition-colors duration-300">
-                        {locale === "es" ? "Ver detalles" : "View details"}
-                        <ArrowRight size={13} className="group-hover:translate-x-0.5 transition-transform duration-300" />
-                      </span>
-                    </div>
+
+                    {/* Manufacturers */}
+                    {supplierNames.length > 0 && (
+                      <div className="flex flex-wrap gap-1.5 mb-4">
+                        {supplierNames.map((name) => (
+                          <span key={name} className="text-[11px] font-medium text-navy-alt bg-navy-deep/[0.06] px-2.5 py-1 rounded-md">
+                            {name}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+
+                    {/* CTA link */}
+                    <span className="inline-flex items-center gap-1.5 text-sm text-gold font-semibold group-hover:text-gold-dark transition-colors duration-300">
+                      {locale === "es" ? "Ver productos" : "View products"}
+                      <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform duration-300" />
+                    </span>
                   </div>
                 </Link>
               );
@@ -132,7 +152,7 @@ export default function ProductsHub() {
         </div>
       </section>
 
-      {/* ═══ AUTOMATION BANNER (with background image) ═ */}
+      {/* ═══ AUTOMATION BANNER ═══ */}
       <section className="relative py-16 lg:py-20 overflow-hidden">
         <Image
           src={stockImages.automation}
@@ -151,10 +171,10 @@ export default function ProductsHub() {
               <Zap size={28} className="text-gold-light" strokeWidth={1.5} />
             </div>
             <div>
-              <h2 className="font-heading text-white mb-1" style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)", fontWeight: 500 }}>
+              <h2 className="font-heading text-white mb-1 hero-text" style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)", fontWeight: 500 }}>
                 {locale === "es" ? "Automatizamos tus valvulas" : "We automate your valves"}
               </h2>
-              <p className="text-white/60 leading-relaxed" style={{ fontSize: "0.95rem" }}>
+              <p className="text-white/70 leading-relaxed" style={{ fontSize: "0.95rem" }}>
                 {locale === "es"
                   ? "Paquetes completos de valvula + actuador + accesorios, listos para instalar."
                   : "Complete valve + actuator + accessories packages, ready to install."}
@@ -163,7 +183,7 @@ export default function ProductsHub() {
           </div>
           <Link
             href={`${prefix}/servicios/automatizacion`}
-            className="inline-flex items-center px-8 py-4 bg-gold text-white font-semibold rounded-xl btn-lift hover:bg-gold-dark shrink-0"
+            className="inline-flex items-center px-7 py-3.5 bg-gold text-white font-semibold rounded-xl btn-lift hover:bg-gold-dark shrink-0"
           >
             {locale === "es" ? "Conoce el servicio" : "Learn about the service"}
             <ArrowRight size={16} className="ml-2" />
@@ -171,7 +191,7 @@ export default function ProductsHub() {
         </div>
       </section>
 
-      {/* ═══ CATCH-ALL CTA (with background image) ════ */}
+      {/* ═══ CTA ═══ */}
       <section className="relative py-24 lg:py-28 overflow-hidden">
         <Image
           src={stockImages.industrial}
@@ -183,20 +203,28 @@ export default function ProductsHub() {
         <div className="absolute inset-0 bg-navy-deep/80" />
         <div className="relative mx-auto max-w-[1600px] px-5 md:px-10">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="font-heading text-white mb-4" style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)", fontWeight: 500 }}>
+            <h2 className="font-heading text-white mb-4 hero-text" style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)", fontWeight: 500 }}>
               {locale === "es" ? "No encuentras lo que buscas?" : "Can't find what you're looking for?"}
             </h2>
-            <p className="text-white/60 mb-10 leading-relaxed" style={{ fontSize: "1.05rem" }}>
+            <p className="text-white/70 mb-10 leading-relaxed hero-subtitle" style={{ fontSize: "1.05rem" }}>
               {t("notFound")}
             </p>
-            <Link
-              href={`${prefix}/contacto`}
-              className="inline-flex items-center px-8 py-4 bg-gold text-white font-semibold rounded-xl btn-lift hover:bg-gold-dark"
-              style={{ fontSize: "1.05rem" }}
-            >
-              {t("notFoundCta")}
-              <ArrowRight size={18} className="ml-2" />
-            </Link>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Link
+                href={`${prefix}/contacto`}
+                className="inline-flex items-center px-7 py-3.5 bg-gold text-white font-semibold rounded-xl btn-lift hover:bg-gold-dark"
+              >
+                {t("notFoundCta")}
+                <ArrowRight size={18} className="ml-2" />
+              </Link>
+              <a
+                href="tel:+525553973703"
+                className="inline-flex items-center gap-2 px-7 py-3.5 bg-white/10 backdrop-blur-sm border border-white/20 text-white font-medium rounded-xl btn-lift hover:bg-white/20"
+              >
+                <Phone size={16} />
+                +52 55 5397 3703
+              </a>
+            </div>
           </div>
         </div>
       </section>
