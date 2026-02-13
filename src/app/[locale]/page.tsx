@@ -82,7 +82,7 @@ export default function HomePage() {
   return (
     <>
       {/* ═══ HERO with video background ═══════════════ */}
-      <section className="relative overflow-hidden" style={{ minHeight: "80vh" }}>
+      <section className="relative overflow-hidden bg-navy-dark" style={{ minHeight: "80vh" }}>
         {/* Background video */}
         <video
           autoPlay
@@ -90,7 +90,6 @@ export default function HomePage() {
           loop
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
-          poster="/images/products/df-factory-valves.jpg"
         >
           <source src="/videos/hero-refinery.mp4" type="video/mp4" />
         </video>
