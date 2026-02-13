@@ -11,8 +11,8 @@ const industries = [
     image: stockImages.oilGas,
     es: {
       name: "Industria Petrolera",
-      desc: "Soluciones para upstream, midstream y downstream. Valvulas y actuadores para plataformas offshore, refinerias y ductos.",
-      challenge: "La industria petrolera opera en ambientes de alta corrosion, presion extrema y presencia de H2S, donde una falla puede significar millones de dolares en perdidas.",
+      desc: "Soluciones para upstream, midstream y downstream. Válvulas y actuadores para plataformas offshore, refinerías y ductos.",
+      challenge: "La industria petrolera opera en ambientes de alta corrosión, presión extrema y presencia de H2S, donde una falla puede significar millones de dólares en pérdidas.",
     },
     en: {
       name: "Oil & Gas Industry",
@@ -26,7 +26,7 @@ const industries = [
     image: stockImages.oils,
     es: {
       name: "Industria de Aceites",
-      desc: "Equipos especializados para procesamiento y refinacion de aceites. Control de temperatura y fluidos viscosos.",
+      desc: "Equipos especializados para procesamiento y refinación de aceites. Control de temperatura y fluidos viscosos.",
       challenge: "El procesamiento de aceites requiere equipos resistentes a altas temperaturas y fluidos viscosos con control preciso de proceso.",
     },
     en: {
@@ -41,8 +41,8 @@ const industries = [
     image: stockImages.gas,
     es: {
       name: "Industria del Gas",
-      desc: "Valvulas y sistemas para procesamiento, transporte y distribucion de gas natural y GNL.",
-      challenge: "La industria del gas exige estanqueidad absoluta, control de emisiones fugitivas y capacidad criogenica para GNL.",
+      desc: "Válvulas y sistemas para procesamiento, transporte y distribución de gas natural y GNL.",
+      challenge: "La industria del gas exige estanqueidad absoluta, control de emisiones fugitivas y capacidad criogénica para GNL.",
     },
     en: {
       name: "Gas Industry",
@@ -165,13 +165,13 @@ export default function IndustriesHub() {
             </h2>
             <p className="text-white/50 max-w-2xl mx-auto leading-relaxed">
               {locale === "es"
-                ? "Mas de tres decadas suministrando soluciones criticas para la industria de proceso."
+                ? "Más de tres décadas suministrando soluciones críticas para la industria de proceso."
                 : "Over three decades supplying critical solutions for the process industry."}
             </p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
             {[
-              { value: "+38", label: locale === "es" ? "Anos de experiencia" : "Years of experience" },
+              { value: "+38", label: locale === "es" ? "Años de experiencia" : "Years of experience" },
               { value: "6", label: locale === "es" ? "Sedes" : "Offices" },
               { value: "4+", label: locale === "es" ? "Marcas representadas" : "Represented brands" },
               { value: "$5M+", label: locale === "es" ? "USD en inventario" : "USD in inventory" },
@@ -206,7 +206,7 @@ export default function IndustriesHub() {
             </h2>
             <p className="text-white/60 mb-10 leading-relaxed" style={{ fontSize: "1.05rem" }}>
               {locale === "es"
-                ? "Nuestro equipo de ingenieros esta listo para ayudarte a encontrar la solucion correcta para tu industria."
+                ? "Nuestro equipo de ingenieros está listo para ayudarte a encontrar la solución correcta para tu industria."
                 : "Our engineering team is ready to help you find the right solution for your industry."}
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

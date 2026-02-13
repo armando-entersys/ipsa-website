@@ -64,7 +64,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div>
               <span className="text-gold font-medium text-sm tracking-widest uppercase mb-3 block">
-                {locale === "es" ? "Quienes somos" : "Who we are"}
+                {locale === "es" ? "Quiénes somos" : "Who we are"}
               </span>
               <h2 className="font-heading font-bold text-gray-900 text-3xl md:text-4xl mb-6">
                 {t("whoWeAre")}
@@ -142,10 +142,10 @@ export default function AboutPage() {
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {[
-              { city: "CDMX", label: "HQ", full: "Ciudad de Mexico" },
+              { city: "CDMX", label: "HQ", full: "Ciudad de México" },
               { city: "Cd. del Carmen", label: "CAD", full: "Campeche" },
               {
-                city: "Paraiso",
+                city: "Paraíso",
                 label: locale === "es" ? "Taller" : "Workshop",
                 full: "Tabasco",
               },
@@ -203,7 +203,7 @@ export default function AboutPage() {
                 icon: Lightbulb,
                 es: "Experiencia",
                 en: "Expertise",
-                desc_es: "+38 anos de conocimiento tecnico acumulado.",
+                desc_es: "+38 años de conocimiento técnico acumulado.",
                 desc_en: "38+ years of accumulated technical knowledge.",
               },
               {
@@ -217,7 +217,7 @@ export default function AboutPage() {
                 icon: Target,
                 es: "Integridad",
                 en: "Integrity",
-                desc_es: "Transparencia y etica en cada relacion.",
+                desc_es: "Transparencia y ética en cada relación.",
                 desc_en: "Transparency and ethics in every relationship.",
               },
             ].map(({ icon: Icon, ...val }) => (
@@ -246,7 +246,7 @@ export default function AboutPage() {
               className="group bg-white rounded-xl p-8 card-hover shadow-card"
             >
               <h3 className="font-heading font-bold text-gray-900 text-xl mb-2">
-                {locale === "es" ? "Alianzas estrategicas" : "Strategic alliances"}
+                {locale === "es" ? "Alianzas estratégicas" : "Strategic alliances"}
               </h3>
               <p className="text-gray-600 text-sm mb-4">
                 {locale === "es"
@@ -254,7 +254,7 @@ export default function AboutPage() {
                   : "Learn about our relationships with world-class manufacturers."}
               </p>
               <span className="text-gold font-medium text-sm flex items-center gap-1">
-                {locale === "es" ? "Ver mas" : "Learn more"}
+                {locale === "es" ? "Ver más" : "Learn more"}
                 <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
               </span>
             </Link>
@@ -267,11 +267,11 @@ export default function AboutPage() {
               </h3>
               <p className="text-gray-600 text-sm mb-4">
                 {locale === "es"
-                  ? "Mas de tres decadas de trayectoria e innovacion."
+                  ? "Más de tres décadas de trayectoria e innovación."
                   : "Over three decades of trajectory and innovation."}
               </p>
               <span className="text-gold font-medium text-sm flex items-center gap-1">
-                {locale === "es" ? "Ver mas" : "Learn more"}
+                {locale === "es" ? "Ver más" : "Learn more"}
                 <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
               </span>
             </Link>
@@ -294,7 +294,7 @@ export default function AboutPage() {
           </h2>
           <p className="text-white/70 text-lg max-w-2xl mx-auto mb-8">
             {locale === "es"
-              ? "Contactenos para encontrar la solucion que su proyecto necesita."
+              ? "Contáctenos para encontrar la solución que su proyecto necesita."
               : "Contact us to find the solution your project needs."}
           </p>
           <Link

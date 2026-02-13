@@ -11,10 +11,10 @@ const industryData: Record<string, {
   petroleras: {
     es: {
       name: "Industria Petrolera",
-      desc: "Soluciones para operaciones upstream (exploracion y produccion), midstream (transporte y almacenamiento) y downstream (refinacion y petroquimica).",
-      challenge: "Las plataformas offshore y plantas de proceso petrolero operan en ambientes de alta corrosion, presion extrema, temperaturas variables y presencia de H2S. Una falla de valvula puede significar un paro de produccion de millones de dolares por dia, ademas de riesgos para el personal y el medio ambiente.",
-      solution: "IPSA suministra valvulas trunnion mounted de Della Foglia y Perar con cuerpo fully welded, en materiales duplex y super duplex, probadas hidrostaticamente y con certificacion completa. Nuestros actuadores auto-contenidos Certus operan sin fuente de energia externa, ideales para locaciones remotas. El CAD en Cd. del Carmen ofrece reparacion y stock 24/7 para la zona offshore del Golfo de Mexico.",
-      products: ["Valvulas de bola trunnion mounted", "Valvulas de compuerta API 6D", "Actuadores auto-contenidos", "Paneles de control ESD", "Valvulas solenoides para ESD", "Instrumentacion de proceso"],
+      desc: "Soluciones para operaciones upstream (exploración y producción), midstream (transporte y almacenamiento) y downstream (refinación y petroquímica).",
+      challenge: "Las plataformas offshore y plantas de proceso petrolero operan en ambientes de alta corrosión, presión extrema, temperaturas variables y presencia de H2S. Una falla de válvula puede significar un paro de producción de millones de dólares por día, además de riesgos para el personal y el medio ambiente.",
+      solution: "IPSA suministra válvulas trunnion mounted de Della Foglia y Perar con cuerpo fully welded, en materiales duplex y super duplex, probadas hidrostáticamente y con certificación completa. Nuestros actuadores auto-contenidos Certus operan sin fuente de energía externa, ideales para locaciones remotas. El CAD en Cd. del Carmen ofrece reparación y stock 24/7 para la zona offshore del Golfo de México.",
+      products: ["Válvulas de bola trunnion mounted", "Válvulas de compuerta API 6D", "Actuadores auto-contenidos", "Paneles de control ESD", "Válvulas solenoides para ESD", "Instrumentación de proceso"],
       standards: ["API 6D", "API 6A", "API 14C", "NACE MR0175", "ISO 15156", "ISO 15848"],
     },
     en: {
@@ -29,10 +29,10 @@ const industryData: Record<string, {
   aceites: {
     es: {
       name: "Industria de Aceites",
-      desc: "Equipos especializados para procesamiento, refinacion y manejo de aceites industriales.",
-      challenge: "El procesamiento de aceites requiere equipos resistentes a altas temperaturas, fluidos viscosos y condiciones de operacion continua. El control preciso del proceso es critico para la calidad del producto final.",
-      solution: "IPSA ofrece valvulas de control de alta precision, sistemas de automatizacion con instrumentacion Yokogawa, y soporte tecnico especializado para mantener la continuidad operativa de las plantas de proceso.",
-      products: ["Valvulas de control", "Valvulas de bola", "Actuadores electricos y neumaticos", "Instrumentacion de proceso", "Paneles de control"],
+      desc: "Equipos especializados para procesamiento, refinación y manejo de aceites industriales.",
+      challenge: "El procesamiento de aceites requiere equipos resistentes a altas temperaturas, fluidos viscosos y condiciones de operación continua. El control preciso del proceso es crítico para la calidad del producto final.",
+      solution: "IPSA ofrece válvulas de control de alta precisión, sistemas de automatización con instrumentación Yokogawa, y soporte técnico especializado para mantener la continuidad operativa de las plantas de proceso.",
+      products: ["Válvulas de control", "Válvulas de bola", "Actuadores eléctricos y neumáticos", "Instrumentación de proceso", "Paneles de control"],
       standards: ["ISA", "IEC 61511", "API 553", "ASME B16.34"],
     },
     en: {
@@ -47,10 +47,10 @@ const industryData: Record<string, {
   gas: {
     es: {
       name: "Industria del Gas",
-      desc: "Valvulas y sistemas para procesamiento, transporte y distribucion de gas natural y GNL.",
-      challenge: "La industria del gas exige estanqueidad absoluta para cumplir con regulaciones de emisiones fugitivas, capacidad criogenica para GNL (hasta -196 grados C), y configuraciones Double Block & Bleed para aislamiento seguro en gasoductos.",
-      solution: "IPSA suministra valvulas de bola con certificacion ISO 15848 para fugitive emissions, valvulas criogenicas de Della Foglia probadas a -196 grados C, y configuraciones DBB para aislamiento seguro. Nuestros paneles de control custom aseguran la operacion confiable de estaciones de regulacion y medicion.",
-      products: ["Valvulas de bola criogenicas", "Valvulas DBB (Double Block & Bleed)", "Valvulas de seguridad", "Actuadores neumaticos y electricos", "Paneles de regulacion de gas", "Skids de medicion de flujo"],
+      desc: "Válvulas y sistemas para procesamiento, transporte y distribución de gas natural y GNL.",
+      challenge: "La industria del gas exige estanqueidad absoluta para cumplir con regulaciones de emisiones fugitivas, capacidad criogénica para GNL (hasta -196 grados C), y configuraciones Double Block & Bleed para aislamiento seguro en gasoductos.",
+      solution: "IPSA suministra válvulas de bola con certificación ISO 15848 para fugitive emissions, válvulas criogénicas de Della Foglia probadas a -196 grados C, y configuraciones DBB para aislamiento seguro. Nuestros paneles de control custom aseguran la operación confiable de estaciones de regulación y medición.",
+      products: ["Válvulas de bola criogénicas", "Válvulas DBB (Double Block & Bleed)", "Válvulas de seguridad", "Actuadores neumáticos y eléctricos", "Paneles de regulación de gas", "Skids de medición de flujo"],
       standards: ["API 6D", "ISO 15848", "NACE MR0175", "BS 6364", "EN 1473"],
     },
     en: {
@@ -119,7 +119,7 @@ export default async function IndustryPage({ params }: { params: Promise<{ local
         <div className="mx-auto max-w-[1600px] px-5 md:px-10">
           <div className="text-center mb-14">
             <p className="text-gold font-medium text-sm tracking-widest uppercase mb-3">
-              {locale === "es" ? "Entendemos tu operacion" : "We understand your operation"}
+              {locale === "es" ? "Entendemos tu operación" : "We understand your operation"}
             </p>
             <h2 className="font-heading text-gray-900" style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)", fontWeight: 500 }}>
               {locale === "es" ? "El reto y nuestra respuesta" : "The challenge and our response"}
@@ -153,7 +153,7 @@ export default async function IndustryPage({ params }: { params: Promise<{ local
                   <CheckCircle size={20} className="text-gold-light" strokeWidth={1.5} />
                 </div>
                 <h3 className="font-heading font-semibold text-white text-xl">
-                  {locale === "es" ? "Nuestra solucion" : "Our solution"}
+                  {locale === "es" ? "Nuestra solución" : "Our solution"}
                 </h3>
               </div>
               <p className="text-white/80 leading-relaxed">{data.solution}</p>
@@ -211,7 +211,7 @@ export default async function IndustryPage({ params }: { params: Promise<{ local
               </div>
               <p className="text-gray-500 text-sm mt-6 leading-relaxed">
                 {locale === "es"
-                  ? "Todos nuestros productos cumplen con las normas internacionales mas exigentes de la industria."
+                  ? "Todos nuestros productos cumplen con las normas internacionales más exigentes de la industria."
                   : "All our products comply with the most demanding international industry standards."}
               </p>
             </div>
@@ -241,7 +241,7 @@ export default async function IndustryPage({ params }: { params: Promise<{ local
             </h2>
             <p className="text-white/60 mb-10 leading-relaxed" style={{ fontSize: "1.05rem" }}>
               {locale === "es"
-                ? "Nuestro equipo de ingenieros especializados esta listo para ayudarte a encontrar la solucion correcta."
+                ? "Nuestro equipo de ingenieros especializados está listo para ayudarte a encontrar la solución correcta."
                 : "Our team of specialized engineers is ready to help you find the right solution."}
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

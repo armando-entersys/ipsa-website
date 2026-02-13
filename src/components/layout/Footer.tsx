@@ -33,7 +33,7 @@ export default function Footer() {
               className="font-heading font-normal leading-tight mb-20 max-w-[80%] text-3xl text-white/95"
             >
               {locale === "es"
-                ? "Tus expertos en valvulas y automatizacion industrial"
+                ? "Tus expertos en válvulas y automatización industrial"
                 : "Your valve and industrial automation experts"}
             </p>
             <div className="flex items-center gap-3">
@@ -43,7 +43,7 @@ export default function Footer() {
               <div>
                 <div className="font-heading font-bold text-lg">IPSA</div>
                 <div className="text-[10px] text-white/50 tracking-[0.15em]">
-                  INGENIERIA DE PARTES
+                  INGENIERÍA DE PARTES
                 </div>
               </div>
             </div>
@@ -54,7 +54,7 @@ export default function Footer() {
             <h3
               className="text-white font-semibold mb-4 text-lg font-heading"
             >
-              IPSA (Mexico)
+              IPSA (México)
             </h3>
             <p className="text-white/85 text-sm leading-relaxed">
               Convento de Actopan No. 33,
@@ -124,7 +124,7 @@ export default function Footer() {
           className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-white/15"
         >
           <p className="text-white/70 text-sm">
-            &copy; {new Date().getFullYear()} Ingenieria de Partes S.A. de C.V.{" "}
+            &copy; {new Date().getFullYear()} Ingeniería de Partes S.A. de C.V.{" "}
             {t("rights")}
           </p>
           <div className="flex items-center gap-6 flex-wrap">

@@ -17,9 +17,9 @@ const supplierData: Record<string, {
     country: "International",
     image: "/images/products/dhv-trunnion-2pc.jpg",
     es: {
-      desc: "Fabricante de valvulas industriales con fundicion propia",
-      longDesc: "DHV Valve Group opera una fundicion propia de 26,500 m2 con capacidad de 8,000 toneladas/ano. Con mas de 20 anos de experiencia fabricando valvulas de acero y aleaciones especiales, DHV cuenta con horno A.O.D. propio para castings duplex y ultra-bajo carbono. Su control de calidad incluye pruebas NDE completas (rayos X, particulas magneticas, liquidos penetrantes, ultrasonido, inspeccion visual), pruebas hidrostaticas y de gas a alta presion, y analisis quimico ASTM.",
-      products: ["Valvulas de bola trunnion (2 y 3 piezas)", "Valvulas de compuerta (slab gate, conduit)", "Valvulas de bola flotantes", "Valvulas forjadas (API 602)", "Valvulas de compuerta API 600", "Valvulas Double Block & Bleed"],
+      desc: "Fabricante de válvulas industriales con fundición propia",
+      longDesc: "DHV Valve Group opera una fundición propia de 26,500 m2 con capacidad de 8,000 toneladas/año. Con más de 20 años de experiencia fabricando válvulas de acero y aleaciones especiales, DHV cuenta con horno A.O.D. propio para castings duplex y ultra-bajo carbono. Su control de calidad incluye pruebas NDE completas (rayos X, partículas magnéticas, líquidos penetrantes, ultrasonido, inspección visual), pruebas hidrostáticas y de gas a alta presión, y análisis químico ASTM.",
+      products: ["Válvulas de bola trunnion (2 y 3 piezas)", "Válvulas de compuerta (slab gate, conduit)", "Válvulas de bola flotantes", "Válvulas forjadas (API 602)", "Válvulas de compuerta API 600", "Válvulas Double Block & Bleed"],
     },
     en: {
       desc: "Industrial valve manufacturer with own foundry",
@@ -34,9 +34,9 @@ const supplierData: Record<string, {
     country: "Italia",
     image: "/images/products/df-trunnion-automated.jpg",
     es: {
-      desc: "Fabricante italiano de valvulas de bola desde 1962",
-      longDesc: "Della Foglia, establecida en 1962 en Gorla Minore (VA), Italia, es un Technical Solution Provider con 20,000 m2 de area de produccion y una expansion de 18,000 m2 en curso. Produce aproximadamente 10,000 valvulas customizadas por ano con ingresos promedio de 45 millones de euros. Su facturacion se divide en Oil & Gas (59%), LNG (24%), Green Energy (12%) y Water (5%). Es uno de los primeros fabricantes con calificacion API 6DSS para valvulas subsea. Aprobada por Shell, BP, Petrobras, PEMEX, ExxonMobil, Chevron, ENI, Equinor, Saudi Aramco, entre otros.",
-      products: ["Valvulas de bola floating (1/2\" a 6\")", "Valvulas de bola trunnion fully welded (1/2\" a 64\")", "Valvulas de bola trunnion top entry (1/2\" a 48\")", "Valvulas de bola trunnion bolted (1/2\" a 64\")", "Valvulas subsea (API 6DSS)", "Valvulas criogenicas (hasta -196 grados C)", "Valvulas de alta presion (hasta 15,000 psi)", "Valvulas underground", "Valvulas ESD"],
+      desc: "Fabricante italiano de válvulas de bola desde 1962",
+      longDesc: "Della Foglia, establecida en 1962 en Gorla Minore (VA), Italia, es un Technical Solution Provider con 20,000 m2 de área de producción y una expansión de 18,000 m2 en curso. Produce aproximadamente 10,000 válvulas customizadas por año con ingresos promedio de 45 millones de euros. Su facturación se divide en Oil & Gas (59%), LNG (24%), Green Energy (12%) y Water (5%). Es uno de los primeros fabricantes con calificación API 6DSS para válvulas subsea. Aprobada por Shell, BP, Petrobras, PEMEX, ExxonMobil, Chevron, ENI, Equinor, Saudi Aramco, entre otros.",
+      products: ["Válvulas de bola floating (1/2\" a 6\")", "Válvulas de bola trunnion fully welded (1/2\" a 64\")", "Válvulas de bola trunnion top entry (1/2\" a 48\")", "Válvulas de bola trunnion bolted (1/2\" a 64\")", "Válvulas subsea (API 6DSS)", "Válvulas criogénicas (hasta -196 grados C)", "Válvulas de alta presión (hasta 15,000 psi)", "Válvulas underground", "Válvulas ESD"],
     },
     en: {
       desc: "Italian ball valve manufacturer since 1962",
@@ -51,9 +51,9 @@ const supplierData: Record<string, {
     country: "Italia",
     image: "/images/products/df-trunnion-wb-coated.jpg",
     es: {
-      desc: "Fabricante italiano de valvulas de bola trunnion mounted",
-      longDesc: "Perar es un fabricante italiano especializado en valvulas de bola trunnion mounted con cuerpo soldado (fully welded body). IPSA mantiene un inventario de valvulas Perar valorado en aproximadamente $5M USD, disponible 24/7 para necesidades urgentes de la industria petrolera y de gas.",
-      products: ["Valvulas de bola trunnion mounted", "Cuerpo soldado (fully welded)", "Full bore", "Tamanos de 2\" a 48\"", "Clases ANSI 150 a 2500"],
+      desc: "Fabricante italiano de válvulas de bola trunnion mounted",
+      longDesc: "Perar es un fabricante italiano especializado en válvulas de bola trunnion mounted con cuerpo soldado (fully welded body). IPSA mantiene un inventario de válvulas Perar valorado en aproximadamente $5M USD, disponible 24/7 para necesidades urgentes de la industria petrolera y de gas.",
+      products: ["Válvulas de bola trunnion mounted", "Cuerpo soldado (fully welded)", "Full bore", "Tamaños de 2\" a 48\"", "Clases ANSI 150 a 2500"],
     },
     en: {
       desc: "Italian trunnion mounted ball valve manufacturer",
@@ -68,9 +68,9 @@ const supplierData: Record<string, {
     country: "USA",
     image: "/images/products/versa-e4-solenoid.png",
     es: {
-      desc: "Fabricante estadounidense de valvulas solenoides y de control direccional",
-      longDesc: "Versa Valves es un fabricante estadounidense de valvulas solenoides, valvulas de control direccional neumatico e hidraulico. Sus productos son utilizados en sistemas de automatizacion y control de procesos industriales, con opciones de montaje NAMUR y certificaciones ATEX para ambientes peligrosos.",
-      products: ["Valvulas solenoides serie E4", "Valvulas acero inoxidable serie V-316", "Valvulas acero inoxidable serie D-316", "Valvulas bypass serie C-316", "Sistemas VMAP (Modular Air Package)", "Sistemas DMAP (Direct Mount Air Package)", "Valvulas montaje NAMUR"],
+      desc: "Fabricante estadounidense de válvulas solenoides y de control direccional",
+      longDesc: "Versa Valves es un fabricante estadounidense de válvulas solenoides, válvulas de control direccional neumático e hidráulico. Sus productos son utilizados en sistemas de automatización y control de procesos industriales, con opciones de montaje NAMUR y certificaciones ATEX para ambientes peligrosos.",
+      products: ["Válvulas solenoides serie E4", "Válvulas acero inoxidable serie V-316", "Válvulas acero inoxidable serie D-316", "Válvulas bypass serie C-316", "Sistemas VMAP (Modular Air Package)", "Sistemas DMAP (Direct Mount Air Package)", "Válvulas montaje NAMUR"],
     },
     en: {
       desc: "American solenoid and directional control valve manufacturer",
@@ -174,7 +174,7 @@ export default async function SupplierPage({ params }: { params: Promise<{ local
               {/* Products */}
               <div className="p-8 md:p-10 rounded-xl bg-surface-alt shadow-card">
                 <p className="text-gold font-medium text-sm tracking-widest uppercase mb-3">
-                  {locale === "es" ? "Catalogo" : "Catalog"}
+                  {locale === "es" ? "Catálogo" : "Catalog"}
                 </p>
                 <h2 className="font-heading text-gray-900 mb-6" style={{ fontSize: "clamp(1.5rem, 3.5vw, 1.75rem)", fontWeight: 500 }}>
                   {locale === "es" ? `Productos ${supplier.name}` : `${supplier.name} Products`}
@@ -223,14 +223,14 @@ export default async function SupplierPage({ params }: { params: Promise<{ local
                 </h3>
                 <p className="text-white/50 text-sm mb-5 leading-relaxed">
                   {locale === "es"
-                    ? "Nuestro equipo te asesora para encontrar la solucion ideal."
+                    ? "Nuestro equipo te asesora para encontrar la solución ideal."
                     : "Our team will help you find the ideal solution."}
                 </p>
                 <Link
                   href={`${prefix}/contacto`}
                   className="block w-full text-center px-6 py-3.5 bg-gold text-white font-medium rounded-xl btn-lift hover:bg-gold-dark mb-4"
                 >
-                  {locale === "es" ? "Solicitar cotizacion" : "Request a quote"}
+                  {locale === "es" ? "Solicitar cotización" : "Request a quote"}
                 </Link>
                 <a
                   href="tel:+525553973703"
@@ -307,7 +307,7 @@ export default async function SupplierPage({ params }: { params: Promise<{ local
             </h2>
             <p className="text-white/60 mb-10 leading-relaxed" style={{ fontSize: "1.05rem" }}>
               {locale === "es"
-                ? "Nuestro equipo de ingenieros esta listo para ayudarte a encontrar la solucion correcta."
+                ? "Nuestro equipo de ingenieros está listo para ayudarte a encontrar la solución correcta."
                 : "Our engineering team is ready to help you find the right solution."}
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

@@ -97,7 +97,7 @@ export default function AlliancesPage() {
                       {alliance.country}
                     </span>
                     <span className="text-xs bg-gold/10 text-gold px-2 py-0.5 rounded">
-                      {alliance.years} {locale === "es" ? "anos" : "years"}
+                      {alliance.years} {locale === "es" ? "años" : "years"}
                     </span>
                   </div>
                 </div>

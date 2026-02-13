@@ -10,9 +10,9 @@ const suppliers = [
     name: "DHV Valve Group",
     logo: "/images/logos/dhv.svg",
     image: "/images/products/dhv-trunnion-2pc.jpg",
-    es: { desc: "Fabricante de valvulas industriales con fundicion propia de 26,500 m2. Mas de 20 anos fabricando valvulas de acero y aleaciones especiales. Certificaciones API Q1, API 6D, API 6A, ISO 9001/14001/45001, NORSOK M-650, SIL Level III." },
+    es: { desc: "Fabricante de válvulas industriales con fundición propia de 26,500 m2. Más de 20 años fabricando válvulas de acero y aleaciones especiales. Certificaciones API Q1, API 6D, API 6A, ISO 9001/14001/45001, NORSOK M-650, SIL Level III." },
     en: { desc: "Industrial valve manufacturer with own foundry of 26,500 m2. Over 20 years manufacturing steel and special alloy valves. Certifications API Q1, API 6D, API 6A, ISO 9001/14001/45001, NORSOK M-650, SIL Level III." },
-    products_es: "Valvulas de bola trunnion, valvulas de compuerta, valvulas de bola flotantes, valvulas forjadas",
+    products_es: "Válvulas de bola trunnion, válvulas de compuerta, válvulas de bola flotantes, válvulas forjadas",
     products_en: "Trunnion ball valves, gate valves, floating ball valves, forged valves",
     country: "International",
   },
@@ -21,9 +21,9 @@ const suppliers = [
     name: "Della Foglia",
     logo: "/images/logos/della-foglia.svg",
     image: "/images/products/df-trunnion-automated.jpg",
-    es: { desc: "Fabricante italiano establecido en 1962. Proveedor de soluciones tecnicas con 20,000 m2 de area de produccion. Capacidad de 10,000 valvulas customizadas por ano. Aprobado por Shell, BP, Petrobras y PEMEX. Certificaciones API 6D, API 6A, API 6DSS." },
+    es: { desc: "Fabricante italiano establecido en 1962. Proveedor de soluciones técnicas con 20,000 m2 de área de producción. Capacidad de 10,000 válvulas customizadas por año. Aprobado por Shell, BP, Petrobras y PEMEX. Certificaciones API 6D, API 6A, API 6DSS." },
     en: { desc: "Italian manufacturer established in 1962. Technical solution provider with 20,000 m2 production area. Capacity of 10,000 customized valves per year. Approved by Shell, BP, Petrobras and PEMEX. Certifications API 6D, API 6A, API 6DSS." },
-    products_es: "Valvulas de bola de 1/2\" a 64\", floating, trunnion, top entry, subsea, criogenicas, alta presion hasta 15,000 psi",
+    products_es: "Válvulas de bola de 1/2\" a 64\", floating, trunnion, top entry, subsea, criogénicas, alta presión hasta 15,000 psi",
     products_en: "Ball valves from 1/2\" to 64\", floating, trunnion, top entry, subsea, cryogenic, high pressure up to 15,000 psi",
     country: "Italia",
   },
@@ -32,9 +32,9 @@ const suppliers = [
     name: "Perar",
     logo: "/images/logos/perar.svg",
     image: "/images/products/df-trunnion-wb-coated.jpg",
-    es: { desc: "Fabricante italiano de valvulas de bola trunnion mounted con cuerpo soldado. Tamanos de 2\" a 48\", clases ANSI 150 a 2500. Cumple API 6D, NACE MR0175." },
+    es: { desc: "Fabricante italiano de válvulas de bola trunnion mounted con cuerpo soldado. Tamaños de 2\" a 48\", clases ANSI 150 a 2500. Cumple API 6D, NACE MR0175." },
     en: { desc: "Italian manufacturer of trunnion mounted ball valves with welded body. Sizes from 2\" to 48\", ANSI 150 to 2500 classes. Meets API 6D, NACE MR0175." },
-    products_es: "Valvulas de bola trunnion mounted, cuerpo soldado, full bore",
+    products_es: "Válvulas de bola trunnion mounted, cuerpo soldado, full bore",
     products_en: "Trunnion mounted ball valves, welded body, full bore",
     country: "Italia",
   },
@@ -43,9 +43,9 @@ const suppliers = [
     name: "Versa Valves",
     logo: "/images/logos/versa.svg",
     image: "/images/products/versa-e4-solenoid.png",
-    es: { desc: "Fabricante estadounidense de valvulas solenoides y de control direccional. Soluciones para automatizacion y control de procesos con montaje NAMUR y certificaciones ATEX." },
+    es: { desc: "Fabricante estadounidense de válvulas solenoides y de control direccional. Soluciones para automatización y control de procesos con montaje NAMUR y certificaciones ATEX." },
     en: { desc: "American manufacturer of solenoid and directional control valves. Solutions for automation and process control with NAMUR mount and ATEX certifications." },
-    products_es: "Valvulas solenoides, control direccional neumatico, control direccional hidraulico, montaje NAMUR",
+    products_es: "Válvulas solenoides, control direccional neumático, control direccional hidráulico, montaje NAMUR",
     products_en: "Solenoid valves, pneumatic directional control, hydraulic directional control, NAMUR mount",
     country: "USA",
   },
@@ -159,7 +159,7 @@ export default function SuppliersHub() {
                       {l === "es" ? supplier.products_es : supplier.products_en}
                     </p>
                     <span className="inline-flex items-center gap-1.5 text-gold font-medium text-sm group-hover:text-gold-dark transition-colors duration-150">
-                      {locale === "es" ? "Ver mas" : "Learn more"}
+                      {locale === "es" ? "Ver más" : "Learn more"}
                       <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform duration-150" />
                     </span>
                   </div>
@@ -179,12 +179,12 @@ export default function SuppliersHub() {
             </p>
             <h2 className="font-heading text-gray-900 mb-4" style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)", fontWeight: 500 }}>
               {locale === "es"
-                ? "Tambien representamos"
+                ? "También representamos"
                 : "We also represent"}
             </h2>
             <p className="text-gray-500 leading-relaxed mb-10">
               {locale === "es"
-                ? "Ademas de nuestros socios principales, representamos marcas como Consolidated, Masoneilan, Yokogawa, Emerson/Bettis y mas."
+                ? "Además de nuestros socios principales, representamos marcas como Consolidated, Masoneilan, Yokogawa, Emerson/Bettis y más."
                 : "In addition to our main partners, we represent brands like Consolidated, Masoneilan, Yokogawa, Emerson/Bettis and more."}
             </p>
             <div className="flex flex-wrap items-center justify-center gap-6 mb-12">
@@ -233,12 +233,12 @@ export default function SuppliersHub() {
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="font-heading text-white mb-4" style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)", fontWeight: 500 }}>
               {locale === "es"
-                ? "Necesitas una solucion especifica?"
+                ? "¿Necesitas una solución específica?"
                 : "Need a specific solution?"}
             </h2>
             <p className="text-white/60 mb-10 leading-relaxed" style={{ fontSize: "1.05rem" }}>
               {locale === "es"
-                ? "Nuestro equipo de ingenieros te asesora para encontrar la valvula o equipo ideal para tu operacion."
+                ? "Nuestro equipo de ingenieros te asesora para encontrar la válvula o equipo ideal para tu operación."
                 : "Our engineering team will advise you to find the ideal valve or equipment for your operation."}
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -247,7 +247,7 @@ export default function SuppliersHub() {
                 className="inline-flex items-center px-8 py-4 bg-gold text-white font-semibold rounded-xl btn-lift hover:bg-gold-dark"
                 style={{ fontSize: "1.05rem" }}
               >
-                {locale === "es" ? "Solicitar cotizacion" : "Request a quote"}
+                {locale === "es" ? "Solicitar cotización" : "Request a quote"}
                 <ArrowRight size={18} className="ml-2" />
               </Link>
               <a

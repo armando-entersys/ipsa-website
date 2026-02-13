@@ -53,7 +53,7 @@ export default function CatalogPage() {
               <BookOpen size={40} className="text-gold" />
             </div>
             <span className="text-gold font-medium text-sm tracking-widest uppercase mb-3 block">
-              {locale === "es" ? "Proximamente" : "Coming soon"}
+              {locale === "es" ? "Próximamente" : "Coming soon"}
             </span>
             <h2 className="font-heading font-bold text-gray-900 text-3xl mb-4">
               {t("comingSoon")}

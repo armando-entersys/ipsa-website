@@ -110,8 +110,8 @@ export const productCategories: Record<string, ProductCategory> = {
   "valvulas-bola": {
     slug: "valvulas-bola",
     es: {
-      name: "Valvulas de Bola",
-      desc: "Valvulas de bola de alta calidad para aplicaciones criticas en la industria del petroleo, gas y petroquimica. Disponibles en configuraciones flotante, trunnion mounted, fully welded, top entry, doble bloqueo y purga, criogenicas, alta presion y subsea.",
+      name: "Válvulas de Bola",
+      desc: "Válvulas de bola de alta calidad para aplicaciones críticas en la industria del petróleo, gas y petroquímica. Disponibles en configuraciones flotante, trunnion mounted, fully welded, top entry, doble bloqueo y purga, criogénicas, alta presión y subsea.",
     },
     en: {
       name: "Ball Valves",
@@ -137,8 +137,8 @@ export const productCategories: Record<string, ProductCategory> = {
       {
         slug: "floating",
         es: {
-          name: "Valvulas de Bola Flotante",
-          desc: "Valvulas de bola flotante donde la bola se desplaza ligeramente hacia el asiento aguas abajo por efecto de la presion del fluido, proporcionando un sello confiable. Ideales para aplicaciones de baja a media presion en diametros reducidos.",
+          name: "Válvulas de Bola Flotante",
+          desc: "Válvulas de bola flotante donde la bola se desplaza ligeramente hacia el asiento aguas abajo por efecto de la presión del fluido, proporcionando un sello confiable. Ideales para aplicaciones de baja a media presión en diámetros reducidos.",
         },
         en: {
           name: "Floating Ball Valves",
@@ -152,8 +152,8 @@ export const productCategories: Record<string, ProductCategory> = {
       {
         slug: "trunnion",
         es: {
-          name: "Valvulas de Bola Trunnion Mounted",
-          desc: "Valvulas de bola con montaje trunnion donde la bola esta soportada por un eje superior e inferior, reduciendo el torque de operacion y permitiendo diametros y presiones mayores. Construccion robusta para servicio severo en refinacion, gas natural y produccion offshore.",
+          name: "Válvulas de Bola Trunnion Mounted",
+          desc: "Válvulas de bola con montaje trunnion donde la bola está soportada por un eje superior e inferior, reduciendo el torque de operación y permitiendo diámetros y presiones mayores. Construcción robusta para servicio severo en refinación, gas natural y producción offshore.",
         },
         en: {
           name: "Trunnion Mounted Ball Valves",
@@ -167,8 +167,8 @@ export const productCategories: Record<string, ProductCategory> = {
       {
         slug: "fully-welded",
         es: {
-          name: "Valvulas de Bola Fully Welded Body",
-          desc: "Valvulas de bola con cuerpo totalmente soldado que elimina posibles puntos de fuga en la envolvente. Disenadas para lineas de transmision de gas, oleoductos y aplicaciones donde la integridad del sello externo es critica. Construccion compacta y ligera.",
+          name: "Válvulas de Bola Fully Welded Body",
+          desc: "Válvulas de bola con cuerpo totalmente soldado que elimina posibles puntos de fuga en la envolvente. Diseñadas para líneas de transmisión de gas, oleoductos y aplicaciones donde la integridad del sello externo es crítica. Construcción compacta y ligera.",
         },
         en: {
           name: "Fully Welded Body Ball Valves",
@@ -182,8 +182,8 @@ export const productCategories: Record<string, ProductCategory> = {
       {
         slug: "top-entry",
         es: {
-          name: "Valvulas de Bola Top Entry",
-          desc: "Valvulas de bola con acceso superior que permiten el mantenimiento en linea sin desmontar la valvula de la tuberia. Reducen significativamente los tiempos de paro y los costos de mantenimiento en instalaciones donde la continuidad operativa es prioritaria.",
+          name: "Válvulas de Bola Top Entry",
+          desc: "Válvulas de bola con acceso superior que permiten el mantenimiento en línea sin desmontar la válvula de la tubería. Reducen significativamente los tiempos de paro y los costos de mantenimiento en instalaciones donde la continuidad operativa es prioritaria.",
         },
         en: {
           name: "Top Entry Ball Valves",
@@ -196,8 +196,8 @@ export const productCategories: Record<string, ProductCategory> = {
       {
         slug: "dbb",
         es: {
-          name: "Valvulas de Doble Bloqueo y Purga (DBB)",
-          desc: "Valvulas de doble bloqueo y purga que proporcionan doble aislamiento positivo y una cavidad intermedia con venteo, permitiendo verificar la integridad de cada sello. Esenciales para operaciones de mantenimiento seguro y aislamiento de lineas.",
+          name: "Válvulas de Doble Bloqueo y Purga (DBB)",
+          desc: "Válvulas de doble bloqueo y purga que proporcionan doble aislamiento positivo y una cavidad intermedia con venteo, permitiendo verificar la integridad de cada sello. Esenciales para operaciones de mantenimiento seguro y aislamiento de líneas.",
         },
         en: {
           name: "Double Block & Bleed Valves (DBB)",
@@ -210,8 +210,8 @@ export const productCategories: Record<string, ProductCategory> = {
       {
         slug: "criogenicas",
         es: {
-          name: "Valvulas de Bola Criogenicas",
-          desc: "Valvulas de bola disenadas para servicio criogenico en aplicaciones de GNL, etileno y gases licuados. Incorporan extension de vastago para proteger los sellos y empaques de las temperaturas extremadamente bajas, cumpliendo con los requisitos de BS 6364.",
+          name: "Válvulas de Bola Criogénicas",
+          desc: "Válvulas de bola diseñadas para servicio criogénico en aplicaciones de GNL, etileno y gases licuados. Incorporan extensión de vástago para proteger los sellos y empaques de las temperaturas extremadamente bajas, cumpliendo con los requisitos de BS 6364.",
         },
         en: {
           name: "Cryogenic Ball Valves",
@@ -224,8 +224,8 @@ export const productCategories: Record<string, ProductCategory> = {
       {
         slug: "alta-presion",
         es: {
-          name: "Valvulas de Bola de Alta Presion",
-          desc: "Valvulas de bola disenadas para operar a presiones extremadamente altas, hasta 15,000 psi. Fabricadas con materiales de alta resistencia y tolerancias estrictas para servicio en pozos de alta presion, inyeccion de agua y aplicaciones de fracturamiento hidraulico.",
+          name: "Válvulas de Bola de Alta Presión",
+          desc: "Válvulas de bola diseñadas para operar a presiones extremadamente altas, hasta 15,000 psi. Fabricadas con materiales de alta resistencia y tolerancias estrictas para servicio en pozos de alta presión, inyección de agua y aplicaciones de fracturamiento hidráulico.",
         },
         en: {
           name: "High Pressure Ball Valves",
@@ -237,8 +237,8 @@ export const productCategories: Record<string, ProductCategory> = {
       {
         slug: "subsea",
         es: {
-          name: "Valvulas de Bola Subsea",
-          desc: "Valvulas de bola disenadas para instalacion y operacion en el fondo marino conforme a API 6DSS. Construidas para resistir la presion externa del agua, ambientes corrosivos y las demandas de operacion remota mediante ROV. Criticas para arboles de navidad submarinos y manifolds.",
+          name: "Válvulas de Bola Subsea",
+          desc: "Válvulas de bola diseñadas para instalación y operación en el fondo marino conforme a API 6DSS. Construidas para resistir la presión externa del agua, ambientes corrosivos y las demandas de operación remota mediante ROV. Críticas para árboles de navidad submarinos y manifolds.",
         },
         en: {
           name: "Subsea Ball Valves",
@@ -257,8 +257,8 @@ export const productCategories: Record<string, ProductCategory> = {
   "valvulas-compuerta": {
     slug: "valvulas-compuerta",
     es: {
-      name: "Valvulas de Compuerta",
-      desc: "Valvulas de compuerta disenadas para servicio on/off en lineas de proceso. Ideales para aplicaciones que requieren flujo sin obstruccion y cierre hermetico en refinacion, petroquimica y transmision de hidrocarburos.",
+      name: "Válvulas de Compuerta",
+      desc: "Válvulas de compuerta diseñadas para servicio on/off en líneas de proceso. Ideales para aplicaciones que requieren flujo sin obstrucción y cierre hermético en refinación, petroquímica y transmisión de hidrocarburos.",
     },
     en: {
       name: "Gate Valves",
@@ -275,8 +275,8 @@ export const productCategories: Record<string, ProductCategory> = {
       {
         slug: "wedge",
         es: {
-          name: "Valvulas de Compuerta de Cuna",
-          desc: "Valvulas de compuerta con obturador tipo cuna (wedge) que proporciona un sello bidireccional confiable. Disponibles en cuna solida, flexible y dividida para adaptarse a diversas condiciones de servicio, incluyendo alta temperatura y presion.",
+          name: "Válvulas de Compuerta de Cuña",
+          desc: "Válvulas de compuerta con obturador tipo cuña (wedge) que proporciona un sello bidireccional confiable. Disponibles en cuña sólida, flexible y dividida para adaptarse a diversas condiciones de servicio, incluyendo alta temperatura y presión.",
         },
         en: {
           name: "Wedge Gate Valves",
@@ -288,8 +288,8 @@ export const productCategories: Record<string, ProductCategory> = {
       {
         slug: "slab-gate",
         es: {
-          name: "Valvulas de Compuerta Slab Gate",
-          desc: "Valvulas de compuerta con obturador plano (slab gate) disenadas para servicio en oleoductos y gasoductos. El diseno de placa plana minimiza la acumulacion de solidos en la cavidad y proporciona un cierre metalico confiable.",
+          name: "Válvulas de Compuerta Slab Gate",
+          desc: "Válvulas de compuerta con obturador plano (slab gate) diseñadas para servicio en oleoductos y gasoductos. El diseño de placa plana minimiza la acumulación de sólidos en la cavidad y proporciona un cierre metálico confiable.",
         },
         en: {
           name: "Slab Gate Valves",
@@ -301,8 +301,8 @@ export const productCategories: Record<string, ProductCategory> = {
       {
         slug: "conduit",
         es: {
-          name: "Valvulas de Compuerta Conduit",
-          desc: "Valvulas de compuerta tipo conduit con paso completo que permite el paso de herramientas de limpieza (pigs) a traves de la valvula. Esenciales para lineas de transmision donde se requiere piggability y minima caida de presion.",
+          name: "Válvulas de Compuerta Conduit",
+          desc: "Válvulas de compuerta tipo conduit con paso completo que permite el paso de herramientas de limpieza (pigs) a través de la válvula. Esenciales para líneas de transmisión donde se requiere piggability y mínima caída de presión.",
         },
         en: {
           name: "Conduit Gate Valves",
@@ -314,8 +314,8 @@ export const productCategories: Record<string, ProductCategory> = {
       {
         slug: "forjadas",
         es: {
-          name: "Valvulas de Compuerta Forjadas (API 602)",
-          desc: "Valvulas de compuerta de cuerpo forjado conforme a API 602 para diametros pequenos y altas presiones. Su construccion forjada proporciona mayor resistencia mecanica y son ideales para instrumentacion, tomas de muestra y lineas auxiliares.",
+          name: "Válvulas de Compuerta Forjadas (API 602)",
+          desc: "Válvulas de compuerta de cuerpo forjado conforme a API 602 para diámetros pequeños y altas presiones. Su construcción forjada proporciona mayor resistencia mecánica y son ideales para instrumentación, tomas de muestra y líneas auxiliares.",
         },
         en: {
           name: "Forged Gate Valves (API 602)",
@@ -334,8 +334,8 @@ export const productCategories: Record<string, ProductCategory> = {
   "valvulas-control": {
     slug: "valvulas-control",
     es: {
-      name: "Valvulas de Control",
-      desc: "Valvulas de control para regulacion precisa de flujo, presion y temperatura en procesos industriales. Incluyen soluciones globo, rotativas, mariposa y anti-surge para proteccion de compresores y turbomaquinaria.",
+      name: "Válvulas de Control",
+      desc: "Válvulas de control para regulación precisa de flujo, presión y temperatura en procesos industriales. Incluyen soluciones globo, rotativas, mariposa y anti-surge para protección de compresores y turbomaquinaria.",
     },
     en: {
       name: "Control Valves",
@@ -352,8 +352,8 @@ export const productCategories: Record<string, ProductCategory> = {
       {
         slug: "globe",
         es: {
-          name: "Valvulas de Control Globo",
-          desc: "Valvulas de control tipo globo que ofrecen una regulacion precisa del flujo mediante un obturador lineal. Disponibles en configuraciones de cuerpo recto, angular y de tres vias para una amplia gama de aplicaciones de proceso, incluyendo servicio con cavitacion y alta caida de presion.",
+          name: "Válvulas de Control Globo",
+          desc: "Válvulas de control tipo globo que ofrecen una regulación precisa del flujo mediante un obturador lineal. Disponibles en configuraciones de cuerpo recto, angular y de tres vías para una amplia gama de aplicaciones de proceso, incluyendo servicio con cavitación y alta caída de presión.",
         },
         en: {
           name: "Globe Control Valves",
@@ -365,8 +365,8 @@ export const productCategories: Record<string, ProductCategory> = {
       {
         slug: "rotary",
         es: {
-          name: "Valvulas de Control Rotativas",
-          desc: "Valvulas de control rotativas de cuarto de vuelta que combinan alta capacidad de flujo con un diseno compacto. Ideales para aplicaciones con fluidos viscosos, lodos o donde se requiere alta rangeabilidad con minima caida de presion.",
+          name: "Válvulas de Control Rotativas",
+          desc: "Válvulas de control rotativas de cuarto de vuelta que combinan alta capacidad de flujo con un diseño compacto. Ideales para aplicaciones con fluidos viscosos, lodos o donde se requiere alta rangeabilidad con mínima caída de presión.",
         },
         en: {
           name: "Rotary Control Valves",
@@ -378,8 +378,8 @@ export const productCategories: Record<string, ProductCategory> = {
       {
         slug: "butterfly",
         es: {
-          name: "Valvulas de Control Mariposa",
-          desc: "Valvulas de control tipo mariposa de alto rendimiento para regulacion de flujo en grandes diametros. Ofrecen excelente relacion capacidad-tamano y son ampliamente utilizadas en servicios de utilidades, agua de enfriamiento y procesos de baja presion.",
+          name: "Válvulas de Control Mariposa",
+          desc: "Válvulas de control tipo mariposa de alto rendimiento para regulación de flujo en grandes diámetros. Ofrecen excelente relación capacidad-tamaño y son ampliamente utilizadas en servicios de utilidades, agua de enfriamiento y procesos de baja presión.",
         },
         en: {
           name: "Butterfly Control Valves",
@@ -391,8 +391,8 @@ export const productCategories: Record<string, ProductCategory> = {
       {
         slug: "anti-surge",
         es: {
-          name: "Valvulas Anti-Surge",
-          desc: "Valvulas anti-surge de respuesta rapida disenadas para proteccion de compresores centrifugos y axiales. Proporcionan tiempos de apertura extremadamente cortos para evitar el fenomeno de surge, protegiendo la turbomaquinaria critica de danos catastroficos.",
+          name: "Válvulas Anti-Surge",
+          desc: "Válvulas anti-surge de respuesta rápida diseñadas para protección de compresores centrífugos y axiales. Proporcionan tiempos de apertura extremadamente cortos para evitar el fenómeno de surge, protegiendo la turbomaquinaria crítica de daños catastróficos.",
         },
         en: {
           name: "Anti-Surge Valves",
@@ -411,7 +411,7 @@ export const productCategories: Record<string, ProductCategory> = {
     slug: "actuadores",
     es: {
       name: "Actuadores",
-      desc: "Actuadores neumaticos, electricos e hidraulicos para la automatizacion de valvulas en la industria del petroleo, gas y petroquimica. Incluyen actuadores auto-contenidos para ubicaciones remotas sin suministro de energia.",
+      desc: "Actuadores neumáticos, eléctricos e hidráulicos para la automatización de válvulas en la industria del petróleo, gas y petroquímica. Incluyen actuadores auto-contenidos para ubicaciones remotas sin suministro de energía.",
     },
     en: {
       name: "Actuators",
@@ -428,8 +428,8 @@ export const productCategories: Record<string, ProductCategory> = {
       {
         slug: "neumaticos-rack-pinion",
         es: {
-          name: "Actuadores Neumaticos Rack & Pinion",
-          desc: "Actuadores neumaticos de cremallera y pinon para valvulas de cuarto de vuelta. Proporcionan operacion rapida y confiable con torques de salida consistentes. Disenados para valvulas de bola, mariposa y obturador, con opciones de simple y doble efecto.",
+          name: "Actuadores Neumáticos Rack & Pinion",
+          desc: "Actuadores neumáticos de cremallera y piñón para válvulas de cuarto de vuelta. Proporcionan operación rápida y confiable con torques de salida consistentes. Diseñados para válvulas de bola, mariposa y obturador, con opciones de simple y doble efecto.",
         },
         en: {
           name: "Pneumatic Rack & Pinion Actuators",
@@ -441,8 +441,8 @@ export const productCategories: Record<string, ProductCategory> = {
       {
         slug: "neumaticos-scotch-yoke",
         es: {
-          name: "Actuadores Neumaticos Scotch Yoke",
-          desc: "Actuadores neumaticos de yugo escoces que generan alto torque al inicio y fin de carrera, ideales para valvulas de gran tamano y alta presion. Su mecanismo proporciona ventaja mecanica donde mas se necesita, en la apertura y cierre de la valvula.",
+          name: "Actuadores Neumáticos Scotch Yoke",
+          desc: "Actuadores neumáticos de yugo escocés que generan alto torque al inicio y fin de carrera, ideales para válvulas de gran tamaño y alta presión. Su mecanismo proporciona ventaja mecánica donde más se necesita, en la apertura y cierre de la válvula.",
         },
         en: {
           name: "Pneumatic Scotch Yoke Actuators",
@@ -454,8 +454,8 @@ export const productCategories: Record<string, ProductCategory> = {
       {
         slug: "electricos",
         es: {
-          name: "Actuadores Electricos",
-          desc: "Actuadores electricos multivuelta y de cuarto de vuelta para aplicaciones donde se requiere control preciso de posicion y no se dispone de suministro de aire. Incorporan proteccion por torque y limite de carrera, con interfaces para sistemas de control distribuido.",
+          name: "Actuadores Eléctricos",
+          desc: "Actuadores eléctricos multivuelta y de cuarto de vuelta para aplicaciones donde se requiere control preciso de posición y no se dispone de suministro de aire. Incorporan protección por torque y límite de carrera, con interfaces para sistemas de control distribuido.",
         },
         en: {
           name: "Electric Actuators",
@@ -467,8 +467,8 @@ export const productCategories: Record<string, ProductCategory> = {
       {
         slug: "hidraulicos",
         es: {
-          name: "Actuadores Hidraulicos",
-          desc: "Actuadores hidraulicos de alto empuje para valvulas de gran tamano y servicio severo. Capaces de generar fuerzas extremadamente altas en un paquete compacto, ideales para valvulas de compuerta, valvulas de bola de gran diametro y aplicaciones subsea.",
+          name: "Actuadores Hidráulicos",
+          desc: "Actuadores hidráulicos de alto empuje para válvulas de gran tamaño y servicio severo. Capaces de generar fuerzas extremadamente altas en un paquete compacto, ideales para válvulas de compuerta, válvulas de bola de gran diámetro y aplicaciones subsea.",
         },
         en: {
           name: "Hydraulic Actuators",
@@ -481,7 +481,7 @@ export const productCategories: Record<string, ProductCategory> = {
         slug: "auto-contenidos",
         es: {
           name: "Actuadores Auto-Contenidos",
-          desc: "Actuadores auto-contenidos que operan sin fuente de energia externa. Utilizan gas de la linea o acumuladores hidraulicos para operar de forma autonoma. Ideales para ubicaciones remotas como plataformas offshore, wellheads y estaciones de bombeo, con opciones de energia solar y eolica.",
+          desc: "Actuadores auto-contenidos que operan sin fuente de energía externa. Utilizan gas de la línea o acumuladores hidráulicos para operar de forma autónoma. Ideales para ubicaciones remotas como plataformas offshore, wellheads y estaciones de bombeo, con opciones de energía solar y eólica.",
         },
         en: {
           name: "Self-Contained Actuators",
@@ -499,8 +499,8 @@ export const productCategories: Record<string, ProductCategory> = {
   "valvulas-seguridad": {
     slug: "valvulas-seguridad",
     es: {
-      name: "Valvulas de Seguridad y Alivio",
-      desc: "Valvulas de seguridad y alivio para proteccion contra sobrepresion en recipientes, tanques y sistemas de proceso. Disenadas y fabricadas bajo los mas estrictos codigos internacionales para garantizar la seguridad del personal y las instalaciones.",
+      name: "Válvulas de Seguridad y Alivio",
+      desc: "Válvulas de seguridad y alivio para protección contra sobrepresión en recipientes, tanques y sistemas de proceso. Diseñadas y fabricadas bajo los más estrictos códigos internacionales para garantizar la seguridad del personal y las instalaciones.",
     },
     en: {
       name: "Safety Relief Valves",
@@ -517,8 +517,8 @@ export const productCategories: Record<string, ProductCategory> = {
       {
         slug: "convencionales",
         es: {
-          name: "Valvulas de Seguridad Convencionales",
-          desc: "Valvulas de seguridad convencionales de accion directa con resorte. La solucion mas comun y economica para proteccion contra sobrepresion en recipientes a presion. El punto de ajuste se establece mediante la compresion del resorte y se ven afectadas por la contrapresion variable.",
+          name: "Válvulas de Seguridad Convencionales",
+          desc: "Válvulas de seguridad convencionales de acción directa con resorte. La solución más común y económica para protección contra sobrepresión en recipientes a presión. El punto de ajuste se establece mediante la compresión del resorte y se ven afectadas por la contrapresión variable.",
         },
         en: {
           name: "Conventional Safety Valves",
@@ -530,8 +530,8 @@ export const productCategories: Record<string, ProductCategory> = {
       {
         slug: "balanceadas",
         es: {
-          name: "Valvulas de Seguridad Balanceadas",
-          desc: "Valvulas de seguridad con fuelle balanceado que compensan el efecto de la contrapresion variable sobre el punto de ajuste. Esenciales cuando la valvula descarga a un cabezal comun donde la contrapresion puede fluctuar significativamente durante eventos de alivio simultaneo.",
+          name: "Válvulas de Seguridad Balanceadas",
+          desc: "Válvulas de seguridad con fuelle balanceado que compensan el efecto de la contrapresión variable sobre el punto de ajuste. Esenciales cuando la válvula descarga a un cabezal común donde la contrapresión puede fluctuar significativamente durante eventos de alivio simultáneo.",
         },
         en: {
           name: "Balanced Safety Valves",
@@ -543,8 +543,8 @@ export const productCategories: Record<string, ProductCategory> = {
       {
         slug: "pilot-operated",
         es: {
-          name: "Valvulas de Seguridad Pilotadas",
-          desc: "Valvulas de seguridad operadas por piloto que utilizan la presion del sistema para mantener la valvula cerrada. Proporcionan un sello hermetico hasta el 98% del punto de ajuste y no se ven afectadas por la contrapresion. Ideales para aplicaciones de gas y servicios con alta presion de operacion.",
+          name: "Válvulas de Seguridad Pilotadas",
+          desc: "Válvulas de seguridad operadas por piloto que utilizan la presión del sistema para mantener la válvula cerrada. Proporcionan un sello hermético hasta el 98% del punto de ajuste y no se ven afectadas por la contrapresión. Ideales para aplicaciones de gas y servicios con alta presión de operación.",
         },
         en: {
           name: "Pilot-Operated Safety Valves",
@@ -562,8 +562,8 @@ export const productCategories: Record<string, ProductCategory> = {
   "valvulas-solenoides": {
     slug: "valvulas-solenoides",
     es: {
-      name: "Valvulas Solenoides",
-      desc: "Valvulas solenoides para control direccional neumatico e hidraulico. Disenadas para ambientes peligrosos y criticos con certificaciones ATEX, SIL, NAMUR y CSA. Amplia gama de configuraciones para montaje en linea, manifold y directamente sobre actuadores.",
+      name: "Válvulas Solenoides",
+      desc: "Válvulas solenoides para control direccional neumático e hidráulico. Diseñadas para ambientes peligrosos y críticos con certificaciones ATEX, SIL, NAMUR y CSA. Amplia gama de configuraciones para montaje en línea, manifold y directamente sobre actuadores.",
     },
     en: {
       name: "Solenoid Valves",
@@ -580,8 +580,8 @@ export const productCategories: Record<string, ProductCategory> = {
       {
         slug: "neumatico",
         es: {
-          name: "Valvulas Solenoides Neumaticas",
-          desc: "Valvulas solenoides para control direccional neumatico de actuadores y cilindros. Disponibles en configuraciones 3/2, 4/2, 5/2 y 5/3 vias con voltajes de bobina estandar. Disenadas para operacion confiable en ambientes industriales y areas clasificadas.",
+          name: "Válvulas Solenoides Neumáticas",
+          desc: "Válvulas solenoides para control direccional neumático de actuadores y cilindros. Disponibles en configuraciones 3/2, 4/2, 5/2 y 5/3 vías con voltajes de bobina estándar. Diseñadas para operación confiable en ambientes industriales y áreas clasificadas.",
         },
         en: {
           name: "Pneumatic Solenoid Valves",
@@ -593,8 +593,8 @@ export const productCategories: Record<string, ProductCategory> = {
       {
         slug: "hidraulico",
         es: {
-          name: "Valvulas Solenoides Hidraulicas",
-          desc: "Valvulas solenoides para control direccional hidraulico de alta presion. Construidas en materiales resistentes a la corrosion y disenadas para operar con fluidos hidraulicos, agua y otros medios. Ideales para sistemas hidraulicos de actuacion de valvulas.",
+          name: "Válvulas Solenoides Hidráulicas",
+          desc: "Válvulas solenoides para control direccional hidráulico de alta presión. Construidas en materiales resistentes a la corrosión y diseñadas para operar con fluidos hidráulicos, agua y otros medios. Ideales para sistemas hidráulicos de actuación de válvulas.",
         },
         en: {
           name: "Hydraulic Solenoid Valves",
@@ -606,8 +606,8 @@ export const productCategories: Record<string, ProductCategory> = {
       {
         slug: "namur",
         es: {
-          name: "Valvulas Solenoides NAMUR",
-          desc: "Valvulas solenoides con interfaz NAMUR para montaje directo sobre actuadores neumaticos. Eliminan la necesidad de tuberia entre la solenoide y el actuador, reduciendo puntos de fuga y simplificando la instalacion. Certificadas ATEX para areas clasificadas.",
+          name: "Válvulas Solenoides NAMUR",
+          desc: "Válvulas solenoides con interfaz NAMUR para montaje directo sobre actuadores neumáticos. Eliminan la necesidad de tubería entre la solenoide y el actuador, reduciendo puntos de fuga y simplificando la instalación. Certificadas ATEX para áreas clasificadas.",
         },
         en: {
           name: "NAMUR Solenoid Valves",
@@ -619,8 +619,8 @@ export const productCategories: Record<string, ProductCategory> = {
       {
         slug: "inoxidable",
         es: {
-          name: "Valvulas Solenoides en Acero Inoxidable",
-          desc: "Valvulas solenoides fabricadas completamente en acero inoxidable para ambientes altamente corrosivos, plataformas offshore y aplicaciones sanitarias. Resistentes a la niebla salina, quimicos agresivos y condiciones ambientales extremas.",
+          name: "Válvulas Solenoides en Acero Inoxidable",
+          desc: "Válvulas solenoides fabricadas completamente en acero inoxidable para ambientes altamente corrosivos, plataformas offshore y aplicaciones sanitarias. Resistentes a la niebla salina, químicos agresivos y condiciones ambientales extremas.",
         },
         en: {
           name: "Stainless Steel Solenoid Valves",
@@ -639,7 +639,7 @@ export const productCategories: Record<string, ProductCategory> = {
     slug: "paneles-de-control",
     es: {
       name: "Paneles de Control",
-      desc: "Paneles de control disenados y fabricados a la medida por IPSA para sistemas de automatizacion de valvulas, ESD y control de procesos. Soluciones neumaticas, electrohidraulicas y de regulacion de gas, construidos bajo estrictos estandares de calidad.",
+      desc: "Paneles de control diseñados y fabricados a la medida por IPSA para sistemas de automatización de válvulas, ESD y control de procesos. Soluciones neumáticas, electrohidráulicas y de regulación de gas, construidos bajo estrictos estándares de calidad.",
     },
     en: {
       name: "Control Panels",
@@ -656,8 +656,8 @@ export const productCategories: Record<string, ProductCategory> = {
       {
         slug: "neumaticos",
         es: {
-          name: "Paneles de Control Neumaticos",
-          desc: "Paneles de control neumatico disenados por IPSA para la automatizacion de valvulas. Incluyen valvulas solenoides, reguladores de presion, manometros, filtros y toda la logica neumatica necesaria para el control seguro y confiable de actuadores neumaticos.",
+          name: "Paneles de Control Neumáticos",
+          desc: "Paneles de control neumático diseñados por IPSA para la automatización de válvulas. Incluyen válvulas solenoides, reguladores de presión, manómetros, filtros y toda la lógica neumática necesaria para el control seguro y confiable de actuadores neumáticos.",
         },
         en: {
           name: "Pneumatic Control Panels",
@@ -670,7 +670,7 @@ export const productCategories: Record<string, ProductCategory> = {
         slug: "esd",
         es: {
           name: "Paneles ESD (Paro de Emergencia)",
-          desc: "Paneles de paro de emergencia (ESD) disenados conforme a IEC 61508/61511 para la proteccion de instalaciones criticas. Incorporan logica de seguridad redundante, diagnosticos en linea y comunicacion con sistemas de control para garantizar la respuesta inmediata ante condiciones anormales.",
+          desc: "Paneles de paro de emergencia (ESD) diseñados conforme a IEC 61508/61511 para la protección de instalaciones críticas. Incorporan lógica de seguridad redundante, diagnósticos en línea y comunicación con sistemas de control para garantizar la respuesta inmediata ante condiciones anormales.",
         },
         en: {
           name: "ESD Panels (Emergency Shutdown)",
@@ -682,8 +682,8 @@ export const productCategories: Record<string, ProductCategory> = {
       {
         slug: "regulacion-gas",
         es: {
-          name: "Paneles de Regulacion de Gas",
-          desc: "Paneles de regulacion de gas para suministro de gas combustible, gas de instrumentos y gas de sello. Disenados para reducir y regular la presion de gas de forma segura con redundancia, instrumentacion y proteccion contra sobrepresion.",
+          name: "Paneles de Regulación de Gas",
+          desc: "Paneles de regulación de gas para suministro de gas combustible, gas de instrumentos y gas de sello. Diseñados para reducir y regular la presión de gas de forma segura con redundancia, instrumentación y protección contra sobrepresión.",
         },
         en: {
           name: "Gas Regulation Panels",
@@ -701,8 +701,8 @@ export const productCategories: Record<string, ProductCategory> = {
   instrumentacion: {
     slug: "instrumentacion",
     es: {
-      name: "Instrumentacion",
-      desc: "Instrumentacion industrial para medicion y control de procesos. Transmisores de presion y temperatura, sistemas de control distribuido (DCS) y sistemas instrumentados de seguridad (SIS) de Yokogawa para la maxima confiabilidad operativa.",
+      name: "Instrumentación",
+      desc: "Instrumentación industrial para medición y control de procesos. Transmisores de presión y temperatura, sistemas de control distribuido (DCS) y sistemas instrumentados de seguridad (SIS) de Yokogawa para la máxima confiabilidad operativa.",
     },
     en: {
       name: "Instrumentation",
@@ -720,7 +720,7 @@ export const productCategories: Record<string, ProductCategory> = {
         slug: "transmisores",
         es: {
           name: "Transmisores de Proceso",
-          desc: "Transmisores de presion, temperatura, nivel y flujo para medicion precisa de variables de proceso. Tecnologia de ultima generacion con diagnosticos avanzados, comunicacion HART, Foundation Fieldbus y Profibus para integracion con cualquier sistema de control.",
+          desc: "Transmisores de presión, temperatura, nivel y flujo para medición precisa de variables de proceso. Tecnología de última generación con diagnósticos avanzados, comunicación HART, Foundation Fieldbus y Profibus para integración con cualquier sistema de control.",
         },
         en: {
           name: "Process Transmitters",
@@ -733,7 +733,7 @@ export const productCategories: Record<string, ProductCategory> = {
         slug: "dcs",
         es: {
           name: "Sistemas de Control Distribuido (DCS)",
-          desc: "Sistemas de control distribuido Yokogawa para la operacion integrada de plantas de proceso. Plataformas CENTUM VP y ProSafe-RS que proporcionan control, monitoreo y optimizacion de procesos con la mas alta disponibilidad y seguridad cibernetica.",
+          desc: "Sistemas de control distribuido Yokogawa para la operación integrada de plantas de proceso. Plataformas CENTUM VP y ProSafe-RS que proporcionan control, monitoreo y optimización de procesos con la más alta disponibilidad y seguridad cibernética.",
         },
         en: {
           name: "Distributed Control Systems (DCS)",
@@ -746,7 +746,7 @@ export const productCategories: Record<string, ProductCategory> = {
         slug: "sis",
         es: {
           name: "Sistemas Instrumentados de Seguridad (SIS)",
-          desc: "Sistemas instrumentados de seguridad certificados SIL conforme a IEC 61508/61511 para la proteccion de plantas de proceso. Incluyen controladores de seguridad, sensores y elementos finales integrados en una arquitectura de seguridad funcional completa.",
+          desc: "Sistemas instrumentados de seguridad certificados SIL conforme a IEC 61508/61511 para la protección de plantas de proceso. Incluyen controladores de seguridad, sensores y elementos finales integrados en una arquitectura de seguridad funcional completa.",
         },
         en: {
           name: "Safety Instrumented Systems (SIS)",
@@ -765,7 +765,7 @@ export const productCategories: Record<string, ProductCategory> = {
     slug: "accesorios-refacciones",
     es: {
       name: "Accesorios y Refacciones",
-      desc: "Accesorios y refacciones para valvulas y actuadores. Filtros reguladores, posicionadores, cajas de interruptores de limite y partes de repuesto originales para mantener sus equipos en optimas condiciones de operacion.",
+      desc: "Accesorios y refacciones para válvulas y actuadores. Filtros reguladores, posicionadores, cajas de interruptores de límite y partes de repuesto originales para mantener sus equipos en óptimas condiciones de operación.",
     },
     en: {
       name: "Accessories & Spare Parts",
@@ -783,7 +783,7 @@ export const productCategories: Record<string, ProductCategory> = {
         slug: "filtros-reguladores",
         es: {
           name: "Filtros Reguladores",
-          desc: "Filtros reguladores de aire para suministro limpio y a presion constante hacia actuadores neumaticos y posicionadores. Eliminan particulas y humedad del aire de instrumentos, protegiendo los componentes neumaticos y asegurando operacion confiable.",
+          desc: "Filtros reguladores de aire para suministro limpio y a presión constante hacia actuadores neumáticos y posicionadores. Eliminan partículas y humedad del aire de instrumentos, protegiendo los componentes neumáticos y asegurando operación confiable.",
         },
         en: {
           name: "Filter Regulators",
@@ -796,7 +796,7 @@ export const productCategories: Record<string, ProductCategory> = {
         slug: "posicionadores",
         es: {
           name: "Posicionadores",
-          desc: "Posicionadores electroneumaticos e inteligentes para valvulas de control. Reciben la senal de control (4-20 mA o digital) y ajustan la presion de aire al actuador para posicionar la valvula con precision. Incluyen diagnosticos avanzados para mantenimiento predictivo.",
+          desc: "Posicionadores electroneumáticos e inteligentes para válvulas de control. Reciben la señal de control (4-20 mA o digital) y ajustan la presión de aire al actuador para posicionar la válvula con precisión. Incluyen diagnósticos avanzados para mantenimiento predictivo.",
         },
         en: {
           name: "Positioners",
@@ -808,8 +808,8 @@ export const productCategories: Record<string, ProductCategory> = {
       {
         slug: "switch-boxes",
         es: {
-          name: "Cajas de Interruptores de Limite",
-          desc: "Cajas de interruptores de limite (switch boxes) para indicacion de posicion abierto/cerrado de valvulas. Montaje conforme a NAMUR/VDI/VDE 3845 con interruptores mecanicos, sensores inductivos y transmisores de posicion continua. Certificaciones para areas clasificadas.",
+          name: "Cajas de Interruptores de Límite",
+          desc: "Cajas de interruptores de límite (switch boxes) para indicación de posición abierto/cerrado de válvulas. Montaje conforme a NAMUR/VDI/VDE 3845 con interruptores mecánicos, sensores inductivos y transmisores de posición continua. Certificaciones para áreas clasificadas.",
         },
         en: {
           name: "Limit Switch Boxes",
@@ -822,7 +822,7 @@ export const productCategories: Record<string, ProductCategory> = {
         slug: "refacciones",
         es: {
           name: "Refacciones y Partes de Repuesto",
-          desc: "Partes de repuesto originales para valvulas, actuadores y accesorios. Incluyen kits de sellos, asientos, empaques, resortes, diafragmas y todos los componentes consumibles necesarios para el mantenimiento preventivo y correctivo de sus equipos.",
+          desc: "Partes de repuesto originales para válvulas, actuadores y accesorios. Incluyen kits de sellos, asientos, empaques, resortes, diafragmas y todos los componentes consumibles necesarios para el mantenimiento preventivo y correctivo de sus equipos.",
         },
         en: {
           name: "Spare Parts & Replacement Parts",

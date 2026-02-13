@@ -20,21 +20,21 @@ import {
 const productCategories = {
   es: [
     {
-      title: "Valvulas de Bola",
+      title: "Válvulas de Bola",
       href: "/productos/valvulas-bola",
       image: "/images/products/dhv-floater.jpg",
       items: [
         { label: "Floating (Bola Flotante)", href: "/productos/valvulas-bola/floating" },
         { label: "Trunnion Mounted (Bola Fija)", href: "/productos/valvulas-bola/trunnion" },
         { label: "Fully Welded", href: "/productos/valvulas-bola/fully-welded" },
-        { label: "Criogenicas", href: "/productos/valvulas-bola/criogenicas" },
+        { label: "Criogénicas", href: "/productos/valvulas-bola/criogenicas" },
         { label: "Subsea (API 6DSS)", href: "/productos/valvulas-bola/subsea" },
-        { label: "Alta Presion", href: "/productos/valvulas-bola/alta-presion" },
+        { label: "Alta Presión", href: "/productos/valvulas-bola/alta-presion" },
         { label: "Double Block & Bleed", href: "/productos/valvulas-bola/dbb" },
       ],
     },
     {
-      title: "Valvulas de Compuerta",
+      title: "Válvulas de Compuerta",
       href: "/productos/valvulas-compuerta",
       image: "/images/products/dhv-gate-valve.png",
       items: [
@@ -45,7 +45,7 @@ const productCategories = {
       ],
     },
     {
-      title: "Valvulas de Control",
+      title: "Válvulas de Control",
       href: "/productos/valvulas-control",
       image: "/images/products/ipsa-control-panel-1.jpg",
       items: [
@@ -60,21 +60,21 @@ const productCategories = {
       href: "/productos/actuadores",
       image: "/images/products/df-trunnion-automated.jpg",
       items: [
-        { label: "Neumaticos (Rack & Pinion)", href: "/productos/actuadores/neumaticos-rack-pinion" },
-        { label: "Neumaticos (Scotch Yoke)", href: "/productos/actuadores/neumaticos-scotch-yoke" },
-        { label: "Electricos", href: "/productos/actuadores/electricos" },
-        { label: "Hidraulicos", href: "/productos/actuadores/hidraulicos" },
+        { label: "Neumáticos (Rack & Pinion)", href: "/productos/actuadores/neumaticos-rack-pinion" },
+        { label: "Neumáticos (Scotch Yoke)", href: "/productos/actuadores/neumaticos-scotch-yoke" },
+        { label: "Eléctricos", href: "/productos/actuadores/electricos" },
+        { label: "Hidráulicos", href: "/productos/actuadores/hidraulicos" },
         { label: "Auto-Contenidos", href: "/productos/actuadores/auto-contenidos" },
       ],
     },
     {
-      title: "Valvulas de Seguridad",
+      title: "Válvulas de Seguridad",
       href: "/productos/valvulas-seguridad",
       image: "/images/products/ipsa-control-panel-1.jpg",
       items: [],
     },
     {
-      title: "Valvulas Solenoides",
+      title: "Válvulas Solenoides",
       href: "/productos/valvulas-solenoides",
       image: "/images/products/versa-e4-solenoid.png",
       items: [],
@@ -86,7 +86,7 @@ const productCategories = {
       items: [],
     },
     {
-      title: "Instrumentacion",
+      title: "Instrumentación",
       href: "/productos/instrumentacion",
       image: "/images/products/ipsa-control-panel-1.jpg",
       items: [],
@@ -188,9 +188,9 @@ const otherNavItems = [
     href: "/servicios",
     children: {
       es: [
-        { label: "Automatizacion de Valvulas", href: "/servicios/automatizacion", desc: "Paquetes completos de automatizacion" },
-        { label: "Ingenieria y Proyectos EPC", href: "/servicios/ingenieria", desc: "Ingenieria conceptual hasta la entrega" },
-        { label: "Centro de Automatizacion (CAD)", href: "/servicios/soporte-in-house", desc: "Reparacion, pruebas NDE, almacen 24/7" },
+        { label: "Automatización de Válvulas", href: "/servicios/automatizacion", desc: "Paquetes completos de automatización" },
+        { label: "Ingeniería y Proyectos EPC", href: "/servicios/ingenieria", desc: "Ingeniería conceptual hasta la entrega" },
+        { label: "Centro de Automatización (CAD)", href: "/servicios/soporte-in-house", desc: "Reparación, pruebas NDE, almacén 24/7" },
       ],
       en: [
         { label: "Valve Automation", href: "/servicios/automatizacion", desc: "Complete automation packages" },
@@ -205,8 +205,8 @@ const otherNavItems = [
     children: {
       es: [
         { label: "Petroleras", href: "/industrias/petroleras", desc: "Upstream, midstream y downstream" },
-        { label: "Aceites", href: "/industrias/aceites", desc: "Procesamiento y refinacion" },
-        { label: "Gas", href: "/industrias/gas", desc: "Procesamiento, transporte y distribucion" },
+        { label: "Aceites", href: "/industrias/aceites", desc: "Procesamiento y refinación" },
+        { label: "Gas", href: "/industrias/gas", desc: "Procesamiento, transporte y distribución" },
       ],
       en: [
         { label: "Oil & Gas", href: "/industrias/petroleras", desc: "Upstream, midstream and downstream" },
@@ -220,10 +220,10 @@ const otherNavItems = [
     href: "/proveedores",
     children: {
       es: [
-        { label: "DHV Valve Group", href: "/proveedores/dhv", desc: "Fabricante europeo de valvulas de bola" },
-        { label: "Della Foglia", href: "/proveedores/della-foglia", desc: "Especialista en valvulas trunnion" },
-        { label: "Perar", href: "/proveedores/perar", desc: "Actuadores neumaticos e hidraulicos" },
-        { label: "Versa Valves", href: "/proveedores/versa", desc: "Valvulas solenoides y neumaticas" },
+        { label: "DHV Valve Group", href: "/proveedores/dhv", desc: "Fabricante europeo de válvulas de bola" },
+        { label: "Della Foglia", href: "/proveedores/della-foglia", desc: "Especialista en válvulas trunnion" },
+        { label: "Perar", href: "/proveedores/perar", desc: "Actuadores neumáticos e hidráulicos" },
+        { label: "Versa Valves", href: "/proveedores/versa", desc: "Válvulas solenoides y neumáticas" },
       ],
       en: [
         { label: "DHV Valve Group", href: "/proveedores/dhv", desc: "European ball valve manufacturer" },
@@ -337,7 +337,7 @@ export default function Header() {
                   IPSA
                 </div>
                 <div className="text-[9px] text-white/50 leading-tight tracking-[0.2em] font-medium">
-                  INGENIERIA DE PARTES
+                  INGENIERÍA DE PARTES
                 </div>
               </div>
             </Link>
@@ -566,7 +566,7 @@ export default function Header() {
                   ) : (
                     <p className="text-sm text-gray-400">
                       {l === "es"
-                        ? "Haz clic para ver todos los productos de esta categoria."
+                        ? "Haz clic para ver todos los productos de esta categoría."
                         : "Click to view all products in this category."}
                     </p>
                   )}
@@ -594,7 +594,7 @@ export default function Header() {
                     onClick={closeDropdown}
                     className="block text-center text-xs font-bold uppercase tracking-wider px-4 py-2.5 bg-gold text-white rounded-lg transition-all duration-150 hover:bg-gold-dark"
                   >
-                    {l === "es" ? "Solicitar cotizacion" : "Request a quote"}
+                    {l === "es" ? "Solicitar cotización" : "Request a quote"}
                   </Link>
                 </div>
               </div>
@@ -755,7 +755,7 @@ export default function Header() {
                   onClick={() => setMobileOpen(false)}
                   className="flex items-center justify-center gap-2 w-full px-6 py-3.5 bg-gold text-white font-bold uppercase tracking-wider rounded-lg transition-all duration-150 hover:bg-gold-dark"
                 >
-                  {locale === "es" ? "Solicitar cotizacion" : "Request a quote"}
+                  {locale === "es" ? "Solicitar cotización" : "Request a quote"}
                   <ArrowRight size={16} />
                 </Link>
               </div>

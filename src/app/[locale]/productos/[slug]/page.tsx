@@ -32,9 +32,9 @@ export default async function ProductCategoryPage({
 
   /* ── Services ── */
   const serviceNames: Record<string, { es: string; en: string }> = {
-    automatizacion: { es: "Automatizacion de Valvulas", en: "Valve Automation" },
-    ingenieria: { es: "Ingenieria y Proyectos EPC", en: "Engineering & EPC Projects" },
-    "soporte-in-house": { es: "Centro de Automatizacion (CAD)", en: "Automation Center (CAD)" },
+    automatizacion: { es: "Automatización de Válvulas", en: "Valve Automation" },
+    ingenieria: { es: "Ingeniería y Proyectos EPC", en: "Engineering & EPC Projects" },
+    "soporte-in-house": { es: "Centro de Automatización (CAD)", en: "Automation Center (CAD)" },
   };
   const services = (category.services ?? []).map((slug: string) => ({
     slug,
@@ -107,7 +107,7 @@ export default async function ProductCategoryPage({
                 {category.sizes && (
                   <div className="bg-white/10 backdrop-blur-sm rounded-lg px-4 py-2.5 border border-white/10">
                     <div className="text-[10px] text-white/50 font-medium uppercase tracking-wider">
-                      {locale === "es" ? "Tamanos" : "Sizes"}
+                      {locale === "es" ? "Tamaños" : "Sizes"}
                     </div>
                     <div className="text-white font-semibold text-sm">{category.sizes}</div>
                   </div>
@@ -166,7 +166,7 @@ export default async function ProductCategoryPage({
                   </h2>
                   <p className="text-gray-500 text-sm leading-relaxed mb-8 max-w-xl">
                     {locale === "es"
-                      ? "Selecciona la configuracion que mejor se adapte a tu aplicacion."
+                      ? "Selecciona la configuración que mejor se adapte a tu aplicación."
                       : "Select the configuration that best fits your application."}
                   </p>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -212,7 +212,7 @@ export default async function ProductCategoryPage({
                               {st.sizes && (
                                 <span className="text-xs text-gray-400">
                                   <span className="font-medium text-gray-600">
-                                    {locale === "es" ? "Tamanos" : "Sizes"}:
+                                    {locale === "es" ? "Tamaños" : "Sizes"}:
                                   </span>{" "}
                                   {st.sizes}
                                 </span>
@@ -275,7 +275,7 @@ export default async function ProductCategoryPage({
                         style={{ borderLeft: "3px solid var(--color-gold)" }}
                       >
                         <dt className="text-xs text-gray-400 font-medium uppercase tracking-wider mb-2">
-                          {locale === "es" ? "Rango de tamanos" : "Size range"}
+                          {locale === "es" ? "Rango de tamaños" : "Size range"}
                         </dt>
                         <dd
                           className="text-gray-900 font-semibold"
@@ -291,7 +291,7 @@ export default async function ProductCategoryPage({
                         style={{ borderLeft: "3px solid var(--color-gold)" }}
                       >
                         <dt className="text-xs text-gray-400 font-medium uppercase tracking-wider mb-2">
-                          {locale === "es" ? "Clases de presion" : "Pressure classes"}
+                          {locale === "es" ? "Clases de presión" : "Pressure classes"}
                         </dt>
                         <dd
                           className="text-gray-900 font-semibold"
@@ -460,14 +460,14 @@ export default async function ProductCategoryPage({
                 <div className="h-1 bg-gradient-to-r from-gold to-gold-light" />
                 <div className="p-7">
                   <p className="text-gold-light font-medium text-sm tracking-widest uppercase mb-2">
-                    {locale === "es" ? "Cotizacion" : "Quote"}
+                    {locale === "es" ? "Cotización" : "Quote"}
                   </p>
                   <h3
                     className="font-heading text-white mb-3"
                     style={{ fontSize: "1.25rem", fontWeight: 600 }}
                   >
                     {locale === "es"
-                      ? "Solicita tu cotizacion"
+                      ? "Solicita tu cotización"
                       : "Request a quote"}
                   </h3>
                   <p className="text-white/60 text-sm leading-relaxed mb-5">
@@ -480,7 +480,7 @@ export default async function ProductCategoryPage({
                     className="block w-full text-center px-6 py-3.5 bg-gold text-white font-semibold rounded-xl btn-lift hover:bg-gold-dark transition-colors"
                   >
                     {locale === "es"
-                      ? "Solicitar cotizacion"
+                      ? "Solicitar cotización"
                       : "Request a quote"}
                   </Link>
                   <a
@@ -617,7 +617,7 @@ export default async function ProductCategoryPage({
               style={{ fontSize: "1.05rem" }}
             >
               {locale === "es"
-                ? "Nuestro equipo de ingenieros esta listo para ayudarte a encontrar la solucion correcta."
+                ? "Nuestro equipo de ingenieros está listo para ayudarte a encontrar la solución correcta."
                 : "Our engineering team is ready to help you find the right solution."}
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

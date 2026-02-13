@@ -53,14 +53,14 @@ export default function ProductsHub() {
         <div className="mx-auto max-w-[1600px] px-5 md:px-10 py-20 lg:py-24">
           <div className="text-center mb-14">
             <p className="text-gold font-medium text-sm tracking-widest uppercase mb-3">
-              {locale === "es" ? "Catalogo completo" : "Full catalog"}
+              {locale === "es" ? "Catálogo completo" : "Full catalog"}
             </p>
             <h2 className="font-heading text-gray-900" style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)", fontWeight: 500 }}>
               {locale === "es" ? "Nuestros productos" : "Our products"}
             </h2>
             <p className="text-gray-500 mt-2 max-w-2xl mx-auto leading-relaxed">
               {locale === "es"
-                ? "Soluciones completas en control de fluidos para la industria de proceso. Cada categoria incluye multiples configuraciones, fabricantes y servicios asociados."
+                ? "Soluciones completas en control de fluidos para la industria de proceso. Cada categoría incluye múltiples configuraciones, fabricantes y servicios asociados."
                 : "Complete fluid control solutions for the process industry. Each category includes multiple configurations, manufacturers, and associated services."}
             </p>
           </div>
@@ -113,7 +113,7 @@ export default function ProductsHub() {
                     <div className="flex flex-wrap gap-x-4 gap-y-1 mb-4">
                       {cat.sizes && (
                         <span className="text-xs text-gray-400">
-                          <span className="font-medium text-gray-600">{locale === "es" ? "Tamanos" : "Sizes"}:</span> {cat.sizes}
+                          <span className="font-medium text-gray-600">{locale === "es" ? "Tamaños" : "Sizes"}:</span> {cat.sizes}
                         </span>
                       )}
                       {cat.pressureClasses && (
@@ -167,11 +167,11 @@ export default function ProductsHub() {
             </div>
             <div>
               <h2 className="font-heading text-white mb-1 hero-text" style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)", fontWeight: 500 }}>
-                {locale === "es" ? "Automatizamos tus valvulas" : "We automate your valves"}
+                {locale === "es" ? "Automatizamos tus válvulas" : "We automate your valves"}
               </h2>
               <p className="text-white/70 leading-relaxed" style={{ fontSize: "0.95rem" }}>
                 {locale === "es"
-                  ? "Paquetes completos de valvula + actuador + accesorios, listos para instalar."
+                  ? "Paquetes completos de válvula + actuador + accesorios, listos para instalar."
                   : "Complete valve + actuator + accessories packages, ready to install."}
               </p>
             </div>
@@ -199,7 +199,7 @@ export default function ProductsHub() {
         <div className="relative mx-auto max-w-[1600px] px-5 md:px-10">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="font-heading text-white mb-4 hero-text" style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)", fontWeight: 500 }}>
-              {locale === "es" ? "No encuentras lo que buscas?" : "Can't find what you're looking for?"}
+              {locale === "es" ? "¿No encuentras lo que buscas?" : "Can't find what you're looking for?"}
             </h2>
             <p className="text-white/70 mb-10 leading-relaxed hero-subtitle" style={{ fontSize: "1.05rem" }}>
               {t("notFound")}

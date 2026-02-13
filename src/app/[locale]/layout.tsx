@@ -41,7 +41,7 @@ export async function generateMetadata({
     openGraph: {
       title: t("title"),
       description: t("description"),
-      siteName: "IPSA - Ingenieria de Partes",
+      siteName: "IPSA - Ingeniería de Partes",
       locale: locale === "es" ? "es_MX" : "en_US",
       type: "website",
     },

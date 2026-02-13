@@ -41,9 +41,9 @@ export default async function SubtypeDetailPage({
 
   /* ── Related services from parent category ── */
   const serviceNames: Record<string, { es: string; en: string }> = {
-    automatizacion: { es: "Automatizacion de Valvulas", en: "Valve Automation" },
-    ingenieria: { es: "Ingenieria y Proyectos EPC", en: "Engineering & EPC Projects" },
-    "soporte-in-house": { es: "Centro de Automatizacion (CAD)", en: "Automation Center (CAD)" },
+    automatizacion: { es: "Automatización de Válvulas", en: "Valve Automation" },
+    ingenieria: { es: "Ingeniería y Proyectos EPC", en: "Engineering & EPC Projects" },
+    "soporte-in-house": { es: "Centro de Automatización (CAD)", en: "Automation Center (CAD)" },
   };
   const relatedServices = (category.services ?? []).map((slug: string) => ({
     slug,
@@ -111,7 +111,7 @@ export default async function SubtypeDetailPage({
                 {subtypeData.sizes && (
                   <div className="bg-white/10 backdrop-blur-sm rounded-lg px-4 py-2.5 border border-white/10">
                     <div className="text-[10px] text-white/50 font-medium uppercase tracking-wider">
-                      {locale === "es" ? "Tamanos" : "Sizes"}
+                      {locale === "es" ? "Tamaños" : "Sizes"}
                     </div>
                     <div className="text-white font-semibold text-sm">{subtypeData.sizes}</div>
                   </div>
@@ -276,7 +276,7 @@ export default async function SubtypeDetailPage({
                         style={{ borderLeft: "3px solid var(--color-gold)" }}
                       >
                         <dt className="text-xs text-gray-400 font-medium uppercase tracking-wider mb-2">
-                          {locale === "es" ? "Rango de tamanos" : "Size range"}
+                          {locale === "es" ? "Rango de tamaños" : "Size range"}
                         </dt>
                         <dd
                           className="text-gray-900 font-semibold"
@@ -292,7 +292,7 @@ export default async function SubtypeDetailPage({
                         style={{ borderLeft: "3px solid var(--color-gold)" }}
                       >
                         <dt className="text-xs text-gray-400 font-medium uppercase tracking-wider mb-2">
-                          {locale === "es" ? "Clases de presion" : "Pressure classes"}
+                          {locale === "es" ? "Clases de presión" : "Pressure classes"}
                         </dt>
                         <dd
                           className="text-gray-900 font-semibold"
@@ -388,14 +388,14 @@ export default async function SubtypeDetailPage({
                 <div className="h-1 bg-gradient-to-r from-gold to-gold-light" />
                 <div className="p-7">
                   <p className="text-gold-light font-medium text-sm tracking-widest uppercase mb-2">
-                    {locale === "es" ? "Cotizacion" : "Quote"}
+                    {locale === "es" ? "Cotización" : "Quote"}
                   </p>
                   <h3
                     className="font-heading text-white mb-3"
                     style={{ fontSize: "1.25rem", fontWeight: 600 }}
                   >
                     {locale === "es"
-                      ? "Solicita tu cotizacion"
+                      ? "Solicita tu cotización"
                       : "Request a quote"}
                   </h3>
                   <p className="text-white/60 text-sm leading-relaxed mb-5">
@@ -408,7 +408,7 @@ export default async function SubtypeDetailPage({
                     className="block w-full text-center px-6 py-3.5 bg-gold text-white font-semibold rounded-xl btn-lift hover:bg-gold-dark transition-colors"
                   >
                     {locale === "es"
-                      ? "Solicitar cotizacion"
+                      ? "Solicitar cotización"
                       : "Request a quote"}
                   </Link>
                   <a
@@ -462,7 +462,7 @@ export default async function SubtypeDetailPage({
               {siblings.length > 0 && (
                 <div className="p-7 rounded-xl bg-white border border-gray-100 shadow-card">
                   <p className="text-gold font-medium text-sm tracking-widest uppercase mb-2">
-                    {locale === "es" ? "Mas opciones" : "More options"}
+                    {locale === "es" ? "Más opciones" : "More options"}
                   </p>
                   <h3
                     className="font-heading text-gray-900 mb-4"
@@ -558,7 +558,7 @@ export default async function SubtypeDetailPage({
               style={{ fontSize: "1.05rem" }}
             >
               {locale === "es"
-                ? "Nuestro equipo de ingenieros esta listo para ayudarte a encontrar la solucion correcta."
+                ? "Nuestro equipo de ingenieros está listo para ayudarte a encontrar la solución correcta."
                 : "Our engineering team is ready to help you find the right solution."}
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

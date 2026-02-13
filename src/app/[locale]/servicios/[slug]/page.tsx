@@ -10,15 +10,15 @@ const serviceData: Record<string, {
 }> = {
   automatizacion: {
     es: {
-      name: "Automatizacion de valvulas y procesos",
-      desc: "Disenamos, construimos y comisionamos paquetes completos de automatizacion para valvulas de proceso. Desde la seleccion del actuador hasta el comisionamiento en sitio, ofrecemos una solucion llave en mano.",
-      capabilities: ["Paquetes completos valvula + actuador + accesorios", "Sistemas ESD (Emergency Shutdown)", "Paneles de control neumaticos y electrohidraulicos", "Seleccion de actuadores (neumaticos, electricos, hidraulicos)", "Integracion con sistemas de control (DCS, SIS, SCADA)", "Comisionamiento y puesta en marcha en sitio", "Soporte post-venta y servicio 24/7"],
+      name: "Automatización de válvulas y procesos",
+      desc: "Diseñamos, construimos y comisionamos paquetes completos de automatización para válvulas de proceso. Desde la selección del actuador hasta el comisionamiento en sitio, ofrecemos una solución llave en mano.",
+      capabilities: ["Paquetes completos válvula + actuador + accesorios", "Sistemas ESD (Emergency Shutdown)", "Paneles de control neumáticos y electrohidráulicos", "Selección de actuadores (neumáticos, eléctricos, hidráulicos)", "Integración con sistemas de control (DCS, SIS, SCADA)", "Comisionamiento y puesta en marcha en sitio", "Soporte post-venta y servicio 24/7"],
       steps: [
-        { title: "Analisis de requerimientos", desc: "Revisamos especificaciones, P&IDs y condiciones de operacion de tu proyecto." },
-        { title: "Ingenieria de diseno", desc: "Seleccionamos actuadores, accesorios y disenamos el paquete completo." },
+        { title: "Análisis de requerimientos", desc: "Revisamos especificaciones, P&IDs y condiciones de operación de tu proyecto." },
+        { title: "Ingeniería de diseño", desc: "Seleccionamos actuadores, accesorios y diseñamos el paquete completo." },
         { title: "Procura y ensamble", desc: "Adquirimos componentes y ensamblamos en nuestras instalaciones." },
-        { title: "Pruebas", desc: "Pruebas funcionales, de torque e hidrostaticas antes de entrega." },
-        { title: "Comisionamiento", desc: "Instalacion y puesta en marcha en sitio con nuestro equipo tecnico." },
+        { title: "Pruebas", desc: "Pruebas funcionales, de torque e hidrostáticas antes de entrega." },
+        { title: "Comisionamiento", desc: "Instalación y puesta en marcha en sitio con nuestro equipo técnico." },
       ],
     },
     en: {
@@ -36,15 +36,15 @@ const serviceData: Record<string, {
   },
   ingenieria: {
     es: {
-      name: "Ingenieria y proyectos EPC",
-      desc: "Como grupo integrado IPSA + MAEPSA + Certus, ofrecemos capacidad EPC completa para proyectos industriales. Desde la ingenieria conceptual hasta la entrega de instalaciones funcionando.",
-      capabilities: ["Ingenieria conceptual y basica", "Ingenieria de detalle", "Procura de equipos y materiales", "Construccion de instalaciones industriales", "Gestion integral de proyectos", "Supervision y control de calidad", "Entrega y puesta en marcha"],
+      name: "Ingeniería y proyectos EPC",
+      desc: "Como grupo integrado IPSA + MAEPSA + Certus, ofrecemos capacidad EPC completa para proyectos industriales. Desde la ingeniería conceptual hasta la entrega de instalaciones funcionando.",
+      capabilities: ["Ingeniería conceptual y básica", "Ingeniería de detalle", "Procura de equipos y materiales", "Construcción de instalaciones industriales", "Gestión integral de proyectos", "Supervisión y control de calidad", "Entrega y puesta en marcha"],
       steps: [
-        { title: "Ingenieria conceptual", desc: "Definimos el alcance, alternativas y viabilidad del proyecto." },
-        { title: "Ingenieria basica", desc: "Desarrollamos el diseno preliminar y especificaciones generales." },
-        { title: "Ingenieria de detalle", desc: "Generamos planos, especificaciones y documentos para construccion." },
-        { title: "Procura", desc: "Adquirimos todos los equipos y materiales segun especificacion." },
-        { title: "Construccion y entrega", desc: "Construimos, probamos y entregamos la instalacion operando." },
+        { title: "Ingeniería conceptual", desc: "Definimos el alcance, alternativas y viabilidad del proyecto." },
+        { title: "Ingeniería básica", desc: "Desarrollamos el diseño preliminar y especificaciones generales." },
+        { title: "Ingeniería de detalle", desc: "Generamos planos, especificaciones y documentos para construcción." },
+        { title: "Procura", desc: "Adquirimos todos los equipos y materiales según especificación." },
+        { title: "Construcción y entrega", desc: "Construimos, probamos y entregamos la instalación operando." },
       ],
     },
     en: {
@@ -62,15 +62,15 @@ const serviceData: Record<string, {
   },
   "soporte-in-house": {
     es: {
-      name: "Centro de Automatizacion y Distribucion (CAD)",
-      desc: "Nuestro CAD en Cd. del Carmen, Campeche ofrece servicios de reparacion, pruebas, inspeccion y mantenimiento de equipos. Con inventario valorado en mas de $5M USD disponible 24/7.",
-      capabilities: ["Reparacion de valvulas de control y seguridad (MARC)", "Pruebas hidrostaticas y neumaticas", "Pruebas de torque", "Inspeccion NDE: ultrasonido, particulas magneticas, liquidos penetrantes, PMI", "Almacen 24/7 con inventario de +$5M USD", "Reparacion de enfriadores y aspas de ventilador", "Reparacion de unidades de potencia hidraulica (HPU)", "Entrenamiento tecnico especializado"],
+      name: "Centro de Automatización y Distribución (CAD)",
+      desc: "Nuestro CAD en Cd. del Carmen, Campeche ofrece servicios de reparación, pruebas, inspección y mantenimiento de equipos. Con inventario valorado en más de $5M USD disponible 24/7.",
+      capabilities: ["Reparación de válvulas de control y seguridad (MARC)", "Pruebas hidrostáticas y neumáticas", "Pruebas de torque", "Inspección NDE: ultrasonido, partículas magnéticas, líquidos penetrantes, PMI", "Almacén 24/7 con inventario de +$5M USD", "Reparación de enfriadores y aspas de ventilador", "Reparación de unidades de potencia hidráulica (HPU)", "Entrenamiento técnico especializado"],
       steps: [
-        { title: "Diagnostico", desc: "Evaluamos el equipo y determinamos el alcance de la reparacion." },
-        { title: "Propuesta", desc: "Presentamos propuesta tecnica y economica con tiempos de entrega." },
-        { title: "Reparacion/Servicio", desc: "Ejecutamos el trabajo con personal certificado en nuestras instalaciones." },
-        { title: "Pruebas", desc: "Verificamos el equipo con pruebas segun norma aplicable." },
-        { title: "Entrega", desc: "Entregamos el equipo con documentacion completa y certificados." },
+        { title: "Diagnóstico", desc: "Evaluamos el equipo y determinamos el alcance de la reparación." },
+        { title: "Propuesta", desc: "Presentamos propuesta técnica y económica con tiempos de entrega." },
+        { title: "Reparación/Servicio", desc: "Ejecutamos el trabajo con personal certificado en nuestras instalaciones." },
+        { title: "Pruebas", desc: "Verificamos el equipo con pruebas según norma aplicable." },
+        { title: "Entrega", desc: "Entregamos el equipo con documentación completa y certificados." },
       ],
     },
     en: {
@@ -148,7 +148,7 @@ export default async function ServicePage({ params }: { params: Promise<{ locale
                 {locale === "es" ? "Capacidades" : "Capabilities"}
               </p>
               <h2 className="font-heading text-gray-900 mb-8" style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)", fontWeight: 500 }}>
-                {locale === "es" ? "Que ofrecemos" : "What we offer"}
+                {locale === "es" ? "Qué ofrecemos" : "What we offer"}
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4">
                 {data.capabilities.map((cap) => (
@@ -171,14 +171,14 @@ export default async function ServicePage({ params }: { params: Promise<{ locale
                 </h3>
                 <p className="text-white/60 text-sm mb-5 leading-relaxed">
                   {locale === "es"
-                    ? "Nuestros ingenieros te ayudan a encontrar la solucion correcta."
+                    ? "Nuestros ingenieros te ayudan a encontrar la solución correcta."
                     : "Our engineers help you find the right solution."}
                 </p>
                 <Link
                   href={`${prefix}/contacto`}
                   className="block w-full text-center px-6 py-3 bg-gold text-white font-medium rounded-xl btn-lift hover:bg-gold-dark transition-colors mb-3"
                 >
-                  {locale === "es" ? "Solicitar asesoria" : "Request advisory"}
+                  {locale === "es" ? "Solicitar asesoría" : "Request advisory"}
                 </Link>
                 <a
                   href="tel:+525553973703"
@@ -221,7 +221,7 @@ export default async function ServicePage({ params }: { params: Promise<{ locale
         <div className="mx-auto max-w-[1600px] px-5 md:px-10">
           <div className="text-center mb-14">
             <p className="text-gold font-medium text-sm tracking-widest uppercase mb-3">
-              {locale === "es" ? "Metodologia" : "Methodology"}
+              {locale === "es" ? "Metodología" : "Methodology"}
             </p>
             <h2 className="font-heading text-gray-900" style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)", fontWeight: 500 }}>
               {locale === "es" ? "Nuestro proceso" : "Our process"}
@@ -289,7 +289,7 @@ export default async function ServicePage({ params }: { params: Promise<{ locale
             </h2>
             <p className="text-white/60 mb-10 leading-relaxed" style={{ fontSize: "1.05rem" }}>
               {locale === "es"
-                ? "Nuestro equipo de ingenieros esta listo para ayudarte a encontrar la solucion correcta para tu proyecto."
+                ? "Nuestro equipo de ingenieros está listo para ayudarte a encontrar la solución correcta para tu proyecto."
                 : "Our engineering team is ready to help you find the right solution for your project."}
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -298,7 +298,7 @@ export default async function ServicePage({ params }: { params: Promise<{ locale
                 className="inline-flex items-center px-8 py-4 bg-gold text-white font-semibold rounded-xl btn-lift hover:bg-gold-dark"
                 style={{ fontSize: "1.05rem" }}
               >
-                {locale === "es" ? "Solicitar asesoria" : "Request advisory"}
+                {locale === "es" ? "Solicitar asesoría" : "Request advisory"}
                 <ArrowRight size={18} className="ml-2" />
               </Link>
               <a

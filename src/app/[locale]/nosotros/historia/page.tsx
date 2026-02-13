@@ -6,42 +6,42 @@ import { ChevronRight, ArrowRight } from "lucide-react";
 const timeline = [
   {
     year: "1986",
-    es: "Fundacion de Ingenieria de Partes S.A. de C.V. en Ciudad de Mexico",
+    es: "Fundación de Ingeniería de Partes S.A. de C.V. en Ciudad de México",
     en: "Foundation of Ingenieria de Partes S.A. de C.V. in Mexico City",
   },
   {
     year: "1990s",
-    es: "Consolidacion como distribuidor de valvulas y automatizacion para la industria petrolera mexicana",
+    es: "Consolidación como distribuidor de válvulas y automatización para la industria petrolera mexicana",
     en: "Consolidation as a valve and automation distributor for the Mexican oil industry",
   },
   {
     year: "2000s",
-    es: "Apertura de oficinas en Cd. del Carmen y Paraiso, Tabasco, para servir al sector offshore",
-    en: "Opening of offices in Cd. del Carmen and Paraiso, Tabasco, to serve the offshore sector",
+    es: "Apertura de oficinas en Cd. del Carmen y Paraíso, Tabasco, para servir al sector offshore",
+    en: "Opening of offices in Cd. del Carmen and Paraíso, Tabasco, to serve the offshore sector",
   },
   {
     year: "2005",
-    es: "Establecimiento de MAEPSA para servicios de mantenimiento y reparacion de equipos de proceso",
+    es: "Establecimiento de MAEPSA para servicios de mantenimiento y reparación de equipos de proceso",
     en: "Establishment of MAEPSA for process equipment maintenance and repair services",
   },
   {
     year: "2010s",
-    es: "Expansion de alianzas con Della Foglia, Perar, DHV y otros fabricantes internacionales",
+    es: "Expansión de alianzas con Della Foglia, Perar, DHV y otros fabricantes internacionales",
     en: "Expansion of alliances with Della Foglia, Perar, DHV and other international manufacturers",
   },
   {
     year: "2015",
-    es: "Creacion de Certus Process Solutions en Houston, TX para fabricacion de actuadores auto-contenidos",
+    es: "Creación de Certus Process Solutions en Houston, TX para fabricación de actuadores auto-contenidos",
     en: "Creation of Certus Process Solutions in Houston, TX for self-contained actuator manufacturing",
   },
   {
     year: "2020s",
-    es: "Consolidacion del grupo IPSA-MAEPSA-Certus como solucion EPC integral con presencia en 6 sedes",
+    es: "Consolidación del grupo IPSA-MAEPSA-Certus como solución EPC integral con presencia en 6 sedes",
     en: "Consolidation of the IPSA-MAEPSA-Certus group as an integral EPC solution with 6 locations",
   },
   {
     year: "2024",
-    es: "Rediseno de marca y lanzamiento de nueva plataforma digital",
+    es: "Rediseño de marca y lanzamiento de nueva plataforma digital",
     en: "Brand redesign and launch of new digital platform",
   },
 ];
@@ -107,7 +107,7 @@ export default function HistoryPage() {
             </span>
             <h2 className="font-heading font-bold text-gray-900 text-3xl md:text-4xl">
               {locale === "es"
-                ? "Mas de tres decadas de experiencia"
+                ? "Más de tres décadas de experiencia"
                 : "Over three decades of experience"}
             </h2>
           </div>
@@ -149,12 +149,12 @@ export default function HistoryPage() {
         <div className="relative z-10 mx-auto max-w-[1600px] px-5 md:px-10 text-center">
           <h2 className="font-heading font-bold text-white text-3xl md:text-4xl mb-4">
             {locale === "es"
-              ? "Escribamos el siguiente capitulo juntos"
+              ? "Escribamos el siguiente capítulo juntos"
               : "Let's write the next chapter together"}
           </h2>
           <p className="text-white/70 text-lg max-w-2xl mx-auto mb-8">
             {locale === "es"
-              ? "Descubra como nuestras soluciones pueden impulsar su proyecto."
+              ? "Descubra cómo nuestras soluciones pueden impulsar su proyecto."
               : "Discover how our solutions can power your project."}
           </p>
           <Link

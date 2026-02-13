@@ -26,12 +26,12 @@ import { stockImages } from "@/data/images";
 /* ── Data ──────────────────────────────────────────── */
 
 const productCategories = [
-  { slug: "valvulas-bola", es: "Valvulas de Bola", en: "Ball Valves", Icon: CircleDot, desc: { es: "Floating, Trunnion, Fully Welded, Criogenicas, Subsea", en: "Floating, Trunnion, Fully Welded, Cryogenic, Subsea" } },
-  { slug: "valvulas-compuerta", es: "Valvulas de Compuerta", en: "Gate Valves", Icon: Layers, desc: { es: "Wedge, Slab Gate, Conduit, Forjadas API 602", en: "Wedge, Slab Gate, Conduit, Forged API 602" } },
-  { slug: "valvulas-control", es: "Valvulas de Control", en: "Control Valves", Icon: SlidersHorizontal, desc: { es: "Globe, Rotary, Butterfly, Anti-surge", en: "Globe, Rotary, Butterfly, Anti-surge" } },
-  { slug: "actuadores", es: "Actuadores", en: "Actuators", Icon: Settings, desc: { es: "Neumaticos, electricos, hidraulicos", en: "Pneumatic, electric, hydraulic" } },
+  { slug: "valvulas-bola", es: "Válvulas de Bola", en: "Ball Valves", Icon: CircleDot, desc: { es: "Floating, Trunnion, Fully Welded, Criogénicas, Subsea", en: "Floating, Trunnion, Fully Welded, Cryogenic, Subsea" } },
+  { slug: "valvulas-compuerta", es: "Válvulas de Compuerta", en: "Gate Valves", Icon: Layers, desc: { es: "Wedge, Slab Gate, Conduit, Forjadas API 602", en: "Wedge, Slab Gate, Conduit, Forged API 602" } },
+  { slug: "valvulas-control", es: "Válvulas de Control", en: "Control Valves", Icon: SlidersHorizontal, desc: { es: "Globe, Rotary, Butterfly, Anti-surge", en: "Globe, Rotary, Butterfly, Anti-surge" } },
+  { slug: "actuadores", es: "Actuadores", en: "Actuators", Icon: Settings, desc: { es: "Neumáticos, eléctricos, hidráulicos", en: "Pneumatic, electric, hydraulic" } },
   { slug: "actuadores-auto-contenidos", es: "Actuadores Auto-Contenidos", en: "Self-Contained Actuators", Icon: Cpu, desc: { es: "Sin fuente externa, hasta 600,000 lbs", en: "No external power, up to 600,000 lbs" } },
-  { slug: "paneles-de-control", es: "Paneles de Control", en: "Control Panels", Icon: Gauge, desc: { es: "ESD, regulacion, medicion custom", en: "ESD, regulation, custom metering" } },
+  { slug: "paneles-de-control", es: "Paneles de Control", en: "Control Panels", Icon: Gauge, desc: { es: "ESD, regulación, medición custom", en: "ESD, regulation, custom metering" } },
 ];
 
 const services = [
@@ -39,29 +39,29 @@ const services = [
     slug: "automatizacion",
     Icon: Zap,
     image: stockImages.automation,
-    es: { name: "Automatizacion de valvulas", desc: "Paquetes completos de automatizacion: valvula + actuador + accesorios, paneles ESD, comisionamiento en sitio." },
+    es: { name: "Automatización de válvulas", desc: "Paquetes completos de automatización: válvula + actuador + accesorios, paneles ESD, comisionamiento en sitio." },
     en: { name: "Valve automation", desc: "Complete automation packages: valve + actuator + accessories, ESD panels, on-site commissioning." },
   },
   {
     slug: "ingenieria",
     Icon: Settings,
     image: stockImages.engineering,
-    es: { name: "Ingenieria y proyectos EPC", desc: "Desde la ingenieria conceptual hasta la entrega de instalaciones industriales funcionando." },
+    es: { name: "Ingeniería y proyectos EPC", desc: "Desde la ingeniería conceptual hasta la entrega de instalaciones industriales funcionando." },
     en: { name: "Engineering & EPC projects", desc: "From conceptual engineering to delivery of operating industrial facilities." },
   },
   {
     slug: "soporte-in-house",
     Icon: Headphones,
     image: stockImages.workshop,
-    es: { name: "Centro de Automatizacion (CAD)", desc: "Reparacion, pruebas NDE, almacen 24/7 con inventario de +$5M USD en Cd. del Carmen." },
+    es: { name: "Centro de Automatización (CAD)", desc: "Reparación, pruebas NDE, almacén 24/7 con inventario de +$5M USD en Cd. del Carmen." },
     en: { name: "Automation Center (CAD)", desc: "Repair, NDE testing, 24/7 warehouse with $5M+ USD inventory in Cd. del Carmen." },
   },
 ];
 
 const industries = [
   { slug: "petroleras", image: stockImages.oilGas, Icon: Flame, es: { name: "Petroleras", desc: "Upstream, midstream y downstream" }, en: { name: "Oil & Gas", desc: "Upstream, midstream and downstream" } },
-  { slug: "aceites", image: stockImages.oils, Icon: Droplets, es: { name: "Aceites", desc: "Procesamiento y refinacion" }, en: { name: "Oils", desc: "Processing and refining" } },
-  { slug: "gas", image: stockImages.gas, Icon: Gauge, es: { name: "Gas", desc: "Procesamiento, transporte y distribucion" }, en: { name: "Gas", desc: "Processing, transport and distribution" } },
+  { slug: "aceites", image: stockImages.oils, Icon: Droplets, es: { name: "Aceites", desc: "Procesamiento y refinación" }, en: { name: "Oils", desc: "Processing and refining" } },
+  { slug: "gas", image: stockImages.gas, Icon: Gauge, es: { name: "Gas", desc: "Procesamiento, transporte y distribución" }, en: { name: "Gas", desc: "Processing, transport and distribution" } },
 ];
 
 const supplierLogos = [
@@ -181,7 +181,7 @@ export default function HomePage() {
               </h2>
               <p className="text-gray-500 mt-3 max-w-xl leading-relaxed">
                 {locale === "es"
-                  ? "Valvulas, actuadores y sistemas de control de los principales fabricantes mundiales."
+                  ? "Válvulas, actuadores y sistemas de control de los principales fabricantes mundiales."
                   : "Valves, actuators and control systems from leading global manufacturers."}
               </p>
             </div>
@@ -216,7 +216,7 @@ export default function HomePage() {
                         {product.desc[l]}
                       </p>
                       <span className="text-sm text-gold font-medium inline-flex items-center gap-1 group-hover:text-gold-dark transition-colors duration-150">
-                        {locale === "es" ? "Ver mas" : "Read more"}
+                        {locale === "es" ? "Ver más" : "Read more"}
                         <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform duration-150" />
                       </span>
                     </div>
@@ -362,23 +362,23 @@ export default function HomePage() {
                 {locale === "es" ? "Nuestra diferencia" : "Our difference"}
               </p>
               <h2 className="font-heading text-gray-900 mb-6" style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)", fontWeight: 500 }}>
-                {locale === "es" ? "Por que elegir IPSA?" : "Why choose IPSA?"}
+                {locale === "es" ? "¿Por qué elegir IPSA?" : "Why choose IPSA?"}
               </h2>
               <p className="text-gray-600 leading-relaxed mb-4">
                 {locale === "es"
-                  ? "Nuestra combinacion unica de inventario extenso, alianzas con fabricantes de clase mundial y capacidad de ingenieria nos permite ser la solucion integral para nuestros clientes."
+                  ? "Nuestra combinación única de inventario extenso, alianzas con fabricantes de clase mundial y capacidad de ingeniería nos permite ser la solución integral para nuestros clientes."
                   : "Our unique combination of extensive inventory, world-class manufacturer partnerships, and engineering capability allows us to be the comprehensive solution for our clients."}
               </p>
               <p className="text-gray-600 leading-relaxed mb-10">
                 {locale === "es"
-                  ? "No necesitas coordinar multiples proveedores cuando IPSA puede ofrecerte soluciones completas bajo un solo techo."
+                  ? "No necesitas coordinar múltiples proveedores cuando IPSA puede ofrecerte soluciones completas bajo un solo techo."
                   : "No need to coordinate multiple suppliers when IPSA can offer complete solutions under one roof."}
               </p>
 
               {/* Stats in rounded pill cards */}
               <div className="grid grid-cols-3 gap-4 mb-10">
                 {[
-                  { number: "38+", es: "Anos", en: "Years" },
+                  { number: "38+", es: "Años", en: "Years" },
                   { number: "6", es: "Sedes", en: "Locations" },
                   { number: "$5M+", es: "Inventario USD", en: "Inventory USD" },
                 ].map((stat) => (
@@ -398,7 +398,7 @@ export default function HomePage() {
                 href={`${prefix}/nosotros`}
                 className="inline-flex items-center px-7 py-3.5 bg-navy-deep text-white font-medium rounded-xl btn-lift hover:bg-navy"
               >
-                {locale === "es" ? "Conocer mas" : "Learn more"} <ArrowRight size={16} className="ml-2" />
+                {locale === "es" ? "Conocer más" : "Learn more"} <ArrowRight size={16} className="ml-2" />
               </Link>
             </div>
             {/* Right side is the image (visible via absolute positioning on lg) */}
@@ -455,7 +455,7 @@ export default function HomePage() {
                   </div>
                   <p className="text-white/60 text-sm mb-3">{industry[l].desc}</p>
                   <span className="inline-flex items-center gap-1 text-gold-light font-medium text-sm group-hover:text-gold-lighter transition-colors duration-150">
-                    {locale === "es" ? "Conoce mas" : "Learn more"}
+                    {locale === "es" ? "Conoce más" : "Learn more"}
                     <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform duration-150" />
                   </span>
                 </div>
@@ -528,9 +528,9 @@ export default function HomePage() {
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-5">
             {[
-              { city: "CDMX", label: "HQ", full: "Ciudad de Mexico" },
+              { city: "CDMX", label: "HQ", full: "Ciudad de México" },
               { city: "Cd. del Carmen", label: "CAD", full: "Campeche" },
-              { city: "Paraiso", label: "Taller", full: "Tabasco" },
+              { city: "Paraíso", label: "Taller", full: "Tabasco" },
               { city: "Houston", label: "Intl.", full: "Texas, USA" },
               { city: "Villahermosa", label: "Ventas", full: "Tabasco" },
               { city: "Tampico", label: "Ventas", full: "Tamaulipas" },
@@ -573,11 +573,11 @@ export default function HomePage() {
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-5 max-w-5xl mx-auto">
             {[
-              { code: "ISO 9001", desc: { es: "Sistema de gestion de calidad", en: "Quality management system" }, icon: "shield" },
-              { code: "API 6D", desc: { es: "Valvulas de tuberia", en: "Pipeline valves" }, icon: "check" },
+              { code: "ISO 9001", desc: { es: "Sistema de gestión de calidad", en: "Quality management system" }, icon: "shield" },
+              { code: "API 6D", desc: { es: "Válvulas de tubería", en: "Pipeline valves" }, icon: "check" },
               { code: "API 6A", desc: { es: "Equipo de cabezal de pozo", en: "Wellhead equipment" }, icon: "check" },
-              { code: "NACE MR0175", desc: { es: "Servicio acido (sour)", en: "Sour service" }, icon: "droplet" },
-              { code: "NORSOK", desc: { es: "Estandar noruego offshore", en: "Norwegian offshore standard" }, icon: "anchor" },
+              { code: "NACE MR0175", desc: { es: "Servicio ácido (sour)", en: "Sour service" }, icon: "droplet" },
+              { code: "NORSOK", desc: { es: "Estándar noruego offshore", en: "Norwegian offshore standard" }, icon: "anchor" },
               { code: "SIL III", desc: { es: "Seguridad funcional", en: "Functional safety" }, icon: "alert" },
             ].map((cert) => (
               <div
@@ -630,7 +630,7 @@ export default function HomePage() {
               </h2>
               <p className="text-white/60 mb-10 leading-relaxed" style={{ fontSize: "1.05rem" }}>
                 {locale === "es"
-                  ? "Nuestro equipo de ingenieros esta listo para ayudarte a encontrar la solucion correcta."
+                  ? "Nuestro equipo de ingenieros está listo para ayudarte a encontrar la solución correcta."
                   : "Our engineering team is ready to help you find the right solution."}
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

@@ -17,22 +17,22 @@ import { stockImages } from "@/data/images";
 
 const offices = [
   {
-    city: "Ciudad de Mexico",
+    city: "Ciudad de México",
     role: "HQ",
     address:
       "Convento de Actopan No. 33, Col. Jardines de Sta. Monica, 54050 Tlalnepantla, Edo. Mex.",
     phone: "+52 55 5397 3703",
   },
-  { city: "Cd. del Carmen", role: "CAD", address: "Campeche, Mexico", phone: "" },
-  { city: "Paraiso", role: "Taller", address: "Tabasco, Mexico", phone: "" },
+  { city: "Cd. del Carmen", role: "CAD", address: "Campeche, México", phone: "" },
+  { city: "Paraíso", role: "Taller", address: "Tabasco, México", phone: "" },
   {
     city: "Houston, TX",
     role: "Intl. Sales",
     address: "1601 Peach Leaf St, Houston TX 77039, USA",
     phone: "",
   },
-  { city: "Villahermosa", role: "Ventas", address: "Tabasco, Mexico", phone: "" },
-  { city: "Tampico", role: "Ventas", address: "Tamaulipas, Mexico", phone: "" },
+  { city: "Villahermosa", role: "Ventas", address: "Tabasco, México", phone: "" },
+  { city: "Tampico", role: "Ventas", address: "Tamaulipas, México", phone: "" },
 ];
 
 export default function ContactPage() {
@@ -94,7 +94,7 @@ export default function ContactPage() {
             {/* Form */}
             <div className="lg:col-span-3">
               <span className="text-gold font-medium text-sm tracking-widest uppercase mb-3 block">
-                {locale === "es" ? "Escribenos" : "Write to us"}
+                {locale === "es" ? "Escríbenos" : "Write to us"}
               </span>
               <h2 className="font-heading font-bold text-gray-900 text-2xl mb-6">
                 {t("formTitle")}

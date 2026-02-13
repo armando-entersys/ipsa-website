@@ -47,7 +47,7 @@ export default function ContactForm({ className = '' }: { className?: string }) 
         case 'email': {
           if (typeof value !== 'string' || !value.trim()) return 'Email requerido';
           const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-          return emailRegex.test(value) ? '' : 'Email no valido';
+          return emailRegex.test(value) ? '' : 'Email no válido';
         }
         case 'company':
           return typeof value === 'string' && !value.trim()

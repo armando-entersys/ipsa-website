@@ -10,12 +10,12 @@ const services = [
     icon: Zap,
     image: stockImages.automation,
     es: {
-      name: "Automatizacion de valvulas y procesos",
-      desc: "Disenamos, construimos y comisionamos paquetes completos de automatizacion para valvulas de proceso. Incluye seleccion de actuadores, accesorios, paneles de control y sistemas ESD (Emergency Shutdown).",
+      name: "Automatización de válvulas y procesos",
+      desc: "Diseñamos, construimos y comisionamos paquetes completos de automatización para válvulas de proceso. Incluye selección de actuadores, accesorios, paneles de control y sistemas ESD (Emergency Shutdown).",
       capabilities: [
-        "Paquetes valvula + actuador + accesorios",
+        "Paquetes válvula + actuador + accesorios",
         "Sistemas ESD (Emergency Shutdown)",
-        "Paneles de control neumaticos y electrohidraulicos",
+        "Paneles de control neumáticos y electrohidráulicos",
         "Comisionamiento en sitio",
         "Soporte post-venta 24/7",
       ],
@@ -37,14 +37,14 @@ const services = [
     icon: Settings,
     image: stockImages.engineering,
     es: {
-      name: "Ingenieria y proyectos EPC",
-      desc: "Como grupo integrado (IPSA + MAEPSA + Certus), ofrecemos capacidad EPC completa: ingenieria de detalle, procura de equipos y materiales, y construccion de instalaciones industriales.",
+      name: "Ingeniería y proyectos EPC",
+      desc: "Como grupo integrado (IPSA + MAEPSA + Certus), ofrecemos capacidad EPC completa: ingeniería de detalle, procura de equipos y materiales, y construcción de instalaciones industriales.",
       capabilities: [
-        "Ingenieria basica y de detalle",
-        "Ingenieria conceptual",
+        "Ingeniería básica y de detalle",
+        "Ingeniería conceptual",
         "Procura de equipos y materiales",
-        "Construccion y entrega de instalaciones",
-        "Gestion integral de proyectos",
+        "Construcción y entrega de instalaciones",
+        "Gestión integral de proyectos",
       ],
     },
     en: {
@@ -64,15 +64,15 @@ const services = [
     icon: Headphones,
     image: stockImages.workshop,
     es: {
-      name: "Centro de Automatizacion y Distribucion (CAD)",
-      desc: "Nuestro CAD en Cd. del Carmen ofrece reparacion, pruebas y mantenimiento de equipos con inventario disponible 24/7 valorado en mas de $5M USD.",
+      name: "Centro de Automatización y Distribución (CAD)",
+      desc: "Nuestro CAD en Cd. del Carmen ofrece reparación, pruebas y mantenimiento de equipos con inventario disponible 24/7 valorado en más de $5M USD.",
       capabilities: [
-        "Reparacion de valvulas de control y seguridad",
-        "Pruebas hidrostaticas y neumaticas",
+        "Reparación de válvulas de control y seguridad",
+        "Pruebas hidrostáticas y neumáticas",
         "Pruebas de torque",
-        "Inspeccion NDE (ultrasonido, particulas magneticas, liquidos penetrantes, PMI)",
-        "Almacen 24/7 con inventario de +$5M USD",
-        "Entrenamiento tecnico especializado",
+        "Inspección NDE (ultrasonido, partículas magnéticas, líquidos penetrantes, PMI)",
+        "Almacén 24/7 con inventario de +$5M USD",
+        "Entrenamiento técnico especializado",
       ],
     },
     en: {
@@ -206,7 +206,7 @@ export default function ServicesHub() {
                       ))}
                       {service[l].capabilities.length > 4 && (
                         <li className="text-sm text-gray-500 pl-4.5">
-                          +{service[l].capabilities.length - 4} {locale === "es" ? "mas" : "more"}...
+                          +{service[l].capabilities.length - 4} {locale === "es" ? "más" : "more"}...
                         </li>
                       )}
                     </ul>
@@ -237,7 +237,7 @@ export default function ServicesHub() {
               {locale === "es" ? "Capacidades" : "Capabilities"}
             </p>
             <h2 className="font-heading text-gray-900" style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)", fontWeight: 500 }}>
-              {locale === "es" ? "Un socio integral para tu operacion" : "A comprehensive partner for your operation"}
+              {locale === "es" ? "Un socio integral para tu operación" : "A comprehensive partner for your operation"}
             </h2>
           </div>
 
@@ -289,7 +289,7 @@ export default function ServicesHub() {
             </h2>
             <p className="text-white/60 mb-10 leading-relaxed" style={{ fontSize: "1.05rem" }}>
               {locale === "es"
-                ? "Nuestro equipo de ingenieros esta listo para ayudarte a encontrar la solucion correcta."
+                ? "Nuestro equipo de ingenieros está listo para ayudarte a encontrar la solución correcta."
                 : "Our engineering team is ready to help you find the right solution."}
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
