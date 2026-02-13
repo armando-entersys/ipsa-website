@@ -18,7 +18,7 @@
   --color-gold-muted: #a77c1f;
 
   /* ── Semantic: Text ───────────────────────────────── */
-  --color-heading: #1a2332;
+  --color-heading: #1e293b;
   --color-body: #374151;
   --color-muted: #6b7280;
   --color-subtle: #9ca3af;
@@ -43,7 +43,7 @@
   --color-gray-600: #4b5563;
   --color-gray-700: #374151;
   --color-gray-800: #1f2937;
-  --color-gray-900: #111827;
+  --color-gray-900: #1e293b;
 
   /* ── Typography ───────────────────────────────────── */
   --font-heading: "Montagu Slab", Georgia, serif;
