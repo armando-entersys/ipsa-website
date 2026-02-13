@@ -50,20 +50,22 @@
   --font-body: "Gantari", system-ui, sans-serif;
 }
 
-/* ── Base ──────────────────────────────────────────── */
-body {
-  background: var(--color-surface);
-  color: var(--color-body);
-  font-family: var(--font-body);
-  line-height: 1.7;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+/* ── Base (in @layer so Tailwind utilities can override) ── */
+@layer base {
+  body {
+    background: var(--color-surface);
+    color: var(--color-body);
+    font-family: var(--font-body);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-heading);
-  line-height: 1.25;
-  color: var(--color-gray-900);
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    line-height: 1.25;
+    color: var(--color-gray-900);
+  }
 }
 
 /* ── Hero text readability ─────────────────────────── */
