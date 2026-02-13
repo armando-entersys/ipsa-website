@@ -81,34 +81,23 @@ export default function HomePage() {
 
   return (
     <>
-      {/* ═══ HERO with animated slideshow ═══════════════ */}
+      {/* ═══ HERO with video background ═══════════════ */}
       <section className="relative overflow-hidden" style={{ minHeight: "75vh" }}>
-        {/* Slideshow images */}
-        {[
-          "/images/products/df-factory-valves.jpg",
-          stockImages.hero,
-          "/images/products/ipsa-tablero-1.jpg",
-          stockImages.industrial,
-        ].map((src, i) => (
-          <Image
-            key={i}
-            src={src}
-            alt=""
-            fill
-            priority={i === 0}
-            className="object-cover"
-            sizes="100vw"
-            style={{
-              animation: "heroFade 20s infinite",
-              animationDelay: `${i * 5}s`,
-              opacity: i === 0 ? 1 : 0,
-            }}
-          />
-        ))}
+        {/* Background video */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+          poster="/images/products/df-factory-valves.jpg"
+        >
+          <source src="/videos/hero-refinery.mp4" type="video/mp4" />
+        </video>
         {/* Dark overlay */}
-        <div className="absolute inset-0 bg-navy-deep/75" />
+        <div className="absolute inset-0 bg-navy-deep/70" />
         {/* Gradient accent */}
-        <div className="absolute inset-0 bg-gradient-to-r from-navy-deep/90 via-navy-deep/60 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-navy-deep/85 via-navy-deep/55 to-transparent" />
 
         <div className="relative mx-auto max-w-[1600px] px-5 md:px-10 flex items-center" style={{ minHeight: "75vh" }}>
           <div className="max-w-3xl py-24 lg:py-36">
