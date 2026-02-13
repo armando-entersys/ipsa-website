@@ -21,7 +21,7 @@ export default function AboutPage() {
   return (
     <>
       {/* Hero - About (warm, approachable with visible team image) */}
-      <section className="relative min-h-[400px] flex items-end overflow-hidden">
+      <section className="relative min-h-[400px] flex items-end overflow-hidden bg-navy-dark">
         <Image
           src={stockImages.aboutHero}
           alt=""
@@ -73,12 +73,14 @@ export default function AboutPage() {
                 {t("whoWeAreText")}
               </p>
             </div>
-            <div className="relative h-[360px] lg:h-[440px] rounded-xl overflow-hidden">
+            <div className="relative h-[360px] lg:h-[440px] rounded-xl overflow-hidden bg-gray-100">
               <Image
                 src={stockImages.team}
                 alt={locale === "es" ? "Nuestro equipo" : "Our team"}
                 fill
                 className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                loading="eager"
               />
               <div className="absolute inset-0 bg-navy-deep/20" />
             </div>

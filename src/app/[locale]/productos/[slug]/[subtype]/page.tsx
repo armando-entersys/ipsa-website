@@ -191,17 +191,25 @@ export default async function SubtypeDetailPage({
                     {subtypeManufacturers.map((mfr) => {
                       const card = (
                         <div className="flex items-center gap-5">
-                          <div className="w-16 h-16 shrink-0 relative rounded-xl overflow-hidden bg-navy-alt">
-                            {mfr.image ? (
+                          <div className="w-28 h-14 shrink-0 relative rounded-xl overflow-hidden bg-white border border-gray-100 flex items-center justify-center">
+                            {mfr.logo ? (
+                              <Image
+                                src={mfr.logo}
+                                alt={mfr.name}
+                                width={90}
+                                height={36}
+                                className="object-contain"
+                              />
+                            ) : mfr.image ? (
                               <Image
                                 src={mfr.image}
                                 alt={mfr.name}
                                 fill
                                 className="object-contain p-2"
-                                sizes="64px"
+                                sizes="112px"
                               />
                             ) : (
-                              <span className="flex items-center justify-center w-full h-full text-sm font-bold text-white">
+                              <span className="flex items-center justify-center w-full h-full text-sm font-bold text-navy-alt">
                                 {mfr.name
                                   .split(" ")[0]
                                   .substring(0, 3)
@@ -316,28 +324,58 @@ export default async function SubtypeDetailPage({
                       : "Standards & certifications"}
                   </h2>
                   <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
-                    {standards.map((std) => (
-                      <div
-                        key={std}
-                        className="flex items-center gap-3 p-4 rounded-xl bg-white border border-gray-100"
-                      >
+                    {standards.map((std) => {
+                      const logoMap: Record<string, string> = {
+                        "API 6D": "/images/logos/api.svg",
+                        "API 6A": "/images/logos/api.svg",
+                        "API 6DSS": "/images/logos/api.svg",
+                        "API 607": "/images/logos/api.svg",
+                        "API 6FA": "/images/logos/api.svg",
+                        "API 600": "/images/logos/api.svg",
+                        "API 602": "/images/logos/api.svg",
+                        "API 526": "/images/logos/api.svg",
+                        "API 527": "/images/logos/api.svg",
+                        "API 520": "/images/logos/api.svg",
+                        "API 553": "/images/logos/api.svg",
+                        "NACE MR0175": "/images/logos/nace.svg",
+                        "ISO 15848": "/images/logos/iso.svg",
+                        "ISO 10497": "/images/logos/iso.svg",
+                        "ISO 5211": "/images/logos/iso.svg",
+                        "ASME VIII": "/images/logos/asme.svg",
+                        "NORSOK M-650": "/images/logos/norsok.svg",
+                        "ATEX": "/images/logos/atex.svg",
+                        "SIL": "/images/logos/sil.svg",
+                      };
+                      const logo = logoMap[std];
+                      return (
                         <div
-                          className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0"
-                          style={{
-                            background: "linear-gradient(135deg, #141733, #203c88)",
-                          }}
+                          key={std}
+                          className="flex items-center gap-3 p-4 rounded-xl bg-white border border-gray-100"
                         >
-                          <Shield
-                            size={14}
-                            className="text-gold-light"
-                            strokeWidth={1.5}
-                          />
+                          {logo ? (
+                            <div className="w-8 h-8 shrink-0 relative">
+                              <Image src={logo} alt={std} fill className="object-contain" sizes="32px" />
+                            </div>
+                          ) : (
+                            <div
+                              className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0"
+                              style={{
+                                background: "linear-gradient(135deg, #141733, #203c88)",
+                              }}
+                            >
+                              <Shield
+                                size={14}
+                                className="text-gold-light"
+                                strokeWidth={1.5}
+                              />
+                            </div>
+                          )}
+                          <span className="text-sm font-semibold text-gray-900 tracking-wide">
+                            {std}
+                          </span>
                         </div>
-                        <span className="text-sm font-semibold text-gray-900 tracking-wide">
-                          {std}
-                        </span>
-                      </div>
-                    ))}
+                      );
+                    })}
                   </div>
                 </div>
               )}

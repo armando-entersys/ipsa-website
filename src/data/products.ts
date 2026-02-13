@@ -33,55 +33,71 @@ export interface ProductCategory {
 
 export const manufacturers: Record<
   string,
-  { name: string; slug: string; image: string; country: string }
+  { name: string; slug: string; image: string; logo: string; country: string; website: string }
 > = {
   dhv: {
     name: "DHV Valve Group",
     slug: "dhv",
     image: "/images/products/dhv-trunnion-2pc.jpg",
+    logo: "/images/logos/dhv.svg",
     country: "International",
+    website: "https://www.dhvindustries.com",
   },
   "della-foglia": {
     name: "Della Foglia",
     slug: "della-foglia",
     image: "/images/products/df-trunnion-automated.jpg",
+    logo: "/images/logos/della-foglia.svg",
     country: "Italia",
+    website: "https://www.dellafoglia.it",
   },
   perar: {
     name: "Perar",
     slug: "perar",
     image: "/images/products/df-trunnion-wb-coated.jpg",
+    logo: "/images/logos/perar.svg",
     country: "Italia",
+    website: "https://www.pfrvalves.com",
   },
   versa: {
     name: "Versa Valves",
     slug: "versa",
     image: "/images/products/versa-e4-solenoid.png",
+    logo: "/images/logos/versa.svg",
     country: "USA",
+    website: "https://www.versaproducts.com",
   },
   consolidated: {
     name: "Consolidated (Emerson)",
     slug: "",
     image: "",
+    logo: "/images/logos/consolidated.svg",
     country: "USA",
+    website: "https://www.emerson.com",
   },
   masoneilan: {
     name: "Masoneilan (Baker Hughes)",
     slug: "",
     image: "",
+    logo: "/images/logos/bakerhughes.svg",
     country: "USA",
+    website: "https://www.bakerhughes.com",
   },
   yokogawa: {
     name: "Yokogawa",
     slug: "",
     image: "",
+    logo: "/images/logos/yokogawa.svg",
     country: "Japan",
+    website: "https://www.yokogawa.com",
   },
   emerson: {
     name: "Emerson / Bettis / Shafer",
     slug: "",
     image: "",
+    logo: "/images/logos/emerson.svg",
     country: "USA",
+    website: "https://www.emerson.com",
   },
 };
 

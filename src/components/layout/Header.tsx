@@ -326,7 +326,7 @@ export default function Header() {
             scrolled ? "bg-navy-alt/98 backdrop-blur-md" : "bg-navy-alt"
           }`}
         >
-          <div className="mx-auto max-w-[1600px] px-5 md:px-10 flex items-center justify-between h-[72px]">
+          <div className="mx-auto max-w-[1600px] px-5 md:px-10 flex items-center h-[72px]">
             {/* Logo */}
             <Link href={prefix} className="flex items-center gap-3 shrink-0 group relative z-10">
               <div className="w-11 h-11 bg-gradient-to-br from-gold-light to-gold rounded-lg flex items-center justify-center transition-all duration-150 group-hover:shadow-lg group-hover:shadow-gold/20">
@@ -460,7 +460,7 @@ export default function Header() {
             </div>
 
             {/* Right: CTA + mobile toggle */}
-            <div className="flex items-center gap-3 relative z-10">
+            <div className="flex items-center gap-4 relative z-10 ml-auto shrink-0">
               <Link
                 href={`${prefix}/contacto`}
                 className="hidden lg:inline-flex items-center gap-2 px-6 py-2.5 bg-gold text-white text-sm font-semibold uppercase tracking-wider rounded-lg transition-all duration-150 hover:bg-gold-dark hover:shadow-lg hover:shadow-gold/20"

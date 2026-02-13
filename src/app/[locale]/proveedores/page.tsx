@@ -8,6 +8,7 @@ const suppliers = [
   {
     slug: "dhv",
     name: "DHV Valve Group",
+    logo: "/images/logos/dhv.svg",
     image: "/images/products/dhv-trunnion-2pc.jpg",
     es: { desc: "Fabricante de valvulas industriales con fundicion propia de 26,500 m2. Mas de 20 anos fabricando valvulas de acero y aleaciones especiales. Certificaciones API Q1, API 6D, API 6A, ISO 9001/14001/45001, NORSOK M-650, SIL Level III." },
     en: { desc: "Industrial valve manufacturer with own foundry of 26,500 m2. Over 20 years manufacturing steel and special alloy valves. Certifications API Q1, API 6D, API 6A, ISO 9001/14001/45001, NORSOK M-650, SIL Level III." },
@@ -18,6 +19,7 @@ const suppliers = [
   {
     slug: "della-foglia",
     name: "Della Foglia",
+    logo: "/images/logos/della-foglia.svg",
     image: "/images/products/df-trunnion-automated.jpg",
     es: { desc: "Fabricante italiano establecido en 1962. Proveedor de soluciones tecnicas con 20,000 m2 de area de produccion. Capacidad de 10,000 valvulas customizadas por ano. Aprobado por Shell, BP, Petrobras y PEMEX. Certificaciones API 6D, API 6A, API 6DSS." },
     en: { desc: "Italian manufacturer established in 1962. Technical solution provider with 20,000 m2 production area. Capacity of 10,000 customized valves per year. Approved by Shell, BP, Petrobras and PEMEX. Certifications API 6D, API 6A, API 6DSS." },
@@ -28,6 +30,7 @@ const suppliers = [
   {
     slug: "perar",
     name: "Perar",
+    logo: "/images/logos/perar.svg",
     image: "/images/products/df-trunnion-wb-coated.jpg",
     es: { desc: "Fabricante italiano de valvulas de bola trunnion mounted con cuerpo soldado. Tamanos de 2\" a 48\", clases ANSI 150 a 2500. Cumple API 6D, NACE MR0175." },
     en: { desc: "Italian manufacturer of trunnion mounted ball valves with welded body. Sizes from 2\" to 48\", ANSI 150 to 2500 classes. Meets API 6D, NACE MR0175." },
@@ -38,6 +41,7 @@ const suppliers = [
   {
     slug: "versa",
     name: "Versa Valves",
+    logo: "/images/logos/versa.svg",
     image: "/images/products/versa-e4-solenoid.png",
     es: { desc: "Fabricante estadounidense de valvulas solenoides y de control direccional. Soluciones para automatizacion y control de procesos con montaje NAMUR y certificaciones ATEX." },
     en: { desc: "American manufacturer of solenoid and directional control valves. Solutions for automation and process control with NAMUR mount and ATEX certifications." },
@@ -121,14 +125,14 @@ export default function SuppliersHub() {
                 className="group block rounded-xl overflow-hidden shadow-card-lg"
               >
                 <div className="flex flex-col md:flex-row">
-                  {/* Product image */}
-                  <div className="shrink-0 w-full md:w-56 relative overflow-hidden bg-surface-alt" style={{ minHeight: "180px" }}>
+                  {/* Logo + Product image */}
+                  <div className="shrink-0 w-full md:w-56 relative overflow-hidden bg-white flex items-center justify-center" style={{ minHeight: "180px" }}>
                     <Image
-                      src={supplier.image}
+                      src={supplier.logo}
                       alt={supplier.name}
-                      fill
-                      className="object-contain p-4 transition-transform duration-200 group-hover:scale-105"
-                      sizes="(max-width: 768px) 100vw, 224px"
+                      width={160}
+                      height={60}
+                      className="object-contain transition-transform duration-200 group-hover:scale-105"
                     />
                   </div>
 
@@ -183,13 +187,24 @@ export default function SuppliersHub() {
                 ? "Ademas de nuestros socios principales, representamos marcas como Consolidated, Masoneilan, Yokogawa, Emerson/Bettis y mas."
                 : "In addition to our main partners, we represent brands like Consolidated, Masoneilan, Yokogawa, Emerson/Bettis and more."}
             </p>
-            <div className="flex flex-wrap items-center justify-center gap-4 mb-12">
-              {["Consolidated", "Masoneilan", "Yokogawa", "Emerson/Bettis"].map((brand) => (
+            <div className="flex flex-wrap items-center justify-center gap-6 mb-12">
+              {[
+                { name: "Consolidated", logo: "/images/logos/consolidated.svg" },
+                { name: "Masoneilan", logo: "/images/logos/bakerhughes.svg" },
+                { name: "Yokogawa", logo: "/images/logos/yokogawa.svg" },
+                { name: "Emerson/Bettis", logo: "/images/logos/emerson.svg" },
+              ].map((brand) => (
                 <div
-                  key={brand}
-                  className="px-6 py-3 bg-white rounded-xl shadow-card"
+                  key={brand.name}
+                  className="px-6 py-4 bg-white rounded-xl shadow-card flex items-center gap-3"
                 >
-                  <span className="font-heading font-semibold text-gray-900 text-sm">{brand}</span>
+                  <Image
+                    src={brand.logo}
+                    alt={brand.name}
+                    width={120}
+                    height={40}
+                    className="object-contain"
+                  />
                 </div>
               ))}
             </div>

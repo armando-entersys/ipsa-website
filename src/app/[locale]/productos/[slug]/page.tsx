@@ -320,28 +320,58 @@ export default async function ProductCategoryPage({
                       : "Standards & certifications"}
                   </h2>
                   <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
-                    {standards.map((std) => (
-                      <div
-                        key={std}
-                        className="flex items-center gap-3 p-4 rounded-xl bg-white border border-gray-100"
-                      >
+                    {standards.map((std) => {
+                      const logoMap: Record<string, string> = {
+                        "API 6D": "/images/logos/api.svg",
+                        "API 6A": "/images/logos/api.svg",
+                        "API 6DSS": "/images/logos/api.svg",
+                        "API 607": "/images/logos/api.svg",
+                        "API 6FA": "/images/logos/api.svg",
+                        "API 600": "/images/logos/api.svg",
+                        "API 602": "/images/logos/api.svg",
+                        "API 526": "/images/logos/api.svg",
+                        "API 527": "/images/logos/api.svg",
+                        "API 520": "/images/logos/api.svg",
+                        "API 553": "/images/logos/api.svg",
+                        "NACE MR0175": "/images/logos/nace.svg",
+                        "ISO 15848": "/images/logos/iso.svg",
+                        "ISO 10497": "/images/logos/iso.svg",
+                        "ISO 5211": "/images/logos/iso.svg",
+                        "ASME VIII": "/images/logos/asme.svg",
+                        "NORSOK M-650": "/images/logos/norsok.svg",
+                        "ATEX": "/images/logos/atex.svg",
+                        "SIL": "/images/logos/sil.svg",
+                      };
+                      const logo = logoMap[std];
+                      return (
                         <div
-                          className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0"
-                          style={{
-                            background: "linear-gradient(135deg, #141733, #203c88)",
-                          }}
+                          key={std}
+                          className="flex items-center gap-3 p-4 rounded-xl bg-white border border-gray-100"
                         >
-                          <Shield
-                            size={14}
-                            className="text-gold-light"
-                            strokeWidth={1.5}
-                          />
+                          {logo ? (
+                            <div className="w-8 h-8 shrink-0 relative">
+                              <Image src={logo} alt={std} fill className="object-contain" sizes="32px" />
+                            </div>
+                          ) : (
+                            <div
+                              className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0"
+                              style={{
+                                background: "linear-gradient(135deg, #141733, #203c88)",
+                              }}
+                            >
+                              <Shield
+                                size={14}
+                                className="text-gold-light"
+                                strokeWidth={1.5}
+                              />
+                            </div>
+                          )}
+                          <span className="text-sm font-semibold text-gray-900 tracking-wide">
+                            {std}
+                          </span>
                         </div>
-                        <span className="text-sm font-semibold text-gray-900 tracking-wide">
-                          {std}
-                        </span>
-                      </div>
-                    ))}
+                      );
+                    })}
                   </div>
                 </div>
               )}
@@ -364,6 +394,7 @@ export default async function ProductCategoryPage({
                         name: string;
                         slug: string;
                         image: string;
+                        logo: string;
                         country: string;
                       }) => (
                         <Link
@@ -375,17 +406,25 @@ export default async function ProductCategoryPage({
                           }
                           className="group flex items-center gap-5 p-5 rounded-xl bg-white border border-gray-100 card-modern transition-all duration-150"
                         >
-                          <div className="w-16 h-16 rounded-xl flex items-center justify-center relative overflow-hidden shrink-0 bg-navy-alt">
-                            {s.image ? (
+                          <div className="w-28 h-14 rounded-xl flex items-center justify-center relative overflow-hidden shrink-0 bg-white border border-gray-100">
+                            {s.logo ? (
+                              <Image
+                                src={s.logo}
+                                alt={s.name}
+                                width={90}
+                                height={36}
+                                className="object-contain"
+                              />
+                            ) : s.image ? (
                               <Image
                                 src={s.image}
                                 alt={s.name}
                                 fill
                                 className="object-contain p-2"
-                                sizes="64px"
+                                sizes="112px"
                               />
                             ) : (
-                              <span className="text-sm font-bold text-white">
+                              <span className="text-sm font-bold text-navy-alt">
                                 {s.name
                                   .split(" ")[0]
                                   .substring(0, 3)

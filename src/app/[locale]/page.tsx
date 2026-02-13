@@ -65,10 +65,10 @@ const industries = [
 ];
 
 const supplierLogos = [
-  { name: "DHV Valve Group", slug: "dhv", initials: "DHV", image: "/images/products/dhv-trunnion-2pc.jpg" },
-  { name: "Della Foglia", slug: "della-foglia", initials: "DF", image: "/images/products/df-trunnion-wb.jpg" },
-  { name: "Perar", slug: "perar", initials: "PR", image: "/images/products/df-trunnion-wb-coated.jpg" },
-  { name: "Versa Valves", slug: "versa", initials: "VS", image: "/images/products/versa-e4-solenoid.png" },
+  { name: "DHV Valve Group", slug: "dhv", initials: "DHV", logo: "/images/logos/dhv.svg" },
+  { name: "Della Foglia", slug: "della-foglia", initials: "DF", logo: "/images/logos/della-foglia.svg" },
+  { name: "Perar", slug: "perar", initials: "PR", logo: "/images/logos/perar.svg" },
+  { name: "Versa Valves", slug: "versa", initials: "VS", logo: "/images/logos/versa.svg" },
 ];
 
 /* ── Page ─────────────────────────────────────────── */
@@ -261,13 +261,13 @@ export default function HomePage() {
                 href={`${prefix}/proveedores/${supplier.slug}`}
                 className="group flex flex-col items-center justify-center p-6 rounded-xl glass-dark transition-all duration-150 hover:bg-white/[0.08] overflow-hidden"
               >
-                <div className="relative w-full h-28 mb-4 rounded-xl overflow-hidden">
+                <div className="relative w-full h-16 mb-4 flex items-center justify-center">
                   <Image
-                    src={supplier.image}
+                    src={supplier.logo}
                     alt={supplier.name}
-                    fill
-                    className="object-contain transition-transform duration-200 group-hover:scale-105"
-                    sizes="(max-width: 768px) 50vw, 25vw"
+                    width={140}
+                    height={50}
+                    className="object-contain brightness-0 invert opacity-80 transition-all duration-200 group-hover:opacity-100"
                   />
                 </div>
                 <span className="text-sm text-white/70 font-medium group-hover:text-gold-light transition-colors duration-150 text-center">
