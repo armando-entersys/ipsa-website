@@ -71,7 +71,7 @@ export default function IndustriesHub() {
           sizes="100vw"
         />
         {/* Base overlay */}
-        <div className="absolute inset-0 bg-black/45" />
+        <div className="absolute inset-0 bg-black/55" />
         {/* Bottom gradient for text */}
         <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/70 via-navy-dark/25 to-transparent" />
 
