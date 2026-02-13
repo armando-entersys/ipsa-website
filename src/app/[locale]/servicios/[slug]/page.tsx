@@ -202,7 +202,7 @@ export default async function ServicePage({ params }: { params: Promise<{ locale
                       <Link
                         key={key}
                         href={`${prefix}/servicios/${key}`}
-                        className="flex items-center gap-2 py-2.5 text-sm text-gray-600 hover:text-gold transition-colors duration-300"
+                        className="flex items-center gap-2 py-2.5 text-sm text-gray-600 hover:text-gold transition-colors duration-150"
                         style={{ borderBottom: "1px solid var(--color-border-soft, #edf0f3)" }}
                       >
                         <ArrowRight size={13} className="text-gold shrink-0" />

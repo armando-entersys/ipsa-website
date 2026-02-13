@@ -171,7 +171,7 @@ export default async function ProductCategoryPage({
                         <Link
                           key={st.slug}
                           href={`${prefix}/productos/${slug}/${st.slug}`}
-                          className="group block rounded-xl overflow-hidden bg-white border border-gray-100 card-modern transition-all duration-300"
+                          className="group block rounded-xl overflow-hidden bg-white border border-gray-100 card-modern transition-all duration-150"
                         >
                           {/* Thumbnail */}
                           {st.image && (
@@ -183,7 +183,7 @@ export default async function ProductCategoryPage({
                                 src={st.image}
                                 alt={st[l].name}
                                 fill
-                                className="object-cover group-hover:scale-[1.03] transition-transform duration-500"
+                                className="object-cover group-hover:scale-[1.03] transition-transform duration-200"
                                 sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
                               />
                               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
@@ -191,7 +191,7 @@ export default async function ProductCategoryPage({
                           )}
                           <div className="p-6">
                             <h3
-                              className="font-heading text-gray-900 font-semibold mb-2 group-hover:text-gold transition-colors duration-300"
+                              className="font-heading text-gray-900 font-semibold mb-2 group-hover:text-gold transition-colors duration-150"
                               style={{ fontSize: "1.05rem" }}
                             >
                               {st[l].name}
@@ -234,11 +234,11 @@ export default async function ProductCategoryPage({
                               </div>
                             )}
 
-                            <span className="inline-flex items-center gap-1.5 text-sm text-gold font-semibold group-hover:text-gold-dark transition-colors duration-300">
+                            <span className="inline-flex items-center gap-1.5 text-sm text-gold font-semibold group-hover:text-gold-dark transition-colors duration-150">
                               {locale === "es" ? "Ver detalles" : "View details"}
                               <ArrowRight
                                 size={14}
-                                className="group-hover:translate-x-0.5 transition-transform duration-300"
+                                className="group-hover:translate-x-0.5 transition-transform duration-150"
                               />
                             </span>
                           </div>
@@ -366,7 +366,7 @@ export default async function ProductCategoryPage({
                               ? `${prefix}/proveedores/${s.slug}`
                               : `${prefix}/proveedores`
                           }
-                          className="group flex items-center gap-5 p-5 rounded-xl bg-white border border-gray-100 card-modern transition-all duration-300"
+                          className="group flex items-center gap-5 p-5 rounded-xl bg-white border border-gray-100 card-modern transition-all duration-150"
                         >
                           <div className="w-16 h-16 rounded-xl flex items-center justify-center relative overflow-hidden shrink-0 bg-navy-alt">
                             {s.image ? (
@@ -387,7 +387,7 @@ export default async function ProductCategoryPage({
                             )}
                           </div>
                           <div className="flex-1 min-w-0">
-                            <span className="block text-gray-900 font-semibold group-hover:text-gold transition-colors duration-300">
+                            <span className="block text-gray-900 font-semibold group-hover:text-gold transition-colors duration-150">
                               {s.name}
                             </span>
                             <span className="flex items-center gap-1.5 text-xs text-gray-400 mt-1">
@@ -397,7 +397,7 @@ export default async function ProductCategoryPage({
                           </div>
                           <ArrowRight
                             size={16}
-                            className="text-gray-300 group-hover:text-gold group-hover:translate-x-0.5 transition-all duration-300 shrink-0"
+                            className="text-gray-300 group-hover:text-gold group-hover:translate-x-0.5 transition-all duration-150 shrink-0"
                           />
                         </Link>
                       )
@@ -487,14 +487,14 @@ export default async function ProductCategoryPage({
                         <li key={s.slug}>
                           <Link
                             href={`${prefix}/servicios/${s.slug}`}
-                            className="group flex items-center justify-between py-2.5 px-3 rounded-lg hover:bg-gray-50 transition-colors duration-300"
+                            className="group flex items-center justify-between py-2.5 px-3 rounded-lg hover:bg-gray-50 transition-colors duration-150"
                           >
-                            <span className="text-sm text-gray-700 group-hover:text-gray-900 font-medium transition-colors duration-300">
+                            <span className="text-sm text-gray-700 group-hover:text-gray-900 font-medium transition-colors duration-150">
                               {s[l]}
                             </span>
                             <ArrowRight
                               size={14}
-                              className="text-gold group-hover:translate-x-0.5 transition-transform duration-300"
+                              className="text-gold group-hover:translate-x-0.5 transition-transform duration-150"
                             />
                           </Link>
                         </li>
@@ -522,14 +522,14 @@ export default async function ProductCategoryPage({
                         <li key={ind.slug}>
                           <Link
                             href={`${prefix}/industrias/${ind.slug}`}
-                            className="group flex items-center justify-between py-2.5 px-3 rounded-lg hover:bg-gray-50 transition-colors duration-300"
+                            className="group flex items-center justify-between py-2.5 px-3 rounded-lg hover:bg-gray-50 transition-colors duration-150"
                           >
-                            <span className="text-sm text-gray-700 group-hover:text-gray-900 font-medium transition-colors duration-300">
+                            <span className="text-sm text-gray-700 group-hover:text-gray-900 font-medium transition-colors duration-150">
                               {ind[l]}
                             </span>
                             <ArrowRight
                               size={14}
-                              className="text-gold group-hover:translate-x-0.5 transition-transform duration-300"
+                              className="text-gold group-hover:translate-x-0.5 transition-transform duration-150"
                             />
                           </Link>
                         </li>

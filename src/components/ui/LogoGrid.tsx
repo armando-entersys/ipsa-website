@@ -30,14 +30,14 @@ export default function LogoGrid({ logos, columns = 4, className = '' }: LogoGri
         const content = (
           <div
             key={logo.name}
-            className="group flex items-center justify-center rounded-xl border border-gray-200 bg-white p-6 transition-all duration-300 hover:shadow-lg"
+            className="group flex items-center justify-center rounded-xl border border-gray-200 bg-white p-6 transition-all duration-150 hover:shadow-lg"
           >
             <div className="relative h-14 w-full max-w-[160px]">
               <Image
                 src={logo.image}
                 alt={logo.name}
                 fill
-                className="object-contain grayscale transition-all duration-300 group-hover:grayscale-0"
+                className="object-contain grayscale transition-all duration-150 group-hover:grayscale-0"
               />
             </div>
           </div>

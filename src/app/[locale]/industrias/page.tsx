@@ -126,7 +126,7 @@ export default function IndustriesHub() {
                     src={industry.image}
                     alt={industry[l].name}
                     fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
                     sizes="(max-width: 768px) 100vw, 33vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/80 via-navy-deep/30 to-transparent" />
@@ -138,9 +138,9 @@ export default function IndustriesHub() {
                       </h3>
                     </div>
                     <p className="text-white/60 text-sm mb-3">{industry[l].desc}</p>
-                    <span className="inline-flex items-center gap-1 text-gold-light font-medium text-sm group-hover:text-gold-lighter transition-colors duration-300">
+                    <span className="inline-flex items-center gap-1 text-gold-light font-medium text-sm group-hover:text-gold-lighter transition-colors duration-150">
                       {locale === "es" ? "Ver soluciones" : "View solutions"}
-                      <ArrowRight size={13} className="group-hover:translate-x-0.5 transition-transform duration-300" />
+                      <ArrowRight size={13} className="group-hover:translate-x-0.5 transition-transform duration-150" />
                     </span>
                   </div>
                 </Link>

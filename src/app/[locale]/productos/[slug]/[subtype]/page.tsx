@@ -203,7 +203,7 @@ export default async function SubtypeDetailPage({
                             )}
                           </div>
                           <div className="flex-1 min-w-0">
-                            <span className="block text-gray-900 font-semibold group-hover:text-gold transition-colors duration-300">
+                            <span className="block text-gray-900 font-semibold group-hover:text-gold transition-colors duration-150">
                               {mfr.name}
                             </span>
                             <span className="flex items-center gap-1.5 text-xs text-gray-400 mt-1">
@@ -213,7 +213,7 @@ export default async function SubtypeDetailPage({
                           </div>
                           <ArrowRight
                             size={16}
-                            className="text-gray-300 group-hover:text-gold group-hover:translate-x-0.5 transition-all duration-300 shrink-0"
+                            className="text-gray-300 group-hover:text-gold group-hover:translate-x-0.5 transition-all duration-150 shrink-0"
                           />
                         </div>
                       );
@@ -222,7 +222,7 @@ export default async function SubtypeDetailPage({
                         <Link
                           key={mfr.slug}
                           href={`${prefix}/proveedores/${mfr.slug}`}
-                          className="group p-5 rounded-xl bg-white border border-gray-100 card-modern transition-all duration-300"
+                          className="group p-5 rounded-xl bg-white border border-gray-100 card-modern transition-all duration-150"
                         >
                           {card}
                         </Link>
@@ -386,7 +386,7 @@ export default async function SubtypeDetailPage({
               {/* Back to category */}
               <Link
                 href={`${prefix}/productos/${slug}`}
-                className="group flex items-center gap-4 p-5 rounded-xl bg-white border border-gray-100 shadow-card transition-all duration-300 hover:shadow-md"
+                className="group flex items-center gap-4 p-5 rounded-xl bg-white border border-gray-100 shadow-card transition-all duration-150 hover:shadow-md"
               >
                 <div
                   className="relative w-14 h-14 rounded-xl overflow-hidden shrink-0"
@@ -403,13 +403,13 @@ export default async function SubtypeDetailPage({
                   <span className="text-[10px] text-gray-400 font-medium uppercase tracking-wider block">
                     {locale === "es" ? "Categoria" : "Category"}
                   </span>
-                  <span className="text-sm text-gray-900 font-semibold group-hover:text-gold transition-colors duration-300 block truncate">
+                  <span className="text-sm text-gray-900 font-semibold group-hover:text-gold transition-colors duration-150 block truncate">
                     {catName}
                   </span>
                 </div>
                 <ArrowRight
                   size={14}
-                  className="text-gold group-hover:translate-x-0.5 transition-transform duration-300 shrink-0"
+                  className="text-gold group-hover:translate-x-0.5 transition-transform duration-150 shrink-0"
                 />
               </Link>
 
@@ -430,14 +430,14 @@ export default async function SubtypeDetailPage({
                       <li key={sib.slug}>
                         <Link
                           href={`${prefix}/productos/${slug}/${sib.slug}`}
-                          className="group flex items-center justify-between py-2.5 px-3 rounded-lg hover:bg-gray-50 transition-colors duration-300"
+                          className="group flex items-center justify-between py-2.5 px-3 rounded-lg hover:bg-gray-50 transition-colors duration-150"
                         >
-                          <span className="text-sm text-gray-700 group-hover:text-gray-900 font-medium transition-colors duration-300">
+                          <span className="text-sm text-gray-700 group-hover:text-gray-900 font-medium transition-colors duration-150">
                             {sib[l].name}
                           </span>
                           <ArrowRight
                             size={14}
-                            className="text-gold group-hover:translate-x-0.5 transition-transform duration-300"
+                            className="text-gold group-hover:translate-x-0.5 transition-transform duration-150"
                           />
                         </Link>
                       </li>
@@ -465,14 +465,14 @@ export default async function SubtypeDetailPage({
                       <li key={s.slug}>
                         <Link
                           href={`${prefix}/servicios/${s.slug}`}
-                          className="group flex items-center justify-between py-2.5 px-3 rounded-lg hover:bg-gray-50 transition-colors duration-300"
+                          className="group flex items-center justify-between py-2.5 px-3 rounded-lg hover:bg-gray-50 transition-colors duration-150"
                         >
-                          <span className="text-sm text-gray-700 group-hover:text-gray-900 font-medium transition-colors duration-300">
+                          <span className="text-sm text-gray-700 group-hover:text-gray-900 font-medium transition-colors duration-150">
                             {s[l]}
                           </span>
                           <ArrowRight
                             size={14}
-                            className="text-gold group-hover:translate-x-0.5 transition-transform duration-300"
+                            className="text-gold group-hover:translate-x-0.5 transition-transform duration-150"
                           />
                         </Link>
                       </li>

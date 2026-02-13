@@ -252,7 +252,7 @@ export default async function SupplierPage({ params }: { params: Promise<{ local
                     <Link
                       key={ind.slug}
                       href={`${prefix}/industrias/${ind.slug}`}
-                      className="flex items-center justify-between py-2.5 text-sm text-gray-600 hover:text-gold transition-colors duration-300"
+                      className="flex items-center justify-between py-2.5 text-sm text-gray-600 hover:text-gold transition-colors duration-150"
                       style={{ borderBottom: "1px solid var(--color-border-soft, #edf0f3)" }}
                     >
                       <span>{ind[l]}</span>
@@ -274,7 +274,7 @@ export default async function SupplierPage({ params }: { params: Promise<{ local
                     <Link
                       key={key}
                       href={`${prefix}/proveedores/${key}`}
-                      className="flex items-center justify-between py-2.5 text-sm text-gray-600 hover:text-gold transition-colors duration-300"
+                      className="flex items-center justify-between py-2.5 text-sm text-gray-600 hover:text-gold transition-colors duration-150"
                       style={{ borderBottom: "1px solid var(--color-border-soft, #edf0f3)" }}
                     >
                       <span>{s.name}</span>

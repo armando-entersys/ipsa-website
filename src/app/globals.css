@@ -105,12 +105,12 @@ html {
 
 /* ── Link base transition ──────────────────────────── */
 a {
-  transition: color 0.3s ease;
+  transition: color 0.15s ease;
 }
 
 /* ── Modern button styles ─────────────────────────── */
 .btn-lift {
-  transition: all 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+  transition: all 0.15s cubic-bezier(0.22, 0.61, 0.36, 1);
   border-radius: 10px;
 }
 .btn-lift:hover {
@@ -120,7 +120,7 @@ a {
 
 .btn-pill {
   border-radius: 999px;
-  transition: all 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+  transition: all 0.15s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 .btn-pill:hover {
   transform: translateY(-1px);
@@ -130,7 +130,7 @@ a {
 /* ── Modern card styles (soft, rounded, organic) ──── */
 .card-modern {
   border-radius: 16px;
-  transition: all 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+  transition: all 0.15s cubic-bezier(0.22, 0.61, 0.36, 1);
   border: 1px solid rgba(0, 0, 0, 0.05);
 }
 .card-modern:hover {
@@ -140,7 +140,7 @@ a {
 
 .card-hover {
   border-radius: 16px;
-  transition: all 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+  transition: all 0.15s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 .card-hover:hover {
   transform: translateY(-2px);
@@ -227,12 +227,12 @@ a {
   }
 }
 .animate-in {
-  animation: fadeInUp 0.6s ease-out forwards;
+  animation: fadeInUp 0.3s ease-out forwards;
 }
 
 /* ── Icon container hover ──────────────────────────── */
 .icon-lift {
-  transition: all 0.3s ease;
+  transition: all 0.15s ease;
 }
 .icon-lift:hover {
   transform: translateY(-2px);

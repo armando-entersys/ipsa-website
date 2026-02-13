@@ -127,7 +127,7 @@ export default function SuppliersHub() {
                       src={supplier.image}
                       alt={supplier.name}
                       fill
-                      className="object-contain p-4 transition-transform duration-500 group-hover:scale-105"
+                      className="object-contain p-4 transition-transform duration-200 group-hover:scale-105"
                       sizes="(max-width: 768px) 100vw, 224px"
                     />
                   </div>
@@ -154,9 +154,9 @@ export default function SuppliersHub() {
                       </span>{" "}
                       {l === "es" ? supplier.products_es : supplier.products_en}
                     </p>
-                    <span className="inline-flex items-center gap-1.5 text-gold font-medium text-sm group-hover:text-gold-dark transition-colors duration-300">
+                    <span className="inline-flex items-center gap-1.5 text-gold font-medium text-sm group-hover:text-gold-dark transition-colors duration-150">
                       {locale === "es" ? "Ver mas" : "Learn more"}
-                      <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform duration-300" />
+                      <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform duration-150" />
                     </span>
                   </div>
                 </div>

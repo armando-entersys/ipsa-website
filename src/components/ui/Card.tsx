@@ -44,14 +44,14 @@ type CardProps = ProductCardProps | ServiceCardProps | IndustryCardProps | Suppl
 function ProductCard({ title, description, image, href, className = '' }: ProductCardProps) {
   return (
     <div
-      className={`group flex flex-col overflow-hidden rounded-xl bg-white shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 ${className}`}
+      className={`group flex flex-col overflow-hidden rounded-xl bg-white shadow-md transition-all duration-150 hover:shadow-lg hover:-translate-y-0.5 ${className}`}
     >
       <div className="relative aspect-[4/3] overflow-hidden">
         <Image
           src={image}
           alt={title}
           fill
-          className="object-cover transition-transform duration-300 group-hover:scale-105"
+          className="object-cover transition-transform duration-150 group-hover:scale-105"
         />
       </div>
       <div className="flex flex-1 flex-col p-5">
@@ -82,7 +82,7 @@ function ProductCard({ title, description, image, href, className = '' }: Produc
 function ServiceCard({ title, description, icon: Icon, href, className = '' }: ServiceCardProps) {
   return (
     <div
-      className={`group flex flex-row items-start gap-5 rounded-xl bg-white p-6 shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 ${className}`}
+      className={`group flex flex-row items-start gap-5 rounded-xl bg-white p-6 shadow-md transition-all duration-150 hover:shadow-lg hover:-translate-y-0.5 ${className}`}
     >
       <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl icon-bg-navy text-gray-700 transition-colors group-hover:bg-gold group-hover:text-white">
         <Icon className="h-7 w-7" />
@@ -121,7 +121,7 @@ function IndustryCard({ title, image, href, className = '' }: IndustryCardProps)
         src={image}
         alt={title}
         fill
-        className="object-cover transition-transform duration-500 group-hover:scale-110"
+        className="object-cover transition-transform duration-200 group-hover:scale-110"
       />
       <div className="absolute inset-0 bg-navy-deep/60 transition-colors group-hover:bg-navy-deep/75" />
       <h3 className="relative z-10 px-6 text-center font-heading text-2xl font-bold text-white">
@@ -140,7 +140,7 @@ function IndustryCard({ title, image, href, className = '' }: IndustryCardProps)
 function SupplierCard({ title, image, href, className = '' }: SupplierCardProps) {
   const content = (
     <div
-      className={`group flex flex-col items-center justify-center gap-4 rounded-xl border border-gray-200 bg-white p-8 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 ${className}`}
+      className={`group flex flex-col items-center justify-center gap-4 rounded-xl border border-gray-200 bg-white p-8 transition-all duration-150 hover:shadow-lg hover:-translate-y-0.5 ${className}`}
     >
       <div className="relative h-16 w-36">
         <Image

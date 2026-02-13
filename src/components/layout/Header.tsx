@@ -288,21 +288,21 @@ export default function Header() {
 
   return (
     <>
-      <header className={`fixed top-0 left-0 right-0 z-[1000] transition-shadow duration-300 ${scrolled ? "shadow-lg" : ""}`}>
+      <header className={`fixed top-0 left-0 right-0 z-[1000] transition-shadow duration-150 ${scrolled ? "shadow-lg" : ""}`}>
         {/* ── Top utility bar ─────────────────────────── */}
         <div className="bg-navy-dark text-white">
           <div className="mx-auto max-w-[1600px] px-5 md:px-10 flex items-center justify-between h-9 text-xs">
             <div className="flex items-center gap-6">
               <a
                 href="tel:+525553973703"
-                className="flex items-center gap-1.5 text-white/70 hover:text-gold-light transition-colors duration-300"
+                className="flex items-center gap-1.5 text-white/70 hover:text-gold-light transition-colors duration-150"
               >
                 <Phone size={11} />
                 <span className="font-light">+52 55 5397 3703</span>
               </a>
               <a
                 href="mailto:ventas.mexico@ipsa-cv.com.mx"
-                className="hidden md:flex items-center gap-1.5 text-white/70 hover:text-gold-light transition-colors duration-300"
+                className="hidden md:flex items-center gap-1.5 text-white/70 hover:text-gold-light transition-colors duration-150"
               >
                 <Mail size={11} />
                 <span className="font-light">ventas.mexico@ipsa-cv.com.mx</span>
@@ -311,7 +311,7 @@ export default function Header() {
             <div className="flex items-center gap-5">
               <Link
                 href={`/${switchLocale}`}
-                className="flex items-center gap-1.5 text-white/70 hover:text-gold-light transition-colors duration-300 font-medium"
+                className="flex items-center gap-1.5 text-white/70 hover:text-gold-light transition-colors duration-150 font-medium"
               >
                 <Globe size={11} />
                 {t("language")}
@@ -322,14 +322,14 @@ export default function Header() {
 
         {/* ── Main navigation bar ─────────────────────── */}
         <nav
-          className={`relative transition-all duration-300 ${
+          className={`relative transition-all duration-150 ${
             scrolled ? "bg-navy-alt/98 backdrop-blur-md" : "bg-navy-alt"
           }`}
         >
           <div className="mx-auto max-w-[1600px] px-5 md:px-10 flex items-center justify-between h-[72px]">
             {/* Logo */}
             <Link href={prefix} className="flex items-center gap-3 shrink-0 group relative z-10">
-              <div className="w-11 h-11 bg-gradient-to-br from-gold-light to-gold rounded-lg flex items-center justify-center transition-all duration-300 group-hover:shadow-lg group-hover:shadow-gold/20">
+              <div className="w-11 h-11 bg-gradient-to-br from-gold-light to-gold rounded-lg flex items-center justify-center transition-all duration-150 group-hover:shadow-lg group-hover:shadow-gold/20">
                 <span className="text-navy-dark font-heading font-bold text-xl">IP</span>
               </div>
               <div className="hidden sm:block">
@@ -343,7 +343,7 @@ export default function Header() {
             </Link>
 
             {/* Desktop nav links */}
-            <div className="hidden lg:flex items-center h-full ml-12">
+            <div className="hidden lg:flex items-center h-full ml-12 flex-1">
               {/* Products */}
               <div
                 className="relative h-full flex items-center"
@@ -352,17 +352,17 @@ export default function Header() {
               >
                 <Link
                   href={`${prefix}/productos`}
-                  className="group relative flex items-center gap-1.5 px-5 h-full text-[0.9rem] font-medium uppercase tracking-[0.08em] transition-colors duration-300 text-white/90 hover:text-white"
+                  className="group relative flex items-center gap-1.5 px-5 h-full text-[0.9rem] font-medium uppercase tracking-[0.08em] transition-colors duration-150 text-white/90 hover:text-white"
                 >
                   {t("products")}
                   <ChevronDown
                     size={12}
-                    className={`transition-transform duration-300 opacity-60 ${
+                    className={`transition-transform duration-150 opacity-60 ${
                       activeDropdown === "products" ? "rotate-180" : ""
                     }`}
                   />
                   <span
-                    className={`absolute bottom-0 left-5 right-5 h-[3px] bg-gold transition-all duration-300 ${
+                    className={`absolute bottom-0 left-5 right-5 h-[3px] bg-gold transition-all duration-150 ${
                       activeDropdown === "products"
                         ? "opacity-100 scale-x-100"
                         : "opacity-0 scale-x-0"
@@ -383,19 +383,19 @@ export default function Header() {
                   <Link
                     href={`${prefix}${item.href}`}
                     onClick={closeDropdown}
-                    className="group relative flex items-center gap-1.5 px-5 h-full text-[0.9rem] font-medium uppercase tracking-[0.08em] transition-colors duration-300 text-white/90 hover:text-white"
+                    className="group relative flex items-center gap-1.5 px-5 h-full text-[0.9rem] font-medium uppercase tracking-[0.08em] transition-colors duration-150 text-white/90 hover:text-white"
                   >
                     {t(item.key)}
                     {item.children && (
                       <ChevronDown
                         size={12}
-                        className={`transition-transform duration-300 opacity-60 ${
+                        className={`transition-transform duration-150 opacity-60 ${
                           activeDropdown === item.key ? "rotate-180" : ""
                         }`}
                       />
                     )}
                     <span
-                      className={`absolute bottom-0 left-5 right-5 h-[3px] bg-gold transition-all duration-300 ${
+                      className={`absolute bottom-0 left-5 right-5 h-[3px] bg-gold transition-all duration-150 ${
                         activeDropdown === item.key
                           ? "opacity-100 scale-x-100"
                           : "opacity-0 scale-x-0"
@@ -407,7 +407,7 @@ export default function Header() {
                   {/* Inline dropdown for Services / Industries / Suppliers */}
                   {item.children && (
                     <div
-                      className={`absolute top-full left-0 pt-0 transition-all duration-200 ease-out ${
+                      className={`absolute top-full left-0 pt-0 z-[999] transition-all duration-200 ease-out ${
                         activeDropdown === item.key
                           ? "opacity-100 visible translate-y-0"
                           : "opacity-0 invisible -translate-y-2 pointer-events-none"
@@ -463,14 +463,14 @@ export default function Header() {
             <div className="flex items-center gap-3 relative z-10">
               <Link
                 href={`${prefix}/contacto`}
-                className="hidden lg:inline-flex items-center gap-2 px-6 py-2.5 bg-gold text-white text-sm font-semibold uppercase tracking-wider rounded-lg transition-all duration-300 hover:bg-gold-dark hover:shadow-lg hover:shadow-gold/20"
+                className="hidden lg:inline-flex items-center gap-2 px-6 py-2.5 bg-gold text-white text-sm font-semibold uppercase tracking-wider rounded-lg transition-all duration-150 hover:bg-gold-dark hover:shadow-lg hover:shadow-gold/20"
               >
                 {locale === "es" ? "Cotizar" : "Quote"}
                 <ArrowRight size={14} />
               </Link>
               <button
                 onClick={() => setMobileOpen(!mobileOpen)}
-                className="lg:hidden w-11 h-11 flex items-center justify-center text-white hover:text-gold-light transition-colors duration-300"
+                className="lg:hidden w-11 h-11 flex items-center justify-center text-white hover:text-gold-light transition-colors duration-150"
                 aria-label={mobileOpen ? "Close menu" : "Open menu"}
                 aria-expanded={mobileOpen}
               >
@@ -592,7 +592,7 @@ export default function Header() {
                   <Link
                     href={`${prefix}/contacto`}
                     onClick={closeDropdown}
-                    className="block text-center text-xs font-bold uppercase tracking-wider px-4 py-2.5 bg-gold text-white rounded-lg transition-all duration-300 hover:bg-gold-dark"
+                    className="block text-center text-xs font-bold uppercase tracking-wider px-4 py-2.5 bg-gold text-white rounded-lg transition-all duration-150 hover:bg-gold-dark"
                   >
                     {l === "es" ? "Solicitar cotizacion" : "Request a quote"}
                   </Link>
@@ -604,7 +604,7 @@ export default function Header() {
 
         {/* ── Dark overlay behind dropdowns ─────────── */}
         <div
-          className={`fixed inset-0 bg-black/20 z-[998] transition-opacity duration-300 ${
+          className={`fixed inset-0 bg-black/20 z-[998] transition-opacity duration-150 ${
             isDropdownOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
           }`}
           onClick={closeDropdown}
@@ -650,7 +650,7 @@ export default function Header() {
                   >
                     <ChevronDown
                       size={16}
-                      className={`transition-transform duration-300 ${mobileAccordion === "products" ? "rotate-180" : ""}`}
+                      className={`transition-transform duration-150 ${mobileAccordion === "products" ? "rotate-180" : ""}`}
                     />
                   </button>
                 </div>
@@ -718,7 +718,7 @@ export default function Header() {
                       >
                         <ChevronDown
                           size={16}
-                          className={`transition-transform duration-300 ${
+                          className={`transition-transform duration-150 ${
                             mobileAccordion === item.key ? "rotate-180" : ""
                           }`}
                         />
@@ -753,7 +753,7 @@ export default function Header() {
                 <Link
                   href={`${prefix}/contacto`}
                   onClick={() => setMobileOpen(false)}
-                  className="flex items-center justify-center gap-2 w-full px-6 py-3.5 bg-gold text-white font-bold uppercase tracking-wider rounded-lg transition-all duration-300 hover:bg-gold-dark"
+                  className="flex items-center justify-center gap-2 w-full px-6 py-3.5 bg-gold text-white font-bold uppercase tracking-wider rounded-lg transition-all duration-150 hover:bg-gold-dark"
                 >
                   {locale === "es" ? "Solicitar cotizacion" : "Request a quote"}
                   <ArrowRight size={16} />

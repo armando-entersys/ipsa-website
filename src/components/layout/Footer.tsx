@@ -66,7 +66,7 @@ export default function Footer() {
             <p className="mt-3">
               <a
                 href="tel:+525553973703"
-                className="text-white/85 text-sm hover:text-gold-light transition-colors duration-300"
+                className="text-white/85 text-sm hover:text-gold-light transition-colors duration-150"
               >
                 +52 55 5397 3703
               </a>
@@ -74,7 +74,7 @@ export default function Footer() {
             <p className="mt-1">
               <a
                 href="mailto:ventas.mexico@ipsa-cv.com.mx"
-                className="text-white/85 text-sm hover:text-gold-light transition-colors duration-300"
+                className="text-white/85 text-sm hover:text-gold-light transition-colors duration-150"
               >
                 ventas.mexico@ipsa-cv.com.mx
               </a>
@@ -109,7 +109,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-white/85 text-sm hover:text-gold-light transition-colors duration-300 block leading-relaxed"
+                    className="text-white/85 text-sm hover:text-gold-light transition-colors duration-150 block leading-relaxed"
                   >
                     {link.label}
                   </Link>
@@ -130,13 +130,13 @@ export default function Footer() {
           <div className="flex items-center gap-6 flex-wrap">
             <Link
               href={`${prefix}/nosotros`}
-              className="text-white/70 hover:text-gold-light transition-colors duration-300 whitespace-nowrap text-sm"
+              className="text-white/70 hover:text-gold-light transition-colors duration-150 whitespace-nowrap text-sm"
             >
               {t("privacy")}
             </Link>
             <Link
               href={`${prefix}/nosotros`}
-              className="text-white/70 hover:text-gold-light transition-colors duration-300 whitespace-nowrap text-sm"
+              className="text-white/70 hover:text-gold-light transition-colors duration-150 whitespace-nowrap text-sm"
             >
               {t("terms")}
             </Link>

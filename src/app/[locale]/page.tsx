@@ -152,7 +152,7 @@ export default function HomePage() {
                 className="text-center group bg-white rounded-xl p-8 shadow-card card-modern"
               >
                 <div
-                  className="w-16 h-16 mx-auto mb-5 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:scale-110"
+                  className="w-16 h-16 mx-auto mb-5 rounded-xl flex items-center justify-center transition-all duration-150 group-hover:scale-110"
                   style={{ background: "linear-gradient(135deg, rgba(200, 146, 42, 0.12), rgba(200, 146, 42, 0.04))" }}
                 >
                   <Icon size={28} className="text-gold" strokeWidth={1.5} />
@@ -188,7 +188,7 @@ export default function HomePage() {
             </div>
             <Link
               href={`${prefix}/productos`}
-              className="hidden md:inline-flex items-center gap-1 text-gold font-medium hover:text-gold-dark transition-colors duration-300"
+              className="hidden md:inline-flex items-center gap-1 text-gold font-medium hover:text-gold-dark transition-colors duration-150"
             >
               {t("products.viewAll")} <ChevronRight size={18} />
             </Link>
@@ -204,10 +204,10 @@ export default function HomePage() {
                 >
                   <div className="flex items-start gap-5">
                     <div
-                      className="w-12 h-12 shrink-0 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:scale-110"
+                      className="w-12 h-12 shrink-0 rounded-xl flex items-center justify-center transition-all duration-150 group-hover:scale-110"
                       style={{ background: "linear-gradient(135deg, rgba(26, 35, 50, 0.08), rgba(42, 82, 152, 0.06))" }}
                     >
-                      <PIcon size={22} className="text-gray-700 group-hover:text-gold transition-colors duration-300" strokeWidth={1.5} />
+                      <PIcon size={22} className="text-gray-700 group-hover:text-gold transition-colors duration-150" strokeWidth={1.5} />
                     </div>
                     <div className="flex-1 min-w-0">
                       <h3 className="font-heading font-semibold text-gray-900 text-base mb-1">
@@ -216,9 +216,9 @@ export default function HomePage() {
                       <p className="text-gray-500 text-sm leading-relaxed mb-3">
                         {product.desc[l]}
                       </p>
-                      <span className="text-sm text-gold font-medium inline-flex items-center gap-1 group-hover:text-gold-dark transition-colors duration-300">
+                      <span className="text-sm text-gold font-medium inline-flex items-center gap-1 group-hover:text-gold-dark transition-colors duration-150">
                         {locale === "es" ? "Ver mas" : "Read more"}
-                        <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform duration-300" />
+                        <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform duration-150" />
                       </span>
                     </div>
                   </div>
@@ -260,18 +260,18 @@ export default function HomePage() {
               <Link
                 key={supplier.slug}
                 href={`${prefix}/proveedores/${supplier.slug}`}
-                className="group flex flex-col items-center justify-center p-6 rounded-xl glass-dark transition-all duration-300 hover:bg-white/[0.08] overflow-hidden"
+                className="group flex flex-col items-center justify-center p-6 rounded-xl glass-dark transition-all duration-150 hover:bg-white/[0.08] overflow-hidden"
               >
                 <div className="relative w-full h-28 mb-4 rounded-xl overflow-hidden">
                   <Image
                     src={supplier.image}
                     alt={supplier.name}
                     fill
-                    className="object-contain transition-transform duration-500 group-hover:scale-105"
+                    className="object-contain transition-transform duration-200 group-hover:scale-105"
                     sizes="(max-width: 768px) 50vw, 25vw"
                   />
                 </div>
-                <span className="text-sm text-white/70 font-medium group-hover:text-gold-light transition-colors duration-300 text-center">
+                <span className="text-sm text-white/70 font-medium group-hover:text-gold-light transition-colors duration-150 text-center">
                   {supplier.name}
                 </span>
               </Link>
@@ -308,7 +308,7 @@ export default function HomePage() {
               <Link
                 key={service.slug}
                 href={`${prefix}/servicios/${service.slug}`}
-                className="group block rounded-xl overflow-hidden bg-white shadow-card card-modern transition-transform duration-400 hover:scale-[1.02]"
+                className="group block rounded-xl overflow-hidden bg-white shadow-card card-modern transition-transform duration-150 hover:scale-[1.02]"
               >
                 {/* Service image */}
                 <div className="relative h-56 overflow-hidden">
@@ -316,10 +316,10 @@ export default function HomePage() {
                     src={service.image}
                     alt={service[l].name}
                     fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    className="object-cover transition-transform duration-300 group-hover:scale-110"
                     sizes="(max-width: 768px) 100vw, 33vw"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent group-hover:from-black/20 transition-colors duration-300" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent group-hover:from-black/20 transition-colors duration-150" />
                 </div>
                 <div className="p-8">
                   <h3 className="font-heading font-semibold text-gray-900 text-lg mb-2">
@@ -328,9 +328,9 @@ export default function HomePage() {
                   <p className="text-gray-500 text-sm leading-relaxed mb-4">
                     {service[l].desc}
                   </p>
-                  <span className="text-gold font-medium text-sm inline-flex items-center gap-1 group-hover:text-gold-dark transition-colors duration-300">
+                  <span className="text-gold font-medium text-sm inline-flex items-center gap-1 group-hover:text-gold-dark transition-colors duration-150">
                     {t("services.learnMore")}
-                    <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform duration-300" />
+                    <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform duration-150" />
                   </span>
                 </div>
               </Link>
@@ -436,14 +436,14 @@ export default function HomePage() {
               <Link
                 key={industry.slug}
                 href={`${prefix}/industrias/${industry.slug}`}
-                className="group block relative rounded-xl overflow-hidden shadow-card transition-all duration-500 hover:scale-[1.02]"
+                className="group block relative rounded-xl overflow-hidden shadow-card transition-all duration-200 hover:scale-[1.02]"
                 style={{ minHeight: "340px" }}
               >
                 <Image
                   src={industry.image}
                   alt={industry[l].name}
                   fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="object-cover transition-transform duration-300 group-hover:scale-105"
                   sizes="(max-width: 768px) 100vw, 33vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/80 via-navy-deep/30 to-transparent" />
@@ -455,9 +455,9 @@ export default function HomePage() {
                     </h3>
                   </div>
                   <p className="text-white/60 text-sm mb-3">{industry[l].desc}</p>
-                  <span className="inline-flex items-center gap-1 text-gold-light font-medium text-sm group-hover:text-gold-lighter transition-colors duration-300">
+                  <span className="inline-flex items-center gap-1 text-gold-light font-medium text-sm group-hover:text-gold-lighter transition-colors duration-150">
                     {locale === "es" ? "Conoce mas" : "Learn more"}
-                    <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform duration-300" />
+                    <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform duration-150" />
                   </span>
                 </div>
               </Link>

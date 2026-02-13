@@ -55,7 +55,7 @@ export default function FAQ({ items, className = '' }: FAQProps) {
               id={id}
               role="region"
               aria-labelledby={`faq-question-${index}`}
-              className={`overflow-hidden transition-all duration-300 ${
+              className={`overflow-hidden transition-all duration-150 ${
                 isOpen ? 'max-h-96 pb-5' : 'max-h-0'
               }`}
             >

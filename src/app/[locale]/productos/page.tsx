@@ -79,7 +79,7 @@ export default function ProductsHub() {
                 <Link
                   key={cat.slug}
                   href={`${prefix}/productos/${cat.slug}`}
-                  className="group block bg-white rounded-xl overflow-hidden border border-gray-100 card-modern transition-all duration-300"
+                  className="group block bg-white rounded-xl overflow-hidden border border-gray-100 card-modern transition-all duration-150"
                 >
                   {/* Product image */}
                   <div className="relative overflow-hidden" style={{ aspectRatio: "16/10" }}>
@@ -87,7 +87,7 @@ export default function ProductsHub() {
                       src={cat.image}
                       alt={data.name}
                       fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                      className="object-cover transition-transform duration-200 group-hover:scale-[1.04]"
                       sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
                     />
                     {/* Subtle gradient overlay at bottom */}
@@ -102,7 +102,7 @@ export default function ProductsHub() {
 
                   {/* Content */}
                   <div className="p-6">
-                    <h3 className="font-heading text-gray-900 text-lg font-semibold mb-2 group-hover:text-gold transition-colors duration-300">
+                    <h3 className="font-heading text-gray-900 text-lg font-semibold mb-2 group-hover:text-gold transition-colors duration-150">
                       {data.name}
                     </h3>
                     <p className="text-gray-500 text-sm leading-relaxed mb-4 line-clamp-2">
@@ -135,9 +135,9 @@ export default function ProductsHub() {
                     )}
 
                     {/* CTA link */}
-                    <span className="inline-flex items-center gap-1.5 text-sm text-gold font-semibold group-hover:text-gold-dark transition-colors duration-300">
+                    <span className="inline-flex items-center gap-1.5 text-sm text-gold font-semibold group-hover:text-gold-dark transition-colors duration-150">
                       {locale === "es" ? "Ver productos" : "View products"}
-                      <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform duration-300" />
+                      <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform duration-150" />
                     </span>
                   </div>
                 </Link>
