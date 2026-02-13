@@ -66,9 +66,9 @@ export default function SuppliersHub() {
           sizes="100vw"
         />
         {/* Base overlay */}
-        <div className="absolute inset-0 bg-black/65" />
+        <div className="absolute inset-0 bg-black/50" />
         {/* Bottom gradient for text */}
-        <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/70 via-navy-dark/25 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/50 via-navy-dark/15 to-transparent" />
 
         <div className="relative mx-auto max-w-[1600px] px-5 md:px-10 flex items-end" style={{ minHeight: "45vh" }}>
           <div className="max-w-3xl pb-10 lg:pb-14 pt-28">
@@ -213,7 +213,7 @@ export default function SuppliersHub() {
           className="object-cover"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-navy-deep/80" />
+        <div className="absolute inset-0 bg-navy-deep/65" />
         <div className="relative mx-auto max-w-[1600px] px-5 md:px-10">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="font-heading text-white mb-4" style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)", fontWeight: 500 }}>

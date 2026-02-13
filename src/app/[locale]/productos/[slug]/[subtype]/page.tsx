@@ -63,8 +63,8 @@ export default async function SubtypeDetailPage({
           className="object-cover"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-black/65" />
-        <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/80 via-navy-dark/30 to-transparent" />
+        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/60 via-navy-dark/20 to-transparent" />
 
         <div
           className="relative mx-auto max-w-[1600px] px-5 md:px-10 flex items-end"
@@ -105,13 +105,6 @@ export default async function SubtypeDetailPage({
             >
               {stName}
             </h1>
-            <p
-              className="text-white/85 max-w-2xl leading-relaxed hero-subtitle"
-              style={{ fontSize: "1.1rem", lineHeight: 1.7 }}
-            >
-              {stDesc}
-            </p>
-
             {/* Glass stats chips */}
             {(subtypeData.sizes || subtypeData.pressureClasses || subtypeManufacturers.length > 0) && (
               <div className="flex flex-wrap gap-3 mt-8">
@@ -501,7 +494,7 @@ export default async function SubtypeDetailPage({
           className="object-cover"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-navy-deep/80" />
+        <div className="absolute inset-0 bg-navy-deep/65" />
         <div className="relative mx-auto max-w-[1600px] px-5 md:px-10">
           <div className="max-w-3xl mx-auto text-center">
             <h2

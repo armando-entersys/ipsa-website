@@ -12,13 +12,12 @@ import {
   ChevronDown,
   ChevronRight,
   Globe,
-  Search,
   ArrowRight,
 } from "lucide-react";
 
-/* ── Product mega-menu data (ACV-style hierarchy) ── */
+/* ── All product categories for the mega menu ──── */
 
-const productColumns = {
+const productCategories = {
   es: [
     {
       title: "Valvulas de Bola",
@@ -67,6 +66,36 @@ const productColumns = {
         { label: "Hidraulicos", href: "/productos/actuadores/hidraulicos" },
         { label: "Auto-Contenidos", href: "/productos/actuadores/auto-contenidos" },
       ],
+    },
+    {
+      title: "Valvulas de Seguridad",
+      href: "/productos/valvulas-seguridad",
+      image: "/images/products/ipsa-control-panel-1.jpg",
+      items: [],
+    },
+    {
+      title: "Valvulas Solenoides",
+      href: "/productos/valvulas-solenoides",
+      image: "/images/products/versa-e4-solenoid.png",
+      items: [],
+    },
+    {
+      title: "Paneles de Control",
+      href: "/productos/paneles-de-control",
+      image: "/images/products/ipsa-control-panel-1.jpg",
+      items: [],
+    },
+    {
+      title: "Instrumentacion",
+      href: "/productos/instrumentacion",
+      image: "/images/products/ipsa-control-panel-1.jpg",
+      items: [],
+    },
+    {
+      title: "Accesorios y Refacciones",
+      href: "/productos/accesorios-refacciones",
+      image: "/images/products/df-factory-valves.jpg",
+      items: [],
     },
   ],
   en: [
@@ -118,23 +147,36 @@ const productColumns = {
         { label: "Self-Contained", href: "/productos/actuadores/auto-contenidos" },
       ],
     },
-  ],
-};
-
-const productSecondary = {
-  es: [
-    { label: "Valvulas de Seguridad", href: "/productos/valvulas-seguridad" },
-    { label: "Valvulas Solenoides", href: "/productos/valvulas-solenoides" },
-    { label: "Paneles de Control", href: "/productos/paneles-de-control" },
-    { label: "Instrumentacion", href: "/productos/instrumentacion" },
-    { label: "Accesorios y Refacciones", href: "/productos/accesorios-refacciones" },
-  ],
-  en: [
-    { label: "Safety Relief Valves", href: "/productos/valvulas-seguridad" },
-    { label: "Solenoid Valves", href: "/productos/valvulas-solenoides" },
-    { label: "Control Panels", href: "/productos/paneles-de-control" },
-    { label: "Instrumentation", href: "/productos/instrumentacion" },
-    { label: "Accessories & Spare Parts", href: "/productos/accesorios-refacciones" },
+    {
+      title: "Safety Relief Valves",
+      href: "/productos/valvulas-seguridad",
+      image: "/images/products/ipsa-control-panel-1.jpg",
+      items: [],
+    },
+    {
+      title: "Solenoid Valves",
+      href: "/productos/valvulas-solenoides",
+      image: "/images/products/versa-e4-solenoid.png",
+      items: [],
+    },
+    {
+      title: "Control Panels",
+      href: "/productos/paneles-de-control",
+      image: "/images/products/ipsa-control-panel-1.jpg",
+      items: [],
+    },
+    {
+      title: "Instrumentation",
+      href: "/productos/instrumentacion",
+      image: "/images/products/ipsa-control-panel-1.jpg",
+      items: [],
+    },
+    {
+      title: "Accessories & Spare Parts",
+      href: "/productos/accesorios-refacciones",
+      image: "/images/products/df-factory-valves.jpg",
+      items: [],
+    },
   ],
 };
 
@@ -203,6 +245,7 @@ export default function Header() {
   const l = locale as "es" | "en";
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [hoveredCategory, setHoveredCategory] = useState(0);
   const [mobileAccordion, setMobileAccordion] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -228,10 +271,11 @@ export default function Header() {
   const handleMouseEnter = useCallback((key: string) => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
     setActiveDropdown(key);
+    if (key === "products") setHoveredCategory(0);
   }, []);
 
   const handleMouseLeave = useCallback(() => {
-    timeoutRef.current = setTimeout(() => setActiveDropdown(null), 200);
+    timeoutRef.current = setTimeout(() => setActiveDropdown(null), 150);
   }, []);
 
   const closeDropdown = useCallback(() => {
@@ -239,6 +283,8 @@ export default function Header() {
   }, []);
 
   const isDropdownOpen = activeDropdown !== null;
+  const categories = productCategories[l];
+  const activeCategory = categories[hoveredCategory];
 
   return (
     <>
@@ -298,7 +344,7 @@ export default function Header() {
 
             {/* Desktop nav links */}
             <div className="hidden lg:flex items-center h-full ml-12">
-              {/* Products (special mega menu) */}
+              {/* Products */}
               <div
                 className="relative h-full flex items-center"
                 onMouseEnter={() => handleMouseEnter("products")}
@@ -315,7 +361,6 @@ export default function Header() {
                       activeDropdown === "products" ? "rotate-180" : ""
                     }`}
                   />
-                  {/* Animated gold underline */}
                   <span
                     className={`absolute bottom-0 left-5 right-5 h-[3px] bg-gold transition-all duration-300 ${
                       activeDropdown === "products"
@@ -332,11 +377,12 @@ export default function Header() {
                 <div
                   key={item.key}
                   className="relative h-full flex items-center"
-                  onMouseEnter={() => item.children && handleMouseEnter(item.key)}
-                  onMouseLeave={handleMouseLeave}
+                  onMouseEnter={() => item.children ? handleMouseEnter(item.key) : undefined}
+                  onMouseLeave={item.children ? handleMouseLeave : undefined}
                 >
                   <Link
                     href={`${prefix}${item.href}`}
+                    onClick={closeDropdown}
                     className="group relative flex items-center gap-1.5 px-5 h-full text-[0.9rem] font-medium uppercase tracking-[0.08em] transition-colors duration-300 text-white/90 hover:text-white"
                   >
                     {t(item.key)}
@@ -348,7 +394,6 @@ export default function Header() {
                         }`}
                       />
                     )}
-                    {/* Animated gold underline */}
                     <span
                       className={`absolute bottom-0 left-5 right-5 h-[3px] bg-gold transition-all duration-300 ${
                         activeDropdown === item.key
@@ -358,6 +403,58 @@ export default function Header() {
                       style={{ transformOrigin: "center" }}
                     />
                   </Link>
+
+                  {/* Inline dropdown for Services / Industries / Suppliers */}
+                  {item.children && (
+                    <div
+                      className={`absolute top-full left-0 pt-0 transition-all duration-200 ease-out ${
+                        activeDropdown === item.key
+                          ? "opacity-100 visible translate-y-0"
+                          : "opacity-0 invisible -translate-y-2 pointer-events-none"
+                      }`}
+                      onMouseEnter={() => handleMouseEnter(item.key)}
+                      onMouseLeave={handleMouseLeave}
+                    >
+                      <div
+                        className="bg-white rounded-xl overflow-hidden min-w-[320px]"
+                        style={{ boxShadow: "0 12px 40px rgba(0,0,0,0.12), 0 0 0 1px rgba(0,0,0,0.04)" }}
+                      >
+                        <div className="h-[2px] bg-gradient-to-r from-gold to-gold-light" />
+                        <div className="p-2">
+                          {item.children[l].map((child) => (
+                            <Link
+                              key={child.href}
+                              href={`${prefix}${child.href}`}
+                              onClick={closeDropdown}
+                              className="group/child flex items-start gap-3 px-4 py-3 rounded-lg hover:bg-gray-50 transition-colors duration-150"
+                            >
+                              <div className="w-1.5 h-1.5 rounded-full bg-gold/40 mt-2 shrink-0 group-hover/child:bg-gold transition-colors duration-150" />
+                              <div>
+                                <span className="block text-sm text-gray-800 font-semibold group-hover/child:text-gold transition-colors duration-150">
+                                  {child.label}
+                                </span>
+                                {"desc" in child && (
+                                  <span className="block text-xs text-gray-400 mt-0.5 leading-relaxed">
+                                    {(child as { desc: string }).desc}
+                                  </span>
+                                )}
+                              </div>
+                            </Link>
+                          ))}
+                        </div>
+                        <div className="border-t border-gray-100 px-4 py-3">
+                          <Link
+                            href={`${prefix}${item.href}`}
+                            onClick={closeDropdown}
+                            className="flex items-center gap-1 text-xs font-semibold text-gold hover:text-gold-dark transition-colors duration-150"
+                          >
+                            {l === "es" ? "Ver todo" : "View all"}
+                            <ArrowRight size={11} />
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
@@ -383,200 +480,131 @@ export default function Header() {
           </div>
         </nav>
 
-        {/* ── Products mega dropdown (full-width ACV-style) ── */}
+        {/* ── Products mega dropdown (progressive hover reveal) ── */}
         <div
-          className={`absolute left-0 right-0 bg-white z-[999] transition-all duration-300 ease-out ${
+          className={`absolute left-0 right-0 bg-white z-[999] transition-all duration-200 ease-out ${
             activeDropdown === "products"
               ? "opacity-100 visible translate-y-0"
-              : "opacity-0 invisible -translate-y-3 pointer-events-none"
+              : "opacity-0 invisible -translate-y-2 pointer-events-none"
           }`}
           onMouseEnter={() => handleMouseEnter("products")}
           onMouseLeave={handleMouseLeave}
           style={{ boxShadow: "0 20px 50px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0,0,0,0.04)" }}
         >
-          {/* Gold accent bar on top */}
-          <div className="h-[3px] bg-gradient-to-r from-gold via-gold-light to-gold" />
+          <div className="h-[2px] bg-gradient-to-r from-gold to-gold-light" />
 
           <div className="mx-auto max-w-[1600px] px-5 md:px-10">
-            <div className="flex">
-              {/* Main product columns */}
-              <div className="flex-1 py-8">
-                <div className="grid grid-cols-4 gap-8">
-                  {productColumns[l].map((col) => (
-                    <div key={col.title} className="group/col">
-                      {/* Column header with image */}
-                      <Link
-                        href={`${prefix}${col.href}`}
-                        onClick={closeDropdown}
-                        className="block mb-4"
-                      >
-                        <div className="relative h-28 rounded-2xl overflow-hidden mb-3">
-                          <Image
-                            src={col.image}
-                            alt={col.title}
-                            fill
-                            className="object-cover transition-transform duration-500 group-hover/col:scale-110"
-                            sizes="200px"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-t from-navy-alt/80 to-transparent" />
-                          <div className="absolute bottom-0 left-0 right-0 p-3">
-                            <span className="text-white text-sm font-bold tracking-wide">
-                              {col.title}
-                            </span>
-                          </div>
-                        </div>
-                      </Link>
-                      {/* Sub-items */}
-                      <ul className="space-y-0.5">
-                        {col.items.map((item) => (
-                          <li key={item.label}>
-                            <Link
-                              href={`${prefix}${item.href}`}
-                              onClick={closeDropdown}
-                              className="flex items-center gap-2 text-[0.82rem] text-gray-500 hover:text-navy-alt px-3 py-1.5 -mx-1 rounded-xl transition-all duration-200 hover:bg-gray-50 group/item"
-                            >
-                              <span className="w-1 h-1 rounded-full bg-gray-300 group-hover/item:bg-gold group-hover/item:w-1.5 group-hover/item:h-1.5 transition-all duration-200 shrink-0" />
-                              {item.label}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  ))}
-                </div>
+            <div className="flex" style={{ minHeight: "380px" }}>
+              {/* Left: Category list */}
+              <div className="w-72 shrink-0 py-5 pr-5 border-r border-gray-100">
+                {categories.map((cat, idx) => (
+                  <Link
+                    key={cat.href}
+                    href={`${prefix}${cat.href}`}
+                    onClick={closeDropdown}
+                    onMouseEnter={() => setHoveredCategory(idx)}
+                    className={`group flex items-center justify-between px-4 py-2.5 rounded-lg text-sm transition-all duration-150 ${
+                      hoveredCategory === idx
+                        ? "bg-gray-50 text-gray-900 font-semibold"
+                        : "text-gray-600 hover:text-gray-900 hover:bg-gray-50/50"
+                    }`}
+                  >
+                    <span>{cat.title}</span>
+                    {cat.items.length > 0 && (
+                      <ChevronRight
+                        size={14}
+                        className={`transition-all duration-150 ${
+                          hoveredCategory === idx ? "text-gold opacity-100" : "opacity-0"
+                        }`}
+                      />
+                    )}
+                  </Link>
+                ))}
 
-                {/* Secondary product links row */}
-                <div className="mt-6 pt-5 flex flex-wrap gap-x-1 gap-y-1" style={{ borderTop: "2px solid #f3f4f6" }}>
-                  {productSecondary[l].map((item) => (
-                    <Link
-                      key={item.label}
-                      href={`${prefix}${item.href}`}
-                      onClick={closeDropdown}
-                      className="text-[0.82rem] text-gray-500 hover:text-navy-alt hover:bg-gray-50 px-3 py-1.5 rounded-xl transition-all duration-200"
-                    >
-                      {item.label}
-                    </Link>
-                  ))}
+                {/* View all products link */}
+                <div className="mt-4 pt-4 border-t border-gray-100 px-4">
+                  <Link
+                    href={`${prefix}/productos`}
+                    onClick={closeDropdown}
+                    className="flex items-center gap-1.5 text-sm font-semibold text-gold hover:text-gold-dark transition-colors duration-150"
+                  >
+                    {l === "es" ? "Ver todos los productos" : "View all products"}
+                    <ArrowRight size={13} />
+                  </Link>
                 </div>
               </div>
 
-              {/* Right sidebar: Featured + CTA */}
-              <div
-                className="w-56 shrink-0 py-8 pl-8 flex flex-col justify-between"
-                style={{ borderLeft: "2px solid #f3f4f6" }}
-              >
-                <div>
-                  <div className="relative h-44 rounded-lg overflow-hidden mb-5">
+              {/* Right: Subtypes for hovered category + image */}
+              <div className="flex-1 py-5 pl-8 flex gap-8">
+                {/* Subtypes list */}
+                <div className="flex-1">
+                  <Link
+                    href={`${prefix}${activeCategory.href}`}
+                    onClick={closeDropdown}
+                    className="group inline-block mb-5"
+                  >
+                    <h3 className="font-heading text-gray-900 text-xl font-semibold group-hover:text-gold transition-colors duration-150">
+                      {activeCategory.title}
+                    </h3>
+                  </Link>
+
+                  {activeCategory.items.length > 0 ? (
+                    <ul className="space-y-0.5">
+                      {activeCategory.items.map((item) => (
+                        <li key={item.label}>
+                          <Link
+                            href={`${prefix}${item.href}`}
+                            onClick={closeDropdown}
+                            className="group/item flex items-center gap-3 px-3 py-2 -mx-1 rounded-lg text-sm text-gray-500 hover:text-gray-900 hover:bg-gray-50 transition-all duration-150"
+                          >
+                            <span className="w-1.5 h-1.5 rounded-full bg-gray-300 group-hover/item:bg-gold transition-colors duration-150 shrink-0" />
+                            {item.label}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p className="text-sm text-gray-400">
+                      {l === "es"
+                        ? "Haz clic para ver todos los productos de esta categoria."
+                        : "Click to view all products in this category."}
+                    </p>
+                  )}
+                </div>
+
+                {/* Category image */}
+                <div className="w-56 shrink-0">
+                  <div className="relative h-48 rounded-xl overflow-hidden mb-4">
                     <Image
-                      src="/images/products/df-factory-valves.jpg"
-                      alt="IPSA Products"
+                      src={activeCategory.image}
+                      alt={activeCategory.title}
                       fill
                       className="object-cover"
                       sizes="224px"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-navy-alt/90 to-navy-alt/20" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-navy-alt/70 to-transparent" />
                     <div className="absolute bottom-0 left-0 right-0 p-4">
-                      <p className="text-gold-light text-[10px] font-bold uppercase tracking-widest mb-1">
-                        {l === "es" ? "Catalogo" : "Catalog"}
-                      </p>
-                      <p className="text-white text-xs leading-snug">
-                        {l === "es"
-                          ? "10 categorias de productos industriales"
-                          : "10 industrial product categories"}
-                      </p>
+                      <span className="text-white text-sm font-bold">
+                        {activeCategory.title}
+                      </span>
                     </div>
                   </div>
                   <Link
-                    href={`${prefix}/productos`}
+                    href={`${prefix}/contacto`}
                     onClick={closeDropdown}
-                    className="flex items-center gap-1.5 text-navy-alt text-sm font-bold hover:text-gold transition-colors duration-200"
+                    className="block text-center text-xs font-bold uppercase tracking-wider px-4 py-2.5 bg-gold text-white rounded-lg transition-all duration-300 hover:bg-gold-dark"
                   >
-                    {l === "es" ? "Ver todos los productos" : "View all products"}
-                    <ChevronRight size={14} />
+                    {l === "es" ? "Solicitar cotizacion" : "Request a quote"}
                   </Link>
                 </div>
-                <Link
-                  href={`${prefix}/contacto`}
-                  onClick={closeDropdown}
-                  className="block text-center text-xs font-bold uppercase tracking-wider px-4 py-3 bg-gold text-white rounded-lg transition-all duration-300 hover:bg-gold-dark hover:shadow-lg hover:shadow-gold/20 mt-6"
-                >
-                  {l === "es" ? "Solicitar cotizacion" : "Request a quote"}
-                </Link>
               </div>
             </div>
           </div>
         </div>
 
-        {/* ── Standard dropdowns (Services, Industries, Suppliers) ── */}
-        {otherNavItems.map((item) =>
-          item.children ? (
-            <div
-              key={item.key}
-              className={`absolute left-0 right-0 bg-white z-[999] transition-all duration-300 ease-out ${
-                activeDropdown === item.key
-                  ? "opacity-100 visible translate-y-0"
-                  : "opacity-0 invisible -translate-y-3 pointer-events-none"
-              }`}
-              onMouseEnter={() => handleMouseEnter(item.key)}
-              onMouseLeave={handleMouseLeave}
-              style={{ boxShadow: "0 20px 50px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0,0,0,0.04)" }}
-            >
-              <div className="h-[3px] bg-gradient-to-r from-gold via-gold-light to-gold" />
-              <div className="mx-auto max-w-[1600px] px-5 md:px-10 py-8">
-                <div className="flex items-start gap-12">
-                  {/* Section heading */}
-                  <div className="w-56 shrink-0">
-                    <Link
-                      href={`${prefix}${item.href}`}
-                      onClick={closeDropdown}
-                      className="group inline-block"
-                    >
-                      <h3 className="font-heading text-navy-alt text-2xl font-normal mb-2 group-hover:text-gold transition-colors duration-300">
-                        {t(item.key)}
-                      </h3>
-                      <span className="flex items-center gap-1 text-sm text-gold font-semibold">
-                        {l === "es" ? "Ver todo" : "View all"}
-                        <ArrowRight size={13} className="group-hover:translate-x-0.5 transition-transform duration-300" />
-                      </span>
-                    </Link>
-                  </div>
-
-                  {/* Children links */}
-                  <div className="flex-1 grid grid-cols-3 gap-4">
-                    {item.children[l].map((child) => (
-                      <Link
-                        key={child.href}
-                        href={`${prefix}${child.href}`}
-                        onClick={closeDropdown}
-                        className="group/child block p-5 rounded-2xl border border-transparent hover:border-gray-100 hover:bg-gray-50/60 hover:shadow-sm transition-all duration-200"
-                      >
-                        <div className="flex items-start gap-3">
-                          <div className="w-8 h-8 rounded-xl bg-gold/10 flex items-center justify-center shrink-0 mt-0.5 group-hover/child:bg-gold/20 transition-colors duration-200">
-                            <ChevronRight size={14} className="text-gold" />
-                          </div>
-                          <div>
-                            <span className="block text-[0.95rem] text-navy-alt font-semibold mb-1 group-hover/child:text-gold transition-colors duration-200">
-                              {child.label}
-                            </span>
-                            {"desc" in child && (
-                              <span className="block text-xs text-gray-500 leading-relaxed">
-                                {(child as { desc: string }).desc}
-                              </span>
-                            )}
-                          </div>
-                        </div>
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          ) : null
-        )}
-
         {/* ── Dark overlay behind dropdowns ─────────── */}
         <div
-          className={`fixed inset-0 bg-black/30 z-[998] transition-opacity duration-300 ${
+          className={`fixed inset-0 bg-black/20 z-[998] transition-opacity duration-300 ${
             isDropdownOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
           }`}
           onClick={closeDropdown}
@@ -628,7 +656,7 @@ export default function Header() {
                 </div>
                 {mobileAccordion === "products" && (
                   <div className="bg-navy-dark/60">
-                    {productColumns[l].map((col) => (
+                    {categories.filter(c => c.items.length > 0).map((col) => (
                       <div key={col.title}>
                         <Link
                           href={`${prefix}${col.href}`}
@@ -651,14 +679,14 @@ export default function Header() {
                       </div>
                     ))}
                     <div className="px-8 pt-3 pb-4 ml-6 border-l-[3px] border-white/5">
-                      {productSecondary[l].map((item) => (
+                      {categories.filter(c => c.items.length === 0).map((cat) => (
                         <Link
-                          key={item.label}
-                          href={`${prefix}${item.href}`}
+                          key={cat.title}
+                          href={`${prefix}${cat.href}`}
                           onClick={() => setMobileOpen(false)}
                           className="block py-1.5 text-sm text-white/50 hover:text-white/70 transition-colors duration-200"
                         >
-                          {item.label}
+                          {cat.title}
                         </Link>
                       ))}
                     </div>

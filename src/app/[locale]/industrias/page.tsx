@@ -71,9 +71,9 @@ export default function IndustriesHub() {
           sizes="100vw"
         />
         {/* Base overlay */}
-        <div className="absolute inset-0 bg-black/65" />
+        <div className="absolute inset-0 bg-black/50" />
         {/* Bottom gradient for text */}
-        <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/70 via-navy-dark/25 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/50 via-navy-dark/15 to-transparent" />
 
         <div className="relative mx-auto max-w-[1600px] px-5 md:px-10 flex items-end" style={{ minHeight: "55vh" }}>
           <div className="max-w-3xl pb-12 lg:pb-16 pt-32">
@@ -129,7 +129,7 @@ export default function IndustriesHub() {
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                     sizes="(max-width: 768px) 100vw, 33vw"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/90 via-navy-deep/40 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/80 via-navy-deep/30 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-8">
                     <div className="flex items-center gap-3 mb-3">
                       <Icon size={20} className="text-gold-light" strokeWidth={1.5} />
@@ -196,7 +196,7 @@ export default function IndustriesHub() {
           className="object-cover"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-navy-deep/80" />
+        <div className="absolute inset-0 bg-navy-deep/65" />
         <div className="relative mx-auto max-w-[1600px] px-5 md:px-10">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="font-heading text-white mb-4" style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)", fontWeight: 500 }}>

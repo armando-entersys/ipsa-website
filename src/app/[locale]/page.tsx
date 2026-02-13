@@ -95,9 +95,9 @@ export default function HomePage() {
           <source src="/videos/hero-refinery.mp4" type="video/mp4" />
         </video>
         {/* Dark overlay for text readability */}
-        <div className="absolute inset-0 bg-black/65" />
+        <div className="absolute inset-0 bg-black/50" />
         {/* Bottom gradient for text area */}
-        <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/80 via-navy-dark/30 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/60 via-navy-dark/20 to-transparent" />
 
         <div className="relative mx-auto max-w-[1600px] px-5 md:px-10 flex items-end" style={{ minHeight: "80vh" }}>
           <div className="max-w-3xl pb-16 lg:pb-24 pt-32">
@@ -352,7 +352,7 @@ export default function HomePage() {
               className="object-cover"
               sizes="50vw"
             />
-            <div className="absolute inset-0 bg-navy-deep/60" />
+            <div className="absolute inset-0 bg-navy-deep/45" />
           </div>
         </div>
 
@@ -411,7 +411,7 @@ export default function HomePage() {
                 className="object-cover"
                 sizes="100vw"
               />
-              <div className="absolute inset-0 bg-navy-deep/40" />
+              <div className="absolute inset-0 bg-navy-deep/30" />
             </div>
           </div>
         </div>
@@ -446,7 +446,7 @@ export default function HomePage() {
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                   sizes="(max-width: 768px) 100vw, 33vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/90 via-navy-deep/40 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/80 via-navy-deep/30 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-8">
                   <div className="flex items-center gap-3 mb-3">
                     <industry.Icon size={20} className="text-gold-light" strokeWidth={1.5} />
@@ -612,7 +612,7 @@ export default function HomePage() {
           className="object-cover"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-navy-deep/75" />
+        <div className="absolute inset-0 bg-navy-deep/60" />
         {/* Soft radial glow */}
         <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at 50% 50%, rgba(200, 146, 42, 0.08) 0%, transparent 60%)" }} />
         <div className="relative mx-auto max-w-[1600px] px-5 md:px-10">

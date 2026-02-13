@@ -20,8 +20,8 @@ export default function CatalogPage() {
           className="object-cover"
           priority
         />
-        <div className="absolute inset-0 bg-navy-deep/80" />
-        <div className="absolute inset-0 bg-gradient-to-r from-navy-deep/80 to-transparent" />
+        <div className="absolute inset-0 bg-navy-deep/65" />
+        <div className="absolute inset-0 bg-gradient-to-r from-navy-deep/65 to-transparent" />
         <div className="relative z-10 mx-auto w-full max-w-[1600px] px-5 md:px-10 py-20 lg:py-28">
           <nav className="text-sm text-white/50 mb-6">
             <Link href={prefix} className="hover:text-white transition-colors">
