@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ChevronRight, ArrowRight, Phone } from "lucide-react";
+import { ChevronRight, ArrowRight, Phone, Shield, MapPin } from "lucide-react";
 import { notFound } from "next/navigation";
 import { stockImages } from "@/data/images";
 import { productCategories, manufacturers } from "@/data/products";
@@ -30,7 +30,7 @@ export default async function ProductCategoryPage({
   /* ── Standards ── */
   const standards = category.standards ?? [];
 
-  /* ── Services (resolve slugs to display objects) ── */
+  /* ── Services ── */
   const serviceNames: Record<string, { es: string; en: string }> = {
     automatizacion: { es: "Automatizacion de Valvulas", en: "Valve Automation" },
     ingenieria: { es: "Ingenieria y Proyectos EPC", en: "Engineering & EPC Projects" },
@@ -42,7 +42,7 @@ export default async function ProductCategoryPage({
     en: serviceNames[slug]?.en ?? slug,
   }));
 
-  /* ── Industries (resolve slugs to display objects) ── */
+  /* ── Industries ── */
   const industryNames: Record<string, { es: string; en: string }> = {
     petroleras: { es: "Petroleras", en: "Oil & Gas" },
     aceites: { es: "Aceites", en: "Oils" },
@@ -56,10 +56,10 @@ export default async function ProductCategoryPage({
 
   return (
     <>
-      {/* ======== HERO with background image ======== */}
-      <section className="relative overflow-hidden" style={{ minHeight: "45vh" }}>
+      {/* ======== HERO (product-specific image) ======== */}
+      <section className="relative overflow-hidden" style={{ minHeight: "50vh" }}>
         <Image
-          src={stockImages.productsHero}
+          src={category.image}
           alt=""
           fill
           priority
@@ -67,13 +67,13 @@ export default async function ProductCategoryPage({
           sizes="100vw"
         />
         <div className="absolute inset-0 bg-black/65" />
-        <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/70 via-navy-dark/25 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/80 via-navy-dark/30 to-transparent" />
 
         <div
-          className="relative mx-auto max-w-[1600px] px-5 md:px-10 flex items-center"
-          style={{ minHeight: "45vh" }}
+          className="relative mx-auto max-w-[1600px] px-5 md:px-10 flex items-end"
+          style={{ minHeight: "50vh" }}
         >
-          <div className="max-w-3xl py-20 lg:py-28">
+          <div className="max-w-3xl pb-12 lg:pb-16 pt-28">
             {/* Breadcrumb */}
             <nav className="text-sm text-white/60 hero-subtitle mb-6">
               <Link href={prefix} className="hover:text-white transition-colors">
@@ -89,6 +89,9 @@ export default async function ProductCategoryPage({
               <ChevronRight size={14} className="inline mx-1" />
               <span className="text-white">{data.name}</span>
             </nav>
+
+            <div className="w-12 h-1 bg-gradient-to-r from-gold to-gold-light rounded-full mb-6" />
+
             <h1
               className="font-heading text-white leading-tight mb-6 hero-text-strong"
               style={{
@@ -104,188 +107,285 @@ export default async function ProductCategoryPage({
             >
               {data.desc}
             </p>
+
+            {/* Glass stats chips */}
+            {(category.sizes || category.pressureClasses) && (
+              <div className="flex flex-wrap gap-3 mt-8">
+                {category.sizes && (
+                  <div className="bg-white/10 backdrop-blur-sm rounded-lg px-4 py-2.5 border border-white/10">
+                    <div className="text-[10px] text-white/50 font-medium uppercase tracking-wider">
+                      {locale === "es" ? "Tamanos" : "Sizes"}
+                    </div>
+                    <div className="text-white font-semibold text-sm">{category.sizes}</div>
+                  </div>
+                )}
+                {category.pressureClasses && (
+                  <div className="bg-white/10 backdrop-blur-sm rounded-lg px-4 py-2.5 border border-white/10">
+                    <div className="text-[10px] text-white/50 font-medium uppercase tracking-wider">
+                      {locale === "es" ? "Clases" : "Classes"}
+                    </div>
+                    <div className="text-white font-semibold text-sm">{category.pressureClasses}</div>
+                  </div>
+                )}
+                {subtypes.length > 0 && (
+                  <div className="bg-white/10 backdrop-blur-sm rounded-lg px-4 py-2.5 border border-white/10">
+                    <div className="text-[10px] text-white/50 font-medium uppercase tracking-wider">
+                      {locale === "es" ? "Configuraciones" : "Configurations"}
+                    </div>
+                    <div className="text-white font-semibold text-sm">
+                      {subtypes.length} {locale === "es" ? "tipos" : "types"}
+                    </div>
+                  </div>
+                )}
+              </div>
+            )}
           </div>
         </div>
       </section>
 
       {/* ======== CONTENT ======== */}
-      <section className="py-16 lg:py-20 bg-surface">
+      <section
+        className="py-16 lg:py-20"
+        style={{ background: "linear-gradient(180deg, #ffffff 0%, #f9fafb 100%)" }}
+      >
         <div className="mx-auto max-w-[1600px] px-5 md:px-10">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-            {/* ---- Main content ---- */}
-            <div className="lg:col-span-2 space-y-12">
-              {/* Subtypes as clickable cards */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-14">
+            {/* ──── Main content ──── */}
+            <div className="lg:col-span-2 space-y-16">
+              {/* Subtypes as rich product cards */}
               {subtypes.length > 0 && (
                 <div>
                   <p className="text-gold font-medium text-sm tracking-widest uppercase mb-3">
                     {locale === "es" ? "Configuraciones" : "Configurations"}
                   </p>
                   <h2
-                    className="font-heading text-gray-900 mb-6"
+                    className="font-heading text-gray-900 mb-2"
                     style={{ fontSize: "clamp(1.5rem, 3.5vw, 1.75rem)", fontWeight: 500 }}
                   >
                     {locale === "es" ? "Tipos disponibles" : "Available types"}
                   </h2>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">
-                    {subtypes.map((st) => (
-                      <Link
-                        key={st.slug}
-                        href={`${prefix}/productos/${slug}/${st.slug}`}
-                        className="group card-hover rounded-xl overflow-hidden transition-all duration-300 bg-surface-alt shadow-card"
-                      >
-                        {/* Thumbnail */}
-                        {st.image && (
-                          <div
-                            className="relative w-full overflow-hidden"
-                            style={{ aspectRatio: "3/2" }}
-                          >
-                            <Image
-                              src={st.image}
-                              alt={st[l].name}
-                              fill
-                              className="object-cover group-hover:scale-[1.03] transition-transform duration-500"
-                              sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
-                            />
-                          </div>
-                        )}
-                        <div className="p-5">
-                          <h3 className="font-heading text-gray-900 text-sm font-semibold mb-1.5 group-hover:text-gold transition-colors duration-300">
-                            {st[l].name}
-                          </h3>
-                          <p className="text-gray-500 text-xs leading-relaxed line-clamp-2 mb-3">
-                            {st[l].desc}
-                          </p>
-                          {st.manufacturers && st.manufacturers.length > 0 && (
-                            <div className="flex flex-wrap gap-1.5 mb-2">
-                              {st.manufacturers.map((mfgId: string) => {
-                                const mfg = manufacturers[mfgId];
-                                return mfg ? (
-                                  <span key={mfgId} className="text-[10px] font-medium text-gray-400 bg-gray-100 px-2 py-0.5 rounded-md">
-                                    {mfg.name}
-                                  </span>
-                                ) : null;
-                              })}
+                  <p className="text-gray-500 text-sm leading-relaxed mb-8 max-w-xl">
+                    {locale === "es"
+                      ? "Selecciona la configuracion que mejor se adapte a tu aplicacion."
+                      : "Select the configuration that best fits your application."}
+                  </p>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    {subtypes.map((st) => {
+                      const stSuppliers = (st.manufacturers ?? [])
+                        .map((id: string) => manufacturers[id])
+                        .filter(Boolean);
+                      return (
+                        <Link
+                          key={st.slug}
+                          href={`${prefix}/productos/${slug}/${st.slug}`}
+                          className="group block rounded-xl overflow-hidden bg-white border border-gray-100 card-modern transition-all duration-300"
+                        >
+                          {/* Thumbnail */}
+                          {st.image && (
+                            <div
+                              className="relative w-full overflow-hidden"
+                              style={{ aspectRatio: "16/10" }}
+                            >
+                              <Image
+                                src={st.image}
+                                alt={st[l].name}
+                                fill
+                                className="object-cover group-hover:scale-[1.03] transition-transform duration-500"
+                                sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                              />
+                              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
                             </div>
                           )}
-                          <span className="inline-flex items-center gap-1 text-gold text-xs font-medium">
-                            {locale === "es" ? "Ver mas" : "Learn more"}
-                            <ArrowRight
-                              size={12}
-                              className="group-hover:translate-x-0.5 transition-transform duration-300"
-                            />
-                          </span>
-                        </div>
-                      </Link>
-                    ))}
+                          <div className="p-6">
+                            <h3
+                              className="font-heading text-gray-900 font-semibold mb-2 group-hover:text-gold transition-colors duration-300"
+                              style={{ fontSize: "1.05rem" }}
+                            >
+                              {st[l].name}
+                            </h3>
+                            <p className="text-gray-500 text-sm leading-relaxed line-clamp-2 mb-4">
+                              {st[l].desc}
+                            </p>
+
+                            {/* Specs row */}
+                            <div className="flex flex-wrap gap-x-4 gap-y-1 mb-4">
+                              {st.sizes && (
+                                <span className="text-xs text-gray-400">
+                                  <span className="font-medium text-gray-600">
+                                    {locale === "es" ? "Tamanos" : "Sizes"}:
+                                  </span>{" "}
+                                  {st.sizes}
+                                </span>
+                              )}
+                              {st.pressureClasses && (
+                                <span className="text-xs text-gray-400">
+                                  <span className="font-medium text-gray-600">
+                                    {locale === "es" ? "Clases" : "Classes"}:
+                                  </span>{" "}
+                                  {st.pressureClasses}
+                                </span>
+                              )}
+                            </div>
+
+                            {/* Manufacturer badges */}
+                            {stSuppliers.length > 0 && (
+                              <div className="flex flex-wrap gap-1.5 mb-4">
+                                {stSuppliers.map((mfg) => (
+                                  <span
+                                    key={mfg.slug || mfg.name}
+                                    className="text-[11px] font-medium text-navy-alt bg-navy-deep/[0.06] px-2.5 py-1 rounded-md"
+                                  >
+                                    {mfg.name}
+                                  </span>
+                                ))}
+                              </div>
+                            )}
+
+                            <span className="inline-flex items-center gap-1.5 text-sm text-gold font-semibold group-hover:text-gold-dark transition-colors duration-300">
+                              {locale === "es" ? "Ver detalles" : "View details"}
+                              <ArrowRight
+                                size={14}
+                                className="group-hover:translate-x-0.5 transition-transform duration-300"
+                              />
+                            </span>
+                          </div>
+                        </Link>
+                      );
+                    })}
                   </div>
                 </div>
               )}
 
-              {/* Specifications (sizes + pressure classes) */}
+              {/* Technical specifications */}
               {(category.sizes || category.pressureClasses) && (
-                <div
-                  className="p-8 rounded-xl bg-surface-alt shadow-card"
-                >
+                <div>
                   <p className="text-gold font-medium text-sm tracking-widest uppercase mb-3">
                     {locale === "es" ? "Datos tecnicos" : "Technical data"}
                   </p>
                   <h2
-                    className="font-heading text-gray-900 mb-6"
-                    style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)", fontWeight: 500 }}
+                    className="font-heading text-gray-900 mb-8"
+                    style={{ fontSize: "clamp(1.5rem, 3.5vw, 1.75rem)", fontWeight: 500 }}
                   >
                     {locale === "es" ? "Especificaciones" : "Specifications"}
                   </h2>
-                  <dl className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     {category.sizes && (
-                      <div>
-                        <dt className="text-xs text-gray-400 font-medium uppercase tracking-wider mb-1">
-                          {locale === "es" ? "Tamanos" : "Sizes"}
+                      <div
+                        className="p-6 rounded-xl bg-white border border-gray-100"
+                        style={{ borderLeft: "3px solid var(--color-gold)" }}
+                      >
+                        <dt className="text-xs text-gray-400 font-medium uppercase tracking-wider mb-2">
+                          {locale === "es" ? "Rango de tamanos" : "Size range"}
                         </dt>
                         <dd
                           className="text-gray-900 font-semibold"
-                          style={{ fontSize: "1.05rem" }}
+                          style={{ fontSize: "1.1rem" }}
                         >
                           {category.sizes}
                         </dd>
                       </div>
                     )}
                     {category.pressureClasses && (
-                      <div>
-                        <dt className="text-xs text-gray-400 font-medium uppercase tracking-wider mb-1">
+                      <div
+                        className="p-6 rounded-xl bg-white border border-gray-100"
+                        style={{ borderLeft: "3px solid var(--color-gold)" }}
+                      >
+                        <dt className="text-xs text-gray-400 font-medium uppercase tracking-wider mb-2">
                           {locale === "es" ? "Clases de presion" : "Pressure classes"}
                         </dt>
                         <dd
                           className="text-gray-900 font-semibold"
-                          style={{ fontSize: "1.05rem" }}
+                          style={{ fontSize: "1.1rem" }}
                         >
                           {category.pressureClasses}
                         </dd>
                       </div>
                     )}
-                  </dl>
+                  </div>
                 </div>
               )}
 
-              {/* Standards */}
+              {/* Standards & certifications */}
               {standards.length > 0 && (
                 <div>
                   <p className="text-gold font-medium text-sm tracking-widest uppercase mb-3">
                     {locale === "es" ? "Cumplimiento" : "Compliance"}
                   </p>
                   <h2
-                    className="font-heading text-gray-900 mb-6"
-                    style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)", fontWeight: 500 }}
+                    className="font-heading text-gray-900 mb-8"
+                    style={{ fontSize: "clamp(1.5rem, 3.5vw, 1.75rem)", fontWeight: 500 }}
                   >
                     {locale === "es"
                       ? "Normas y certificaciones"
-                      : "Standards and certifications"}
+                      : "Standards & certifications"}
                   </h2>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
                     {standards.map((std) => (
-                      <span
+                      <div
                         key={std}
-                        className="text-gray-900 text-sm font-medium px-4 py-2 rounded-xl bg-navy-deep/[0.06]"
+                        className="flex items-center gap-3 p-4 rounded-xl bg-white border border-gray-100"
                       >
-                        {std}
-                      </span>
+                        <div
+                          className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0"
+                          style={{
+                            background: "linear-gradient(135deg, #141733, #203c88)",
+                          }}
+                        >
+                          <Shield
+                            size={14}
+                            className="text-gold-light"
+                            strokeWidth={1.5}
+                          />
+                        </div>
+                        <span className="text-sm font-semibold text-gray-900 tracking-wide">
+                          {std}
+                        </span>
+                      </div>
                     ))}
                   </div>
                 </div>
               )}
 
-              {/* Suppliers */}
+              {/* Manufacturers */}
               {categorySuppliers.length > 0 && (
                 <div>
                   <p className="text-gold font-medium text-sm tracking-widest uppercase mb-3">
                     {locale === "es" ? "Representaciones" : "Partnerships"}
                   </p>
                   <h2
-                    className="font-heading text-gray-900 mb-6"
-                    style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)", fontWeight: 500 }}
+                    className="font-heading text-gray-900 mb-8"
+                    style={{ fontSize: "clamp(1.5rem, 3.5vw, 1.75rem)", fontWeight: 500 }}
                   >
                     {locale === "es" ? "Marcas disponibles" : "Available brands"}
                   </h2>
-                  <div className="flex flex-wrap gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     {categorySuppliers.map(
-                      (s: { name: string; slug: string; image: string; country: string }) => (
+                      (s: {
+                        name: string;
+                        slug: string;
+                        image: string;
+                        country: string;
+                      }) => (
                         <Link
-                          key={s.slug}
-                          href={`${prefix}/proveedores/${s.slug}`}
-                          className="group flex items-center gap-3 p-4 rounded-xl transition-all duration-300 hover:shadow-sm bg-surface-alt shadow-card"
+                          key={s.slug || s.name}
+                          href={
+                            s.slug
+                              ? `${prefix}/proveedores/${s.slug}`
+                              : `${prefix}/proveedores`
+                          }
+                          className="group flex items-center gap-5 p-5 rounded-xl bg-white border border-gray-100 card-modern transition-all duration-300"
                         >
-                          <div
-                            className="w-10 h-10 rounded-xl flex items-center justify-center relative overflow-hidden bg-navy-alt"
-                          >
+                          <div className="w-16 h-16 rounded-xl flex items-center justify-center relative overflow-hidden shrink-0 bg-navy-alt">
                             {s.image ? (
                               <Image
                                 src={s.image}
                                 alt={s.name}
                                 fill
-                                className="object-contain p-1"
-                                sizes="40px"
+                                className="object-contain p-2"
+                                sizes="64px"
                               />
                             ) : (
-                              <span className="text-xs font-bold text-white">
+                              <span className="text-sm font-bold text-white">
                                 {s.name
                                   .split(" ")[0]
                                   .substring(0, 3)
@@ -293,14 +393,18 @@ export default async function ProductCategoryPage({
                               </span>
                             )}
                           </div>
-                          <div>
-                            <span className="text-sm font-semibold text-gray-900 group-hover:text-gold transition-colors duration-300">
+                          <div className="flex-1 min-w-0">
+                            <span className="block text-gray-900 font-semibold group-hover:text-gold transition-colors duration-300">
                               {s.name}
+                            </span>
+                            <span className="flex items-center gap-1.5 text-xs text-gray-400 mt-1">
+                              <MapPin size={11} />
+                              {s.country}
                             </span>
                           </div>
                           <ArrowRight
-                            size={14}
-                            className="text-gray-300 group-hover:text-gold group-hover:translate-x-0.5 transition-all duration-300 ml-1"
+                            size={16}
+                            className="text-gray-300 group-hover:text-gold group-hover:translate-x-0.5 transition-all duration-300 shrink-0"
                           />
                         </Link>
                       )
@@ -310,13 +414,12 @@ export default async function ProductCategoryPage({
               )}
             </div>
 
-            {/* ---- Sidebar ---- */}
+            {/* ──── Sidebar ──── */}
             <div className="space-y-6">
-              {/* CTA */}
-              <div
-                className="p-7 rounded-xl relative overflow-hidden bg-navy-section"
-              >
-                <div className="relative">
+              {/* CTA with gold top accent */}
+              <div className="rounded-xl relative overflow-hidden bg-navy-section">
+                <div className="h-1 bg-gradient-to-r from-gold to-gold-light" />
+                <div className="p-7">
                   <p className="text-gold-light font-medium text-sm tracking-widest uppercase mb-2">
                     {locale === "es" ? "Cotizacion" : "Quote"}
                   </p>
@@ -351,11 +454,29 @@ export default async function ProductCategoryPage({
                 </div>
               </div>
 
+              {/* Category product image */}
+              <div
+                className="relative rounded-xl overflow-hidden"
+                style={{ aspectRatio: "4/3" }}
+              >
+                <Image
+                  src={category.image}
+                  alt={data.name}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 33vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/60 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-5">
+                  <p className="text-white font-heading font-semibold text-sm">
+                    {data.name}
+                  </p>
+                </div>
+              </div>
+
               {/* Related services */}
               {services.length > 0 && (
-                <div
-                  className="p-7 rounded-xl bg-surface-alt shadow-card"
-                >
+                <div className="p-7 rounded-xl bg-white border border-gray-100 shadow-card">
                   <p className="text-gold font-medium text-sm tracking-widest uppercase mb-2">
                     {locale === "es" ? "Soporte" : "Support"}
                   </p>
@@ -367,13 +488,13 @@ export default async function ProductCategoryPage({
                       ? "Servicios relacionados"
                       : "Related services"}
                   </h3>
-                  <ul className="space-y-3">
+                  <ul className="space-y-1">
                     {services.map(
                       (s: { es: string; en: string; slug: string }) => (
                         <li key={s.slug}>
                           <Link
                             href={`${prefix}/servicios/${s.slug}`}
-                            className="group flex items-center justify-between py-2 px-3 rounded-xl hover:bg-white transition-colors duration-300"
+                            className="group flex items-center justify-between py-2.5 px-3 rounded-lg hover:bg-gray-50 transition-colors duration-300"
                           >
                             <span className="text-sm text-gray-700 group-hover:text-gray-900 font-medium transition-colors duration-300">
                               {s[l]}
@@ -392,9 +513,7 @@ export default async function ProductCategoryPage({
 
               {/* Related industries */}
               {industries.length > 0 && (
-                <div
-                  className="p-7 rounded-xl bg-surface-alt shadow-card"
-                >
+                <div className="p-7 rounded-xl bg-white border border-gray-100 shadow-card">
                   <p className="text-gold font-medium text-sm tracking-widest uppercase mb-2">
                     {locale === "es" ? "Sectores" : "Sectors"}
                   </p>
@@ -404,13 +523,13 @@ export default async function ProductCategoryPage({
                   >
                     {locale === "es" ? "Industrias" : "Industries"}
                   </h3>
-                  <ul className="space-y-3">
+                  <ul className="space-y-1">
                     {industries.map(
                       (ind: { es: string; en: string; slug: string }) => (
                         <li key={ind.slug}>
                           <Link
                             href={`${prefix}/industrias/${ind.slug}`}
-                            className="group flex items-center justify-between py-2 px-3 rounded-xl hover:bg-white transition-colors duration-300"
+                            className="group flex items-center justify-between py-2.5 px-3 rounded-lg hover:bg-gray-50 transition-colors duration-300"
                           >
                             <span className="text-sm text-gray-700 group-hover:text-gray-900 font-medium transition-colors duration-300">
                               {ind[l]}
@@ -431,7 +550,7 @@ export default async function ProductCategoryPage({
         </div>
       </section>
 
-      {/* ======== CONTACT CTA (with background image) ======== */}
+      {/* ======== CONTACT CTA ======== */}
       <section className="relative py-24 lg:py-28 overflow-hidden">
         <Image
           src={stockImages.industrial}
@@ -444,15 +563,18 @@ export default async function ProductCategoryPage({
         <div className="relative mx-auto max-w-[1600px] px-5 md:px-10">
           <div className="max-w-3xl mx-auto text-center">
             <h2
-              className="font-heading text-white mb-4"
-              style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)", fontWeight: 500 }}
+              className="font-heading text-white mb-4 hero-text"
+              style={{
+                fontSize: "clamp(1.5rem, 3.5vw, 2rem)",
+                fontWeight: 500,
+              }}
             >
               {locale === "es"
                 ? "Hablemos de tu proyecto"
                 : "Let's talk about your project"}
             </h2>
             <p
-              className="text-white/60 mb-10 leading-relaxed"
+              className="text-white/60 mb-10 leading-relaxed hero-subtitle"
               style={{ fontSize: "1.05rem" }}
             >
               {locale === "es"

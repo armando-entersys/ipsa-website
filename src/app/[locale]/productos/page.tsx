@@ -28,15 +28,15 @@ export default function ProductsHub() {
 
         <div className="relative mx-auto max-w-[1600px] px-5 md:px-10 flex items-end" style={{ minHeight: "45vh" }}>
           <div className="max-w-3xl pb-10 lg:pb-14 pt-28">
-            <nav className="text-sm text-white/60 mb-4 hero-subtitle">
+            <nav className="text-sm text-white/60 mb-6 hero-subtitle">
               <Link href={prefix} className="hover:text-white transition-colors">
                 {locale === "es" ? "Inicio" : "Home"}
               </Link>
               <ChevronRight size={14} className="inline mx-1" />
               <span className="text-white">{t("title")}</span>
             </nav>
+            <div className="w-12 h-1 bg-gradient-to-r from-gold to-gold-light rounded-full mb-6" />
             <div className="flex items-center gap-4 mb-4">
-              <div className="w-10 h-[3px] bg-gold" />
               <h1
                 className="font-heading text-white leading-tight hero-text-strong"
                 style={{ fontSize: "clamp(2.25rem, 4.5vw, 3.75rem)", fontWeight: 500 }}
@@ -84,7 +84,7 @@ export default function ProductsHub() {
                 <Link
                   key={cat.slug}
                   href={`${prefix}/productos/${cat.slug}`}
-                  className="group block bg-white rounded-xl overflow-hidden card-modern transition-all duration-300"
+                  className="group block bg-white rounded-xl overflow-hidden border border-gray-100 card-modern transition-all duration-300"
                 >
                   {/* Product image */}
                   <div className="relative overflow-hidden" style={{ aspectRatio: "16/10" }}>
