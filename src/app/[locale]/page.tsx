@@ -103,8 +103,8 @@ export default function HomePage() {
 
         <div className="relative mx-auto max-w-[1600px] px-5 md:px-10 flex items-end" style={{ minHeight: "80vh" }}>
           <div className="max-w-3xl pb-16 lg:pb-24 pt-32">
-            {/* Gold accent line */}
-            <div className="w-16 h-1 bg-gold mb-8" />
+            {/* Gold accent line - rounded pill shape */}
+            <div className="w-20 h-1.5 bg-gold rounded-full mb-8" />
             <h1
               className="font-heading text-white leading-tight mb-6 hero-text-strong"
               style={{ fontSize: "clamp(2.5rem, 5vw, 4.5rem)", fontWeight: 500 }}
@@ -117,7 +117,7 @@ export default function HomePage() {
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 href={`${prefix}/productos`}
-                className="inline-flex items-center justify-center px-8 py-4 bg-gold text-white font-semibold rounded-sm btn-lift hover:bg-gold-dark"
+                className="inline-flex items-center justify-center px-8 py-4 bg-gold text-white font-semibold rounded-xl btn-lift hover:bg-gold-dark"
                 style={{ fontSize: "1.05rem" }}
               >
                 {t("hero.cta")}
@@ -125,7 +125,7 @@ export default function HomePage() {
               </Link>
               <Link
                 href={`${prefix}/contacto`}
-                className="inline-flex items-center justify-center px-8 py-4 bg-white/15 backdrop-blur-sm border border-white/30 text-white font-medium rounded-sm btn-lift hover:bg-white/25"
+                className="inline-flex items-center justify-center px-8 py-4 glass-dark text-white font-medium rounded-xl btn-lift hover:bg-white/25"
                 style={{ fontSize: "1.05rem" }}
               >
                 {t("hero.ctaSecondary")}
@@ -136,23 +136,33 @@ export default function HomePage() {
       </section>
 
       {/* ═══ PILLARS ═════════════════════════════════ */}
-      <section className="py-20 lg:py-24" style={{ background: "#ffffff" }}>
+      <section
+        className="py-20 lg:py-28"
+        style={{ background: "linear-gradient(180deg, #ffffff 0%, #f8f9fc 100%)" }}
+      >
         <div className="mx-auto max-w-[1600px] px-5 md:px-10">
-          <h2 className="font-heading text-heading text-center mb-16" style={{ fontSize: "2rem", fontWeight: 600 }}>
+          <h2 className="font-heading text-gray-900 text-center mb-16" style={{ fontSize: "2rem", fontWeight: 600 }}>
             {t("pillars.title")}
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               { key: "experience", Icon: Clock },
               { key: "stock", Icon: Package },
               { key: "engineering", Icon: Wrench },
               { key: "presence", Icon: MapPin },
             ].map(({ key, Icon }) => (
-              <div key={key} className="text-center group">
-                <div className="w-16 h-16 mx-auto mb-5 rounded-2xl flex items-center justify-center transition-all duration-300" style={{ background: "rgba(187, 144, 52, 0.08)" }}>
+              <div
+                key={key}
+                className="text-center group bg-white rounded-2xl p-8 card-modern"
+                style={{ boxShadow: "0 4px 24px rgba(0, 0, 0, 0.04)" }}
+              >
+                <div
+                  className="w-16 h-16 mx-auto mb-5 rounded-2xl flex items-center justify-center transition-all duration-300 group-hover:scale-110"
+                  style={{ background: "linear-gradient(135deg, rgba(200, 146, 42, 0.12), rgba(200, 146, 42, 0.04))" }}
+                >
                   <Icon size={28} className="text-gold" strokeWidth={1.5} />
                 </div>
-                <h3 className="font-heading font-semibold text-heading text-lg mb-3">
+                <h3 className="font-heading font-semibold text-gray-900 text-lg mb-3">
                   {t(`pillars.${key}.title`)}
                 </h3>
                 <p className="text-gray-500 text-sm leading-relaxed">
@@ -165,14 +175,17 @@ export default function HomePage() {
       </section>
 
       {/* ═══ FEATURED PRODUCTS ═══════════════════════ */}
-      <section className="py-20 lg:py-24" style={{ background: "#f8f9fb" }}>
+      <section
+        className="py-20 lg:py-28"
+        style={{ background: "linear-gradient(180deg, #f8f9fc 0%, #f1f3f8 100%)" }}
+      >
         <div className="mx-auto max-w-[1600px] px-5 md:px-10">
           <div className="flex items-end justify-between mb-14">
             <div>
-              <h2 className="font-heading text-heading" style={{ fontSize: "2rem", fontWeight: 600 }}>
+              <h2 className="font-heading text-gray-900" style={{ fontSize: "2rem", fontWeight: 600 }}>
                 {t("products.title")}
               </h2>
-              <p className="text-gray-500 mt-2 max-w-xl">
+              <p className="text-gray-500 mt-3 max-w-xl leading-relaxed">
                 {locale === "es"
                   ? "Valvulas, actuadores y sistemas de control de los principales fabricantes mundiales."
                   : "Valves, actuators and control systems from leading global manufacturers."}
@@ -185,21 +198,25 @@ export default function HomePage() {
               {t("products.viewAll")} <ChevronRight size={18} />
             </Link>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px" style={{ background: "#e5e7eb" }}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {productCategories.map((product) => {
               const PIcon = product.Icon;
               return (
                 <Link
                   key={product.slug}
                   href={`${prefix}/productos/${product.slug}`}
-                  className="group block bg-white p-8 hover:bg-gray-50/80 transition-all duration-300 relative"
+                  className="group block bg-white rounded-2xl p-8 card-modern"
+                  style={{ boxShadow: "0 4px 20px rgba(0, 0, 0, 0.04)" }}
                 >
                   <div className="flex items-start gap-5">
-                    <div className="w-12 h-12 shrink-0 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:scale-105" style={{ background: "rgba(36, 39, 81, 0.06)" }}>
-                      <PIcon size={22} className="text-heading group-hover:text-gold transition-colors duration-300" strokeWidth={1.5} />
+                    <div
+                      className="w-12 h-12 shrink-0 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:scale-110"
+                      style={{ background: "linear-gradient(135deg, rgba(26, 35, 50, 0.08), rgba(42, 82, 152, 0.06))" }}
+                    >
+                      <PIcon size={22} className="text-gray-700 group-hover:text-gold transition-colors duration-300" strokeWidth={1.5} />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <h3 className="font-heading font-semibold text-heading text-base mb-1">
+                      <h3 className="font-heading font-semibold text-gray-900 text-base mb-1">
                         {product[l]}
                       </h3>
                       <p className="text-gray-400 text-sm leading-relaxed mb-3">
@@ -207,7 +224,7 @@ export default function HomePage() {
                       </p>
                       <span className="text-sm text-gold font-medium inline-flex items-center gap-1 group-hover:text-gold-dark transition-colors duration-300">
                         {locale === "es" ? "Ver mas" : "Read more"}
-                        <ArrowRight size={13} className="group-hover:translate-x-0.5 transition-transform duration-300" />
+                        <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform duration-300" />
                       </span>
                     </div>
                   </div>
@@ -224,9 +241,14 @@ export default function HomePage() {
       </section>
 
       {/* ═══ SUPPLIERS (dark section with logos) ══════ */}
-      <section className="py-20 lg:py-24 relative overflow-hidden" style={{ background: "#1a1f3d" }}>
+      <section
+        className="py-20 lg:py-28 relative overflow-hidden"
+        style={{ background: "linear-gradient(160deg, #141733 0%, #1a2550 50%, #1e2d5a 100%)" }}
+      >
         {/* Subtle texture */}
         <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)", backgroundSize: "40px 40px" }} />
+        {/* Soft radial glow */}
+        <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at 50% 0%, rgba(200, 146, 42, 0.06) 0%, transparent 60%)" }} />
         <div className="relative mx-auto max-w-[1600px] px-5 md:px-10 text-center">
           <p className="text-gold-light font-medium text-sm tracking-widest uppercase mb-4">
             {locale === "es" ? "Nuestros fabricantes" : "Our manufacturers"}
@@ -244,10 +266,9 @@ export default function HomePage() {
               <Link
                 key={supplier.slug}
                 href={`${prefix}/proveedores/${supplier.slug}`}
-                className="group flex flex-col items-center justify-center p-6 rounded-lg transition-all duration-300 hover:bg-white/[0.06] overflow-hidden"
-                style={{ border: "1px solid rgba(255,255,255,0.08)" }}
+                className="group flex flex-col items-center justify-center p-6 rounded-2xl glass-dark transition-all duration-300 hover:bg-white/[0.08] overflow-hidden"
               >
-                <div className="relative w-full h-28 mb-4 rounded overflow-hidden">
+                <div className="relative w-full h-28 mb-4 rounded-xl overflow-hidden">
                   <Image
                     src={supplier.image}
                     alt={supplier.name}
@@ -264,7 +285,7 @@ export default function HomePage() {
           </div>
           <Link
             href={`${prefix}/proveedores`}
-            className="inline-flex items-center gap-2 px-8 py-3.5 bg-gold text-white font-medium rounded btn-lift hover:bg-gold-dark"
+            className="inline-flex items-center gap-2 px-8 py-3.5 bg-gold text-white font-medium rounded-xl btn-lift hover:bg-gold-dark"
           >
             {t("suppliers.viewAll")} <ArrowRight size={16} />
           </Link>
@@ -272,40 +293,43 @@ export default function HomePage() {
       </section>
 
       {/* ═══ SERVICES (with images) ══════════════════ */}
-      <section className="py-20 lg:py-24" style={{ background: "#ffffff" }}>
+      <section
+        className="py-20 lg:py-28"
+        style={{ background: "linear-gradient(180deg, #ffffff 0%, #fafbfd 100%)" }}
+      >
         <div className="mx-auto max-w-[1600px] px-5 md:px-10">
           <div className="text-center mb-16">
             <p className="text-gold font-medium text-sm tracking-widest uppercase mb-3">
               {locale === "es" ? "Soluciones integrales" : "Comprehensive solutions"}
             </p>
-            <h2 className="font-heading text-heading mb-4" style={{ fontSize: "2rem", fontWeight: 600 }}>
+            <h2 className="font-heading text-gray-900 mb-4" style={{ fontSize: "2rem", fontWeight: 600 }}>
               {t("services.title")}
             </h2>
             <p className="text-gray-500 max-w-2xl mx-auto leading-relaxed">
               {t("services.subtitle")}
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {services.map((service) => (
               <Link
                 key={service.slug}
                 href={`${prefix}/servicios/${service.slug}`}
-                className="group block overflow-hidden card-hover"
-                style={{ border: "1px solid #e5e7eb" }}
+                className="group block rounded-2xl overflow-hidden bg-white card-modern transition-transform duration-400 hover:scale-[1.02]"
+                style={{ boxShadow: "0 4px 24px rgba(0, 0, 0, 0.05)" }}
               >
                 {/* Service image */}
-                <div className="relative h-52 overflow-hidden">
+                <div className="relative h-56 overflow-hidden">
                   <Image
                     src={service.image}
                     alt={service[l].name}
                     fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
                     sizes="(max-width: 768px) 100vw, 33vw"
                   />
-                  <div className="absolute inset-0 bg-navy-deep/20 group-hover:bg-navy-deep/10 transition-colors duration-300" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent group-hover:from-black/20 transition-colors duration-300" />
                 </div>
-                <div className="p-7">
-                  <h3 className="font-heading font-semibold text-heading text-lg mb-2">
+                <div className="p-8">
+                  <h3 className="font-heading font-semibold text-gray-900 text-lg mb-2">
                     {service[l].name}
                   </h3>
                   <p className="text-gray-500 text-sm leading-relaxed mb-4">
@@ -313,7 +337,7 @@ export default function HomePage() {
                   </p>
                   <span className="text-gold font-medium text-sm inline-flex items-center gap-1 group-hover:text-gold-dark transition-colors duration-300">
                     {t("services.learnMore")}
-                    <ArrowRight size={13} className="group-hover:translate-x-0.5 transition-transform duration-300" />
+                    <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform duration-300" />
                   </span>
                 </div>
               </Link>
@@ -324,9 +348,9 @@ export default function HomePage() {
 
       {/* ═══ WHY IPSA + STATS ════════════════════════ */}
       <section className="relative py-20 lg:py-28 overflow-hidden">
-        {/* Split background */}
+        {/* Split background with rounded inner edge */}
         <div className="absolute inset-0">
-          <div className="absolute inset-y-0 left-0 w-1/2" style={{ background: "#f4f5f7" }} />
+          <div className="absolute inset-y-0 left-0 w-1/2" style={{ background: "linear-gradient(180deg, #f4f5f7 0%, #eef0f4 100%)" }} />
           <div className="absolute inset-y-0 right-0 w-1/2 hidden lg:block">
             <Image
               src={stockImages.industrial}
@@ -345,7 +369,7 @@ export default function HomePage() {
               <p className="text-gold font-medium text-sm tracking-widest uppercase mb-4">
                 {locale === "es" ? "Nuestra diferencia" : "Our difference"}
               </p>
-              <h2 className="font-heading text-heading mb-6" style={{ fontSize: "2rem", fontWeight: 600 }}>
+              <h2 className="font-heading text-gray-900 mb-6" style={{ fontSize: "2rem", fontWeight: 600 }}>
                 {locale === "es" ? "Por que elegir IPSA?" : "Why choose IPSA?"}
               </h2>
               <p className="text-gray-600 leading-relaxed mb-4">
@@ -359,14 +383,18 @@ export default function HomePage() {
                   : "No need to coordinate multiple suppliers when IPSA can offer complete solutions under one roof."}
               </p>
 
-              {/* Stats inline */}
-              <div className="grid grid-cols-3 gap-6 mb-10 py-8" style={{ borderTop: "1px solid #e5e7eb", borderBottom: "1px solid #e5e7eb" }}>
+              {/* Stats in rounded pill cards */}
+              <div className="grid grid-cols-3 gap-4 mb-10">
                 {[
                   { number: "38+", es: "Anos", en: "Years" },
                   { number: "6", es: "Sedes", en: "Locations" },
                   { number: "$5M+", es: "Inventario USD", en: "Inventory USD" },
                 ].map((stat) => (
-                  <div key={stat.number} className="text-center">
+                  <div
+                    key={stat.number}
+                    className="text-center bg-white rounded-2xl py-6 px-4"
+                    style={{ boxShadow: "0 4px 20px rgba(0, 0, 0, 0.05)" }}
+                  >
                     <div className="font-heading text-gold" style={{ fontSize: "2.25rem", fontWeight: 600, lineHeight: 1 }}>
                       {stat.number}
                     </div>
@@ -377,13 +405,13 @@ export default function HomePage() {
 
               <Link
                 href={`${prefix}/nosotros`}
-                className="inline-flex items-center px-7 py-3 bg-navy-deep text-white font-medium rounded btn-lift hover:bg-navy"
+                className="inline-flex items-center px-7 py-3.5 bg-navy-deep text-white font-medium rounded-xl btn-lift hover:bg-navy"
               >
                 {locale === "es" ? "Conocer mas" : "Learn more"} <ArrowRight size={16} className="ml-2" />
               </Link>
             </div>
             {/* Right side is the image (visible via absolute positioning on lg) */}
-            <div className="lg:hidden relative h-64 rounded-lg overflow-hidden">
+            <div className="lg:hidden relative h-64 rounded-2xl overflow-hidden" style={{ boxShadow: "0 12px 40px rgba(0, 0, 0, 0.15)" }}>
               <Image
                 src={stockImages.industrial}
                 alt=""
@@ -398,23 +426,26 @@ export default function HomePage() {
       </section>
 
       {/* ═══ INDUSTRIES (with background images) ═════ */}
-      <section className="py-20 lg:py-24" style={{ background: "#ffffff" }}>
+      <section
+        className="py-20 lg:py-28"
+        style={{ background: "linear-gradient(180deg, #ffffff 0%, #fafbfd 100%)" }}
+      >
         <div className="mx-auto max-w-[1600px] px-5 md:px-10">
           <div className="text-center mb-14">
             <p className="text-gold font-medium text-sm tracking-widest uppercase mb-3">
               {locale === "es" ? "Sectores que atendemos" : "Sectors we serve"}
             </p>
-            <h2 className="font-heading text-heading" style={{ fontSize: "2rem", fontWeight: 600 }}>
+            <h2 className="font-heading text-gray-900" style={{ fontSize: "2rem", fontWeight: 600 }}>
               {t("industries.title")}
             </h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {industries.map((industry) => (
               <Link
                 key={industry.slug}
                 href={`${prefix}/industrias/${industry.slug}`}
-                className="group block relative overflow-hidden card-hover"
-                style={{ minHeight: "320px" }}
+                className="group block relative rounded-3xl overflow-hidden transition-all duration-500 hover:scale-[1.02]"
+                style={{ minHeight: "340px", boxShadow: "0 8px 30px rgba(0, 0, 0, 0.1)" }}
               >
                 <Image
                   src={industry.image}
@@ -434,7 +465,7 @@ export default function HomePage() {
                   <p className="text-white/60 text-sm mb-3">{industry[l].desc}</p>
                   <span className="inline-flex items-center gap-1 text-gold-light font-medium text-sm group-hover:text-gold-lighter transition-colors duration-300">
                     {locale === "es" ? "Conoce mas" : "Learn more"}
-                    <ArrowRight size={13} className="group-hover:translate-x-0.5 transition-transform duration-300" />
+                    <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform duration-300" />
                   </span>
                 </div>
               </Link>
@@ -444,26 +475,32 @@ export default function HomePage() {
       </section>
 
       {/* ═══ GROUP IPSA ══════════════════════════════ */}
-      <section className="py-20 lg:py-24" style={{ background: "#f4f5f7" }}>
+      <section
+        className="py-20 lg:py-28"
+        style={{ background: "linear-gradient(180deg, #f4f5f7 0%, #eef0f5 100%)" }}
+      >
         <div className="mx-auto max-w-[1600px] px-5 md:px-10">
           <div className="text-center mb-14">
-            <h2 className="font-heading text-heading mb-4" style={{ fontSize: "2rem", fontWeight: 600 }}>
+            <h2 className="font-heading text-gray-900 mb-4" style={{ fontSize: "2rem", fontWeight: 600 }}>
               {t("aboutPage.group")}
             </h2>
             <p className="text-gray-500 max-w-3xl mx-auto leading-relaxed">
               {t("aboutPage.groupText")}
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { key: "ipsa", color: "#141733", accent: "rgba(20, 23, 51, 0.06)" },
-              { key: "maepsa", color: "#bb9034", accent: "rgba(187, 144, 52, 0.06)" },
-              { key: "certus", color: "#203c88", accent: "rgba(32, 60, 136, 0.06)" },
-            ].map(({ key, color, accent }) => (
+              { key: "ipsa", color: "#141733", gradientFrom: "rgba(20, 23, 51, 0.04)", gradientTo: "rgba(20, 23, 51, 0.01)" },
+              { key: "maepsa", color: "#bb9034", gradientFrom: "rgba(187, 144, 52, 0.05)", gradientTo: "rgba(187, 144, 52, 0.01)" },
+              { key: "certus", color: "#203c88", gradientFrom: "rgba(32, 60, 136, 0.04)", gradientTo: "rgba(32, 60, 136, 0.01)" },
+            ].map(({ key, color, gradientFrom, gradientTo }) => (
               <div
                 key={key}
-                className="text-center p-10 bg-white card-hover"
-                style={{ border: "1px solid #e5e7eb" }}
+                className="text-center p-10 rounded-2xl card-modern"
+                style={{
+                  background: `linear-gradient(160deg, ${gradientFrom}, #ffffff 30%, ${gradientTo})`,
+                  boxShadow: "0 4px 24px rgba(0, 0, 0, 0.04)",
+                }}
               >
                 <div
                   className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-5"
@@ -473,7 +510,7 @@ export default function HomePage() {
                     {key === "ipsa" ? "IP" : key === "maepsa" ? "MA" : "CS"}
                   </span>
                 </div>
-                <h3 className="font-heading font-bold text-heading text-xl mb-2">
+                <h3 className="font-heading font-bold text-gray-900 text-xl mb-2">
                   {t(`aboutPage.${key}`)}
                 </h3>
                 <p className="text-gray-500 text-sm leading-relaxed">
@@ -486,17 +523,20 @@ export default function HomePage() {
       </section>
 
       {/* ═══ LOCATIONS ═══════════════════════════════ */}
-      <section className="py-20 lg:py-24" style={{ background: "#ffffff" }}>
+      <section
+        className="py-20 lg:py-28"
+        style={{ background: "linear-gradient(180deg, #ffffff 0%, #fafbfd 100%)" }}
+      >
         <div className="mx-auto max-w-[1600px] px-5 md:px-10">
           <div className="text-center mb-14">
             <p className="text-gold font-medium text-sm tracking-widest uppercase mb-3">
               {locale === "es" ? "Presencia" : "Presence"}
             </p>
-            <h2 className="font-heading text-heading" style={{ fontSize: "2rem", fontWeight: 600 }}>
+            <h2 className="font-heading text-gray-900" style={{ fontSize: "2rem", fontWeight: 600 }}>
               {t("aboutPage.locations")}
             </h2>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-5">
             {[
               { city: "CDMX", label: "HQ", full: "Ciudad de Mexico" },
               { city: "Cd. del Carmen", label: "CAD", full: "Campeche" },
@@ -507,15 +547,18 @@ export default function HomePage() {
             ].map((loc) => (
               <div
                 key={loc.city}
-                className="bg-white p-5 text-center card-hover"
-                style={{ border: "1px solid #edf0f3" }}
+                className="rounded-xl p-5 text-center card-hover"
+                style={{
+                  background: "linear-gradient(160deg, #ffffff, #f8f9fc)",
+                  boxShadow: "0 2px 16px rgba(0, 0, 0, 0.04)",
+                }}
               >
                 <MapPin size={18} className="text-gold mx-auto mb-3" strokeWidth={1.5} />
-                <div className="font-heading font-semibold text-heading text-sm">{loc.city}</div>
+                <div className="font-heading font-semibold text-gray-900 text-sm">{loc.city}</div>
                 <div className="text-xs text-gray-400 mt-0.5">{loc.full}</div>
                 <div
-                  className="mt-3 inline-block text-[10px] font-semibold px-2.5 py-1 rounded"
-                  style={{ background: "rgba(187, 144, 52, 0.08)", color: "#bb9034" }}
+                  className="mt-3 inline-block text-[10px] font-semibold px-3 py-1 rounded-full"
+                  style={{ background: "rgba(200, 146, 42, 0.1)", color: "#bb9034" }}
                 >
                   {loc.label}
                 </div>
@@ -526,17 +569,20 @@ export default function HomePage() {
       </section>
 
       {/* ═══ CERTIFICATIONS ══════════════════════════ */}
-      <section className="py-16 lg:py-20" style={{ background: "#f8f9fb", borderTop: "1px solid #edf0f3", borderBottom: "1px solid #edf0f3" }}>
+      <section
+        className="py-16 lg:py-24"
+        style={{ background: "linear-gradient(180deg, #f4f5f7 0%, #f8f9fb 100%)" }}
+      >
         <div className="mx-auto max-w-[1600px] px-5 md:px-10">
-          <div className="text-center mb-10">
+          <div className="text-center mb-12">
             <p className="text-gold font-medium text-sm tracking-widest uppercase mb-3">
               {locale === "es" ? "Calidad certificada" : "Certified quality"}
             </p>
-            <h2 className="font-heading text-heading" style={{ fontSize: "2rem", fontWeight: 600 }}>
+            <h2 className="font-heading text-gray-900" style={{ fontSize: "2rem", fontWeight: 600 }}>
               {locale === "es" ? "Normas y certificaciones" : "Standards & certifications"}
             </h2>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 max-w-5xl mx-auto">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-5 max-w-5xl mx-auto">
             {[
               { code: "ISO 9001", desc: { es: "Sistema de gestion de calidad", en: "Quality management system" }, icon: "shield" },
               { code: "API 6D", desc: { es: "Valvulas de tuberia", en: "Pipeline valves" }, icon: "check" },
@@ -547,8 +593,8 @@ export default function HomePage() {
             ].map((cert) => (
               <div
                 key={cert.code}
-                className="relative bg-white rounded-lg p-5 text-center group transition-all duration-300 hover:shadow-md"
-                style={{ border: "1px solid #edf0f3" }}
+                className="relative bg-white rounded-2xl p-6 text-center group card-modern"
+                style={{ boxShadow: "0 2px 16px rgba(0, 0, 0, 0.04)" }}
               >
                 <div
                   className="w-12 h-12 rounded-full mx-auto mb-3 flex items-center justify-center"
@@ -556,7 +602,7 @@ export default function HomePage() {
                 >
                   <ShieldCheck size={20} className="text-gold-light" strokeWidth={1.5} />
                 </div>
-                <div className="font-heading font-bold text-heading text-sm tracking-wider mb-1">
+                <div className="font-heading font-bold text-gray-900 text-sm tracking-wider mb-1">
                   {cert.code}
                 </div>
                 <div className="text-[11px] text-gray-400 leading-snug">
@@ -569,7 +615,7 @@ export default function HomePage() {
       </section>
 
       {/* ═══ CONTACT CTA ═════════════════════════════ */}
-      <section className="relative py-24 lg:py-28 overflow-hidden">
+      <section className="relative py-24 lg:py-32 overflow-hidden">
         <Image
           src={stockImages.industrial}
           alt=""
@@ -577,33 +623,45 @@ export default function HomePage() {
           className="object-cover"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-navy-deep/80" />
+        <div className="absolute inset-0 bg-navy-deep/75" />
+        {/* Soft radial glow */}
+        <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at 50% 50%, rgba(200, 146, 42, 0.08) 0%, transparent 60%)" }} />
         <div className="relative mx-auto max-w-[1600px] px-5 md:px-10">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="font-heading text-white mb-4" style={{ fontSize: "2rem", fontWeight: 600 }}>
-              {locale === "es" ? "Hablemos de tu proyecto" : "Let's talk about your project"}
-            </h2>
-            <p className="text-white/60 mb-10 leading-relaxed" style={{ fontSize: "1.05rem" }}>
-              {locale === "es"
-                ? "Nuestro equipo de ingenieros esta listo para ayudarte a encontrar la solucion correcta."
-                : "Our engineering team is ready to help you find the right solution."}
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link
-                href={`${prefix}/contacto`}
-                className="inline-flex items-center px-8 py-4 bg-gold text-white font-semibold rounded btn-lift hover:bg-gold-dark"
-                style={{ fontSize: "1.05rem" }}
-              >
-                {locale === "es" ? "Enviar mensaje" : "Send a message"}
-                <ArrowRight size={18} className="ml-2" />
-              </Link>
-              <a
-                href="tel:+525553973703"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/20 text-white font-medium rounded btn-lift hover:bg-white/20"
-              >
-                <Phone size={16} />
-                +52 55 5397 3703
-              </a>
+            <div
+              className="inline-block rounded-2xl px-10 py-12 md:px-16 md:py-16"
+              style={{
+                background: "rgba(255, 255, 255, 0.04)",
+                backdropFilter: "blur(12px)",
+                WebkitBackdropFilter: "blur(12px)",
+                border: "1px solid rgba(255, 255, 255, 0.06)",
+              }}
+            >
+              <h2 className="font-heading text-white mb-4" style={{ fontSize: "2rem", fontWeight: 600 }}>
+                {locale === "es" ? "Hablemos de tu proyecto" : "Let's talk about your project"}
+              </h2>
+              <p className="text-white/60 mb-10 leading-relaxed" style={{ fontSize: "1.05rem" }}>
+                {locale === "es"
+                  ? "Nuestro equipo de ingenieros esta listo para ayudarte a encontrar la solucion correcta."
+                  : "Our engineering team is ready to help you find the right solution."}
+              </p>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <Link
+                  href={`${prefix}/contacto`}
+                  className="inline-flex items-center px-8 py-4 bg-gold text-white font-semibold rounded-xl btn-lift hover:bg-gold-dark"
+                  style={{ fontSize: "1.05rem" }}
+                >
+                  {locale === "es" ? "Enviar mensaje" : "Send a message"}
+                  <ArrowRight size={18} className="ml-2" />
+                </Link>
+                <a
+                  href="tel:+525553973703"
+                  className="inline-flex items-center gap-2 px-8 py-4 glass-dark text-white font-medium rounded-xl btn-lift hover:bg-white/20"
+                >
+                  <Phone size={16} />
+                  +52 55 5397 3703
+                </a>
+              </div>
             </div>
           </div>
         </div>

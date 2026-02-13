@@ -18,7 +18,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-navy-deep text-white" style={{ padding: "3rem 0 1.5rem 0" }}>
+    <footer className="bg-[#0f1b2d] text-white" style={{ padding: "4rem 0 2rem 0" }}>
       <div className="mx-auto max-w-[1600px] px-5 md:px-10">
         {/* ── Main grid ────────────────────────────── */}
         <div

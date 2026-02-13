@@ -405,7 +405,7 @@ export default function Header() {
                         href={`${prefix}${col.href}`}
                         className="block mb-4"
                       >
-                        <div className="relative h-28 rounded-lg overflow-hidden mb-3">
+                        <div className="relative h-28 rounded-2xl overflow-hidden mb-3">
                           <Image
                             src={col.image}
                             alt={col.title}
@@ -427,7 +427,7 @@ export default function Header() {
                           <li key={item.label}>
                             <Link
                               href={`${prefix}${item.href}`}
-                              className="flex items-center gap-2 text-[0.82rem] text-gray-500 hover:text-[#141733] px-3 py-1.5 -mx-1 rounded-md transition-all duration-200 hover:bg-gray-50 group/item"
+                              className="flex items-center gap-2 text-[0.82rem] text-gray-500 hover:text-[#141733] px-3 py-1.5 -mx-1 rounded-xl transition-all duration-200 hover:bg-gray-50 group/item"
                             >
                               <span className="w-1 h-1 rounded-full bg-gray-300 group-hover/item:bg-gold group-hover/item:w-1.5 group-hover/item:h-1.5 transition-all duration-200 shrink-0" />
                               {item.label}
@@ -445,7 +445,7 @@ export default function Header() {
                     <Link
                       key={item.label}
                       href={`${prefix}${item.href}`}
-                      className="text-[0.82rem] text-gray-400 hover:text-[#141733] hover:bg-gray-50 px-3 py-1.5 rounded-md transition-all duration-200"
+                      className="text-[0.82rem] text-gray-400 hover:text-[#141733] hover:bg-gray-50 px-3 py-1.5 rounded-xl transition-all duration-200"
                     >
                       {item.label}
                     </Link>
@@ -537,10 +537,10 @@ export default function Header() {
                       <Link
                         key={child.href}
                         href={`${prefix}${child.href}`}
-                        className="group/child block p-5 rounded-lg border border-transparent hover:border-gray-200 hover:bg-gray-50/80 transition-all duration-200"
+                        className="group/child block p-5 rounded-2xl border border-transparent hover:border-gray-100 hover:bg-gray-50/60 hover:shadow-sm transition-all duration-200"
                       >
                         <div className="flex items-start gap-3">
-                          <div className="w-8 h-8 rounded-lg bg-gold/10 flex items-center justify-center shrink-0 mt-0.5 group-hover/child:bg-gold/20 transition-colors duration-200">
+                          <div className="w-8 h-8 rounded-xl bg-gold/10 flex items-center justify-center shrink-0 mt-0.5 group-hover/child:bg-gold/20 transition-colors duration-200">
                             <ChevronRight size={14} className="text-gold" />
                           </div>
                           <div>
