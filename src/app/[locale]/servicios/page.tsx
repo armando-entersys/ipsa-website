@@ -108,10 +108,10 @@ export default function ServicesHub() {
           className="object-cover"
           sizes="100vw"
         />
-        {/* Diagonal solid block on left for text */}
-        <div className="absolute inset-0 bg-gradient-to-r from-navy-alt via-navy-alt/95 to-transparent" style={{ clipPath: "polygon(0 0, 65% 0, 50% 100%, 0 100%)" }} />
-        {/* Subtle overlay on image side */}
+        {/* Base overlay */}
         <div className="absolute inset-0 bg-black/45" />
+        {/* Bottom gradient for text */}
+        <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/70 via-navy-dark/25 to-transparent" />
 
         <div className="relative mx-auto max-w-[1600px] px-5 md:px-10 flex items-center" style={{ minHeight: "50vh" }}>
           <div className="max-w-xl py-16 lg:py-24">
@@ -126,7 +126,7 @@ export default function ServicesHub() {
             <div className="border-l-4 border-gold pl-6">
               <h1
                 className="font-heading text-white leading-tight mb-4 hero-text-strong"
-                style={{ fontSize: "clamp(2.25rem, 4.5vw, 3.5rem)", fontWeight: 600 }}
+                style={{ fontSize: "clamp(2.25rem, 4.5vw, 3.5rem)", fontWeight: 400 }}
               >
                 {t("title")}
               </h1>
@@ -145,7 +145,7 @@ export default function ServicesHub() {
             <p className="text-gold font-medium text-sm tracking-widest uppercase mb-3">
               {locale === "es" ? "Soluciones integrales" : "Comprehensive solutions"}
             </p>
-            <h2 className="font-heading text-gray-900" style={{ fontSize: "2rem", fontWeight: 600 }}>
+            <h2 className="font-heading text-gray-900" style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)", fontWeight: 500 }}>
               {t("title")}
             </h2>
             <p className="text-gray-500 max-w-2xl mx-auto mt-3 leading-relaxed">
@@ -160,10 +160,10 @@ export default function ServicesHub() {
               return (
                 <div
                   key={service.slug}
-                  className={`flex flex-col ${isEven ? "lg:flex-row" : "lg:flex-row-reverse"} gap-0 items-stretch rounded-2xl overflow-hidden shadow-card-lg card-hover`}
+                  className={`flex flex-col ${isEven ? "lg:flex-row" : "lg:flex-row-reverse"} gap-0 items-stretch rounded-xl overflow-hidden shadow-card-lg card-hover`}
                 >
                   {/* Image side */}
-                  <div className="lg:w-1/2 relative rounded-2xl overflow-hidden" style={{ minHeight: "400px" }}>
+                  <div className="lg:w-1/2 relative rounded-xl overflow-hidden" style={{ minHeight: "400px" }}>
                     <Image
                       src={service.image}
                       alt={service[l].name}
@@ -205,7 +205,7 @@ export default function ServicesHub() {
                         </li>
                       ))}
                       {service[l].capabilities.length > 4 && (
-                        <li className="text-sm text-gray-400 pl-4.5">
+                        <li className="text-sm text-gray-500 pl-4.5">
                           +{service[l].capabilities.length - 4} {locale === "es" ? "mas" : "more"}...
                         </li>
                       )}
@@ -236,7 +236,7 @@ export default function ServicesHub() {
             <p className="text-gold font-medium text-sm tracking-widest uppercase mb-3">
               {locale === "es" ? "Capacidades" : "Capabilities"}
             </p>
-            <h2 className="font-heading text-gray-900" style={{ fontSize: "2rem", fontWeight: 600 }}>
+            <h2 className="font-heading text-gray-900" style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)", fontWeight: 500 }}>
               {locale === "es" ? "Un socio integral para tu operacion" : "A comprehensive partner for your operation"}
             </h2>
           </div>
@@ -247,7 +247,7 @@ export default function ServicesHub() {
               return (
                 <div
                   key={service.slug}
-                  className="bg-white rounded-2xl p-8 shadow-card card-hover"
+                  className="bg-white rounded-xl p-8 shadow-card card-hover"
                 >
                   <div
                     className="icon-bg-gold w-14 h-14 rounded-xl flex items-center justify-center mb-5"
@@ -284,7 +284,7 @@ export default function ServicesHub() {
         <div className="absolute inset-0 bg-navy-deep/80" />
         <div className="relative mx-auto max-w-[1600px] px-5 md:px-10">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="font-heading text-white mb-4" style={{ fontSize: "2rem", fontWeight: 600 }}>
+            <h2 className="font-heading text-white mb-4" style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)", fontWeight: 500 }}>
               {locale === "es" ? "Hablemos de tu proyecto" : "Let's talk about your project"}
             </h2>
             <p className="text-white/60 mb-10 leading-relaxed" style={{ fontSize: "1.05rem" }}>

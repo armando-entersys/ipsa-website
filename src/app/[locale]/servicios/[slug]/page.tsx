@@ -110,8 +110,7 @@ export default async function ServicePage({ params }: { params: Promise<{ locale
           sizes="100vw"
         />
         <div className="absolute inset-0 bg-black/45" />
-        <div className="absolute inset-0 bg-gradient-to-r from-navy-alt/90 via-navy-alt/50 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/60 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/70 via-navy-dark/25 to-transparent" />
 
         <div className="relative mx-auto max-w-[1600px] px-5 md:px-10 flex items-center" style={{ minHeight: "55vh" }}>
           <div className="max-w-3xl py-20 lg:py-28">
@@ -128,7 +127,7 @@ export default async function ServicePage({ params }: { params: Promise<{ locale
             </nav>
             <h1
               className="font-heading text-white leading-tight mb-6 hero-text-strong"
-              style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)", fontWeight: 600 }}
+              style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)", fontWeight: 400 }}
             >
               {data.name}
             </h1>
@@ -148,7 +147,7 @@ export default async function ServicePage({ params }: { params: Promise<{ locale
               <p className="text-gold font-medium text-sm tracking-widest uppercase mb-3">
                 {locale === "es" ? "Capacidades" : "Capabilities"}
               </p>
-              <h2 className="font-heading text-gray-900 mb-8" style={{ fontSize: "2rem", fontWeight: 600 }}>
+              <h2 className="font-heading text-gray-900 mb-8" style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)", fontWeight: 500 }}>
                 {locale === "es" ? "Que ofrecemos" : "What we offer"}
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4">
@@ -165,7 +164,7 @@ export default async function ServicePage({ params }: { params: Promise<{ locale
             <div className="space-y-6">
               {/* CTA card */}
               <div
-                className="bg-navy-deep p-7 rounded-2xl shadow-card"
+                className="bg-navy-deep p-7 rounded-xl shadow-card"
               >
                 <h3 className="font-heading font-semibold text-gold-light mb-2" style={{ fontSize: "1.15rem" }}>
                   {locale === "es" ? "Comienza tu proyecto" : "Start your project"}
@@ -191,7 +190,7 @@ export default async function ServicePage({ params }: { params: Promise<{ locale
 
               {/* Other services */}
               <div
-                className="p-7 rounded-2xl bg-surface-alt shadow-card"
+                className="p-7 rounded-xl bg-surface-alt shadow-card"
               >
                 <h3 className="font-heading font-semibold text-gray-900 mb-4" style={{ fontSize: "1.05rem" }}>
                   {locale === "es" ? "Otros servicios" : "Other services"}
@@ -224,7 +223,7 @@ export default async function ServicePage({ params }: { params: Promise<{ locale
             <p className="text-gold font-medium text-sm tracking-widest uppercase mb-3">
               {locale === "es" ? "Metodologia" : "Methodology"}
             </p>
-            <h2 className="font-heading text-gray-900" style={{ fontSize: "2rem", fontWeight: 600 }}>
+            <h2 className="font-heading text-gray-900" style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)", fontWeight: 500 }}>
               {locale === "es" ? "Nuestro proceso" : "Our process"}
             </h2>
           </div>
@@ -256,7 +255,7 @@ export default async function ServicePage({ params }: { params: Promise<{ locale
                       className="flex-1 pb-8"
                       style={{ borderBottom: i < data.steps.length - 1 ? "1px solid var(--color-border-soft, #edf0f3)" : "none" }}
                     >
-                      <div className="bg-white p-6 rounded-2xl shadow-card">
+                      <div className="bg-white p-6 rounded-xl shadow-card">
                         <h3 className="font-heading font-semibold text-gray-900 text-lg mb-2">
                           {step.title}
                         </h3>
@@ -285,7 +284,7 @@ export default async function ServicePage({ params }: { params: Promise<{ locale
         <div className="absolute inset-0 bg-navy-deep/80" />
         <div className="relative mx-auto max-w-[1600px] px-5 md:px-10">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="font-heading text-white mb-4" style={{ fontSize: "2rem", fontWeight: 600 }}>
+            <h2 className="font-heading text-white mb-4" style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)", fontWeight: 500 }}>
               {locale === "es" ? "Listo para comenzar?" : "Ready to get started?"}
             </h2>
             <p className="text-white/60 mb-10 leading-relaxed" style={{ fontSize: "1.05rem" }}>

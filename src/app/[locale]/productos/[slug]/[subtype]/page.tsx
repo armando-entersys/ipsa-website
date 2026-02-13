@@ -136,7 +136,7 @@ export default async function SubtypeDetailPage({
                       const inner = (
                         <div className="flex items-center gap-4">
                           <div
-                            className="w-16 h-16 shrink-0 relative rounded-2xl overflow-hidden bg-surface-alt shadow-card"
+                            className="w-16 h-16 shrink-0 relative rounded-xl overflow-hidden bg-surface-alt shadow-card"
                           >
                             <Image
                               src={mfr.image}
@@ -150,7 +150,7 @@ export default async function SubtypeDetailPage({
                             <span className="block text-gray-900 font-semibold text-sm group-hover:text-gold transition-colors duration-300 truncate">
                               {mfr.name}
                             </span>
-                            <span className="flex items-center gap-1.5 text-xs text-gray-400 mt-1">
+                            <span className="flex items-center gap-1.5 text-xs text-gray-500 mt-1">
                               <MapPin size={11} />
                               {mfr.country}
                             </span>
@@ -166,14 +166,14 @@ export default async function SubtypeDetailPage({
                         <Link
                           key={mfr.slug}
                           href={`${prefix}/proveedores/${mfr.slug}`}
-                          className="group card-hover p-4 rounded-2xl transition-all duration-300 bg-surface-alt shadow-card"
+                          className="group card-hover p-4 rounded-xl transition-all duration-300 bg-surface-alt shadow-card"
                         >
                           {inner}
                         </Link>
                       ) : (
                         <div
                           key={mfr.name}
-                          className="group p-4 rounded-2xl bg-surface-alt shadow-card"
+                          className="group p-4 rounded-xl bg-surface-alt shadow-card"
                         >
                           {inner}
                         </div>
@@ -185,7 +185,7 @@ export default async function SubtypeDetailPage({
 
               {/* Product image */}
               {subtypeData.image && (
-                <div className="relative w-full rounded-2xl overflow-hidden" style={{ aspectRatio: "16/9" }}>
+                <div className="relative w-full rounded-xl overflow-hidden" style={{ aspectRatio: "3/2" }}>
                   <Image
                     src={subtypeData.image}
                     alt={stName}
@@ -199,7 +199,7 @@ export default async function SubtypeDetailPage({
               {/* Specifications */}
               {(subtypeData.sizes || subtypeData.pressureClasses) && (
                 <div
-                  className="p-8 rounded-2xl bg-surface-alt shadow-card"
+                  className="p-8 rounded-xl bg-surface-alt shadow-card"
                 >
                   <p className="text-gold font-medium text-sm tracking-widest uppercase mb-3">
                     {locale === "es" ? "Datos tecnicos" : "Technical data"}
@@ -213,7 +213,7 @@ export default async function SubtypeDetailPage({
                   <dl className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     {subtypeData.sizes && (
                       <div>
-                        <dt className="text-xs text-gray-400 font-medium uppercase tracking-wider mb-1">
+                        <dt className="text-xs text-gray-500 font-medium uppercase tracking-wider mb-1">
                           {locale === "es" ? "Tamanos" : "Sizes"}
                         </dt>
                         <dd
@@ -226,7 +226,7 @@ export default async function SubtypeDetailPage({
                     )}
                     {subtypeData.pressureClasses && (
                       <div>
-                        <dt className="text-xs text-gray-400 font-medium uppercase tracking-wider mb-1">
+                        <dt className="text-xs text-gray-500 font-medium uppercase tracking-wider mb-1">
                           {locale === "es" ? "Clases de presion" : "Pressure classes"}
                         </dt>
                         <dd
@@ -273,7 +273,7 @@ export default async function SubtypeDetailPage({
             <div className="space-y-6">
               {/* Quote CTA */}
               <div
-                className="p-7 rounded-2xl relative overflow-hidden bg-navy-section"
+                className="p-7 rounded-xl relative overflow-hidden bg-navy-section"
               >
                 <div className="relative">
                   <p className="text-gold-light font-medium text-sm tracking-widest uppercase mb-2">
@@ -316,7 +316,7 @@ export default async function SubtypeDetailPage({
               {/* Other types */}
               {siblings.length > 0 && (
                 <div
-                  className="p-7 rounded-2xl bg-surface-alt shadow-card"
+                  className="p-7 rounded-xl bg-surface-alt shadow-card"
                 >
                   <p className="text-gold font-medium text-sm tracking-widest uppercase mb-2">
                     {locale === "es" ? "Mas opciones" : "More options"}
@@ -332,7 +332,7 @@ export default async function SubtypeDetailPage({
                       <li key={sib.slug}>
                         <Link
                           href={`${prefix}/productos/${slug}/${sib.slug}`}
-                          className="group flex items-center justify-between py-2.5 px-3 rounded-2xl hover:bg-white transition-colors duration-300"
+                          className="group flex items-center justify-between py-2.5 px-3 rounded-xl hover:bg-white transition-colors duration-300"
                         >
                           <span className="text-sm text-gray-700 group-hover:text-gray-900 font-medium transition-colors duration-300">
                             {sib[l].name}
@@ -351,7 +351,7 @@ export default async function SubtypeDetailPage({
               {/* Related services */}
               {relatedServices.length > 0 && (
                 <div
-                  className="p-7 rounded-2xl bg-surface-alt shadow-card"
+                  className="p-7 rounded-xl bg-surface-alt shadow-card"
                 >
                   <p className="text-gold font-medium text-sm tracking-widest uppercase mb-2">
                     {locale === "es" ? "Soporte" : "Support"}
@@ -367,7 +367,7 @@ export default async function SubtypeDetailPage({
                       <li key={s.slug}>
                         <Link
                           href={`${prefix}/servicios/${s.slug}`}
-                          className="group flex items-center justify-between py-2.5 px-3 rounded-2xl hover:bg-white transition-colors duration-300"
+                          className="group flex items-center justify-between py-2.5 px-3 rounded-xl hover:bg-white transition-colors duration-300"
                         >
                           <span className="text-sm text-gray-700 group-hover:text-gray-900 font-medium transition-colors duration-300">
                             {s[l]}

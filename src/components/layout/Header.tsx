@@ -234,6 +234,10 @@ export default function Header() {
     timeoutRef.current = setTimeout(() => setActiveDropdown(null), 200);
   }, []);
 
+  const closeDropdown = useCallback(() => {
+    setActiveDropdown(null);
+  }, []);
+
   const isDropdownOpen = activeDropdown !== null;
 
   return (
@@ -286,7 +290,7 @@ export default function Header() {
                 <div className="font-heading font-bold text-white text-lg leading-tight tracking-wide">
                   IPSA
                 </div>
-                <div className="text-[9px] text-white/40 leading-tight tracking-[0.2em] font-medium">
+                <div className="text-[9px] text-white/50 leading-tight tracking-[0.2em] font-medium">
                   INGENIERIA DE PARTES
                 </div>
               </div>
@@ -362,7 +366,7 @@ export default function Header() {
             <div className="flex items-center gap-3 relative z-10">
               <Link
                 href={`${prefix}/contacto`}
-                className="hidden lg:inline-flex items-center gap-2 px-6 py-2.5 bg-gold text-white text-sm font-semibold uppercase tracking-wider rounded-sm transition-all duration-300 hover:bg-gold-dark hover:shadow-lg hover:shadow-gold/20"
+                className="hidden lg:inline-flex items-center gap-2 px-6 py-2.5 bg-gold text-white text-sm font-semibold uppercase tracking-wider rounded-lg transition-all duration-300 hover:bg-gold-dark hover:shadow-lg hover:shadow-gold/20"
               >
                 {locale === "es" ? "Cotizar" : "Quote"}
                 <ArrowRight size={14} />
@@ -388,7 +392,7 @@ export default function Header() {
           }`}
           onMouseEnter={() => handleMouseEnter("products")}
           onMouseLeave={handleMouseLeave}
-          style={{ boxShadow: "0 25px 60px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0,0,0,0.04)" }}
+          style={{ boxShadow: "0 20px 50px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0,0,0,0.04)" }}
         >
           {/* Gold accent bar on top */}
           <div className="h-[3px] bg-gradient-to-r from-gold via-gold-light to-gold" />
@@ -403,6 +407,7 @@ export default function Header() {
                       {/* Column header with image */}
                       <Link
                         href={`${prefix}${col.href}`}
+                        onClick={closeDropdown}
                         className="block mb-4"
                       >
                         <div className="relative h-28 rounded-2xl overflow-hidden mb-3">
@@ -427,6 +432,7 @@ export default function Header() {
                           <li key={item.label}>
                             <Link
                               href={`${prefix}${item.href}`}
+                              onClick={closeDropdown}
                               className="flex items-center gap-2 text-[0.82rem] text-gray-500 hover:text-navy-alt px-3 py-1.5 -mx-1 rounded-xl transition-all duration-200 hover:bg-gray-50 group/item"
                             >
                               <span className="w-1 h-1 rounded-full bg-gray-300 group-hover/item:bg-gold group-hover/item:w-1.5 group-hover/item:h-1.5 transition-all duration-200 shrink-0" />
@@ -445,7 +451,8 @@ export default function Header() {
                     <Link
                       key={item.label}
                       href={`${prefix}${item.href}`}
-                      className="text-[0.82rem] text-gray-400 hover:text-navy-alt hover:bg-gray-50 px-3 py-1.5 rounded-xl transition-all duration-200"
+                      onClick={closeDropdown}
+                      className="text-[0.82rem] text-gray-500 hover:text-navy-alt hover:bg-gray-50 px-3 py-1.5 rounded-xl transition-all duration-200"
                     >
                       {item.label}
                     </Link>
@@ -481,6 +488,7 @@ export default function Header() {
                   </div>
                   <Link
                     href={`${prefix}/productos`}
+                    onClick={closeDropdown}
                     className="flex items-center gap-1.5 text-navy-alt text-sm font-bold hover:text-gold transition-colors duration-200"
                   >
                     {l === "es" ? "Ver todos los productos" : "View all products"}
@@ -489,7 +497,8 @@ export default function Header() {
                 </div>
                 <Link
                   href={`${prefix}/contacto`}
-                  className="block text-center text-xs font-bold uppercase tracking-wider px-4 py-3 bg-gold text-white rounded-sm transition-all duration-300 hover:bg-gold-dark hover:shadow-lg hover:shadow-gold/20 mt-6"
+                  onClick={closeDropdown}
+                  className="block text-center text-xs font-bold uppercase tracking-wider px-4 py-3 bg-gold text-white rounded-lg transition-all duration-300 hover:bg-gold-dark hover:shadow-lg hover:shadow-gold/20 mt-6"
                 >
                   {l === "es" ? "Solicitar cotizacion" : "Request a quote"}
                 </Link>
@@ -510,7 +519,7 @@ export default function Header() {
               }`}
               onMouseEnter={() => handleMouseEnter(item.key)}
               onMouseLeave={handleMouseLeave}
-              style={{ boxShadow: "0 25px 60px rgba(0, 0, 0, 0.12)" }}
+              style={{ boxShadow: "0 20px 50px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0,0,0,0.04)" }}
             >
               <div className="h-[3px] bg-gradient-to-r from-gold via-gold-light to-gold" />
               <div className="mx-auto max-w-[1600px] px-5 md:px-10 py-8">
@@ -519,6 +528,7 @@ export default function Header() {
                   <div className="w-56 shrink-0">
                     <Link
                       href={`${prefix}${item.href}`}
+                      onClick={closeDropdown}
                       className="group inline-block"
                     >
                       <h3 className="font-heading text-navy-alt text-2xl font-normal mb-2 group-hover:text-gold transition-colors duration-300">
@@ -537,6 +547,7 @@ export default function Header() {
                       <Link
                         key={child.href}
                         href={`${prefix}${child.href}`}
+                        onClick={closeDropdown}
                         className="group/child block p-5 rounded-2xl border border-transparent hover:border-gray-100 hover:bg-gray-50/60 hover:shadow-sm transition-all duration-200"
                       >
                         <div className="flex items-start gap-3">
@@ -548,7 +559,7 @@ export default function Header() {
                               {child.label}
                             </span>
                             {"desc" in child && (
-                              <span className="block text-xs text-gray-400 leading-relaxed">
+                              <span className="block text-xs text-gray-500 leading-relaxed">
                                 {(child as { desc: string }).desc}
                               </span>
                             )}
@@ -565,9 +576,10 @@ export default function Header() {
 
         {/* ── Dark overlay behind dropdowns ─────────── */}
         <div
-          className={`fixed inset-0 bg-black/30 z-[998] transition-opacity duration-300 pointer-events-none ${
-            isDropdownOpen ? "opacity-100" : "opacity-0"
+          className={`fixed inset-0 bg-black/30 z-[998] transition-opacity duration-300 ${
+            isDropdownOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
           }`}
+          onClick={closeDropdown}
           style={{ top: "calc(36px + 72px)" }}
         />
       </header>
@@ -590,7 +602,7 @@ export default function Header() {
           {/* Menu panel */}
           <div
             className="absolute top-0 right-0 w-full max-w-md h-full bg-navy-alt overflow-y-auto"
-            style={{ boxShadow: "-10px 0 40px rgba(0, 0, 0, 0.3)" }}
+            style={{ boxShadow: "-8px 0 30px rgba(0, 0, 0, 0.15)" }}
           >
             <div className="py-4">
               {/* Products (with sub-accordion) */}
@@ -631,7 +643,7 @@ export default function Header() {
                             key={item.label}
                             href={`${prefix}${item.href}`}
                             onClick={() => setMobileOpen(false)}
-                            className="block pl-14 pr-6 py-1.5 text-xs text-white/40 border-l-[3px] border-white/5 ml-6 hover:text-white/70 transition-colors duration-200"
+                            className="block pl-14 pr-6 py-1.5 text-xs text-white/50 border-l-[3px] border-white/5 ml-6 hover:text-white/70 transition-colors duration-200"
                           >
                             {item.label}
                           </Link>
@@ -713,7 +725,7 @@ export default function Header() {
                 <Link
                   href={`${prefix}/contacto`}
                   onClick={() => setMobileOpen(false)}
-                  className="flex items-center justify-center gap-2 w-full px-6 py-3.5 bg-gold text-white font-bold uppercase tracking-wider rounded-sm transition-all duration-300 hover:bg-gold-dark"
+                  className="flex items-center justify-center gap-2 w-full px-6 py-3.5 bg-gold text-white font-bold uppercase tracking-wider rounded-lg transition-all duration-300 hover:bg-gold-dark"
                 >
                   {locale === "es" ? "Solicitar cotizacion" : "Request a quote"}
                   <ArrowRight size={16} />

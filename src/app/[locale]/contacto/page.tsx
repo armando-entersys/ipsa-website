@@ -58,10 +58,10 @@ export default function ContactPage() {
           priority
           sizes="100vw"
         />
-        {/* Base dark overlay for readability */}
+        {/* Base overlay */}
         <div className="absolute inset-0 bg-black/45" />
-        {/* Gradient bottom */}
-        <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(20,23,51,0.2) 0%, rgba(20,23,51,0.7) 50%, rgba(20,23,51,0.95) 100%)" }} />
+        {/* Bottom gradient for text */}
+        <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/70 via-navy-dark/25 to-transparent" />
         <div className="relative z-10 mx-auto w-full max-w-[1600px] px-5 md:px-10 pb-10 lg:pb-14 pt-28">
           <nav className="text-sm text-white/60 mb-5 hero-subtitle">
             <Link href={prefix} className="hover:text-white transition-colors">
@@ -74,7 +74,7 @@ export default function ContactPage() {
             <h1
               className="font-heading text-white mb-3 hero-text-strong"
               style={{
-                fontWeight: 600,
+                fontWeight: 400,
                 fontSize: "clamp(2.2rem, 5vw, 3.75rem)",
               }}
             >
@@ -102,7 +102,7 @@ export default function ContactPage() {
 
               {submitted ? (
                 <div
-                  className="bg-green-50 rounded-2xl p-8 text-center shadow-card"
+                  className="bg-green-50 rounded-xl p-8 text-center shadow-card"
                 >
                   <CheckCircle size={48} className="text-green-500 mx-auto mb-4" />
                   <p className="text-green-800 font-medium text-lg">
@@ -213,7 +213,7 @@ export default function ContactPage() {
 
             {/* Sidebar */}
             <div className="lg:col-span-2 space-y-8">
-              <div className="bg-navy-deep rounded-2xl p-6 text-white">
+              <div className="bg-navy-deep rounded-xl p-6 text-white">
                 <h3 className="font-heading font-semibold text-gold-light mb-4">
                   {t("directContact")}
                 </h3>
@@ -251,7 +251,7 @@ export default function ContactPage() {
                   {offices.map((office) => (
                     <div
                       key={office.city}
-                      className="bg-white rounded-2xl p-4 card-hover shadow-card"
+                      className="bg-white rounded-xl p-4 card-hover shadow-card"
                     >
                       <div className="flex items-center justify-between mb-1">
                         <span className="font-medium text-gray-900 text-sm">

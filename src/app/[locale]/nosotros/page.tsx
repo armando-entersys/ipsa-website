@@ -30,10 +30,10 @@ export default function AboutPage() {
           priority
           sizes="100vw"
         />
-        {/* Base dark overlay for readability */}
+        {/* Base overlay */}
         <div className="absolute inset-0 bg-black/45" />
-        {/* Warm overlay with slight blue */}
-        <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(20,23,51,0.3) 0%, rgba(20,23,51,0.6) 60%, rgba(20,23,51,0.9) 100%)" }} />
+        {/* Bottom gradient for text */}
+        <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/70 via-navy-dark/25 to-transparent" />
         <div className="relative z-10 mx-auto w-full max-w-[1600px] px-5 md:px-10 pb-10 lg:pb-14 pt-28">
           <nav className="text-sm text-white/60 mb-5 hero-subtitle">
             <Link href={prefix} className="hover:text-white transition-colors">
@@ -45,7 +45,7 @@ export default function AboutPage() {
           <h1
             className="font-heading text-white mb-3 hero-text-strong"
             style={{
-              fontWeight: 600,
+              fontWeight: 400,
               fontSize: "clamp(2.2rem, 5vw, 3.75rem)",
             }}
           >
@@ -73,7 +73,7 @@ export default function AboutPage() {
                 {t("whoWeAreText")}
               </p>
             </div>
-            <div className="relative h-[360px] lg:h-[440px] rounded-2xl overflow-hidden">
+            <div className="relative h-[360px] lg:h-[440px] rounded-xl overflow-hidden">
               <Image
                 src={stockImages.team}
                 alt={locale === "es" ? "Nuestro equipo" : "Our team"}
@@ -108,10 +108,10 @@ export default function AboutPage() {
             ].map(({ key, color, icon: Icon }) => (
               <div
                 key={key}
-                className="bg-white rounded-2xl p-8 text-center card-hover shadow-card"
+                className="bg-white rounded-xl p-8 text-center card-hover shadow-card"
               >
                 <div
-                  className={`w-16 h-16 ${color} rounded-2xl flex items-center justify-center mx-auto mb-4`}
+                  className={`w-16 h-16 ${color} rounded-xl flex items-center justify-center mx-auto mb-4`}
                 >
                   <Icon size={28} className="text-white" />
                 </div>
@@ -161,7 +161,7 @@ export default function AboutPage() {
             ].map((loc) => (
               <div
                 key={loc.city}
-                className="bg-white rounded-2xl p-5 text-center card-hover shadow-card"
+                className="bg-white rounded-xl p-5 text-center card-hover shadow-card"
               >
                 <MapPin size={20} className="text-gold mx-auto mb-2" />
                 <div className="font-heading font-semibold text-gray-900 text-sm">
@@ -241,7 +241,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <Link
               href={`${prefix}/nosotros/alianzas`}
-              className="group bg-white rounded-2xl p-8 card-hover shadow-card"
+              className="group bg-white rounded-xl p-8 card-hover shadow-card"
             >
               <h3 className="font-heading font-bold text-gray-900 text-xl mb-2">
                 {locale === "es" ? "Alianzas estrategicas" : "Strategic alliances"}
@@ -258,7 +258,7 @@ export default function AboutPage() {
             </Link>
             <Link
               href={`${prefix}/nosotros/historia`}
-              className="group bg-white rounded-2xl p-8 card-hover shadow-card"
+              className="group bg-white rounded-xl p-8 card-hover shadow-card"
             >
               <h3 className="font-heading font-bold text-gray-900 text-xl mb-2">
                 {locale === "es" ? "Nuestra historia" : "Our history"}
@@ -286,7 +286,6 @@ export default function AboutPage() {
           className="object-cover"
         />
         <div className="absolute inset-0 bg-navy-deep/80" />
-        <div className="absolute inset-0 bg-gradient-to-r from-navy-deep/90 to-navy-deep/60" />
         <div className="relative z-10 mx-auto max-w-[1600px] px-5 md:px-10 text-center">
           <h2 className="font-heading font-bold text-white text-3xl md:text-4xl mb-4">
             {locale === "es" ? "Trabajemos juntos" : "Let's work together"}

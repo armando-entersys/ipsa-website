@@ -103,9 +103,8 @@ export default async function SupplierPage({ params }: { params: Promise<{ local
           className="object-cover"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-black/50" />
-        <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at 30% 50%, rgba(20,23,51,0.75) 0%, rgba(20,23,51,0.35) 60%, rgba(20,23,51,0.2) 100%)" }} />
-        <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/60 to-transparent" />
+        <div className="absolute inset-0 bg-black/45" />
+        <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/70 via-navy-dark/25 to-transparent" />
 
         <div className="relative mx-auto max-w-[1600px] px-5 md:px-10 flex items-center" style={{ minHeight: "45vh" }}>
           <div className="py-20 lg:py-24">
@@ -124,7 +123,7 @@ export default async function SupplierPage({ params }: { params: Promise<{ local
             <div className="flex items-center gap-6">
               {/* Product image */}
               <div
-                className="w-24 h-24 md:w-28 md:h-28 shrink-0 relative rounded-2xl overflow-hidden bg-white/10 border border-white/15"
+                className="w-24 h-24 md:w-28 md:h-28 shrink-0 relative rounded-xl overflow-hidden bg-white/10 border border-white/15"
               >
                 <Image
                   src={supplier.image}
@@ -137,7 +136,7 @@ export default async function SupplierPage({ params }: { params: Promise<{ local
               <div>
                 <h1
                   className="font-heading text-white leading-tight mb-2 hero-text-strong"
-                  style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)", fontWeight: 600 }}
+                  style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)", fontWeight: 400 }}
                 >
                   {supplier.name}
                 </h1>
@@ -164,7 +163,7 @@ export default async function SupplierPage({ params }: { params: Promise<{ local
                 <p className="text-gold font-medium text-sm tracking-widest uppercase mb-3">
                   {locale === "es" ? "Acerca de" : "About"}
                 </p>
-                <h2 className="font-heading text-gray-900 mb-6" style={{ fontSize: "1.75rem", fontWeight: 600 }}>
+                <h2 className="font-heading text-gray-900 mb-6" style={{ fontSize: "clamp(1.5rem, 3.5vw, 1.75rem)", fontWeight: 500 }}>
                   {locale === "es" ? `Sobre ${supplier.name}` : `About ${supplier.name}`}
                 </h2>
                 <p className="text-gray-600 leading-relaxed" style={{ fontSize: "1.05rem", lineHeight: 1.8 }}>
@@ -173,11 +172,11 @@ export default async function SupplierPage({ params }: { params: Promise<{ local
               </div>
 
               {/* Products */}
-              <div className="p-8 md:p-10 rounded-2xl bg-surface-alt shadow-card">
+              <div className="p-8 md:p-10 rounded-xl bg-surface-alt shadow-card">
                 <p className="text-gold font-medium text-sm tracking-widest uppercase mb-3">
                   {locale === "es" ? "Catalogo" : "Catalog"}
                 </p>
-                <h2 className="font-heading text-gray-900 mb-6" style={{ fontSize: "1.75rem", fontWeight: 600 }}>
+                <h2 className="font-heading text-gray-900 mb-6" style={{ fontSize: "clamp(1.5rem, 3.5vw, 1.75rem)", fontWeight: 500 }}>
                   {locale === "es" ? `Productos ${supplier.name}` : `${supplier.name} Products`}
                 </h2>
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -195,7 +194,7 @@ export default async function SupplierPage({ params }: { params: Promise<{ local
                 <p className="text-gold font-medium text-sm tracking-widest uppercase mb-3">
                   {locale === "es" ? "Calidad" : "Quality"}
                 </p>
-                <h2 className="font-heading text-gray-900 mb-6" style={{ fontSize: "1.75rem", fontWeight: 600 }}>
+                <h2 className="font-heading text-gray-900 mb-6" style={{ fontSize: "clamp(1.5rem, 3.5vw, 1.75rem)", fontWeight: 500 }}>
                   {locale === "es" ? "Certificaciones" : "Certifications"}
                 </h2>
                 <div className="flex flex-wrap gap-2.5">
@@ -217,7 +216,7 @@ export default async function SupplierPage({ params }: { params: Promise<{ local
 
               {/* Quote CTA */}
               <div
-                className="p-7 rounded-2xl bg-navy-alt shadow-card"
+                className="p-7 rounded-xl bg-navy-alt shadow-card"
               >
                 <h3 className="font-heading text-gold-light mb-2" style={{ fontWeight: 600, fontSize: "1.1rem" }}>
                   {locale === "es" ? `Cotizar productos ${supplier.name}` : `Quote ${supplier.name} products`}
@@ -243,7 +242,7 @@ export default async function SupplierPage({ params }: { params: Promise<{ local
 
               {/* Industries */}
               <div
-                className="p-7 rounded-2xl bg-surface-alt shadow-card"
+                className="p-7 rounded-xl bg-surface-alt shadow-card"
               >
                 <h3 className="font-heading text-gray-900 mb-4" style={{ fontWeight: 600 }}>
                   {locale === "es" ? "Industrias" : "Industries"}
@@ -265,7 +264,7 @@ export default async function SupplierPage({ params }: { params: Promise<{ local
 
               {/* Other suppliers */}
               <div
-                className="p-7 rounded-2xl bg-surface-alt shadow-card"
+                className="p-7 rounded-xl bg-surface-alt shadow-card"
               >
                 <h3 className="font-heading text-gray-900 mb-4" style={{ fontWeight: 600 }}>
                   {locale === "es" ? "Otros fabricantes" : "Other manufacturers"}
@@ -301,7 +300,7 @@ export default async function SupplierPage({ params }: { params: Promise<{ local
         <div className="absolute inset-0 bg-navy-deep/80" />
         <div className="relative mx-auto max-w-[1600px] px-5 md:px-10">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="font-heading text-white mb-4" style={{ fontSize: "2rem", fontWeight: 600 }}>
+            <h2 className="font-heading text-white mb-4" style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)", fontWeight: 500 }}>
               {locale === "es"
                 ? "Hablemos de tu proyecto"
                 : "Let's talk about your project"}

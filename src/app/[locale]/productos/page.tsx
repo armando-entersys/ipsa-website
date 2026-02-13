@@ -48,10 +48,10 @@ export default function ProductsHub() {
           className="object-cover"
           sizes="100vw"
         />
-        {/* Light overlay - let image breathe */}
-        <div className="absolute inset-0 bg-black/50" />
-        {/* Strong bottom gradient for text */}
-        <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/95 via-navy-dark/40 to-transparent" />
+        {/* Base overlay */}
+        <div className="absolute inset-0 bg-black/45" />
+        {/* Bottom gradient for text */}
+        <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/70 via-navy-dark/25 to-transparent" />
 
         <div className="relative mx-auto max-w-[1600px] px-5 md:px-10 flex items-end" style={{ minHeight: "45vh" }}>
           <div className="max-w-3xl pb-10 lg:pb-14 pt-28">
@@ -66,7 +66,7 @@ export default function ProductsHub() {
               <div className="w-10 h-[3px] bg-gold" />
               <h1
                 className="font-heading text-white leading-tight hero-text-strong"
-                style={{ fontSize: "clamp(2.25rem, 4.5vw, 3.75rem)", fontWeight: 600 }}
+                style={{ fontSize: "clamp(2.25rem, 4.5vw, 3.75rem)", fontWeight: 400 }}
               >
                 {t("title")}
               </h1>
@@ -87,7 +87,7 @@ export default function ProductsHub() {
             <p className="text-gold font-medium text-sm tracking-widest uppercase mb-3">
               {locale === "es" ? "Catalogo completo" : "Full catalog"}
             </p>
-            <h2 className="font-heading text-gray-900" style={{ fontSize: "2rem", fontWeight: 600 }}>
+            <h2 className="font-heading text-gray-900" style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)", fontWeight: 500 }}>
               {locale === "es" ? "Nuestros productos" : "Our products"}
             </h2>
             <p className="text-gray-500 mt-2 max-w-xl mx-auto leading-relaxed">
@@ -104,7 +104,7 @@ export default function ProductsHub() {
                 <Link
                   key={product.slug}
                   href={`${prefix}/productos/${product.slug}`}
-                  className="group block bg-white rounded-2xl shadow-card card-modern p-8 hover:bg-gray-50/80 transition-all duration-300 relative"
+                  className="group block bg-white rounded-xl shadow-card card-modern p-8 hover:bg-gray-50/80 transition-all duration-300 relative"
                 >
                   <div className="flex items-start gap-5">
                     <div
@@ -116,7 +116,7 @@ export default function ProductsHub() {
                       <h3 className="font-heading font-semibold text-gray-900 text-base mb-1">
                         {product[l]}
                       </h3>
-                      <p className="text-gray-400 text-sm leading-relaxed mb-3">
+                      <p className="text-gray-500 text-sm leading-relaxed mb-3">
                         {l === "es" ? product.desc_es : product.desc_en}
                       </p>
                       <span className="text-sm text-gold font-medium inline-flex items-center gap-1 group-hover:text-gold-dark transition-colors duration-300">
@@ -151,7 +151,7 @@ export default function ProductsHub() {
               <Zap size={28} className="text-gold-light" strokeWidth={1.5} />
             </div>
             <div>
-              <h2 className="font-heading text-white mb-1" style={{ fontSize: "1.5rem", fontWeight: 600 }}>
+              <h2 className="font-heading text-white mb-1" style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)", fontWeight: 500 }}>
                 {locale === "es" ? "Automatizamos tus valvulas" : "We automate your valves"}
               </h2>
               <p className="text-white/60 leading-relaxed" style={{ fontSize: "0.95rem" }}>
@@ -164,7 +164,6 @@ export default function ProductsHub() {
           <Link
             href={`${prefix}/servicios/automatizacion`}
             className="inline-flex items-center px-8 py-4 bg-gold text-white font-semibold rounded-xl btn-lift hover:bg-gold-dark shrink-0"
-            style={{ fontSize: "1.05rem" }}
           >
             {locale === "es" ? "Conoce el servicio" : "Learn about the service"}
             <ArrowRight size={16} className="ml-2" />
@@ -184,7 +183,7 @@ export default function ProductsHub() {
         <div className="absolute inset-0 bg-navy-deep/80" />
         <div className="relative mx-auto max-w-[1600px] px-5 md:px-10">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="font-heading text-white mb-4" style={{ fontSize: "2rem", fontWeight: 600 }}>
+            <h2 className="font-heading text-white mb-4" style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)", fontWeight: 500 }}>
               {locale === "es" ? "No encuentras lo que buscas?" : "Can't find what you're looking for?"}
             </h2>
             <p className="text-white/60 mb-10 leading-relaxed" style={{ fontSize: "1.05rem" }}>

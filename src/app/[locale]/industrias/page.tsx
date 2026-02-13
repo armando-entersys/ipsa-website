@@ -70,12 +70,10 @@ export default function IndustriesHub() {
           className="object-cover"
           sizes="100vw"
         />
-        {/* Base dark overlay for readability */}
+        {/* Base overlay */}
         <div className="absolute inset-0 bg-black/45" />
-        {/* Warm dramatic overlay - different from other pages */}
-        <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, rgba(20,23,51,0.85) 0%, rgba(20,23,51,0.3) 40%, rgba(187,144,52,0.15) 100%)" }} />
         {/* Bottom gradient for text */}
-        <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/80 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/70 via-navy-dark/25 to-transparent" />
 
         <div className="relative mx-auto max-w-[1600px] px-5 md:px-10 flex items-end" style={{ minHeight: "55vh" }}>
           <div className="max-w-3xl pb-12 lg:pb-16 pt-32">
@@ -88,7 +86,7 @@ export default function IndustriesHub() {
             </nav>
             <h1
               className="font-heading text-white leading-tight mb-4 hero-text-strong"
-              style={{ fontSize: "clamp(2.5rem, 5vw, 4rem)", fontWeight: 600 }}
+              style={{ fontSize: "clamp(2.5rem, 5vw, 4rem)", fontWeight: 400 }}
             >
               {t("title")}
             </h1>
@@ -108,7 +106,7 @@ export default function IndustriesHub() {
             <p className="text-gold font-medium text-sm tracking-widest uppercase mb-3">
               {locale === "es" ? "Sectores que atendemos" : "Sectors we serve"}
             </p>
-            <h2 className="font-heading text-gray-900" style={{ fontSize: "2rem", fontWeight: 600 }}>
+            <h2 className="font-heading text-gray-900" style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)", fontWeight: 500 }}>
               {locale === "es"
                 ? "Soluciones especializadas por industria"
                 : "Specialized solutions by industry"}
@@ -121,7 +119,7 @@ export default function IndustriesHub() {
                 <Link
                   key={industry.slug}
                   href={`${prefix}/industrias/${industry.slug}`}
-                  className="group block relative rounded-2xl overflow-hidden shadow-card-lg"
+                  className="group block relative rounded-xl overflow-hidden shadow-card-lg"
                   style={{ minHeight: "320px" }}
                 >
                   <Image
@@ -160,7 +158,7 @@ export default function IndustriesHub() {
             <p className="text-gold font-medium text-sm tracking-widest uppercase mb-3">
               {locale === "es" ? "Nuestra experiencia" : "Our experience"}
             </p>
-            <h2 className="font-heading text-white mb-4" style={{ fontSize: "2rem", fontWeight: 600 }}>
+            <h2 className="font-heading text-white mb-4" style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)", fontWeight: 500 }}>
               {locale === "es"
                 ? "Respaldados por resultados"
                 : "Backed by results"}
@@ -201,7 +199,7 @@ export default function IndustriesHub() {
         <div className="absolute inset-0 bg-navy-deep/80" />
         <div className="relative mx-auto max-w-[1600px] px-5 md:px-10">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="font-heading text-white mb-4" style={{ fontSize: "2rem", fontWeight: 600 }}>
+            <h2 className="font-heading text-white mb-4" style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)", fontWeight: 500 }}>
               {locale === "es"
                 ? "Hablemos de tu proyecto"
                 : "Let's talk about your project"}

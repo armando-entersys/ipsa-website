@@ -65,11 +65,10 @@ export default function SuppliersHub() {
           className="object-cover"
           sizes="100vw"
         />
-        {/* Base dark overlay for readability */}
+        {/* Base overlay */}
         <div className="absolute inset-0 bg-black/45" />
-        {/* Softer centered gradient */}
-        <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at 30% 50%, rgba(20,23,51,0.8) 0%, rgba(20,23,51,0.4) 50%, rgba(20,23,51,0.25) 100%)" }} />
-        <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/70 to-transparent" />
+        {/* Bottom gradient for text */}
+        <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/70 via-navy-dark/25 to-transparent" />
 
         <div className="relative mx-auto max-w-[1600px] px-5 md:px-10 flex items-end" style={{ minHeight: "45vh" }}>
           <div className="max-w-3xl pb-10 lg:pb-14 pt-28">
@@ -84,7 +83,7 @@ export default function SuppliersHub() {
             </nav>
             <h1
               className="font-heading text-white leading-tight mb-4 hero-text-strong"
-              style={{ fontSize: "clamp(2.2rem, 4.5vw, 3.5rem)", fontWeight: 600 }}
+              style={{ fontSize: "clamp(2.2rem, 4.5vw, 3.5rem)", fontWeight: 400 }}
             >
               {t("title")}
             </h1>
@@ -102,7 +101,7 @@ export default function SuppliersHub() {
             <p className="text-gold font-medium text-sm tracking-widest uppercase mb-3">
               {locale === "es" ? "Nuestros socios" : "Our partners"}
             </p>
-            <h2 className="font-heading text-gray-900" style={{ fontSize: "2rem", fontWeight: 600 }}>
+            <h2 className="font-heading text-gray-900" style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)", fontWeight: 500 }}>
               {locale === "es"
                 ? "Alianzas con fabricantes de clase mundial"
                 : "World-class manufacturer partnerships"}
@@ -119,7 +118,7 @@ export default function SuppliersHub() {
               <Link
                 key={supplier.slug}
                 href={`${prefix}/proveedores/${supplier.slug}`}
-                className="group block rounded-2xl overflow-hidden shadow-card-lg"
+                className="group block rounded-xl overflow-hidden shadow-card-lg"
               >
                 <div className="flex flex-col md:flex-row">
                   {/* Product image */}
@@ -136,7 +135,7 @@ export default function SuppliersHub() {
                   {/* Content */}
                   <div className="flex-1 p-7 md:p-8">
                     <div className="flex items-center gap-3 mb-3">
-                      <h2 className="font-heading text-gray-900 text-xl md:text-2xl" style={{ fontWeight: 600 }}>
+                      <h2 className="font-heading text-gray-900 text-xl md:text-2xl" style={{ fontWeight: 500 }}>
                         {supplier.name}
                       </h2>
                       <span
@@ -174,7 +173,7 @@ export default function SuppliersHub() {
             <p className="text-gold font-medium text-sm tracking-widest uppercase mb-3">
               {locale === "es" ? "Marcas adicionales" : "Additional brands"}
             </p>
-            <h2 className="font-heading text-gray-900 mb-4" style={{ fontSize: "2rem", fontWeight: 600 }}>
+            <h2 className="font-heading text-gray-900 mb-4" style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)", fontWeight: 500 }}>
               {locale === "es"
                 ? "Tambien representamos"
                 : "We also represent"}
@@ -217,7 +216,7 @@ export default function SuppliersHub() {
         <div className="absolute inset-0 bg-navy-deep/80" />
         <div className="relative mx-auto max-w-[1600px] px-5 md:px-10">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="font-heading text-white mb-4" style={{ fontSize: "2rem", fontWeight: 600 }}>
+            <h2 className="font-heading text-white mb-4" style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)", fontWeight: 500 }}>
               {locale === "es"
                 ? "Necesitas una solucion especifica?"
                 : "Need a specific solution?"}

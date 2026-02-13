@@ -44,7 +44,7 @@ type CardProps = ProductCardProps | ServiceCardProps | IndustryCardProps | Suppl
 function ProductCard({ title, description, image, href, className = '' }: ProductCardProps) {
   return (
     <div
-      className={`group flex flex-col overflow-hidden rounded-2xl bg-white shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ${className}`}
+      className={`group flex flex-col overflow-hidden rounded-xl bg-white shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 ${className}`}
     >
       <div className="relative aspect-[4/3] overflow-hidden">
         <Image
@@ -82,7 +82,7 @@ function ProductCard({ title, description, image, href, className = '' }: Produc
 function ServiceCard({ title, description, icon: Icon, href, className = '' }: ServiceCardProps) {
   return (
     <div
-      className={`group flex flex-row items-start gap-5 rounded-2xl bg-white p-6 shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ${className}`}
+      className={`group flex flex-row items-start gap-5 rounded-xl bg-white p-6 shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 ${className}`}
     >
       <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl icon-bg-navy text-gray-700 transition-colors group-hover:bg-gold group-hover:text-white">
         <Icon className="h-7 w-7" />
@@ -115,7 +115,7 @@ function ServiceCard({ title, description, icon: Icon, href, className = '' }: S
 function IndustryCard({ title, image, href, className = '' }: IndustryCardProps) {
   const content = (
     <div
-      className={`group relative flex h-64 items-center justify-center overflow-hidden rounded-2xl ${className}`}
+      className={`group relative flex h-64 items-center justify-center overflow-hidden rounded-xl ${className}`}
     >
       <Image
         src={image}
@@ -140,7 +140,7 @@ function IndustryCard({ title, image, href, className = '' }: IndustryCardProps)
 function SupplierCard({ title, image, href, className = '' }: SupplierCardProps) {
   const content = (
     <div
-      className={`group flex flex-col items-center justify-center gap-4 rounded-2xl border border-gray-200 bg-white p-8 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 ${className}`}
+      className={`group flex flex-col items-center justify-center gap-4 rounded-xl border border-gray-200 bg-white p-8 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 ${className}`}
     >
       <div className="relative h-16 w-36">
         <Image

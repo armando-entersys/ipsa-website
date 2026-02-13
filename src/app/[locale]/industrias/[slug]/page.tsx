@@ -86,8 +86,7 @@ export default async function IndustryPage({ params }: { params: Promise<{ local
           sizes="100vw"
         />
         <div className="absolute inset-0 bg-black/45" />
-        <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, rgba(20,23,51,0.7) 0%, rgba(20,23,51,0.2) 50%, rgba(187,144,52,0.1) 100%)" }} />
-        <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/80 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/70 via-navy-dark/25 to-transparent" />
 
         <div className="relative mx-auto max-w-[1600px] px-5 md:px-10 flex items-center" style={{ minHeight: "55vh" }}>
           <div className="max-w-3xl py-24 lg:py-32">
@@ -104,7 +103,7 @@ export default async function IndustryPage({ params }: { params: Promise<{ local
             </nav>
             <h1
               className="font-heading text-white leading-tight mb-6 hero-text-strong"
-              style={{ fontSize: "clamp(2.5rem, 5vw, 4.5rem)", fontWeight: 600 }}
+              style={{ fontSize: "clamp(2.5rem, 5vw, 4.5rem)", fontWeight: 400 }}
             >
               {data.name}
             </h1>
@@ -122,18 +121,18 @@ export default async function IndustryPage({ params }: { params: Promise<{ local
             <p className="text-gold font-medium text-sm tracking-widest uppercase mb-3">
               {locale === "es" ? "Entendemos tu operacion" : "We understand your operation"}
             </p>
-            <h2 className="font-heading text-gray-900" style={{ fontSize: "2rem", fontWeight: 600 }}>
+            <h2 className="font-heading text-gray-900" style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)", fontWeight: 500 }}>
               {locale === "es" ? "El reto y nuestra respuesta" : "The challenge and our response"}
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Challenge card */}
             <div
-              className="p-8 lg:p-10 rounded-2xl bg-surface-alt shadow-card"
+              className="p-8 lg:p-10 rounded-xl bg-surface-alt shadow-card"
             >
               <div className="flex items-center gap-3 mb-5">
                 <div
-                  className="w-10 h-10 rounded-2xl flex items-center justify-center icon-bg-gold"
+                  className="w-10 h-10 rounded-xl flex items-center justify-center icon-bg-gold"
                 >
                   <AlertTriangle size={20} className="text-gold" strokeWidth={1.5} />
                 </div>
@@ -145,11 +144,11 @@ export default async function IndustryPage({ params }: { params: Promise<{ local
             </div>
             {/* Solution card */}
             <div
-              className="p-8 lg:p-10 rounded-2xl bg-navy-alt"
+              className="p-8 lg:p-10 rounded-xl bg-navy-alt"
             >
               <div className="flex items-center gap-3 mb-5">
                 <div
-                  className="w-10 h-10 rounded-2xl flex items-center justify-center icon-bg-gold"
+                  className="w-10 h-10 rounded-xl flex items-center justify-center icon-bg-gold"
                 >
                   <CheckCircle size={20} className="text-gold-light" strokeWidth={1.5} />
                 </div>
@@ -172,7 +171,7 @@ export default async function IndustryPage({ params }: { params: Promise<{ local
               <p className="text-gold font-medium text-sm tracking-widest uppercase mb-3">
                 {locale === "es" ? "Equipos especializados" : "Specialized equipment"}
               </p>
-              <h2 className="font-heading text-gray-900 mb-6" style={{ fontSize: "2rem", fontWeight: 600 }}>
+              <h2 className="font-heading text-gray-900 mb-6" style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)", fontWeight: 500 }}>
                 {locale === "es" ? "Productos para esta industria" : "Products for this industry"}
               </h2>
               <ul className="space-y-4">
@@ -197,7 +196,7 @@ export default async function IndustryPage({ params }: { params: Promise<{ local
               <p className="text-gold font-medium text-sm tracking-widest uppercase mb-3">
                 {locale === "es" ? "Cumplimiento normativo" : "Regulatory compliance"}
               </p>
-              <h2 className="font-heading text-gray-900 mb-6" style={{ fontSize: "2rem", fontWeight: 600 }}>
+              <h2 className="font-heading text-gray-900 mb-6" style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)", fontWeight: 500 }}>
                 {locale === "es" ? "Normas aplicables" : "Applicable standards"}
               </h2>
               <div className="flex flex-wrap gap-3">
@@ -210,7 +209,7 @@ export default async function IndustryPage({ params }: { params: Promise<{ local
                   </span>
                 ))}
               </div>
-              <p className="text-gray-400 text-sm mt-6 leading-relaxed">
+              <p className="text-gray-500 text-sm mt-6 leading-relaxed">
                 {locale === "es"
                   ? "Todos nuestros productos cumplen con las normas internacionales mas exigentes de la industria."
                   : "All our products comply with the most demanding international industry standards."}
@@ -235,7 +234,7 @@ export default async function IndustryPage({ params }: { params: Promise<{ local
             <p className="text-gold font-medium text-sm tracking-widest uppercase mb-3">
               {locale === "es" ? "Siguiente paso" : "Next step"}
             </p>
-            <h2 className="font-heading text-white mb-4" style={{ fontSize: "2rem", fontWeight: 600 }}>
+            <h2 className="font-heading text-white mb-4" style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)", fontWeight: 500 }}>
               {locale === "es"
                 ? `Hablemos de tu proyecto en ${data.name.toLowerCase()}`
                 : `Let's discuss your ${data.name.toLowerCase()} project`}

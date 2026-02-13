@@ -52,7 +52,7 @@ export default function Footer() {
           {/* Col 2: Mexico HQ */}
           <div className="hidden lg:block">
             <h3
-              className="text-white font-semibold mb-4 text-lg font-body"
+              className="text-white font-semibold mb-4 text-lg font-heading"
             >
               IPSA (Mexico)
             </h3>
@@ -84,7 +84,7 @@ export default function Footer() {
           {/* Col 3: Houston */}
           <div className="hidden lg:block">
             <h3
-              className="text-white font-semibold mb-4 text-lg font-body"
+              className="text-white font-semibold mb-4 text-lg font-heading"
             >
               IPSA (Houston)
             </h3>
@@ -100,7 +100,7 @@ export default function Footer() {
           {/* Col 4: Discover */}
           <div>
             <h3
-              className="text-white font-semibold mb-4 text-lg font-body"
+              className="text-white font-semibold mb-4 text-lg font-heading"
             >
               {locale === "es" ? "Descubre" : "Discover"}
             </h3>
