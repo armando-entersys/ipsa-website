@@ -1,0 +1,175 @@
+{
+  "meta": {
+    "title": "IPSA - Industrial Valves, Actuators & Automation",
+    "description": "Ingenieria de Partes S.A. de C.V. Over 38 years supplying valves, actuators and automation services for the industry in Mexico."
+  },
+  "nav": {
+    "products": "Products",
+    "services": "Services",
+    "industries": "Industries",
+    "suppliers": "Manufacturers",
+    "about": "About Us",
+    "contact": "Contact",
+    "catalog": "Catalog",
+    "callUs": "Call Us",
+    "language": "ES",
+    "menu": "Menu",
+    "close": "Close"
+  },
+  "hero": {
+    "title": "Engineering, automation and industrial valves",
+    "subtitle": "Over 38 years supporting the Mexican industry with integral solutions in valves, actuators and process automation.",
+    "cta": "Discover our services",
+    "ctaSecondary": "Request a quote"
+  },
+  "pillars": {
+    "title": "Why choose IPSA",
+    "experience": {
+      "title": "38+ years of experience",
+      "description": "Since 1986 serving the oil & gas, petrochemical and process industries in Mexico."
+    },
+    "stock": {
+      "title": "24/7 available stock",
+      "description": "Valve and actuator inventory valued at over $5M USD, ready for immediate delivery."
+    },
+    "engineering": {
+      "title": "In-house engineering",
+      "description": "Design, automation, testing and repair at our Automation and Distribution Center."
+    },
+    "presence": {
+      "title": "National presence",
+      "description": "6 strategic locations in Mexico and Houston, TX to be close to your operation."
+    }
+  },
+  "products": {
+    "title": "Our products",
+    "viewAll": "View all products",
+    "requestQuote": "Request a quote",
+    "relatedServices": "Complementary services",
+    "relatedIndustries": "Where they are applied",
+    "relatedProducts": "You may also be interested in",
+    "standards": "Standards and certifications",
+    "availableBrands": "Available brands",
+    "features": "Key features",
+    "notFound": "Can't find what you're looking for?",
+    "notFoundCta": "Contact our specialists"
+  },
+  "services": {
+    "title": "Specialized services",
+    "subtitle": "Automation, engineering and in-house technical support for the process industry.",
+    "viewAll": "View all services",
+    "learnMore": "Learn more",
+    "process": "Our process",
+    "capabilities": "What we offer",
+    "facilities": "Facilities and equipment",
+    "otherServices": "Other services",
+    "ctaAdvisory": "Request advisory"
+  },
+  "industries": {
+    "title": "Industries we serve",
+    "subtitle": "Specialized solutions for the most demanding sectors of the process industry.",
+    "viewAll": "View all industries",
+    "challenge": "The challenge",
+    "solution": "Our solution",
+    "productsFor": "Specialized products",
+    "servicesFor": "Services for this industry",
+    "standards": "Applicable standards",
+    "otherIndustries": "Other industries",
+    "ctaSpecialist": "Contact a specialist"
+  },
+  "suppliers": {
+    "title": "Backed by world-class manufacturers",
+    "subtitle": "We represent the most recognized manufacturers in the valve and automation industry.",
+    "viewAll": "Meet our manufacturers",
+    "about": "About",
+    "productsFrom": "Products",
+    "certifications": "Certifications",
+    "whyChoose": "Why we chose",
+    "otherSuppliers": "Other manufacturers",
+    "ctaQuote": "Quote products",
+    "downloadCatalog": "Download catalog"
+  },
+  "aboutPage": {
+    "title": "About IPSA",
+    "subtitle": "Since 1986, integrating industrial solutions with engineering, automation and quality service.",
+    "whoWeAre": "Who we are",
+    "whoWeAreText": "Ingenieria de Partes S.A. de C.V. is an organization founded in 1986, fully oriented to serving the industry. We provide our Service Division in the area of Automation and Control and our Engineering Division, with specialized technical force including project coordinators, application engineers, field engineers and product specialist technicians.",
+    "group": "An integrated group",
+    "groupText": "IPSA, MAEPSA and Certus Process Solutions form a complete supply chain, from engineering and procurement to manufacturing and after-sales service.",
+    "ipsa": "IPSA",
+    "ipsaDesc": "Automation, distribution and representation of international brands",
+    "maepsa": "MAEPSA",
+    "maepsaDesc": "Maintenance, repair and technical support of process equipment",
+    "certus": "Certus",
+    "certusDesc": "Self-contained actuator manufacturing in Houston, TX",
+    "locations": "Strategic presence",
+    "values": "Our values",
+    "certTitle": "Certifications and accreditations",
+    "ctaWork": "Work with us"
+  },
+  "alliances": {
+    "title": "Strategic alliances",
+    "subtitle": "Long-term relationships with world-class manufacturers that allow us to offer the best solutions."
+  },
+  "history": {
+    "title": "Our history",
+    "subtitle": "Over three decades building lasting relationships with the industry and world-class manufacturers."
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "We are ready to help you. Choose your preferred channel.",
+    "formTitle": "Send us a message",
+    "name": "Full name",
+    "company": "Company",
+    "email": "Corporate email",
+    "phone": "Phone",
+    "industry": "Industry",
+    "queryType": "Query type",
+    "productInterest": "Product of interest",
+    "message": "Message",
+    "privacy": "I accept the privacy notice",
+    "submit": "Send request",
+    "success": "Thank you for contacting us. A specialist will respond within the next 24 business hours.",
+    "offices": "Our offices",
+    "directContact": "Direct contact",
+    "hours": "Monday to Friday, 08:00 - 18:00",
+    "selectOption": "Select...",
+    "industries": {
+      "oil": "Oil & Gas",
+      "oils": "Oils",
+      "gas": "Gas",
+      "other": "Other"
+    },
+    "queryTypes": {
+      "quote": "Quote",
+      "support": "Technical support",
+      "info": "General information",
+      "project": "Project"
+    }
+  },
+  "catalog": {
+    "title": "Catalog",
+    "subtitle": "We are working on our digital catalog.",
+    "comingSoon": "Coming soon",
+    "description": "In the next phase of our website, you will be able to browse detailed technical sheets, specifications and availability of all our products.",
+    "cta": "In the meantime, contact us for any inquiry"
+  },
+  "footer": {
+    "description": "Over 38 years integrating industrial solutions with engineering, automation and quality service.",
+    "links": "Links",
+    "contactInfo": "Contact",
+    "offices": "Offices",
+    "certifications": "Certifications",
+    "legal": "Legal",
+    "privacy": "Privacy Notice",
+    "terms": "Terms and Conditions",
+    "rights": "All rights reserved."
+  },
+  "common": {
+    "readMore": "Read more",
+    "viewDetails": "View details",
+    "backToHome": "Back to home",
+    "phone": "+52 55 5397 3703",
+    "email": "ventas.mexico@ipsa-cv.com.mx"
+  }
+}
