@@ -149,6 +149,13 @@ export default async function SubtypeDetailPage({
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-14">
             {/* ── Main column ── */}
             <div className="lg:col-span-2 space-y-16">
+              {/* Subtype description */}
+              <div>
+                <p className="text-gray-600 leading-relaxed" style={{ fontSize: "1.05rem", lineHeight: 1.8 }}>
+                  {stDesc}
+                </p>
+              </div>
+
               {/* Product showcase image */}
               {subtypeData.image && (
                 <div
