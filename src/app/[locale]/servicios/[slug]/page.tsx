@@ -109,7 +109,7 @@ export default async function ServicePage({ params }: { params: Promise<{ locale
           className="object-cover"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-black/25" />
+        <div className="absolute inset-0 bg-black/45" />
         <div className="absolute inset-0 bg-gradient-to-r from-navy-alt/90 via-navy-alt/50 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/60 to-transparent" />
 
@@ -127,8 +127,8 @@ export default async function ServicePage({ params }: { params: Promise<{ locale
               <span className="text-white">{data.name}</span>
             </nav>
             <h1
-              className="font-heading text-white leading-tight mb-6 hero-text"
-              style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)", fontWeight: 500 }}
+              className="font-heading text-white leading-tight mb-6 hero-text-strong"
+              style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)", fontWeight: 600 }}
             >
               {data.name}
             </h1>

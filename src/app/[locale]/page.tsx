@@ -94,12 +94,12 @@ export default function HomePage() {
         >
           <source src="/videos/hero-refinery.mp4" type="video/mp4" />
         </video>
-        {/* Lighter overlay - lets video show through */}
-        <div className="absolute inset-0 bg-black/40" />
-        {/* Bottom gradient for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0d0f1f]/90 via-[#0d0f1f]/30 to-transparent" />
+        {/* Dark overlay for text readability */}
+        <div className="absolute inset-0 bg-black/55" />
+        {/* Bottom gradient for text area */}
+        <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/95 via-navy-dark/40 to-transparent" />
         {/* Left gradient for text side */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0d0f1f]/60 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-navy-dark/70 via-transparent to-transparent" />
 
         <div className="relative mx-auto max-w-[1600px] px-5 md:px-10 flex items-end" style={{ minHeight: "80vh" }}>
           <div className="max-w-3xl pb-16 lg:pb-24 pt-32">
@@ -107,7 +107,7 @@ export default function HomePage() {
             <div className="w-20 h-1.5 bg-gold rounded-full mb-8" />
             <h1
               className="font-heading text-white leading-tight mb-6 hero-text-strong"
-              style={{ fontSize: "clamp(2.5rem, 5vw, 4.5rem)", fontWeight: 500 }}
+              style={{ fontSize: "clamp(2.5rem, 5vw, 4.5rem)", fontWeight: 600 }}
             >
               {t("hero.title")}
             </h1>

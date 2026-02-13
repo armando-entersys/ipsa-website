@@ -65,6 +65,8 @@ export default function SuppliersHub() {
           className="object-cover"
           sizes="100vw"
         />
+        {/* Base dark overlay for readability */}
+        <div className="absolute inset-0 bg-black/45" />
         {/* Softer centered gradient */}
         <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at 30% 50%, rgba(20,23,51,0.8) 0%, rgba(20,23,51,0.4) 50%, rgba(20,23,51,0.25) 100%)" }} />
         <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/70 to-transparent" />
@@ -81,8 +83,8 @@ export default function SuppliersHub() {
               </span>
             </nav>
             <h1
-              className="font-heading text-white leading-tight mb-4 hero-text"
-              style={{ fontSize: "clamp(2.2rem, 4.5vw, 3.5rem)", fontWeight: 500 }}
+              className="font-heading text-white leading-tight mb-4 hero-text-strong"
+              style={{ fontSize: "clamp(2.2rem, 4.5vw, 3.5rem)", fontWeight: 600 }}
             >
               {t("title")}
             </h1>

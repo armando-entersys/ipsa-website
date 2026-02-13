@@ -111,7 +111,7 @@ export default function ServicesHub() {
         {/* Diagonal solid block on left for text */}
         <div className="absolute inset-0 bg-gradient-to-r from-navy-alt via-navy-alt/95 to-transparent" style={{ clipPath: "polygon(0 0, 65% 0, 50% 100%, 0 100%)" }} />
         {/* Subtle overlay on image side */}
-        <div className="absolute inset-0 bg-black/20" />
+        <div className="absolute inset-0 bg-black/45" />
 
         <div className="relative mx-auto max-w-[1600px] px-5 md:px-10 flex items-center" style={{ minHeight: "50vh" }}>
           <div className="max-w-xl py-16 lg:py-24">
@@ -125,8 +125,8 @@ export default function ServicesHub() {
             {/* Gold left border accent */}
             <div className="border-l-4 border-gold pl-6">
               <h1
-                className="font-heading text-white leading-tight mb-4"
-                style={{ fontSize: "clamp(2.25rem, 4.5vw, 3.5rem)", fontWeight: 500 }}
+                className="font-heading text-white leading-tight mb-4 hero-text-strong"
+                style={{ fontSize: "clamp(2.25rem, 4.5vw, 3.5rem)", fontWeight: 600 }}
               >
                 {t("title")}
               </h1>

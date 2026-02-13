@@ -103,7 +103,7 @@ export default async function SupplierPage({ params }: { params: Promise<{ local
           className="object-cover"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-black/30" />
+        <div className="absolute inset-0 bg-black/50" />
         <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at 30% 50%, rgba(20,23,51,0.75) 0%, rgba(20,23,51,0.35) 60%, rgba(20,23,51,0.2) 100%)" }} />
         <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/60 to-transparent" />
 
@@ -136,8 +136,8 @@ export default async function SupplierPage({ params }: { params: Promise<{ local
               </div>
               <div>
                 <h1
-                  className="font-heading text-white leading-tight mb-2 hero-text"
-                  style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)", fontWeight: 500 }}
+                  className="font-heading text-white leading-tight mb-2 hero-text-strong"
+                  style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)", fontWeight: 600 }}
                 >
                   {supplier.name}
                 </h1>

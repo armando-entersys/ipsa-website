@@ -85,6 +85,7 @@ export default async function IndustryPage({ params }: { params: Promise<{ local
           className="object-cover"
           sizes="100vw"
         />
+        <div className="absolute inset-0 bg-black/45" />
         <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, rgba(20,23,51,0.7) 0%, rgba(20,23,51,0.2) 50%, rgba(187,144,52,0.1) 100%)" }} />
         <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/80 via-transparent to-transparent" />
 
@@ -103,7 +104,7 @@ export default async function IndustryPage({ params }: { params: Promise<{ local
             </nav>
             <h1
               className="font-heading text-white leading-tight mb-6 hero-text-strong"
-              style={{ fontSize: "clamp(2.5rem, 5vw, 4.5rem)", fontWeight: 500 }}
+              style={{ fontSize: "clamp(2.5rem, 5vw, 4.5rem)", fontWeight: 600 }}
             >
               {data.name}
             </h1>

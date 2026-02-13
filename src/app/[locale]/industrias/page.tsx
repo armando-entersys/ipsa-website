@@ -70,6 +70,8 @@ export default function IndustriesHub() {
           className="object-cover"
           sizes="100vw"
         />
+        {/* Base dark overlay for readability */}
+        <div className="absolute inset-0 bg-black/45" />
         {/* Warm dramatic overlay - different from other pages */}
         <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, rgba(20,23,51,0.85) 0%, rgba(20,23,51,0.3) 40%, rgba(187,144,52,0.15) 100%)" }} />
         {/* Bottom gradient for text */}
@@ -86,7 +88,7 @@ export default function IndustriesHub() {
             </nav>
             <h1
               className="font-heading text-white leading-tight mb-4 hero-text-strong"
-              style={{ fontSize: "clamp(2.5rem, 5vw, 4rem)", fontWeight: 500 }}
+              style={{ fontSize: "clamp(2.5rem, 5vw, 4rem)", fontWeight: 600 }}
             >
               {t("title")}
             </h1>

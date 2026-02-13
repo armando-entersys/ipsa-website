@@ -49,7 +49,7 @@ export default function ProductsHub() {
           sizes="100vw"
         />
         {/* Light overlay - let image breathe */}
-        <div className="absolute inset-0 bg-black/30" />
+        <div className="absolute inset-0 bg-black/50" />
         {/* Strong bottom gradient for text */}
         <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/95 via-navy-dark/40 to-transparent" />
 
@@ -65,8 +65,8 @@ export default function ProductsHub() {
             <div className="flex items-center gap-4 mb-4">
               <div className="w-10 h-[3px] bg-gold" />
               <h1
-                className="font-heading text-white leading-tight hero-text"
-                style={{ fontSize: "clamp(2.25rem, 4.5vw, 3.75rem)", fontWeight: 500 }}
+                className="font-heading text-white leading-tight hero-text-strong"
+                style={{ fontSize: "clamp(2.25rem, 4.5vw, 3.75rem)", fontWeight: 600 }}
               >
                 {t("title")}
               </h1>

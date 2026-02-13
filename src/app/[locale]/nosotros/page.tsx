@@ -30,6 +30,8 @@ export default function AboutPage() {
           priority
           sizes="100vw"
         />
+        {/* Base dark overlay for readability */}
+        <div className="absolute inset-0 bg-black/45" />
         {/* Warm overlay with slight blue */}
         <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(20,23,51,0.3) 0%, rgba(20,23,51,0.6) 60%, rgba(20,23,51,0.9) 100%)" }} />
         <div className="relative z-10 mx-auto w-full max-w-[1600px] px-5 md:px-10 pb-10 lg:pb-14 pt-28">
@@ -41,9 +43,9 @@ export default function AboutPage() {
             <span className="text-white">{t("title")}</span>
           </nav>
           <h1
-            className="font-heading text-white mb-3 hero-text"
+            className="font-heading text-white mb-3 hero-text-strong"
             style={{
-              fontWeight: 500,
+              fontWeight: 600,
               fontSize: "clamp(2.2rem, 5vw, 3.75rem)",
             }}
           >
