@@ -1,9 +1,20 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
-import { Phone, Mail, X, Menu, ChevronDown, ChevronRight, Globe } from "lucide-react";
+import {
+  Phone,
+  Mail,
+  X,
+  Menu,
+  ChevronDown,
+  ChevronRight,
+  Globe,
+  Search,
+  ArrowRight,
+} from "lucide-react";
 
 /* ── Product mega-menu data (ACV-style hierarchy) ── */
 
@@ -12,6 +23,7 @@ const productColumns = {
     {
       title: "Valvulas de Bola",
       href: "/productos/valvulas-bola",
+      image: "/images/products/dhv-floater.jpg",
       items: [
         { label: "Floating (Bola Flotante)", href: "/productos/valvulas-bola/floating" },
         { label: "Trunnion Mounted (Bola Fija)", href: "/productos/valvulas-bola/trunnion" },
@@ -25,6 +37,7 @@ const productColumns = {
     {
       title: "Valvulas de Compuerta",
       href: "/productos/valvulas-compuerta",
+      image: "/images/products/dhv-gate-valve.png",
       items: [
         { label: "Wedge Gate", href: "/productos/valvulas-compuerta/wedge" },
         { label: "Slab Gate", href: "/productos/valvulas-compuerta/slab-gate" },
@@ -35,6 +48,7 @@ const productColumns = {
     {
       title: "Valvulas de Control",
       href: "/productos/valvulas-control",
+      image: "/images/products/ipsa-control-panel-1.jpg",
       items: [
         { label: "Globe", href: "/productos/valvulas-control/globe" },
         { label: "Rotary", href: "/productos/valvulas-control/rotary" },
@@ -45,6 +59,7 @@ const productColumns = {
     {
       title: "Actuadores",
       href: "/productos/actuadores",
+      image: "/images/products/df-trunnion-automated.jpg",
       items: [
         { label: "Neumaticos (Rack & Pinion)", href: "/productos/actuadores/neumaticos-rack-pinion" },
         { label: "Neumaticos (Scotch Yoke)", href: "/productos/actuadores/neumaticos-scotch-yoke" },
@@ -58,6 +73,7 @@ const productColumns = {
     {
       title: "Ball Valves",
       href: "/productos/valvulas-bola",
+      image: "/images/products/dhv-floater.jpg",
       items: [
         { label: "Floating Ball Valves", href: "/productos/valvulas-bola/floating" },
         { label: "Trunnion Mounted", href: "/productos/valvulas-bola/trunnion" },
@@ -71,6 +87,7 @@ const productColumns = {
     {
       title: "Gate Valves",
       href: "/productos/valvulas-compuerta",
+      image: "/images/products/dhv-gate-valve.png",
       items: [
         { label: "Wedge Gate", href: "/productos/valvulas-compuerta/wedge" },
         { label: "Slab Gate", href: "/productos/valvulas-compuerta/slab-gate" },
@@ -81,6 +98,7 @@ const productColumns = {
     {
       title: "Control Valves",
       href: "/productos/valvulas-control",
+      image: "/images/products/ipsa-control-panel-1.jpg",
       items: [
         { label: "Globe", href: "/productos/valvulas-control/globe" },
         { label: "Rotary", href: "/productos/valvulas-control/rotary" },
@@ -91,6 +109,7 @@ const productColumns = {
     {
       title: "Actuators",
       href: "/productos/actuadores",
+      image: "/images/products/df-trunnion-automated.jpg",
       items: [
         { label: "Pneumatic (Rack & Pinion)", href: "/productos/actuadores/neumaticos-rack-pinion" },
         { label: "Pneumatic (Scotch Yoke)", href: "/productos/actuadores/neumaticos-scotch-yoke" },
@@ -127,14 +146,14 @@ const otherNavItems = [
     href: "/servicios",
     children: {
       es: [
-        { label: "Automatizacion de Valvulas", href: "/servicios/automatizacion" },
-        { label: "Ingenieria y Proyectos EPC", href: "/servicios/ingenieria" },
-        { label: "Centro de Automatizacion (CAD)", href: "/servicios/soporte-in-house" },
+        { label: "Automatizacion de Valvulas", href: "/servicios/automatizacion", desc: "Paquetes completos de automatizacion" },
+        { label: "Ingenieria y Proyectos EPC", href: "/servicios/ingenieria", desc: "Ingenieria conceptual hasta la entrega" },
+        { label: "Centro de Automatizacion (CAD)", href: "/servicios/soporte-in-house", desc: "Reparacion, pruebas NDE, almacen 24/7" },
       ],
       en: [
-        { label: "Valve Automation", href: "/servicios/automatizacion" },
-        { label: "Engineering & EPC Projects", href: "/servicios/ingenieria" },
-        { label: "Automation Center (CAD)", href: "/servicios/soporte-in-house" },
+        { label: "Valve Automation", href: "/servicios/automatizacion", desc: "Complete automation packages" },
+        { label: "Engineering & EPC Projects", href: "/servicios/ingenieria", desc: "From concept to delivery" },
+        { label: "Automation Center (CAD)", href: "/servicios/soporte-in-house", desc: "Repair, NDE testing, 24/7 warehouse" },
       ],
     },
   },
@@ -143,14 +162,14 @@ const otherNavItems = [
     href: "/industrias",
     children: {
       es: [
-        { label: "Petroleras", href: "/industrias/petroleras" },
-        { label: "Aceites", href: "/industrias/aceites" },
-        { label: "Gas", href: "/industrias/gas" },
+        { label: "Petroleras", href: "/industrias/petroleras", desc: "Upstream, midstream y downstream" },
+        { label: "Aceites", href: "/industrias/aceites", desc: "Procesamiento y refinacion" },
+        { label: "Gas", href: "/industrias/gas", desc: "Procesamiento, transporte y distribucion" },
       ],
       en: [
-        { label: "Oil & Gas", href: "/industrias/petroleras" },
-        { label: "Oils", href: "/industrias/aceites" },
-        { label: "Gas", href: "/industrias/gas" },
+        { label: "Oil & Gas", href: "/industrias/petroleras", desc: "Upstream, midstream and downstream" },
+        { label: "Oils", href: "/industrias/aceites", desc: "Processing and refining" },
+        { label: "Gas", href: "/industrias/gas", desc: "Processing, transport and distribution" },
       ],
     },
   },
@@ -159,16 +178,16 @@ const otherNavItems = [
     href: "/proveedores",
     children: {
       es: [
-        { label: "DHV Valve Group", href: "/proveedores/dhv" },
-        { label: "Della Foglia", href: "/proveedores/della-foglia" },
-        { label: "Perar", href: "/proveedores/perar" },
-        { label: "Versa Valves", href: "/proveedores/versa" },
+        { label: "DHV Valve Group", href: "/proveedores/dhv", desc: "Fabricante europeo de valvulas de bola" },
+        { label: "Della Foglia", href: "/proveedores/della-foglia", desc: "Especialista en valvulas trunnion" },
+        { label: "Perar", href: "/proveedores/perar", desc: "Actuadores neumaticos e hidraulicos" },
+        { label: "Versa Valves", href: "/proveedores/versa", desc: "Valvulas solenoides y neumaticas" },
       ],
       en: [
-        { label: "DHV Valve Group", href: "/proveedores/dhv" },
-        { label: "Della Foglia", href: "/proveedores/della-foglia" },
-        { label: "Perar", href: "/proveedores/perar" },
-        { label: "Versa Valves", href: "/proveedores/versa" },
+        { label: "DHV Valve Group", href: "/proveedores/dhv", desc: "European ball valve manufacturer" },
+        { label: "Della Foglia", href: "/proveedores/della-foglia", desc: "Trunnion valve specialist" },
+        { label: "Perar", href: "/proveedores/perar", desc: "Pneumatic & hydraulic actuators" },
+        { label: "Versa Valves", href: "/proveedores/versa", desc: "Solenoid & pneumatic valves" },
       ],
     },
   },
@@ -185,6 +204,7 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [mobileAccordion, setMobileAccordion] = useState<string | null>(null);
+  const [scrolled, setScrolled] = useState(false);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const switchLocale = locale === "es" ? "en" : "es";
@@ -194,386 +214,515 @@ export default function Header() {
     const onResize = () => {
       if (window.innerWidth >= 1024) setMobileOpen(false);
     };
+    const onScroll = () => {
+      setScrolled(window.scrollY > 10);
+    };
     window.addEventListener("resize", onResize);
-    return () => window.removeEventListener("resize", onResize);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("resize", onResize);
+      window.removeEventListener("scroll", onScroll);
+    };
   }, []);
 
-  const handleMouseEnter = (key: string) => {
+  const handleMouseEnter = useCallback((key: string) => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
     setActiveDropdown(key);
-  };
+  }, []);
 
-  const handleMouseLeave = () => {
-    timeoutRef.current = setTimeout(() => setActiveDropdown(null), 150);
-  };
+  const handleMouseLeave = useCallback(() => {
+    timeoutRef.current = setTimeout(() => setActiveDropdown(null), 200);
+  }, []);
+
+  const isDropdownOpen = activeDropdown !== null;
 
   return (
-    <header className="relative z-[1000]">
-      {/* ── Top utility bar ─────────────────────────── */}
-      <div className="bg-navy-deep text-white">
-        <div className="mx-auto max-w-[1600px] px-5 md:px-10 flex items-center justify-between h-10 text-sm">
-          <div className="flex items-center gap-6">
-            <a
-              href="tel:+525553973703"
-              className="flex items-center gap-1.5 text-white/85 hover:text-gold-light transition-colors duration-300"
-            >
-              <Phone size={13} />
-              <span className="font-light">+52 55 5397 3703</span>
-            </a>
-            <a
-              href="mailto:ventas.mexico@ipsa-cv.com.mx"
-              className="hidden md:flex items-center gap-1.5 text-white/85 hover:text-gold-light transition-colors duration-300"
-            >
-              <Mail size={13} />
-              <span className="font-light">ventas.mexico@ipsa-cv.com.mx</span>
-            </a>
-          </div>
-          <Link
-            href={`/${switchLocale}`}
-            className="flex items-center gap-1.5 text-white/85 hover:text-gold-light transition-colors duration-300 font-medium"
-          >
-            <Globe size={13} />
-            {t("language")}
-          </Link>
-        </div>
-      </div>
-
-      {/* ── Main navigation bar ─────────────────────── */}
-      <nav className="bg-navy-deep relative">
-        {/* Diagonal decorative line (ACV pattern) */}
-        <div
-          className="absolute left-[280px] -top-0.5 w-[2px] h-[calc(71px+10px)] bg-white/25 pointer-events-none z-10 hidden lg:block"
-          style={{ transform: "rotate(38deg)", transformOrigin: "top center" }}
-        />
-
-        <div className="mx-auto max-w-[1600px] px-5 md:px-10 flex items-center justify-between h-[71px]">
-          {/* Logo */}
-          <Link href={prefix} className="flex items-center gap-3 shrink-0 group">
-            <div className="w-11 h-11 bg-gradient-to-br from-gold-light to-gold rounded-lg flex items-center justify-center transition-opacity duration-300 group-hover:opacity-80">
-              <span className="text-navy-deep font-heading font-bold text-xl">IP</span>
+    <>
+      <header className={`fixed top-0 left-0 right-0 z-[1000] transition-shadow duration-300 ${scrolled ? "shadow-lg" : ""}`}>
+        {/* ── Top utility bar ─────────────────────────── */}
+        <div className="bg-[#0d0f1f] text-white">
+          <div className="mx-auto max-w-[1600px] px-5 md:px-10 flex items-center justify-between h-9 text-xs">
+            <div className="flex items-center gap-6">
+              <a
+                href="tel:+525553973703"
+                className="flex items-center gap-1.5 text-white/70 hover:text-gold-light transition-colors duration-300"
+              >
+                <Phone size={11} />
+                <span className="font-light">+52 55 5397 3703</span>
+              </a>
+              <a
+                href="mailto:ventas.mexico@ipsa-cv.com.mx"
+                className="hidden md:flex items-center gap-1.5 text-white/70 hover:text-gold-light transition-colors duration-300"
+              >
+                <Mail size={11} />
+                <span className="font-light">ventas.mexico@ipsa-cv.com.mx</span>
+              </a>
             </div>
-            <div className="hidden sm:block">
-              <div className="font-heading font-bold text-white text-lg leading-tight">
-                IPSA
-              </div>
-              <div className="text-[10px] text-white/50 leading-tight tracking-[0.15em]">
-                INGENIERIA DE PARTES
-              </div>
-            </div>
-          </Link>
-
-          {/* Desktop nav links */}
-          <div className="hidden lg:flex items-center gap-6 ml-16">
-            {/* Products (special mega menu) */}
-            <div
-              className="relative"
-              onMouseEnter={() => handleMouseEnter("products")}
-              onMouseLeave={handleMouseLeave}
-            >
+            <div className="flex items-center gap-5">
               <Link
-                href={`${prefix}/productos`}
-                className={`flex items-center gap-1 py-6 text-[0.95rem] font-light capitalize transition-colors duration-300 ${
-                  activeDropdown && activeDropdown !== "products"
-                    ? "text-white/40"
-                    : "text-white"
-                } hover:text-white/60`}
+                href={`/${switchLocale}`}
+                className="flex items-center gap-1.5 text-white/70 hover:text-gold-light transition-colors duration-300 font-medium"
               >
-                {t("products")}
-                <ChevronDown
-                  size={13}
-                  className={`transition-transform duration-300 ${
-                    activeDropdown === "products" ? "rotate-180" : ""
-                  }`}
-                />
+                <Globe size={11} />
+                {t("language")}
               </Link>
+            </div>
+          </div>
+        </div>
 
-              {/* Products mega dropdown (ACV-style multi-column) */}
+        {/* ── Main navigation bar ─────────────────────── */}
+        <nav
+          className={`relative transition-all duration-300 ${
+            scrolled ? "bg-[#141733]/98 backdrop-blur-md" : "bg-[#141733]"
+          }`}
+        >
+          <div className="mx-auto max-w-[1600px] px-5 md:px-10 flex items-center justify-between h-[72px]">
+            {/* Logo */}
+            <Link href={prefix} className="flex items-center gap-3 shrink-0 group relative z-10">
+              <div className="w-11 h-11 bg-gradient-to-br from-gold-light to-gold rounded-lg flex items-center justify-center transition-all duration-300 group-hover:shadow-lg group-hover:shadow-gold/20">
+                <span className="text-[#0d0f1f] font-heading font-bold text-xl">IP</span>
+              </div>
+              <div className="hidden sm:block">
+                <div className="font-heading font-bold text-white text-lg leading-tight tracking-wide">
+                  IPSA
+                </div>
+                <div className="text-[9px] text-white/40 leading-tight tracking-[0.2em] font-medium">
+                  INGENIERIA DE PARTES
+                </div>
+              </div>
+            </Link>
+
+            {/* Desktop nav links */}
+            <div className="hidden lg:flex items-center h-full ml-12">
+              {/* Products (special mega menu) */}
               <div
-                className={`absolute top-full -left-6 bg-white border-t-[3px] border-gold z-[9999] transition-all duration-200 ease-in-out ${
-                  activeDropdown === "products"
-                    ? "opacity-100 visible pointer-events-auto translate-y-0"
-                    : "opacity-0 invisible pointer-events-none translate-y-2"
-                }`}
-                style={{ boxShadow: "0 15px 40px rgba(0, 0, 0, 0.12)", minWidth: "780px" }}
+                className="relative h-full flex items-center"
+                onMouseEnter={() => handleMouseEnter("products")}
+                onMouseLeave={handleMouseLeave}
               >
-                <div className="flex">
-                  {/* Main columns */}
-                  <div className="flex-1 p-6">
-                    <div className="grid grid-cols-4 gap-6">
-                      {productColumns[l].map((col) => (
-                        <div key={col.title}>
-                          <Link
-                            href={`${prefix}${col.href}`}
-                            className="block text-navy-deep text-sm font-semibold mb-3 hover:text-gold transition-colors duration-200 pb-2"
-                            style={{ borderBottom: "2px solid #e5e7eb" }}
-                          >
-                            {col.title}
-                          </Link>
-                          <ul className="space-y-1">
-                            {col.items.map((item) => (
-                              <li key={item.label}>
-                                <Link
-                                  href={`${prefix}${item.href}`}
-                                  className="block text-[0.82rem] text-gray-500 hover:text-gold hover:bg-gray-50 px-2 py-1.5 -mx-2 rounded transition-all duration-150"
-                                >
-                                  {item.label}
-                                </Link>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      ))}
-                    </div>
+                <Link
+                  href={`${prefix}/productos`}
+                  className="group relative flex items-center gap-1.5 px-5 h-full text-[0.9rem] font-medium uppercase tracking-[0.08em] transition-colors duration-300 text-white/90 hover:text-white"
+                >
+                  {t("products")}
+                  <ChevronDown
+                    size={12}
+                    className={`transition-transform duration-300 opacity-60 ${
+                      activeDropdown === "products" ? "rotate-180" : ""
+                    }`}
+                  />
+                  {/* Animated gold underline */}
+                  <span
+                    className={`absolute bottom-0 left-5 right-5 h-[3px] bg-gold transition-all duration-300 ${
+                      activeDropdown === "products"
+                        ? "opacity-100 scale-x-100"
+                        : "opacity-0 scale-x-0"
+                    }`}
+                    style={{ transformOrigin: "center" }}
+                  />
+                </Link>
+              </div>
 
-                    {/* Secondary product links row */}
-                    <div className="mt-5 pt-4 flex flex-wrap gap-x-5 gap-y-1" style={{ borderTop: "1px solid #f3f4f6" }}>
-                      {productSecondary[l].map((item) => (
-                        <Link
-                          key={item.label}
-                          href={`${prefix}${item.href}`}
-                          className="text-[0.82rem] text-gray-500 hover:text-gold transition-colors duration-200 py-1"
-                        >
-                          {item.label}
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
+              {/* Other nav items */}
+              {otherNavItems.map((item) => (
+                <div
+                  key={item.key}
+                  className="relative h-full flex items-center"
+                  onMouseEnter={() => item.children && handleMouseEnter(item.key)}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  <Link
+                    href={`${prefix}${item.href}`}
+                    className="group relative flex items-center gap-1.5 px-5 h-full text-[0.9rem] font-medium uppercase tracking-[0.08em] transition-colors duration-300 text-white/90 hover:text-white"
+                  >
+                    {t(item.key)}
+                    {item.children && (
+                      <ChevronDown
+                        size={12}
+                        className={`transition-transform duration-300 opacity-60 ${
+                          activeDropdown === item.key ? "rotate-180" : ""
+                        }`}
+                      />
+                    )}
+                    {/* Animated gold underline */}
+                    <span
+                      className={`absolute bottom-0 left-5 right-5 h-[3px] bg-gold transition-all duration-300 ${
+                        activeDropdown === item.key
+                          ? "opacity-100 scale-x-100"
+                          : "opacity-0 scale-x-0"
+                      }`}
+                      style={{ transformOrigin: "center" }}
+                    />
+                  </Link>
+                </div>
+              ))}
+            </div>
 
-                  {/* Right sidebar: View all + CTA */}
-                  <div className="w-48 shrink-0 p-6 flex flex-col justify-between" style={{ background: "#f8f9fb", borderLeft: "1px solid #edf0f3" }}>
-                    <div>
+            {/* Right: CTA + mobile toggle */}
+            <div className="flex items-center gap-3 relative z-10">
+              <Link
+                href={`${prefix}/contacto`}
+                className="hidden lg:inline-flex items-center gap-2 px-6 py-2.5 bg-gold text-white text-sm font-semibold uppercase tracking-wider rounded-sm transition-all duration-300 hover:bg-gold-dark hover:shadow-lg hover:shadow-gold/20"
+              >
+                {locale === "es" ? "Cotizar" : "Quote"}
+                <ArrowRight size={14} />
+              </Link>
+              <button
+                onClick={() => setMobileOpen(!mobileOpen)}
+                className="lg:hidden w-11 h-11 flex items-center justify-center text-white hover:text-gold-light transition-colors duration-300"
+                aria-label={mobileOpen ? "Close menu" : "Open menu"}
+                aria-expanded={mobileOpen}
+              >
+                {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+              </button>
+            </div>
+          </div>
+        </nav>
+
+        {/* ── Products mega dropdown (full-width ACV-style) ── */}
+        <div
+          className={`absolute left-0 right-0 bg-white z-[999] transition-all duration-300 ease-out ${
+            activeDropdown === "products"
+              ? "opacity-100 visible translate-y-0"
+              : "opacity-0 invisible -translate-y-3 pointer-events-none"
+          }`}
+          onMouseEnter={() => handleMouseEnter("products")}
+          onMouseLeave={handleMouseLeave}
+          style={{ boxShadow: "0 25px 60px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0,0,0,0.04)" }}
+        >
+          {/* Gold accent bar on top */}
+          <div className="h-[3px] bg-gradient-to-r from-gold via-gold-light to-gold" />
+
+          <div className="mx-auto max-w-[1600px] px-5 md:px-10">
+            <div className="flex">
+              {/* Main product columns */}
+              <div className="flex-1 py-8">
+                <div className="grid grid-cols-4 gap-8">
+                  {productColumns[l].map((col) => (
+                    <div key={col.title} className="group/col">
+                      {/* Column header with image */}
                       <Link
-                        href={`${prefix}/productos`}
-                        className="text-navy-deep text-sm font-semibold hover:text-gold transition-colors duration-200 flex items-center gap-1"
+                        href={`${prefix}${col.href}`}
+                        className="block mb-4"
                       >
-                        {l === "es" ? "Ver todos" : "View all"}
-                        <ChevronRight size={14} />
+                        <div className="relative h-28 rounded-lg overflow-hidden mb-3">
+                          <Image
+                            src={col.image}
+                            alt={col.title}
+                            fill
+                            className="object-cover transition-transform duration-500 group-hover/col:scale-110"
+                            sizes="200px"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-[#141733]/80 to-transparent" />
+                          <div className="absolute bottom-0 left-0 right-0 p-3">
+                            <span className="text-white text-sm font-bold tracking-wide">
+                              {col.title}
+                            </span>
+                          </div>
+                        </div>
                       </Link>
-                      <p className="text-xs text-gray-400 mt-2 leading-relaxed">
+                      {/* Sub-items */}
+                      <ul className="space-y-0.5">
+                        {col.items.map((item) => (
+                          <li key={item.label}>
+                            <Link
+                              href={`${prefix}${item.href}`}
+                              className="flex items-center gap-2 text-[0.82rem] text-gray-500 hover:text-[#141733] px-3 py-1.5 -mx-1 rounded-md transition-all duration-200 hover:bg-gray-50 group/item"
+                            >
+                              <span className="w-1 h-1 rounded-full bg-gray-300 group-hover/item:bg-gold group-hover/item:w-1.5 group-hover/item:h-1.5 transition-all duration-200 shrink-0" />
+                              {item.label}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Secondary product links row */}
+                <div className="mt-6 pt-5 flex flex-wrap gap-x-1 gap-y-1" style={{ borderTop: "2px solid #f3f4f6" }}>
+                  {productSecondary[l].map((item) => (
+                    <Link
+                      key={item.label}
+                      href={`${prefix}${item.href}`}
+                      className="text-[0.82rem] text-gray-400 hover:text-[#141733] hover:bg-gray-50 px-3 py-1.5 rounded-md transition-all duration-200"
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+
+              {/* Right sidebar: Featured + CTA */}
+              <div
+                className="w-56 shrink-0 py-8 pl-8 flex flex-col justify-between"
+                style={{ borderLeft: "2px solid #f3f4f6" }}
+              >
+                <div>
+                  <div className="relative h-44 rounded-lg overflow-hidden mb-5">
+                    <Image
+                      src="/images/products/df-factory-valves.jpg"
+                      alt="IPSA Products"
+                      fill
+                      className="object-cover"
+                      sizes="224px"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#141733]/90 to-[#141733]/20" />
+                    <div className="absolute bottom-0 left-0 right-0 p-4">
+                      <p className="text-gold-light text-[10px] font-bold uppercase tracking-widest mb-1">
+                        {l === "es" ? "Catalogo" : "Catalog"}
+                      </p>
+                      <p className="text-white text-xs leading-snug">
                         {l === "es"
                           ? "10 categorias de productos industriales"
                           : "10 industrial product categories"}
                       </p>
                     </div>
+                  </div>
+                  <Link
+                    href={`${prefix}/productos`}
+                    className="flex items-center gap-1.5 text-[#141733] text-sm font-bold hover:text-gold transition-colors duration-200"
+                  >
+                    {l === "es" ? "Ver todos los productos" : "View all products"}
+                    <ChevronRight size={14} />
+                  </Link>
+                </div>
+                <Link
+                  href={`${prefix}/contacto`}
+                  className="block text-center text-xs font-bold uppercase tracking-wider px-4 py-3 bg-gold text-white rounded-sm transition-all duration-300 hover:bg-gold-dark hover:shadow-lg hover:shadow-gold/20 mt-6"
+                >
+                  {l === "es" ? "Solicitar cotizacion" : "Request a quote"}
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* ── Standard dropdowns (Services, Industries, Suppliers) ── */}
+        {otherNavItems.map((item) =>
+          item.children ? (
+            <div
+              key={item.key}
+              className={`absolute left-0 right-0 bg-white z-[999] transition-all duration-300 ease-out ${
+                activeDropdown === item.key
+                  ? "opacity-100 visible translate-y-0"
+                  : "opacity-0 invisible -translate-y-3 pointer-events-none"
+              }`}
+              onMouseEnter={() => handleMouseEnter(item.key)}
+              onMouseLeave={handleMouseLeave}
+              style={{ boxShadow: "0 25px 60px rgba(0, 0, 0, 0.12)" }}
+            >
+              <div className="h-[3px] bg-gradient-to-r from-gold via-gold-light to-gold" />
+              <div className="mx-auto max-w-[1600px] px-5 md:px-10 py-8">
+                <div className="flex items-start gap-12">
+                  {/* Section heading */}
+                  <div className="w-56 shrink-0">
                     <Link
-                      href={`${prefix}/contacto`}
-                      className="block text-center text-xs font-medium px-4 py-2.5 bg-gold text-white rounded btn-lift hover:bg-gold-dark mt-4"
+                      href={`${prefix}${item.href}`}
+                      className="group inline-block"
                     >
-                      {l === "es" ? "Solicitar cotizacion" : "Request a quote"}
+                      <h3 className="font-heading text-[#141733] text-2xl font-normal mb-2 group-hover:text-gold transition-colors duration-300">
+                        {t(item.key)}
+                      </h3>
+                      <span className="flex items-center gap-1 text-sm text-gold font-semibold">
+                        {l === "es" ? "Ver todo" : "View all"}
+                        <ArrowRight size={13} className="group-hover:translate-x-0.5 transition-transform duration-300" />
+                      </span>
                     </Link>
+                  </div>
+
+                  {/* Children links */}
+                  <div className="flex-1 grid grid-cols-3 gap-4">
+                    {item.children[l].map((child) => (
+                      <Link
+                        key={child.href}
+                        href={`${prefix}${child.href}`}
+                        className="group/child block p-5 rounded-lg border border-transparent hover:border-gray-200 hover:bg-gray-50/80 transition-all duration-200"
+                      >
+                        <div className="flex items-start gap-3">
+                          <div className="w-8 h-8 rounded-lg bg-gold/10 flex items-center justify-center shrink-0 mt-0.5 group-hover/child:bg-gold/20 transition-colors duration-200">
+                            <ChevronRight size={14} className="text-gold" />
+                          </div>
+                          <div>
+                            <span className="block text-[0.95rem] text-[#141733] font-semibold mb-1 group-hover/child:text-gold transition-colors duration-200">
+                              {child.label}
+                            </span>
+                            {"desc" in child && (
+                              <span className="block text-xs text-gray-400 leading-relaxed">
+                                {(child as { desc: string }).desc}
+                              </span>
+                            )}
+                          </div>
+                        </div>
+                      </Link>
+                    ))}
                   </div>
                 </div>
               </div>
             </div>
+          ) : null
+        )}
 
-            {/* Other nav items */}
-            {otherNavItems.map((item) => (
-              <div
-                key={item.key}
-                className="relative"
-                onMouseEnter={() => item.children && handleMouseEnter(item.key)}
-                onMouseLeave={handleMouseLeave}
-              >
-                <Link
-                  href={`${prefix}${item.href}`}
-                  className={`flex items-center gap-1 py-6 text-[0.95rem] font-light capitalize transition-colors duration-300 ${
-                    activeDropdown && activeDropdown !== item.key
-                      ? "text-white/40"
-                      : "text-white"
-                  } hover:text-white/60`}
-                >
-                  {t(item.key)}
-                  {item.children && (
-                    <ChevronDown
-                      size={13}
-                      className={`transition-transform duration-300 ${
-                        activeDropdown === item.key ? "rotate-180" : ""
-                      }`}
-                    />
-                  )}
-                </Link>
+        {/* ── Dark overlay behind dropdowns ─────────── */}
+        <div
+          className={`fixed inset-0 bg-black/30 z-[998] transition-opacity duration-300 pointer-events-none ${
+            isDropdownOpen ? "opacity-100" : "opacity-0"
+          }`}
+          style={{ top: "calc(36px + 72px)" }}
+        />
+      </header>
 
-                {/* Standard dropdown */}
-                {item.children && (
-                  <div
-                    className={`absolute top-full left-0 bg-white border-t-[3px] border-gray-200 min-w-[260px] z-[9999] transition-all duration-200 ease-in-out ${
-                      activeDropdown === item.key
-                        ? "opacity-100 visible pointer-events-auto translate-y-0"
-                        : "opacity-0 invisible pointer-events-none translate-y-2"
-                    }`}
-                    style={{ boxShadow: "0 15px 40px rgba(0, 0, 0, 0.1)" }}
-                  >
-                    <div className="py-3">
-                      <div className="px-6 pb-2 mb-1 border-b border-gray-100">
-                        <Link
-                          href={`${prefix}${item.href}`}
-                          className="text-navy-deep text-lg font-heading font-normal underline underline-offset-4 decoration-navy-deep/30 decoration-2 hover:text-navy transition-colors duration-300"
-                        >
-                          {t(item.key)}
-                        </Link>
-                      </div>
-                      {item.children[l].map((child) => (
-                        <Link
-                          key={child.href}
-                          href={`${prefix}${child.href}`}
-                          className="block px-6 py-2 text-[0.95rem] text-gray-600 hover:bg-gray-50 hover:text-gold transition-all duration-150"
-                        >
-                          {child.label}
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-
-          {/* Right: CTA + mobile toggle */}
-          <div className="flex items-center gap-4">
-            <Link
-              href={`${prefix}/contacto`}
-              className="hidden md:inline-flex items-center px-6 py-2.5 bg-gold text-white text-sm font-medium rounded btn-lift hover:bg-gold-dark"
-            >
-              {locale === "es" ? "Solicitar cotizacion" : "Request a quote"}
-            </Link>
-            <button
-              onClick={() => setMobileOpen(!mobileOpen)}
-              className="lg:hidden w-11 h-11 flex items-center justify-center text-white hover:text-white/70 transition-colors duration-300"
-              aria-label={mobileOpen ? "Close menu" : "Open menu"}
-              aria-expanded={mobileOpen}
-            >
-              {mobileOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-          </div>
-        </div>
-      </nav>
+      {/* Spacer for fixed header */}
+      <div style={{ height: "calc(36px + 72px)" }} />
 
       {/* ── Mobile menu ─────────────────────────────── */}
       {mobileOpen && (
         <div
-          className="lg:hidden bg-navy-deep border-t border-white/10 max-h-[calc(100vh-121px)] overflow-y-auto"
-          style={{ boxShadow: "0 4px 15px rgba(0, 0, 0, 0.2)" }}
+          className="fixed inset-0 z-[999] lg:hidden"
+          style={{ top: "calc(36px + 72px)" }}
         >
-          <div className="py-2">
-            {/* Products (with sub-accordion) */}
-            <div>
-              <div className="flex items-stretch">
-                <Link
-                  href={`${prefix}/productos`}
-                  onClick={() => setMobileOpen(false)}
-                  className="flex-1 px-5 py-3.5 text-white text-base font-normal hover:bg-white/5 transition-colors duration-200"
-                >
-                  {t("products")}
-                </Link>
-                <button
-                  onClick={() => setMobileAccordion(mobileAccordion === "products" ? null : "products")}
-                  className="w-12 flex items-center justify-center border-l border-white/10 text-white/70 hover:bg-white/10 transition-colors duration-200"
-                  aria-expanded={mobileAccordion === "products"}
-                >
-                  <ChevronDown
-                    size={16}
-                    className={`transition-transform duration-300 ${mobileAccordion === "products" ? "rotate-180" : ""}`}
-                  />
-                </button>
-              </div>
-              {mobileAccordion === "products" && (
-                <div className="bg-navy/80">
-                  {productColumns[l].map((col) => (
-                    <div key={col.title}>
-                      <Link
-                        href={`${prefix}${col.href}`}
-                        onClick={() => setMobileOpen(false)}
-                        className="block pl-8 pr-5 py-2.5 text-sm text-gold-light/90 font-medium border-l-2 border-gold-light/40 ml-5"
-                      >
-                        {col.title}
-                      </Link>
-                      {col.items.map((item) => (
+          {/* Backdrop */}
+          <div
+            className="absolute inset-0 bg-black/50"
+            onClick={() => setMobileOpen(false)}
+          />
+
+          {/* Menu panel */}
+          <div
+            className="absolute top-0 right-0 w-full max-w-md h-full bg-[#141733] overflow-y-auto"
+            style={{ boxShadow: "-10px 0 40px rgba(0, 0, 0, 0.3)" }}
+          >
+            <div className="py-4">
+              {/* Products (with sub-accordion) */}
+              <div>
+                <div className="flex items-stretch">
+                  <Link
+                    href={`${prefix}/productos`}
+                    onClick={() => setMobileOpen(false)}
+                    className="flex-1 px-6 py-4 text-white text-base font-medium uppercase tracking-wider hover:bg-white/5 transition-colors duration-200"
+                  >
+                    {t("products")}
+                  </Link>
+                  <button
+                    onClick={() => setMobileAccordion(mobileAccordion === "products" ? null : "products")}
+                    className="w-14 flex items-center justify-center border-l border-white/10 text-white/50 hover:text-gold-light hover:bg-white/5 transition-all duration-200"
+                    aria-expanded={mobileAccordion === "products"}
+                  >
+                    <ChevronDown
+                      size={16}
+                      className={`transition-transform duration-300 ${mobileAccordion === "products" ? "rotate-180" : ""}`}
+                    />
+                  </button>
+                </div>
+                {mobileAccordion === "products" && (
+                  <div className="bg-[#0d0f1f]/60">
+                    {productColumns[l].map((col) => (
+                      <div key={col.title}>
+                        <Link
+                          href={`${prefix}${col.href}`}
+                          onClick={() => setMobileOpen(false)}
+                          className="flex items-center gap-2 pl-8 pr-6 py-3 text-sm text-gold-light font-semibold border-l-[3px] border-gold/40 ml-6"
+                        >
+                          <span className="w-1.5 h-1.5 rounded-full bg-gold/60" />
+                          {col.title}
+                        </Link>
+                        {col.items.map((item) => (
+                          <Link
+                            key={item.label}
+                            href={`${prefix}${item.href}`}
+                            onClick={() => setMobileOpen(false)}
+                            className="block pl-14 pr-6 py-1.5 text-xs text-white/40 border-l-[3px] border-white/5 ml-6 hover:text-white/70 transition-colors duration-200"
+                          >
+                            {item.label}
+                          </Link>
+                        ))}
+                      </div>
+                    ))}
+                    <div className="px-8 pt-3 pb-4 ml-6 border-l-[3px] border-white/5">
+                      {productSecondary[l].map((item) => (
                         <Link
                           key={item.label}
                           href={`${prefix}${item.href}`}
                           onClick={() => setMobileOpen(false)}
-                          className="block pl-12 pr-5 py-1.5 text-xs text-white/50 border-l-2 border-white/10 ml-5 hover:text-white/80 transition-colors duration-200"
+                          className="block py-1.5 text-sm text-white/50 hover:text-white/70 transition-colors duration-200"
                         >
                           {item.label}
                         </Link>
                       ))}
                     </div>
-                  ))}
-                  <div className="px-8 pt-2 pb-3 ml-5 border-l-2 border-white/10">
-                    {productSecondary[l].map((item) => (
-                      <Link
-                        key={item.label}
-                        href={`${prefix}${item.href}`}
-                        onClick={() => setMobileOpen(false)}
-                        className="block py-1.5 text-sm text-white/60 hover:text-white/80 transition-colors duration-200"
-                      >
-                        {item.label}
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
-
-            {/* Other nav items */}
-            {otherNavItems.map((item) => (
-              <div key={item.key}>
-                <div className="flex items-stretch">
-                  <Link
-                    href={`${prefix}${item.href}`}
-                    onClick={() => setMobileOpen(false)}
-                    className="flex-1 px-5 py-3.5 text-white text-base font-normal hover:bg-white/5 transition-colors duration-200"
-                  >
-                    {t(item.key)}
-                  </Link>
-                  {item.children && (
-                    <button
-                      onClick={() =>
-                        setMobileAccordion(mobileAccordion === item.key ? null : item.key)
-                      }
-                      className="w-12 flex items-center justify-center border-l border-white/10 text-white/70 hover:bg-white/10 transition-colors duration-200"
-                      aria-expanded={mobileAccordion === item.key}
-                    >
-                      <ChevronDown
-                        size={16}
-                        className={`transition-transform duration-300 ${
-                          mobileAccordion === item.key ? "rotate-180" : ""
-                        }`}
-                      />
-                    </button>
-                  )}
-                </div>
-
-                {item.children && mobileAccordion === item.key && (
-                  <div className="bg-navy/80">
-                    {item.children[l].map((child) => (
-                      <Link
-                        key={child.href}
-                        href={`${prefix}${child.href}`}
-                        onClick={() => setMobileOpen(false)}
-                        className="block pl-10 pr-5 py-2.5 text-sm text-white/75 border-l-2 border-gold-light/40 ml-5 hover:bg-white/5 hover:text-white transition-colors duration-200"
-                      >
-                        {child.label}
-                      </Link>
-                    ))}
                   </div>
                 )}
               </div>
-            ))}
 
-            {/* Mobile CTA */}
-            <div className="px-5 py-4 border-t border-white/10 mt-2">
-              <Link
-                href={`${prefix}/contacto`}
-                onClick={() => setMobileOpen(false)}
-                className="block w-full text-center px-6 py-3 bg-gold text-white font-medium rounded hover:bg-gold-dark transition-colors duration-300"
-              >
-                {locale === "es" ? "Solicitar cotizacion" : "Request a quote"}
-              </Link>
+              {/* Separator */}
+              <div className="mx-6 my-1 border-t border-white/5" />
+
+              {/* Other nav items */}
+              {otherNavItems.map((item) => (
+                <div key={item.key}>
+                  <div className="flex items-stretch">
+                    <Link
+                      href={`${prefix}${item.href}`}
+                      onClick={() => setMobileOpen(false)}
+                      className="flex-1 px-6 py-4 text-white text-base font-medium uppercase tracking-wider hover:bg-white/5 transition-colors duration-200"
+                    >
+                      {t(item.key)}
+                    </Link>
+                    {item.children && (
+                      <button
+                        onClick={() =>
+                          setMobileAccordion(mobileAccordion === item.key ? null : item.key)
+                        }
+                        className="w-14 flex items-center justify-center border-l border-white/10 text-white/50 hover:text-gold-light hover:bg-white/5 transition-all duration-200"
+                        aria-expanded={mobileAccordion === item.key}
+                      >
+                        <ChevronDown
+                          size={16}
+                          className={`transition-transform duration-300 ${
+                            mobileAccordion === item.key ? "rotate-180" : ""
+                          }`}
+                        />
+                      </button>
+                    )}
+                  </div>
+
+                  {item.children && mobileAccordion === item.key && (
+                    <div className="bg-[#0d0f1f]/60">
+                      {item.children[l].map((child) => (
+                        <Link
+                          key={child.href}
+                          href={`${prefix}${child.href}`}
+                          onClick={() => setMobileOpen(false)}
+                          className="block pl-10 pr-6 py-3 text-sm text-white/60 border-l-[3px] border-gold/30 ml-6 hover:bg-white/5 hover:text-white transition-colors duration-200"
+                        >
+                          <span className="font-medium">{child.label}</span>
+                          {"desc" in child && (
+                            <span className="block text-xs text-white/30 mt-0.5">
+                              {(child as { desc: string }).desc}
+                            </span>
+                          )}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ))}
+
+              {/* Mobile CTA */}
+              <div className="px-6 py-6 mt-4" style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}>
+                <Link
+                  href={`${prefix}/contacto`}
+                  onClick={() => setMobileOpen(false)}
+                  className="flex items-center justify-center gap-2 w-full px-6 py-3.5 bg-gold text-white font-bold uppercase tracking-wider rounded-sm transition-all duration-300 hover:bg-gold-dark"
+                >
+                  {locale === "es" ? "Solicitar cotizacion" : "Request a quote"}
+                  <ArrowRight size={16} />
+                </Link>
+              </div>
             </div>
           </div>
         </div>
       )}
-    </header>
+    </>
   );
 }

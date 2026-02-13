@@ -192,7 +192,7 @@ export default function HomePage() {
                 >
                   <div className="flex items-start gap-5">
                     <div className="w-12 h-12 shrink-0 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:scale-105" style={{ background: "rgba(36, 39, 81, 0.06)" }}>
-                      <PIcon size={22} className="text-navy-deep group-hover:text-gold transition-colors duration-300" strokeWidth={1.5} />
+                      <PIcon size={22} className="text-heading group-hover:text-gold transition-colors duration-300" strokeWidth={1.5} />
                     </div>
                     <div className="flex-1 min-w-0">
                       <h3 className="font-heading font-semibold text-heading text-base mb-1">
@@ -452,7 +452,7 @@ export default function HomePage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
-              { key: "ipsa", color: "#242751", accent: "rgba(36, 39, 81, 0.06)" },
+              { key: "ipsa", color: "#141733", accent: "rgba(20, 23, 51, 0.06)" },
               { key: "maepsa", color: "#bb9034", accent: "rgba(187, 144, 52, 0.06)" },
               { key: "certus", color: "#203c88", accent: "rgba(32, 60, 136, 0.06)" },
             ].map(({ key, color, accent }) => (
@@ -522,16 +522,44 @@ export default function HomePage() {
       </section>
 
       {/* ═══ CERTIFICATIONS ══════════════════════════ */}
-      <section className="py-8" style={{ background: "#f8f9fb", borderTop: "1px solid #edf0f3", borderBottom: "1px solid #edf0f3" }}>
+      <section className="py-16 lg:py-20" style={{ background: "#f8f9fb", borderTop: "1px solid #edf0f3", borderBottom: "1px solid #edf0f3" }}>
         <div className="mx-auto max-w-[1600px] px-5 md:px-10">
-          <div className="flex items-center justify-center gap-10 md:gap-20 flex-wrap">
-            {["ISO 9001", "API 6D", "API 6A", "NACE MR0175", "NORSOK", "SIL III"].map(
-              (cert) => (
-                <div key={cert} className="text-gray-300 font-heading font-semibold text-sm md:text-base tracking-[0.15em]">
-                  {cert}
+          <div className="text-center mb-10">
+            <p className="text-gold font-medium text-sm tracking-widest uppercase mb-3">
+              {locale === "es" ? "Calidad certificada" : "Certified quality"}
+            </p>
+            <h2 className="font-heading text-heading" style={{ fontSize: "2rem", fontWeight: 600 }}>
+              {locale === "es" ? "Normas y certificaciones" : "Standards & certifications"}
+            </h2>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 max-w-5xl mx-auto">
+            {[
+              { code: "ISO 9001", desc: { es: "Sistema de gestion de calidad", en: "Quality management system" }, icon: "shield" },
+              { code: "API 6D", desc: { es: "Valvulas de tuberia", en: "Pipeline valves" }, icon: "check" },
+              { code: "API 6A", desc: { es: "Equipo de cabezal de pozo", en: "Wellhead equipment" }, icon: "check" },
+              { code: "NACE MR0175", desc: { es: "Servicio acido (sour)", en: "Sour service" }, icon: "droplet" },
+              { code: "NORSOK", desc: { es: "Estandar noruego offshore", en: "Norwegian offshore standard" }, icon: "anchor" },
+              { code: "SIL III", desc: { es: "Seguridad funcional", en: "Functional safety" }, icon: "alert" },
+            ].map((cert) => (
+              <div
+                key={cert.code}
+                className="relative bg-white rounded-lg p-5 text-center group transition-all duration-300 hover:shadow-md"
+                style={{ border: "1px solid #edf0f3" }}
+              >
+                <div
+                  className="w-12 h-12 rounded-full mx-auto mb-3 flex items-center justify-center"
+                  style={{ background: "linear-gradient(135deg, #141733, #203c88)" }}
+                >
+                  <ShieldCheck size={20} className="text-gold-light" strokeWidth={1.5} />
                 </div>
-              )
-            )}
+                <div className="font-heading font-bold text-heading text-sm tracking-wider mb-1">
+                  {cert.code}
+                </div>
+                <div className="text-[11px] text-gray-400 leading-snug">
+                  {cert.desc[l]}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>

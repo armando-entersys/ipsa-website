@@ -177,7 +177,7 @@ export default function ServicesHub() {
                         className="w-14 h-14 rounded flex items-center justify-center shrink-0"
                         style={{ background: "rgba(36, 39, 81, 0.06)" }}
                       >
-                        <Icon size={26} className="text-navy-deep" strokeWidth={1.5} />
+                        <Icon size={26} className="text-heading" strokeWidth={1.5} />
                       </div>
                       <p className="text-gold font-medium text-sm tracking-widest uppercase">
                         {locale === "es" ? `Servicio ${String(index + 1).padStart(2, "0")}` : `Service ${String(index + 1).padStart(2, "0")}`}

@@ -42,7 +42,7 @@ export default function Footer() {
             </p>
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 bg-gradient-to-br from-gold-light to-gold rounded-lg flex items-center justify-center">
-                <span className="text-navy-deep font-heading font-bold text-xl">IP</span>
+                <span className="text-[#0d0f1f] font-heading font-bold text-xl">IP</span>
               </div>
               <div>
                 <div className="font-heading font-bold text-lg">IPSA</div>

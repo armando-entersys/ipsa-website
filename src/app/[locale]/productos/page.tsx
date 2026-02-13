@@ -110,7 +110,7 @@ export default function ProductsHub() {
                       className="w-12 h-12 shrink-0 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:scale-105"
                       style={{ background: "rgba(36, 39, 81, 0.06)" }}
                     >
-                      <PIcon size={22} className="text-navy-deep group-hover:text-gold transition-colors duration-300" strokeWidth={1.5} />
+                      <PIcon size={22} className="text-heading group-hover:text-gold transition-colors duration-300" strokeWidth={1.5} />
                     </div>
                     <div className="flex-1 min-w-0">
                       <h3 className="font-heading font-semibold text-heading text-base mb-1">
