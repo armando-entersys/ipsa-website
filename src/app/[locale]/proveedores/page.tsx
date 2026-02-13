@@ -66,7 +66,7 @@ export default function SuppliersHub() {
           sizes="100vw"
         />
         {/* Base overlay */}
-        <div className="absolute inset-0 bg-black/55" />
+        <div className="absolute inset-0 bg-black/65" />
         {/* Bottom gradient for text */}
         <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/70 via-navy-dark/25 to-transparent" />
 
@@ -83,7 +83,7 @@ export default function SuppliersHub() {
             </nav>
             <h1
               className="font-heading text-white leading-tight mb-4 hero-text-strong"
-              style={{ fontSize: "clamp(2.2rem, 4.5vw, 3.5rem)", fontWeight: 400 }}
+              style={{ fontSize: "clamp(2.2rem, 4.5vw, 3.5rem)", fontWeight: 500 }}
             >
               {t("title")}
             </h1>

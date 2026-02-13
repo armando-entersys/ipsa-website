@@ -66,7 +66,7 @@ export default function HistoryPage() {
           className="object-cover"
           priority
         />
-        <div className="absolute inset-0 bg-navy-deep/70" />
+        <div className="absolute inset-0 bg-navy-deep/80" />
         <div className="absolute inset-0 bg-gradient-to-r from-navy-deep/80 to-transparent" />
         <div className="relative z-10 mx-auto w-full max-w-[1600px] px-5 md:px-10 py-20 lg:py-28">
           <nav className="text-sm text-white/50 mb-6">
@@ -86,7 +86,7 @@ export default function HistoryPage() {
           <h1
             className="font-heading text-white mb-4"
             style={{
-              fontWeight: 400,
+              fontWeight: 500,
               fontSize: "clamp(2.2rem, 5vw, 3.75rem)",
             }}
           >

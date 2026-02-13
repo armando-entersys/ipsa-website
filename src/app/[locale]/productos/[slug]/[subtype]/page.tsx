@@ -63,7 +63,7 @@ export default async function SubtypeDetailPage({
           className="object-cover"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-navy-deep/75" />
+        <div className="absolute inset-0 bg-navy-deep/80" />
         <div className="absolute inset-0 bg-gradient-to-r from-navy-deep/90 via-navy-deep/60 to-transparent" />
 
         <div
@@ -98,7 +98,7 @@ export default async function SubtypeDetailPage({
               className="font-heading text-white leading-tight mb-6"
               style={{
                 fontSize: "clamp(2.25rem, 4.5vw, 3.75rem)",
-                fontWeight: 400,
+                fontWeight: 500,
               }}
             >
               {stName}

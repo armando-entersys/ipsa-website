@@ -23,7 +23,7 @@ export default function ProductsHub() {
           className="object-cover"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-black/55" />
+        <div className="absolute inset-0 bg-black/65" />
         <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/70 via-navy-dark/25 to-transparent" />
 
         <div className="relative mx-auto max-w-[1600px] px-5 md:px-10 flex items-end" style={{ minHeight: "45vh" }}>
@@ -39,7 +39,7 @@ export default function ProductsHub() {
               <div className="w-10 h-[3px] bg-gold" />
               <h1
                 className="font-heading text-white leading-tight hero-text-strong"
-                style={{ fontSize: "clamp(2.25rem, 4.5vw, 3.75rem)", fontWeight: 400 }}
+                style={{ fontSize: "clamp(2.25rem, 4.5vw, 3.75rem)", fontWeight: 500 }}
               >
                 {t("title")}
               </h1>

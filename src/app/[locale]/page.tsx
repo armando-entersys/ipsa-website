@@ -95,7 +95,7 @@ export default function HomePage() {
           <source src="/videos/hero-refinery.mp4" type="video/mp4" />
         </video>
         {/* Dark overlay for text readability */}
-        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 bg-black/65" />
         {/* Bottom gradient for text area */}
         <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/80 via-navy-dark/30 to-transparent" />
 
@@ -105,7 +105,7 @@ export default function HomePage() {
             <div className="w-20 h-1.5 bg-gold rounded-full mb-8" />
             <h1
               className="font-heading text-white leading-tight mb-6 hero-text-strong"
-              style={{ fontSize: "clamp(2.5rem, 5vw, 4.5rem)", fontWeight: 400 }}
+              style={{ fontSize: "clamp(2.5rem, 5vw, 4.5rem)", fontWeight: 500 }}
             >
               {t("hero.title")}
             </h1>

@@ -103,7 +103,7 @@ export default async function SupplierPage({ params }: { params: Promise<{ local
           className="object-cover"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-black/55" />
+        <div className="absolute inset-0 bg-black/65" />
         <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/70 via-navy-dark/25 to-transparent" />
 
         <div className="relative mx-auto max-w-[1600px] px-5 md:px-10 flex items-center" style={{ minHeight: "45vh" }}>
@@ -136,7 +136,7 @@ export default async function SupplierPage({ params }: { params: Promise<{ local
               <div>
                 <h1
                   className="font-heading text-white leading-tight mb-2 hero-text-strong"
-                  style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)", fontWeight: 400 }}
+                  style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)", fontWeight: 500 }}
                 >
                   {supplier.name}
                 </h1>

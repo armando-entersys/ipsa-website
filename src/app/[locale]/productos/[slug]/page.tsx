@@ -66,7 +66,7 @@ export default async function ProductCategoryPage({
           className="object-cover"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-black/55" />
+        <div className="absolute inset-0 bg-black/65" />
         <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/70 via-navy-dark/25 to-transparent" />
 
         <div
@@ -93,7 +93,7 @@ export default async function ProductCategoryPage({
               className="font-heading text-white leading-tight mb-6 hero-text-strong"
               style={{
                 fontSize: "clamp(2.25rem, 4.5vw, 3.75rem)",
-                fontWeight: 400,
+                fontWeight: 500,
               }}
             >
               {data.name}
