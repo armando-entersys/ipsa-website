@@ -329,13 +329,13 @@ export default function Header() {
           <div className="mx-auto max-w-[1600px] px-5 md:px-10 flex items-center h-[72px]">
             {/* Logo */}
             <Link href={prefix} className="shrink-0 group relative z-10">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/images/logos/ipsa-logo.svg"
+              <Image
+                src="/images/logos/ipsa-logo.png"
                 alt="IPSA - Ingeniería de Partes"
                 width={180}
-                height={42}
-                className="h-[42px] w-auto transition-opacity duration-150 group-hover:opacity-90"
+                height={45}
+                className="h-[45px] w-auto transition-opacity duration-150 group-hover:opacity-90"
+                priority
               />
             </Link>
 

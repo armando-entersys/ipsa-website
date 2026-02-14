@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import { Phone, Mail, MapPin } from "lucide-react";
 
@@ -36,13 +37,12 @@ export default function Footer() {
                 ? "Tus expertos en válvulas y automatización industrial"
                 : "Your valve and industrial automation experts"}
             </p>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/images/logos/ipsa-logo.svg"
+            <Image
+              src="/images/logos/ipsa-logo.png"
               alt="IPSA - Ingeniería de Partes"
               width={180}
-              height={42}
-              className="h-[42px] w-auto"
+              height={45}
+              className="h-[45px] w-auto"
             />
           </div>
 
