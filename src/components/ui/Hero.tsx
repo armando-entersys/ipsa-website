@@ -45,6 +45,7 @@ function HeroHome({ title, subtitle, ctaPrimary, ctaSecondary, backgroundImage }
           alt=""
           fill
           priority
+          sizes="100vw"
           className="object-cover"
         />
       )}
@@ -87,6 +88,7 @@ function HeroInternal({ title, subtitle, backgroundImage, breadcrumbs }: HeroInt
             alt=""
             fill
             priority
+            sizes="100vw"
             className="object-cover"
           />
           <div className="absolute inset-0 bg-navy-deep/75" />

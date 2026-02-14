@@ -1,41 +1,41 @@
 /**
- * Stock imagery from Unsplash (free for commercial use).
- * All URLs use Unsplash's CDN with quality/size params.
+ * Optimized local images for fast loading.
+ * Hero images: 1400x600, q70. Section images: 1200x800, q70.
  */
 
 export const stockImages = {
   // Hero / banners
-  hero: "https://images.unsplash.com/photo-1518709766631-a6a7f45921c3?w=1920&q=80&auto=format",
-  heroAlt: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1920&q=80&auto=format",
+  hero: "/images/heroes/industries-hero.jpg",
+  heroAlt: "/images/heroes/products-hero.jpg",
 
   // Inner page heroes
-  productsHero: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=1920&q=80&auto=format",
-  servicesHero: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=1920&q=80&auto=format",
-  industriesHero: "https://images.unsplash.com/photo-1513828583688-c52646db42da?w=1920&q=80&auto=format",
-  suppliersHero: "https://images.unsplash.com/photo-1590959651373-a3db0f38a961?w=1920&q=80&auto=format",
-  aboutHero: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1920&q=80&auto=format",
-  contactHero: "https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=1920&q=80&auto=format",
-  catalogHero: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=1920&q=80&auto=format",
+  productsHero: "/images/heroes/products-hero.jpg",
+  servicesHero: "/images/heroes/services-hero.jpg",
+  industriesHero: "/images/heroes/industries-hero.jpg",
+  suppliersHero: "/images/heroes/suppliers-hero.jpg",
+  aboutHero: "/images/heroes/about-hero.jpg",
+  contactHero: "/images/heroes/contact-hero.jpg",
+  catalogHero: "/images/heroes/products-hero.jpg",
 
   // Industries
-  oilGas: "https://images.unsplash.com/photo-1513828583688-c52646db42da?w=1200&q=80&auto=format",
-  gas: "https://images.unsplash.com/photo-1585338447937-7082f8fc763d?w=1200&q=80&auto=format",
-  oils: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=1200&q=80&auto=format",
+  oilGas: "/images/heroes/oil-gas.jpg",
+  gas: "/images/heroes/gas.jpg",
+  oils: "/images/heroes/oils.jpg",
 
   // Services
-  automation: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=1200&q=80&auto=format",
-  engineering: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=1200&q=80&auto=format",
-  workshop: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=1200&q=80&auto=format",
+  automation: "/images/heroes/products-hero.jpg",
+  engineering: "/images/heroes/services-hero.jpg",
+  workshop: "/images/heroes/industries-hero.jpg",
 
   // Products
-  valves: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=1200&q=80&auto=format",
-  pipeline: "https://images.unsplash.com/photo-1587293852726-70cdb56c2866?w=1200&q=80&auto=format",
-  industrial: "https://images.unsplash.com/photo-1587293852726-70cdb56c2866?w=1200&q=80&auto=format",
+  valves: "/images/heroes/products-hero.jpg",
+  pipeline: "/images/heroes/industries-hero.jpg",
+  industrial: "/images/heroes/industries-hero.jpg",
 
   // About / team
-  team: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1200&q=80&auto=format",
-  office: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80&auto=format",
+  team: "/images/heroes/about-hero.jpg",
+  office: "/images/heroes/suppliers-hero.jpg",
 
   // Contact
-  contact: "https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=1200&q=80&auto=format",
+  contact: "/images/heroes/contact-hero.jpg",
 } as const;
