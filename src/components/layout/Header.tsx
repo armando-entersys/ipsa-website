@@ -275,7 +275,7 @@ export default function Header() {
   }, []);
 
   const handleMouseLeave = useCallback(() => {
-    timeoutRef.current = setTimeout(() => setActiveDropdown(null), 150);
+    timeoutRef.current = setTimeout(() => setActiveDropdown(null), 300);
   }, []);
 
   const closeDropdown = useCallback(() => {
@@ -404,14 +404,15 @@ export default function Header() {
                   {/* Inline dropdown for Services / Industries / Suppliers */}
                   {item.children && (
                     <div
-                      className={`absolute top-full left-0 pt-0 z-[999] transition-all duration-200 ease-out ${
+                      className={`absolute top-full left-0 z-[999] ${
                         activeDropdown === item.key
-                          ? "opacity-100 visible translate-y-0"
-                          : "opacity-0 invisible -translate-y-2 pointer-events-none"
+                          ? "opacity-100 visible"
+                          : "opacity-0 invisible pointer-events-none"
                       }`}
-                      onMouseEnter={() => handleMouseEnter(item.key)}
-                      onMouseLeave={handleMouseLeave}
+                      style={{ paddingTop: "0px" }}
                     >
+                      {/* Invisible bridge to prevent hover gap */}
+                      <div className="h-2" />
                       <div
                         className="bg-white rounded-xl overflow-hidden min-w-[320px]"
                         style={{ boxShadow: "0 12px 40px rgba(0,0,0,0.12), 0 0 0 1px rgba(0,0,0,0.04)" }}
@@ -602,7 +603,7 @@ export default function Header() {
         {/* ── Dark overlay behind dropdowns ─────────── */}
         <div
           className={`fixed inset-0 bg-black/20 z-[998] transition-opacity duration-150 ${
-            isDropdownOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+            activeDropdown === "products" ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
           }`}
           onClick={closeDropdown}
           style={{ top: "calc(36px + 72px)" }}
