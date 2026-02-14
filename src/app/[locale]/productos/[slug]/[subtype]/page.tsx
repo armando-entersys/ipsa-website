@@ -353,8 +353,9 @@ export default async function SubtypeDetailPage({
                           className="flex items-center gap-3 p-4 rounded-xl bg-white border border-gray-100"
                         >
                           {logo ? (
-                            <div className="w-8 h-8 shrink-0 relative">
-                              <Image src={logo} alt={std} fill className="object-contain" sizes="32px" />
+                            <div className="w-8 h-8 shrink-0 flex items-center justify-center">
+                              {/* eslint-disable-next-line @next/next/no-img-element */}
+                              <img src={logo} alt={std} width={32} height={32} className="object-contain" />
                             </div>
                           ) : (
                             <div

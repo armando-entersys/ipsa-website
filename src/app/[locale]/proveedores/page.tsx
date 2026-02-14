@@ -127,7 +127,8 @@ export default function SuppliersHub() {
                 <div className="flex flex-col md:flex-row">
                   {/* Logo + Product image */}
                   <div className="shrink-0 w-full md:w-56 relative overflow-hidden bg-white flex items-center justify-center" style={{ minHeight: "180px" }}>
-                    <Image
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
                       src={supplier.logo}
                       alt={supplier.name}
                       width={160}
@@ -198,7 +199,8 @@ export default function SuppliersHub() {
                   key={brand.name}
                   className="px-6 py-4 bg-white rounded-xl shadow-card flex items-center gap-3"
                 >
-                  <Image
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
                     src={brand.logo}
                     alt={brand.name}
                     width={120}

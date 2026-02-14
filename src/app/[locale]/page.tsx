@@ -262,7 +262,8 @@ export default function HomePage() {
                 className="group flex flex-col items-center justify-center p-6 rounded-xl glass-dark transition-all duration-150 hover:bg-white/[0.08] overflow-hidden"
               >
                 <div className="relative w-full h-16 mb-4 flex items-center justify-center">
-                  <Image
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
                     src={supplier.logo}
                     alt={supplier.name}
                     width={140}

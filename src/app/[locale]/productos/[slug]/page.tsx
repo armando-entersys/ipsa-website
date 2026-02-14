@@ -349,8 +349,9 @@ export default async function ProductCategoryPage({
                           className="flex items-center gap-3 p-4 rounded-xl bg-white border border-gray-100"
                         >
                           {logo ? (
-                            <div className="w-8 h-8 shrink-0 relative">
-                              <Image src={logo} alt={std} fill className="object-contain" sizes="32px" />
+                            <div className="w-8 h-8 shrink-0 flex items-center justify-center">
+                              {/* eslint-disable-next-line @next/next/no-img-element */}
+                              <img src={logo} alt={std} width={32} height={32} className="object-contain" />
                             </div>
                           ) : (
                             <div
@@ -408,7 +409,8 @@ export default async function ProductCategoryPage({
                         >
                           <div className="w-28 h-14 rounded-xl flex items-center justify-center relative overflow-hidden shrink-0 bg-white border border-gray-100">
                             {s.logo ? (
-                              <Image
+                              /* eslint-disable-next-line @next/next/no-img-element */
+                              <img
                                 src={s.logo}
                                 alt={s.name}
                                 width={90}
