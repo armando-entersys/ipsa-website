@@ -36,17 +36,14 @@ export default function Footer() {
                 ? "Tus expertos en válvulas y automatización industrial"
                 : "Your valve and industrial automation experts"}
             </p>
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-gradient-to-br from-gold-light to-gold rounded-lg flex items-center justify-center">
-                <span className="text-navy-dark font-heading font-bold text-xl">IP</span>
-              </div>
-              <div>
-                <div className="font-heading font-bold text-lg">IPSA</div>
-                <div className="text-[10px] text-white/50 tracking-[0.15em]">
-                  INGENIERÍA DE PARTES
-                </div>
-              </div>
-            </div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/logos/ipsa-logo.svg"
+              alt="IPSA - Ingeniería de Partes"
+              width={180}
+              height={42}
+              className="h-[42px] w-auto"
+            />
           </div>
 
           {/* Col 2: Mexico HQ */}

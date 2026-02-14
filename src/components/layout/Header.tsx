@@ -328,18 +328,15 @@ export default function Header() {
         >
           <div className="mx-auto max-w-[1600px] px-5 md:px-10 flex items-center h-[72px]">
             {/* Logo */}
-            <Link href={prefix} className="flex items-center gap-3 shrink-0 group relative z-10">
-              <div className="w-11 h-11 bg-gradient-to-br from-gold-light to-gold rounded-lg flex items-center justify-center transition-all duration-150 group-hover:shadow-lg group-hover:shadow-gold/20">
-                <span className="text-navy-dark font-heading font-bold text-xl">IP</span>
-              </div>
-              <div className="hidden sm:block">
-                <div className="font-heading font-bold text-white text-lg leading-tight tracking-wide">
-                  IPSA
-                </div>
-                <div className="text-[9px] text-white/50 leading-tight tracking-[0.2em] font-medium">
-                  INGENIERÍA DE PARTES
-                </div>
-              </div>
+            <Link href={prefix} className="shrink-0 group relative z-10">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/logos/ipsa-logo.svg"
+                alt="IPSA - Ingeniería de Partes"
+                width={180}
+                height={42}
+                className="h-[42px] w-auto transition-opacity duration-150 group-hover:opacity-90"
+              />
             </Link>
 
             {/* Desktop nav links */}
