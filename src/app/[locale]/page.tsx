@@ -17,7 +17,6 @@ import {
   SlidersHorizontal,
   Gauge,
   Cpu,
-  ShieldCheck,
   Flame,
   Droplets,
 } from "lucide-react";
@@ -593,29 +592,24 @@ export default function HomePage() {
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-5 max-w-5xl mx-auto">
             {[
-              { code: "ISO 9001", desc: { es: "Sistema de gestión de calidad", en: "Quality management system" }, icon: "shield" },
-              { code: "API 6D", desc: { es: "Válvulas de tubería", en: "Pipeline valves" }, icon: "check" },
-              { code: "API 6A", desc: { es: "Equipo de cabezal de pozo", en: "Wellhead equipment" }, icon: "check" },
-              { code: "NACE MR0175", desc: { es: "Servicio ácido (sour)", en: "Sour service" }, icon: "droplet" },
-              { code: "NORSOK", desc: { es: "Estándar noruego offshore", en: "Norwegian offshore standard" }, icon: "anchor" },
-              { code: "SIL III", desc: { es: "Seguridad funcional", en: "Functional safety" }, icon: "alert" },
+              { code: "ISO 9001", logo: "/images/certs/iso-9001.png", desc: { es: "Sistema de gestión de calidad", en: "Quality management system" } },
+              { code: "API 6D", logo: "/images/certs/api.png", desc: { es: "Válvulas de tubería", en: "Pipeline valves" } },
+              { code: "API 6A", logo: "/images/certs/api.png", desc: { es: "Equipo de cabezal de pozo", en: "Wellhead equipment" } },
+              { code: "NACE MR0175", logo: "/images/certs/ampp.svg", desc: { es: "Servicio ácido (sour)", en: "Sour service" } },
+              { code: "NORSOK", logo: "/images/certs/norsok.svg", desc: { es: "Estándar noruego offshore", en: "Norwegian offshore standard" } },
+              { code: "SIL III", logo: "/images/certs/tuv-sud.png", desc: { es: "Seguridad funcional", en: "Functional safety" } },
             ].map((cert) => (
               <div
                 key={cert.code}
                 className="relative bg-white rounded-xl p-6 text-center group shadow-card card-modern"
               >
-                <div className="relative w-12 h-12 mx-auto mb-3">
-                  <AnimatedIcon
-                    type="pulse-ring"
-                    size={48}
-                    className="absolute inset-0"
+                <div className="w-16 h-16 mx-auto mb-3 flex items-center justify-center">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={cert.logo}
+                    alt={cert.code}
+                    className="max-w-full max-h-full object-contain"
                   />
-                  <div
-                    className="relative w-full h-full rounded-full flex items-center justify-center"
-                    style={{ background: "linear-gradient(135deg, #141733, #203c88)" }}
-                  >
-                    <ShieldCheck size={20} className="text-gold-light" strokeWidth={1.5} />
-                  </div>
                 </div>
                 <div className="font-heading font-bold text-gray-900 text-sm tracking-wider mb-1">
                   {cert.code}
