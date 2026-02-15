@@ -605,17 +605,17 @@ export default function HomePage() {
                 className="relative bg-white rounded-xl p-6 text-center group shadow-card card-modern"
               >
                 <div className="relative w-12 h-12 mx-auto mb-3">
+                  <AnimatedIcon
+                    type="pulse-ring"
+                    size={48}
+                    className="absolute inset-0"
+                  />
                   <div
-                    className="w-full h-full rounded-full flex items-center justify-center"
+                    className="relative w-full h-full rounded-full flex items-center justify-center"
                     style={{ background: "linear-gradient(135deg, #141733, #203c88)" }}
                   >
                     <ShieldCheck size={20} className="text-gold-light" strokeWidth={1.5} />
                   </div>
-                  <AnimatedIcon
-                    type="checkmark"
-                    size={18}
-                    className="absolute -bottom-1 -right-1"
-                  />
                 </div>
                 <div className="font-heading font-bold text-gray-900 text-sm tracking-wider mb-1">
                   {cert.code}
