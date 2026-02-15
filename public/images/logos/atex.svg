@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" width="60" height="60">
-  <!-- Hexagon shape -->
-  <polygon points="30,3 54,16.5 54,43.5 30,57 6,43.5 6,16.5" fill="none" stroke="#c8922a" stroke-width="2.5"/>
-  <polygon points="30,8 49,19.5 49,40.5 30,52 11,40.5 11,19.5" fill="none" stroke="#1a2332" stroke-width="0.8"/>
-  <text x="30" y="34" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#1a2332" text-anchor="middle" letter-spacing="1">ATEX</text>
-</svg>
