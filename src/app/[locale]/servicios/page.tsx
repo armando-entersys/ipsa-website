@@ -3,8 +3,7 @@ import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import { ArrowRight, ChevronRight, Zap, Settings, Headphones, Phone } from "lucide-react";
 import { stockImages, getBlur } from "@/data/images";
-import { LottieIcon } from "@/components/ui/LottieIcon";
-import { gearSpin, blueprintLines } from "@/data/lottie-animations";
+import { AnimatedIcon } from "@/components/ui/AnimatedIcon";
 
 const services = [
   {
@@ -200,10 +199,10 @@ export default function ServicesHub() {
                         {service[l].name}
                       </h3>
                       {service.slug === "automatizacion" && (
-                        <LottieIcon animationData={gearSpin} size={28} loop />
+                        <AnimatedIcon type="gear-spin" size={28} />
                       )}
                       {service.slug === "ingenieria" && (
-                        <LottieIcon animationData={blueprintLines} size={28} loop={false} />
+                        <AnimatedIcon type="blueprint-lines" size={28} />
                       )}
                     </div>
                     <p className="text-gray-500 leading-relaxed mb-6">

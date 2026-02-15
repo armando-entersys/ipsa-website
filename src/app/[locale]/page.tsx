@@ -23,8 +23,7 @@ import {
 } from "lucide-react";
 import { stockImages, getBlur } from "@/data/images";
 import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
-import { LottieIcon } from "@/components/ui/LottieIcon";
-import { pulseRing, checkmarkDraw } from "@/data/lottie-animations";
+import { AnimatedIcon } from "@/components/ui/AnimatedIcon";
 
 /* ── Data ──────────────────────────────────────────── */
 
@@ -154,10 +153,9 @@ export default function HomePage() {
                 className="text-center group bg-white rounded-xl p-8 shadow-card card-modern"
               >
                 <div className="relative w-16 h-16 mx-auto mb-5">
-                  <LottieIcon
-                    animationData={pulseRing}
+                  <AnimatedIcon
+                    type="pulse-ring"
                     size={64}
-                    loop
                     className="absolute inset-0"
                   />
                   <div
@@ -613,10 +611,9 @@ export default function HomePage() {
                   >
                     <ShieldCheck size={20} className="text-gold-light" strokeWidth={1.5} />
                   </div>
-                  <LottieIcon
-                    animationData={checkmarkDraw}
+                  <AnimatedIcon
+                    type="checkmark"
                     size={18}
-                    loop={false}
                     className="absolute -bottom-1 -right-1"
                   />
                 </div>
