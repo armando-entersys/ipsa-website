@@ -341,6 +341,13 @@ export default async function ProductCategoryPage({
                         "NORSOK M-650": "/images/logos/norsok.svg",
                         "ATEX": "/images/logos/atex.png",
                         "SIL": "/images/logos/sil.png",
+                        "NAMUR": "/images/logos/namur.svg",
+                        "CSA": "/images/logos/csa.svg",
+                        "ISA": "/images/logos/isa.svg",
+                        "ISA 84": "/images/logos/isa.svg",
+                        "IEC 61508": "/images/logos/iec.svg",
+                        "IEC 61511": "/images/logos/iec.svg",
+                        "NFPA 70": "/images/logos/nfpa.svg",
                       };
                       const logo = logoMap[std];
                       return (
