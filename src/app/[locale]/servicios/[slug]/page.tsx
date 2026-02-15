@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ChevronRight, ArrowRight, Phone } from "lucide-react";
 import { notFound } from "next/navigation";
-import { stockImages } from "@/data/images";
+import { stockImages, getBlur } from "@/data/images";
 
 const serviceData: Record<string, {
   es: { name: string; desc: string; capabilities: string[]; steps: { title: string; desc: string }[] };
@@ -106,6 +106,8 @@ export default async function ServicePage({ params }: { params: Promise<{ locale
           alt=""
           fill
           priority
+          placeholder="blur"
+          blurDataURL={getBlur(stockImages.servicesHero)}
           className="object-cover"
           sizes="100vw"
         />
@@ -278,6 +280,8 @@ export default async function ServicePage({ params }: { params: Promise<{ locale
           src={stockImages.industrial}
           alt=""
           fill
+          placeholder="blur"
+          blurDataURL={getBlur(stockImages.industrial)}
           className="object-cover"
           sizes="100vw"
         />

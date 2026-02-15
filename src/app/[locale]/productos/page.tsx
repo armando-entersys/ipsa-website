@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import { ArrowRight, ChevronRight, Zap, Phone } from "lucide-react";
-import { stockImages } from "@/data/images";
+import { stockImages, getBlur } from "@/data/images";
 import { productCategories, categoryList, manufacturers } from "@/data/products";
 
 export default function ProductsHub() {
@@ -20,6 +20,8 @@ export default function ProductsHub() {
           alt=""
           fill
           priority
+          placeholder="blur"
+          blurDataURL={getBlur(stockImages.productsHero)}
           className="object-cover"
           sizes="100vw"
         />
@@ -153,6 +155,8 @@ export default function ProductsHub() {
           src={stockImages.automation}
           alt=""
           fill
+          placeholder="blur"
+          blurDataURL={getBlur(stockImages.automation)}
           className="object-cover"
           sizes="100vw"
         />
@@ -192,6 +196,8 @@ export default function ProductsHub() {
           src={stockImages.industrial}
           alt=""
           fill
+          placeholder="blur"
+          blurDataURL={getBlur(stockImages.industrial)}
           className="object-cover"
           sizes="100vw"
         />

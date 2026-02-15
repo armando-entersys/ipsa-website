@@ -1,3 +1,5 @@
+import { blurDataURLs } from "./blur-placeholders";
+
 /**
  * Optimized local images for fast loading.
  * Hero images: 1400x600, q70. Section images: 1200x800, q70.
@@ -39,3 +41,9 @@ export const stockImages = {
   // Contact
   contact: "/images/heroes/contact-hero.jpg",
 } as const;
+
+/** Get blur placeholder for a stockImages path */
+export function getBlur(src: string): string {
+  const filename = src.split("/").pop()?.replace(".jpg", "") || "";
+  return blurDataURLs[filename] || blurDataURLs["industries-hero"];
+}

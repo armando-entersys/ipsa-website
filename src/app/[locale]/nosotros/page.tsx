@@ -11,7 +11,7 @@ import {
   Heart,
   Lightbulb,
 } from "lucide-react";
-import { stockImages } from "@/data/images";
+import { stockImages, getBlur } from "@/data/images";
 
 export default function AboutPage() {
   const t = useTranslations("aboutPage");
@@ -29,6 +29,8 @@ export default function AboutPage() {
           className="object-cover"
           priority
           sizes="100vw"
+          placeholder="blur"
+          blurDataURL={getBlur(stockImages.aboutHero)}
         />
         {/* Base overlay */}
         <div className="absolute inset-0 bg-black/50" />
@@ -81,6 +83,8 @@ export default function AboutPage() {
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 loading="eager"
+                placeholder="blur"
+                blurDataURL={getBlur(stockImages.team)}
               />
               <div className="absolute inset-0 bg-navy-deep/20" />
             </div>
@@ -285,6 +289,8 @@ export default function AboutPage() {
           src={stockImages.industrial}
           alt=""
           fill
+          placeholder="blur"
+          blurDataURL={getBlur(stockImages.industrial)}
           className="object-cover"
         />
         <div className="absolute inset-0 bg-navy-deep/65" />

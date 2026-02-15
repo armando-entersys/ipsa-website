@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ChevronRight, ArrowRight, Phone, MapPin, Award } from "lucide-react";
 import { notFound } from "next/navigation";
-import { stockImages } from "@/data/images";
+import { stockImages, getBlur } from "@/data/images";
 
 const supplierData: Record<string, {
   name: string; country: string;
@@ -100,6 +100,8 @@ export default async function SupplierPage({ params }: { params: Promise<{ local
           alt=""
           fill
           priority
+          placeholder="blur"
+          blurDataURL={getBlur(stockImages.suppliersHero)}
           className="object-cover"
           sizes="100vw"
         />
@@ -294,6 +296,8 @@ export default async function SupplierPage({ params }: { params: Promise<{ local
           src={stockImages.industrial}
           alt=""
           fill
+          placeholder="blur"
+          blurDataURL={getBlur(stockImages.industrial)}
           className="object-cover"
           sizes="100vw"
         />

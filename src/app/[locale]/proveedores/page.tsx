@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import { ChevronRight, ArrowRight, MapPin, Phone } from "lucide-react";
-import { stockImages } from "@/data/images";
+import { stockImages, getBlur } from "@/data/images";
 
 const suppliers = [
   {
@@ -66,6 +66,8 @@ export default function SuppliersHub() {
           alt=""
           fill
           priority
+          placeholder="blur"
+          blurDataURL={getBlur(stockImages.suppliersHero)}
           className="object-cover"
           sizes="100vw"
         />
@@ -227,6 +229,8 @@ export default function SuppliersHub() {
           src={stockImages.industrial}
           alt=""
           fill
+          placeholder="blur"
+          blurDataURL={getBlur(stockImages.industrial)}
           className="object-cover"
           sizes="100vw"
         />

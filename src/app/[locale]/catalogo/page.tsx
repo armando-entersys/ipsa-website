@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import { ChevronRight, ArrowRight, BookOpen } from "lucide-react";
-import { stockImages } from "@/data/images";
+import { stockImages, getBlur } from "@/data/images";
 
 export default function CatalogPage() {
   const t = useTranslations("catalog");
@@ -19,6 +19,8 @@ export default function CatalogPage() {
           fill
           className="object-cover"
           priority
+          placeholder="blur"
+          blurDataURL={getBlur(stockImages.catalogHero)}
         />
         <div className="absolute inset-0 bg-navy-deep/65" />
         <div className="absolute inset-0 bg-gradient-to-r from-navy-deep/65 to-transparent" />

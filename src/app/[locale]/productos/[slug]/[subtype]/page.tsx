@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ChevronRight, ArrowRight, Phone, Mail, MapPin, Shield } from "lucide-react";
 import { notFound } from "next/navigation";
-import { stockImages } from "@/data/images";
+import { stockImages, getBlur } from "@/data/images";
 import { productCategories, manufacturers } from "@/data/products";
 
 export default async function SubtypeDetailPage({
@@ -60,6 +60,8 @@ export default async function SubtypeDetailPage({
           alt=""
           fill
           priority
+          placeholder="blur"
+          blurDataURL={getBlur(subtypeData.image || stockImages.productsHero)}
           className="object-cover"
           sizes="100vw"
         />
@@ -537,6 +539,8 @@ export default async function SubtypeDetailPage({
           src={stockImages.industrial}
           alt=""
           fill
+          placeholder="blur"
+          blurDataURL={getBlur(stockImages.industrial)}
           className="object-cover"
           sizes="100vw"
         />

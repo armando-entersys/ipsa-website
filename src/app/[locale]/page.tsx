@@ -21,7 +21,7 @@ import {
   Flame,
   Droplets,
 } from "lucide-react";
-import { stockImages } from "@/data/images";
+import { stockImages, getBlur } from "@/data/images";
 
 /* ── Data ──────────────────────────────────────────── */
 
@@ -316,6 +316,8 @@ export default function HomePage() {
                     src={service.image}
                     alt={service[l].name}
                     fill
+                    placeholder="blur"
+                    blurDataURL={getBlur(service.image)}
                     className="object-cover transition-transform duration-300 group-hover:scale-110"
                     sizes="(max-width: 768px) 100vw, 33vw"
                   />
@@ -349,6 +351,8 @@ export default function HomePage() {
               src={stockImages.industrial}
               alt=""
               fill
+              placeholder="blur"
+              blurDataURL={getBlur(stockImages.industrial)}
               className="object-cover"
               sizes="50vw"
             />
@@ -408,6 +412,8 @@ export default function HomePage() {
                 src={stockImages.industrial}
                 alt=""
                 fill
+                placeholder="blur"
+                blurDataURL={getBlur(stockImages.industrial)}
                 className="object-cover"
                 sizes="100vw"
               />
@@ -443,6 +449,8 @@ export default function HomePage() {
                   src={industry.image}
                   alt={industry[l].name}
                   fill
+                  placeholder="blur"
+                  blurDataURL={getBlur(industry.image)}
                   className="object-cover transition-transform duration-300 group-hover:scale-105"
                   sizes="(max-width: 768px) 100vw, 33vw"
                 />
@@ -609,6 +617,8 @@ export default function HomePage() {
           src={stockImages.industrial}
           alt=""
           fill
+          placeholder="blur"
+          blurDataURL={getBlur(stockImages.industrial)}
           className="object-cover"
           sizes="100vw"
         />

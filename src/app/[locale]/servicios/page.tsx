@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import { ArrowRight, ChevronRight, Zap, Settings, Headphones, Phone } from "lucide-react";
-import { stockImages } from "@/data/images";
+import { stockImages, getBlur } from "@/data/images";
 
 const services = [
   {
@@ -105,6 +105,8 @@ export default function ServicesHub() {
           alt=""
           fill
           priority
+          placeholder="blur"
+          blurDataURL={getBlur(stockImages.servicesHero)}
           className="object-cover"
           sizes="100vw"
         />
@@ -168,6 +170,8 @@ export default function ServicesHub() {
                       src={service.image}
                       alt={service[l].name}
                       fill
+                      placeholder="blur"
+                      blurDataURL={getBlur(service.image)}
                       className="object-cover transition-transform duration-300 group-hover:scale-105 hover:scale-105"
                       sizes="(max-width: 1024px) 100vw, 50vw"
                     />
@@ -278,6 +282,8 @@ export default function ServicesHub() {
           src={stockImages.industrial}
           alt=""
           fill
+          placeholder="blur"
+          blurDataURL={getBlur(stockImages.industrial)}
           className="object-cover"
           sizes="100vw"
         />

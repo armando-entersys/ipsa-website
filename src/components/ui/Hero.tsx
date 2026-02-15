@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Button from '@/components/ui/Button';
 import Breadcrumb from '@/components/ui/Breadcrumb';
+import { getBlur } from '@/data/images';
 
 interface BreadcrumbItem {
   label: string;
@@ -46,6 +47,8 @@ function HeroHome({ title, subtitle, ctaPrimary, ctaSecondary, backgroundImage }
           fill
           priority
           sizes="100vw"
+          placeholder="blur"
+          blurDataURL={getBlur(backgroundImage)}
           className="object-cover"
         />
       )}
@@ -89,6 +92,8 @@ function HeroInternal({ title, subtitle, backgroundImage, breadcrumbs }: HeroInt
             fill
             priority
             sizes="100vw"
+            placeholder="blur"
+            blurDataURL={getBlur(backgroundImage)}
             className="object-cover"
           />
           <div className="absolute inset-0 bg-navy-deep/75" />

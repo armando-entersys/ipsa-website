@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import { ChevronRight, ArrowRight, Droplets, Flame, Wind, Phone } from "lucide-react";
-import { stockImages } from "@/data/images";
+import { stockImages, getBlur } from "@/data/images";
 
 const industries = [
   {
@@ -67,6 +67,8 @@ export default function IndustriesHub() {
           alt=""
           fill
           priority
+          placeholder="blur"
+          blurDataURL={getBlur(stockImages.industriesHero)}
           className="object-cover"
           sizes="100vw"
         />
@@ -126,6 +128,8 @@ export default function IndustriesHub() {
                     src={industry.image}
                     alt={industry[l].name}
                     fill
+                    placeholder="blur"
+                    blurDataURL={getBlur(industry.image)}
                     className="object-cover transition-transform duration-300 group-hover:scale-105"
                     sizes="(max-width: 768px) 100vw, 33vw"
                   />
@@ -193,6 +197,8 @@ export default function IndustriesHub() {
           src={stockImages.industrial}
           alt=""
           fill
+          placeholder="blur"
+          blurDataURL={getBlur(stockImages.industrial)}
           className="object-cover"
           sizes="100vw"
         />

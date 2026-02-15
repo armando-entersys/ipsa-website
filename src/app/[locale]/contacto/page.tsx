@@ -13,7 +13,7 @@ import {
   Send,
   CheckCircle,
 } from "lucide-react";
-import { stockImages } from "@/data/images";
+import { stockImages, getBlur } from "@/data/images";
 
 const offices = [
   {
@@ -57,6 +57,8 @@ export default function ContactPage() {
           className="object-cover"
           priority
           sizes="100vw"
+          placeholder="blur"
+          blurDataURL={getBlur(stockImages.contactHero)}
         />
         {/* Base overlay */}
         <div className="absolute inset-0 bg-black/50" />
