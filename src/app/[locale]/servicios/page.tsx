@@ -3,6 +3,8 @@ import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import { ArrowRight, ChevronRight, Zap, Settings, Headphones, Phone } from "lucide-react";
 import { stockImages, getBlur } from "@/data/images";
+import { LottieIcon } from "@/components/ui/LottieIcon";
+import { gearSpin, blueprintLines } from "@/data/lottie-animations";
 
 const services = [
   {
@@ -190,12 +192,20 @@ export default function ServicesHub() {
                         {locale === "es" ? `Servicio ${String(index + 1).padStart(2, "0")}` : `Service ${String(index + 1).padStart(2, "0")}`}
                       </p>
                     </div>
-                    <h3
-                      className="font-heading text-gray-900 mb-4"
-                      style={{ fontSize: "1.65rem", fontWeight: 600 }}
-                    >
-                      {service[l].name}
-                    </h3>
+                    <div className="flex items-center gap-3 mb-4">
+                      <h3
+                        className="font-heading text-gray-900"
+                        style={{ fontSize: "1.65rem", fontWeight: 600 }}
+                      >
+                        {service[l].name}
+                      </h3>
+                      {service.slug === "automatizacion" && (
+                        <LottieIcon animationData={gearSpin} size={28} loop />
+                      )}
+                      {service.slug === "ingenieria" && (
+                        <LottieIcon animationData={blueprintLines} size={28} loop={false} />
+                      )}
+                    </div>
                     <p className="text-gray-500 leading-relaxed mb-6">
                       {service[l].desc}
                     </p>

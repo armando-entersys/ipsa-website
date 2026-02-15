@@ -22,6 +22,9 @@ import {
   Droplets,
 } from "lucide-react";
 import { stockImages, getBlur } from "@/data/images";
+import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
+import { LottieIcon } from "@/components/ui/LottieIcon";
+import { pulseRing, checkmarkDraw } from "@/data/lottie-animations";
 
 /* ── Data ──────────────────────────────────────────── */
 
@@ -114,7 +117,7 @@ export default function HomePage() {
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 href={`${prefix}/productos`}
-                className="inline-flex items-center justify-center px-7 py-3.5 bg-gold text-white font-semibold rounded-xl btn-lift hover:bg-gold-dark"
+                className="inline-flex items-center justify-center px-7 py-3.5 bg-gold text-white font-semibold rounded-xl btn-lift hover:bg-gold-dark btn-glow"
               >
                 {t("hero.cta")}
                 <ArrowRight size={18} className="ml-2" />
@@ -150,11 +153,19 @@ export default function HomePage() {
                 key={key}
                 className="text-center group bg-white rounded-xl p-8 shadow-card card-modern"
               >
-                <div
-                  className="w-16 h-16 mx-auto mb-5 rounded-xl flex items-center justify-center transition-all duration-150 group-hover:scale-110"
-                  style={{ background: "linear-gradient(135deg, rgba(200, 146, 42, 0.12), rgba(200, 146, 42, 0.04))" }}
-                >
-                  <Icon size={28} className="text-gold" strokeWidth={1.5} />
+                <div className="relative w-16 h-16 mx-auto mb-5">
+                  <LottieIcon
+                    animationData={pulseRing}
+                    size={64}
+                    loop
+                    className="absolute inset-0"
+                  />
+                  <div
+                    className="relative w-full h-full rounded-xl flex items-center justify-center transition-all duration-150 group-hover:scale-110"
+                    style={{ background: "linear-gradient(135deg, rgba(200, 146, 42, 0.12), rgba(200, 146, 42, 0.04))" }}
+                  >
+                    <Icon size={28} className="text-gold" strokeWidth={1.5} />
+                  </div>
                 </div>
                 <h3 className="font-heading font-semibold text-gray-900 text-lg mb-3">
                   {t(`pillars.${key}.title`)}
@@ -391,9 +402,11 @@ export default function HomePage() {
                     key={stat.number}
                     className="text-center bg-white rounded-xl py-6 px-4 shadow-card"
                   >
-                    <div className="font-heading text-gold" style={{ fontSize: "2.25rem", fontWeight: 600, lineHeight: 1 }}>
-                      {stat.number}
-                    </div>
+                    <AnimatedCounter
+                      value={stat.number}
+                      className="font-heading text-gold"
+                      style={{ fontSize: "2.25rem", fontWeight: 600, lineHeight: 1 }}
+                    />
                     <p className="text-gray-400 text-xs mt-2 uppercase tracking-wider font-medium">{stat[l]}</p>
                   </div>
                 ))}
@@ -593,11 +606,19 @@ export default function HomePage() {
                 key={cert.code}
                 className="relative bg-white rounded-xl p-6 text-center group shadow-card card-modern"
               >
-                <div
-                  className="w-12 h-12 rounded-full mx-auto mb-3 flex items-center justify-center"
-                  style={{ background: "linear-gradient(135deg, #141733, #203c88)" }}
-                >
-                  <ShieldCheck size={20} className="text-gold-light" strokeWidth={1.5} />
+                <div className="relative w-12 h-12 mx-auto mb-3">
+                  <div
+                    className="w-full h-full rounded-full flex items-center justify-center"
+                    style={{ background: "linear-gradient(135deg, #141733, #203c88)" }}
+                  >
+                    <ShieldCheck size={20} className="text-gold-light" strokeWidth={1.5} />
+                  </div>
+                  <LottieIcon
+                    animationData={checkmarkDraw}
+                    size={18}
+                    loop={false}
+                    className="absolute -bottom-1 -right-1"
+                  />
                 </div>
                 <div className="font-heading font-bold text-gray-900 text-sm tracking-wider mb-1">
                   {cert.code}
