@@ -1,339 +1,318 @@
-import Link from "next/link";
-import Image from "next/image";
-import { ChevronRight, ArrowRight, Phone, MapPin, Award } from "lucide-react";
-import { notFound } from "next/navigation";
-import { stockImages, getBlur } from "@/data/images";
+import type { Metadata } from 'next';
+import Link from 'next/link';
+import Image from 'next/image';
+import { ChevronRight, ArrowRight, Phone, MapPin, Award } from 'lucide-react';
+import { notFound } from 'next/navigation';
+import { stockImages, getBlur } from '@/data/images';
+import { suppliers } from '@/data/suppliers';
+import Button from '@/components/ui/Button';
+import PASSection from '@/components/ui/PASSection';
+import NavCircular from '@/components/ui/NavCircular';
+import InHouseBanner from '@/components/ui/InHouseBanner';
+import CTABanner from '@/components/ui/CTABanner';
 
-const supplierData: Record<string, {
-  name: string; country: string;
-  image: string;
-  es: { desc: string; longDesc: string; products: string[] };
-  en: { desc: string; longDesc: string; products: string[] };
-  certifications: string[];
-  industries: { es: string; en: string; slug: string }[];
-}> = {
-  dhv: {
-    name: "DHV Valve Group",
-    country: "International",
-    image: "/images/products/dhv-trunnion-2pc.jpg",
-    es: {
-      desc: "Fabricante de válvulas industriales con fundición propia",
-      longDesc: "DHV Valve Group opera una fundición propia de 26,500 m2 con capacidad de 8,000 toneladas/año. Con más de 20 años de experiencia fabricando válvulas de acero y aleaciones especiales, DHV cuenta con horno A.O.D. propio para castings duplex y ultra-bajo carbono. Su control de calidad incluye pruebas NDE completas (rayos X, partículas magnéticas, líquidos penetrantes, ultrasonido, inspección visual), pruebas hidrostáticas y de gas a alta presión, y análisis químico ASTM.",
-      products: ["Válvulas de bola trunnion (2 y 3 piezas)", "Válvulas de compuerta (slab gate, conduit)", "Válvulas de bola flotantes", "Válvulas forjadas (API 602)", "Válvulas de compuerta API 600", "Válvulas Double Block & Bleed"],
-    },
-    en: {
-      desc: "Industrial valve manufacturer with own foundry",
-      longDesc: "DHV Valve Group operates its own 26,500 m2 foundry with a capacity of 8,000 tons/year. With over 20 years of experience manufacturing steel and special alloy valves, DHV has its own A.O.D. furnace for duplex and ultra-low carbon castings. Quality control includes complete NDE testing (X-ray, magnetic particles, liquid penetrant, ultrasonic, visual inspection), hydrostatic and high-pressure gas testing, and ASTM chemical analysis.",
-      products: ["Trunnion ball valves (2 and 3 piece)", "Gate valves (slab gate, conduit)", "Floating ball valves", "Forged valves (API 602)", "API 600 gate valves", "Double Block & Bleed valves"],
-    },
-    certifications: ["API Q1", "API 6D", "API 6A", "API 600", "API 602", "API 603", "API 608", "ISO 9001", "ISO 14001", "ISO 45001", "NORSOK M-650", "SIL Level III", "CE PED", "ATEX"],
-    industries: [{ es: "Petroleras", en: "Oil & Gas", slug: "petroleras" }, { es: "Gas", en: "Gas", slug: "gas" }],
-  },
-  "della-foglia": {
-    name: "Della Foglia",
-    country: "Italia",
-    image: "/images/products/df-trunnion-automated.jpg",
-    es: {
-      desc: "Fabricante italiano de válvulas de bola desde 1962",
-      longDesc: "Della Foglia, establecida en 1962 en Gorla Minore (VA), Italia, es un Technical Solution Provider con 20,000 m2 de área de producción y una expansión de 18,000 m2 en curso. Produce aproximadamente 10,000 válvulas customizadas por año con ingresos promedio de 45 millones de euros. Su facturación se divide en Oil & Gas (59%), LNG (24%), Green Energy (12%) y Water (5%). Es uno de los primeros fabricantes con calificación API 6DSS para válvulas subsea. Aprobada por Shell, BP, Petrobras, PEMEX, ExxonMobil, Chevron, ENI, Equinor, Saudi Aramco, entre otros.",
-      products: ["Válvulas de bola floating (1/2\" a 6\")", "Válvulas de bola trunnion fully welded (1/2\" a 64\")", "Válvulas de bola trunnion top entry (1/2\" a 48\")", "Válvulas de bola trunnion bolted (1/2\" a 64\")", "Válvulas subsea (API 6DSS)", "Válvulas criogénicas (hasta -196 grados C)", "Válvulas de alta presión (hasta 15,000 psi)", "Válvulas underground", "Válvulas ESD"],
-    },
-    en: {
-      desc: "Italian ball valve manufacturer since 1962",
-      longDesc: "Della Foglia, established in 1962 in Gorla Minore (VA), Italy, is a Technical Solution Provider with 20,000 m2 of production area and an 18,000 m2 expansion underway. It produces approximately 10,000 customized valves per year with average revenues of 45 million euros. Revenue splits into Oil & Gas (59%), LNG (24%), Green Energy (12%) and Water (5%). It is one of the first manufacturers with API 6DSS qualification for subsea valves. Approved by Shell, BP, Petrobras, PEMEX, ExxonMobil, Chevron, ENI, Equinor, Saudi Aramco, among others.",
-      products: ["Floating ball valves (1/2\" to 6\")", "Trunnion fully welded ball valves (1/2\" to 64\")", "Trunnion top entry ball valves (1/2\" to 48\")", "Trunnion bolted ball valves (1/2\" to 64\")", "Subsea valves (API 6DSS)", "Cryogenic valves (down to -196°C)", "High pressure valves (up to 15,000 psi)", "Underground valves", "ESD valves"],
-    },
-    certifications: ["API 6D", "API 6A", "API 6DSS", "API 607", "API 6FA", "ATEX", "ISO 9001:2015", "ISO 14001:2015", "ISO 45001:2018", "ISO 15848", "SIL Level 3", "PED", "ACHILLES"],
-    industries: [{ es: "Petroleras", en: "Oil & Gas", slug: "petroleras" }, { es: "Gas", en: "Gas", slug: "gas" }],
-  },
-  perar: {
-    name: "Perar",
-    country: "Italia",
-    image: "/images/products/df-trunnion-wb-coated.jpg",
-    es: {
-      desc: "Fabricante italiano de válvulas de bola trunnion mounted",
-      longDesc: "Perar es un fabricante italiano especializado en válvulas de bola trunnion mounted con cuerpo soldado (fully welded body). IPSA mantiene un inventario de válvulas Perar valorado en aproximadamente $5M USD, disponible 24/7 para necesidades urgentes de la industria petrolera y de gas.",
-      products: ["Válvulas de bola trunnion mounted", "Cuerpo soldado (fully welded)", "Full bore", "Tamaños de 2\" a 48\"", "Clases ANSI 150 a 2500"],
-    },
-    en: {
-      desc: "Italian trunnion mounted ball valve manufacturer",
-      longDesc: "Perar is an Italian manufacturer specialized in trunnion mounted ball valves with fully welded body. IPSA maintains a Perar valve inventory valued at approximately $5M USD, available 24/7 for urgent oil & gas industry needs.",
-      products: ["Trunnion mounted ball valves", "Fully welded body", "Full bore", "Sizes from 2\" to 48\"", "ANSI 150 to 2500 classes"],
-    },
-    certifications: ["API 6D", "NACE MR0175", "ISO 15156-2", "ANSI B16.5"],
-    industries: [{ es: "Petroleras", en: "Oil & Gas", slug: "petroleras" }, { es: "Gas", en: "Gas", slug: "gas" }],
-  },
-  versa: {
-    name: "Versa Valves",
-    country: "USA",
-    image: "/images/products/versa-e4-solenoid.png",
-    es: {
-      desc: "Fabricante estadounidense de válvulas solenoides y de control direccional",
-      longDesc: "Versa Valves es un fabricante estadounidense de válvulas solenoides, válvulas de control direccional neumático e hidráulico. Sus productos son utilizados en sistemas de automatización y control de procesos industriales, con opciones de montaje NAMUR y certificaciones ATEX para ambientes peligrosos.",
-      products: ["Válvulas solenoides serie E4", "Válvulas acero inoxidable serie V-316", "Válvulas acero inoxidable serie D-316", "Válvulas bypass serie C-316", "Sistemas VMAP (Modular Air Package)", "Sistemas DMAP (Direct Mount Air Package)", "Válvulas montaje NAMUR"],
-    },
-    en: {
-      desc: "American solenoid and directional control valve manufacturer",
-      longDesc: "Versa Valves is an American manufacturer of solenoid valves, pneumatic and hydraulic directional control valves. Their products are used in industrial process automation and control systems, with NAMUR mount options and ATEX certifications for hazardous environments.",
-      products: ["E4 series solenoid valves", "V-316 stainless steel series", "D-316 stainless steel series", "C-316 bypass valve series", "VMAP (Modular Air Package) systems", "DMAP (Direct Mount Air Package) systems", "NAMUR mount valves"],
-    },
-    certifications: ["ATEX", "CSA", "UL", "NAMUR"],
-    industries: [{ es: "Petroleras", en: "Oil & Gas", slug: "petroleras" }, { es: "Aceites", en: "Oils", slug: "aceites" }, { es: "Gas", en: "Gas", slug: "gas" }],
-  },
-};
+export function generateStaticParams() {
+  return suppliers.flatMap((s) => [
+    { locale: 'es', slug: s.slug },
+    { locale: 'en', slug: s.slug },
+  ]);
+}
 
-export default async function SupplierPage({ params }: { params: Promise<{ locale: string; slug: string }> }) {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string; slug: string }>;
+}): Promise<Metadata> {
   const { locale, slug } = await params;
-  const supplier = supplierData[slug];
+  const supplier = suppliers.find((s) => s.slug === slug);
+  if (!supplier) return {};
+  const l = locale as 'es' | 'en';
+  return {
+    title: supplier.name[l],
+    description: supplier.description[l],
+    openGraph: {
+      title: supplier.heroH1[l],
+      description: supplier.heroH2[l],
+    },
+  };
+}
+
+export default async function SupplierPage({
+  params,
+}: {
+  params: Promise<{ locale: string; slug: string }>;
+}) {
+  const { locale, slug } = await params;
+  const supplier = suppliers.find((s) => s.slug === slug);
   if (!supplier) notFound();
 
-  const l = locale as "es" | "en";
+  const l = locale as 'es' | 'en';
   const prefix = `/${locale}`;
-  const data = supplier[l];
+  const otherSuppliers = suppliers.filter((s) => s.slug !== slug && s.isPriority);
 
   return (
     <>
-      {/* ═══ HERO ═══════════════════════════════════════ */}
-      <section className="relative overflow-hidden" style={{ minHeight: "45vh" }}>
+      {/* ═══ HERO ═══ */}
+      <section className="relative overflow-hidden" style={{ minHeight: '45vh' }}>
         <Image
-          src={stockImages.suppliersHero}
+          src={supplier.image || stockImages.suppliersHero}
           alt=""
           fill
           priority
           placeholder="blur"
-          blurDataURL={getBlur(stockImages.suppliersHero)}
+          blurDataURL={getBlur(supplier.image || stockImages.suppliersHero)}
           className="object-cover"
           sizes="100vw"
         />
         <div className="absolute inset-0 bg-black/65" />
         <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/70 via-navy-dark/25 to-transparent" />
 
-        <div className="relative mx-auto max-w-[1600px] px-5 md:px-10 flex items-center" style={{ minHeight: "45vh" }}>
+        <div
+          className="relative mx-auto flex max-w-[1600px] items-center px-5 md:px-10"
+          style={{ minHeight: '45vh' }}
+        >
           <div className="py-20 lg:py-24">
-            <nav className="text-sm text-white/60 hero-subtitle mb-8">
-              <Link href={prefix} className="hover:text-white transition-colors">
-                {locale === "es" ? "Inicio" : "Home"}
+            <nav className="mb-8 text-sm text-white/60">
+              <Link href={prefix} className="transition-colors hover:text-white">
+                {l === 'es' ? 'Inicio' : 'Home'}
               </Link>
-              <ChevronRight size={14} className="inline mx-1" />
-              <Link href={`${prefix}/proveedores`} className="hover:text-white transition-colors">
-                {locale === "es" ? "Fabricantes" : "Manufacturers"}
+              <ChevronRight size={14} className="mx-1 inline" />
+              <Link
+                href={`${prefix}/proveedores`}
+                className="transition-colors hover:text-white"
+              >
+                {l === 'es' ? 'Marcas' : 'Brands'}
               </Link>
-              <ChevronRight size={14} className="inline mx-1" />
-              <span className="text-white">{supplier.name}</span>
+              <ChevronRight size={14} className="mx-1 inline" />
+              <span className="text-white">{supplier.name[l]}</span>
             </nav>
 
             <div className="flex items-center gap-6">
-              {/* Product image */}
-              <div
-                className="w-24 h-24 md:w-28 md:h-28 shrink-0 relative rounded-xl overflow-hidden bg-white/10 border border-white/15"
-              >
+              <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-xl border border-white/15 bg-white/10 md:h-28 md:w-28">
                 <Image
-                  src={supplier.image}
-                  alt={supplier.name}
+                  src={supplier.logo}
+                  alt={supplier.name[l]}
                   fill
-                  className="object-contain p-2"
+                  className="object-contain p-3"
                   sizes="112px"
                 />
               </div>
               <div>
                 <h1
-                  className="font-heading text-white leading-tight mb-2 hero-text-strong"
-                  style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)", fontWeight: 500 }}
+                  className="font-heading mb-2 leading-tight text-white"
+                  style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', fontWeight: 500 }}
                 >
-                  {supplier.name}
+                  {supplier.heroH1[l]}
                 </h1>
-                <div className="flex items-center gap-2">
+                <p className="max-w-xl text-white/80">{supplier.heroH2[l]}</p>
+                <div className="mt-2 flex items-center gap-2">
                   <MapPin size={14} className="text-gold-light" />
-                  <span className="text-white/70 text-sm">{supplier.country}</span>
+                  <span className="text-sm text-white/70">{supplier.country}</span>
                 </div>
               </div>
+            </div>
+
+            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+              <Button variant="primary" size="lg" href={`${prefix}/contacto`}>
+                {supplier.ctaPrimary[l]}
+              </Button>
+              <Button
+                variant="outline"
+                size="md"
+                href={`${prefix}/catalogo`}
+                className="border-white text-white hover:bg-white hover:text-navy"
+              >
+                {supplier.ctaSecondary[l]}
+              </Button>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ═══ MAIN CONTENT ══════════════════════════════ */}
-      <section className="py-20 lg:py-24 bg-surface">
+      {/* ═══ MAIN CONTENT ═══ */}
+      <section
+        className="py-20 lg:py-24"
+        style={{ background: 'linear-gradient(180deg, #ffffff 0%, #f9fafb 100%)' }}
+      >
         <div className="mx-auto max-w-[1600px] px-5 md:px-10">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
-
-            {/* ── Left column (content) ────────────────── */}
-            <div className="lg:col-span-2 space-y-16">
-
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-3 lg:gap-16">
+            {/* ── Main column ── */}
+            <div className="space-y-16 lg:col-span-2">
               {/* About */}
               <div>
-                <p className="text-gold font-medium text-sm tracking-widest uppercase mb-3">
-                  {locale === "es" ? "Acerca de" : "About"}
+                <p className="mb-3 text-sm font-medium uppercase tracking-widest text-gold">
+                  {l === 'es' ? 'Acerca de' : 'About'}
                 </p>
-                <h2 className="font-heading text-gray-900 mb-6" style={{ fontSize: "clamp(1.5rem, 3.5vw, 1.75rem)", fontWeight: 500 }}>
-                  {locale === "es" ? `Sobre ${supplier.name}` : `About ${supplier.name}`}
+                <h2
+                  className="font-heading mb-6 text-gray-900"
+                  style={{ fontSize: 'clamp(1.5rem, 3.5vw, 1.75rem)', fontWeight: 500 }}
+                >
+                  {supplier.name[l]}
                 </h2>
-                <p className="text-gray-600 leading-relaxed" style={{ fontSize: "1.05rem", lineHeight: 1.8 }}>
-                  {data.longDesc}
+                <p className="leading-relaxed text-gray-600" style={{ fontSize: '1.05rem', lineHeight: 1.8 }}>
+                  {supplier.longDescription[l]}
                 </p>
               </div>
 
-              {/* Products */}
-              <div className="p-8 md:p-10 rounded-xl bg-surface-alt shadow-card">
-                <p className="text-gold font-medium text-sm tracking-widest uppercase mb-3">
-                  {locale === "es" ? "Catálogo" : "Catalog"}
-                </p>
-                <h2 className="font-heading text-gray-900 mb-6" style={{ fontSize: "clamp(1.5rem, 3.5vw, 1.75rem)", fontWeight: 500 }}>
-                  {locale === "es" ? `Productos ${supplier.name}` : `${supplier.name} Products`}
-                </h2>
-                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  {data.products.map((p) => (
-                    <li key={p} className="flex items-start gap-3 text-gray-700" style={{ fontSize: "0.95rem" }}>
-                      <div className="w-2 h-2 bg-gold rounded-full mt-2 shrink-0" />
-                      {p}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              {/* Product Categories */}
+              {supplier.productCategories.length > 0 && (
+                <div>
+                  <p className="mb-3 text-sm font-medium uppercase tracking-widest text-gold">
+                    {l === 'es' ? 'Catálogo' : 'Catalog'}
+                  </p>
+                  <h2
+                    className="font-heading mb-8 text-gray-900"
+                    style={{ fontSize: 'clamp(1.5rem, 3.5vw, 1.75rem)', fontWeight: 500 }}
+                  >
+                    {l === 'es' ? `Productos ${supplier.name[l]}` : `${supplier.name[l]} Products`}
+                  </h2>
+                  <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
+                    {supplier.productCategories.map((cat) => (
+                      <div
+                        key={cat.title[l]}
+                        className="rounded-xl border border-gray-100 bg-white p-6 shadow-md"
+                      >
+                        <h3 className="font-heading text-lg font-semibold text-gray-900">
+                          {cat.title[l]}
+                        </h3>
+                        <p className="mt-2 text-sm leading-relaxed text-gray-500">{cat.uso[l]}</p>
+                        <div className="mt-4">
+                          <Button variant="outline" size="sm" href={`${prefix}${cat.ctaLink}`}>
+                            {cat.cta[l]}
+                          </Button>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
 
               {/* Certifications */}
-              <div>
-                <p className="text-gold font-medium text-sm tracking-widest uppercase mb-3">
-                  {locale === "es" ? "Calidad" : "Quality"}
-                </p>
-                <h2 className="font-heading text-gray-900 mb-6" style={{ fontSize: "clamp(1.5rem, 3.5vw, 1.75rem)", fontWeight: 500 }}>
-                  {locale === "es" ? "Certificaciones" : "Certifications"}
-                </h2>
-                <div className="flex flex-wrap gap-2.5">
-                  {supplier.certifications.map((cert) => (
-                    <span
-                      key={cert}
-                      className="text-gray-900 text-sm font-medium px-4 py-2 rounded-xl flex items-center gap-1.5 bg-navy-deep/[0.06]"
-                    >
-                      <Award size={13} strokeWidth={1.5} />
-                      {cert}
-                    </span>
-                  ))}
+              {supplier.certifications.length > 0 && (
+                <div>
+                  <p className="mb-3 text-sm font-medium uppercase tracking-widest text-gold">
+                    {l === 'es' ? 'Calidad' : 'Quality'}
+                  </p>
+                  <h2
+                    className="font-heading mb-6 text-gray-900"
+                    style={{ fontSize: 'clamp(1.5rem, 3.5vw, 1.75rem)', fontWeight: 500 }}
+                  >
+                    {l === 'es' ? 'Certificaciones' : 'Certifications'}
+                  </h2>
+                  <div className="flex flex-wrap gap-2.5">
+                    {supplier.certifications.map((cert) => (
+                      <span
+                        key={cert.name}
+                        className="flex items-center gap-1.5 rounded-xl bg-navy-deep/[0.06] px-4 py-2 text-sm font-medium text-gray-900"
+                      >
+                        <Award size={13} strokeWidth={1.5} />
+                        {cert.name}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
 
-            {/* ── Right column (sidebar) ───────────────── */}
+            {/* ── Sidebar ── */}
             <div className="space-y-6">
-
               {/* Quote CTA */}
-              <div
-                className="p-7 rounded-xl bg-navy-alt shadow-card"
-              >
-                <h3 className="font-heading text-gold-light mb-2" style={{ fontWeight: 600, fontSize: "1.1rem" }}>
-                  {locale === "es" ? `Cotizar productos ${supplier.name}` : `Quote ${supplier.name} products`}
-                </h3>
-                <p className="text-white/50 text-sm mb-5 leading-relaxed">
-                  {locale === "es"
-                    ? "Nuestro equipo te asesora para encontrar la solución ideal."
-                    : "Our team will help you find the ideal solution."}
-                </p>
-                <Link
-                  href={`${prefix}/contacto`}
-                  className="block w-full text-center px-6 py-3.5 bg-gold text-white font-medium rounded-xl btn-lift hover:bg-gold-dark mb-4"
-                >
-                  {locale === "es" ? "Solicitar cotización" : "Request a quote"}
-                </Link>
-                <a
-                  href="tel:+525553973703"
-                  className="flex items-center justify-center gap-2 text-white/60 text-sm hover:text-white transition-colors"
-                >
-                  <Phone size={14} /> +52 55 5397 3703
-                </a>
-              </div>
-
-              {/* Industries */}
-              <div
-                className="p-7 rounded-xl bg-surface-alt shadow-card"
-              >
-                <h3 className="font-heading text-gray-900 mb-4" style={{ fontWeight: 600 }}>
-                  {locale === "es" ? "Industrias" : "Industries"}
-                </h3>
-                <div className="space-y-1">
-                  {supplier.industries.map((ind) => (
-                    <Link
-                      key={ind.slug}
-                      href={`${prefix}/industrias/${ind.slug}`}
-                      className="flex items-center justify-between py-2.5 text-sm text-gray-600 hover:text-gold transition-colors duration-150"
-                      style={{ borderBottom: "1px solid var(--color-border-soft, #edf0f3)" }}
-                    >
-                      <span>{ind[l]}</span>
-                      <ArrowRight size={13} className="text-gold" />
-                    </Link>
-                  ))}
+              <div className="overflow-hidden rounded-xl bg-navy-deep shadow-lg">
+                <div className="h-1 bg-gradient-to-r from-gold to-gold-light" />
+                <div className="p-7">
+                  <h3 className="font-heading mb-2 text-lg font-semibold text-gold-light">
+                    {l === 'es'
+                      ? `Cotizar productos ${supplier.name[l]}`
+                      : `Quote ${supplier.name[l]} products`}
+                  </h3>
+                  <p className="mb-5 text-sm leading-relaxed text-white/50">
+                    {l === 'es'
+                      ? 'Nuestro equipo le asesora para encontrar la solución ideal.'
+                      : 'Our team will help you find the ideal solution.'}
+                  </p>
+                  <Button variant="primary" className="w-full" href={`${prefix}/contacto`}>
+                    {supplier.ctaPrimary[l]}
+                  </Button>
+                  <a
+                    href="tel:+525553973703"
+                    className="mt-4 flex items-center justify-center gap-2 text-sm text-white/60 transition-colors hover:text-white"
+                  >
+                    <Phone size={14} /> +52 55 5397 3703
+                  </a>
                 </div>
               </div>
 
-              {/* Other suppliers */}
-              <div
-                className="p-7 rounded-xl bg-surface-alt shadow-card"
-              >
-                <h3 className="font-heading text-gray-900 mb-4" style={{ fontWeight: 600 }}>
-                  {locale === "es" ? "Otros fabricantes" : "Other manufacturers"}
-                </h3>
-                <div className="space-y-1">
-                  {Object.entries(supplierData).filter(([key]) => key !== slug).map(([key, s]) => (
-                    <Link
-                      key={key}
-                      href={`${prefix}/proveedores/${key}`}
-                      className="flex items-center justify-between py-2.5 text-sm text-gray-600 hover:text-gold transition-colors duration-150"
-                      style={{ borderBottom: "1px solid var(--color-border-soft, #edf0f3)" }}
-                    >
-                      <span>{s.name}</span>
-                      <ArrowRight size={13} className="text-gold" />
-                    </Link>
-                  ))}
+              {/* Nav Circular */}
+              {supplier.navCircular.length > 0 && (
+                <div>
+                  <h3 className="font-heading mb-4 font-semibold text-gray-900">
+                    {l === 'es' ? 'Explorar' : 'Explore'}
+                  </h3>
+                  <NavCircular
+                    items={supplier.navCircular.map((nav) => ({
+                      label: nav.label[l],
+                      description: nav.description[l],
+                      link: `${prefix}${nav.link}`,
+                    }))}
+                  />
                 </div>
-              </div>
+              )}
+
+              {/* Other brands */}
+              {otherSuppliers.length > 0 && (
+                <div className="rounded-xl border border-gray-100 bg-white p-7 shadow-md">
+                  <h3 className="font-heading mb-4 font-semibold text-gray-900">
+                    {l === 'es' ? 'Otras marcas' : 'Other brands'}
+                  </h3>
+                  <div className="space-y-1">
+                    {otherSuppliers.map((s) => (
+                      <Link
+                        key={s.slug}
+                        href={`${prefix}/proveedores/${s.slug}`}
+                        className="group flex items-center justify-between rounded-lg border-b border-gray-100 px-3 py-2.5 last:border-0"
+                      >
+                        <span className="text-sm font-medium text-gray-600 transition-colors group-hover:text-gold">
+                          {s.name[l]}
+                        </span>
+                        <ArrowRight
+                          size={13}
+                          className="text-gold transition-transform group-hover:translate-x-0.5"
+                        />
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>
       </section>
 
-      {/* ═══ CTA BOTTOM ════════════════════════════════ */}
-      <section className="relative py-24 lg:py-28 overflow-hidden">
-        <Image
-          src={stockImages.industrial}
-          alt=""
-          fill
-          placeholder="blur"
-          blurDataURL={getBlur(stockImages.industrial)}
-          className="object-cover"
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-navy-deep/80" />
-        <div className="relative mx-auto max-w-[1600px] px-5 md:px-10">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="font-heading text-white mb-4" style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)", fontWeight: 500 }}>
-              {locale === "es"
-                ? "Hablemos de tu proyecto"
-                : "Let's talk about your project"}
-            </h2>
-            <p className="text-white/60 mb-10 leading-relaxed" style={{ fontSize: "1.05rem" }}>
-              {locale === "es"
-                ? "Nuestro equipo de ingenieros está listo para ayudarte a encontrar la solución correcta."
-                : "Our engineering team is ready to help you find the right solution."}
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link
-                href={`${prefix}/contacto`}
-                className="inline-flex items-center px-8 py-4 bg-gold text-white font-semibold rounded-xl btn-lift hover:bg-gold-dark"
-                style={{ fontSize: "1.05rem" }}
-              >
-                {locale === "es" ? "Enviar mensaje" : "Send a message"}
-                <ArrowRight size={18} className="ml-2" />
-              </Link>
-              <a
-                href="tel:+525553973703"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/20 text-white font-medium rounded-xl btn-lift hover:bg-white/20"
-              >
-                <Phone size={16} />
-                +52 55 5397 3703
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* ═══ PAS ═══ */}
+      <PASSection
+        variant="full"
+        heading={supplier.pas.h2[l]}
+        problema={supplier.pas.problema[l]}
+        agitacion={supplier.pas.agitacion[l]}
+        solucion={supplier.pas.solucion[l]}
+        className="bg-gray-50"
+      />
+
+      {/* ═══ IN-HOUSE ═══ */}
+      <InHouseBanner
+        heading={supplier.inHouse.h2[l]}
+        body={supplier.inHouse.body[l]}
+        ctaText={supplier.inHouse.cta[l]}
+        ctaLink={`${prefix}/servicios`}
+      />
+
+      {/* ═══ CTA FINAL ═══ */}
+      <CTABanner
+        heading={supplier.ctaFinal.h2[l]}
+        subtext={supplier.ctaFinal.subtexto[l]}
+        ctaText={supplier.ctaFinal.cta[l]}
+        ctaLink={`${prefix}/contacto`}
+      />
     </>
   );
 }

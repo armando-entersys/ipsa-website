@@ -1,66 +1,23 @@
-import Link from "next/link";
-import Image from "next/image";
-import { useLocale, useTranslations } from "next-intl";
-import { ChevronRight, ArrowRight, MapPin, Phone } from "lucide-react";
-import { stockImages, getBlur } from "@/data/images";
-
-const suppliers = [
-  {
-    slug: "dhv",
-    name: "DHV Valve Group",
-    logo: "/images/logos/dhv.svg",
-    image: "/images/products/dhv-trunnion-2pc.jpg",
-    es: { desc: "Fabricante de válvulas industriales con fundición propia de 26,500 m2. Más de 20 años fabricando válvulas de acero y aleaciones especiales. Certificaciones API Q1, API 6D, API 6A, ISO 9001/14001/45001, NORSOK M-650, SIL Level III." },
-    en: { desc: "Industrial valve manufacturer with own foundry of 26,500 m2. Over 20 years manufacturing steel and special alloy valves. Certifications API Q1, API 6D, API 6A, ISO 9001/14001/45001, NORSOK M-650, SIL Level III." },
-    products_es: "Válvulas de bola trunnion, válvulas de compuerta, válvulas de bola flotantes, válvulas forjadas",
-    products_en: "Trunnion ball valves, gate valves, floating ball valves, forged valves",
-    country: "International",
-  },
-  {
-    slug: "della-foglia",
-    name: "Della Foglia",
-    logo: "/images/logos/della-foglia.svg",
-    image: "/images/products/df-trunnion-automated.jpg",
-    es: { desc: "Fabricante italiano establecido en 1962. Proveedor de soluciones técnicas con 20,000 m2 de área de producción. Capacidad de 10,000 válvulas customizadas por año. Aprobado por Shell, BP, Petrobras y PEMEX. Certificaciones API 6D, API 6A, API 6DSS." },
-    en: { desc: "Italian manufacturer established in 1962. Technical solution provider with 20,000 m2 production area. Capacity of 10,000 customized valves per year. Approved by Shell, BP, Petrobras and PEMEX. Certifications API 6D, API 6A, API 6DSS." },
-    products_es: "Válvulas de bola de 1/2\" a 64\", floating, trunnion, top entry, subsea, criogénicas, alta presión hasta 15,000 psi",
-    products_en: "Ball valves from 1/2\" to 64\", floating, trunnion, top entry, subsea, cryogenic, high pressure up to 15,000 psi",
-    country: "Italia",
-  },
-  {
-    slug: "perar",
-    name: "Perar",
-    logo: "/images/logos/perar.svg",
-    image: "/images/products/df-trunnion-wb-coated.jpg",
-    es: { desc: "Fabricante italiano de válvulas de bola trunnion mounted con cuerpo soldado. Tamaños de 2\" a 48\", clases ANSI 150 a 2500. Cumple API 6D, NACE MR0175." },
-    en: { desc: "Italian manufacturer of trunnion mounted ball valves with welded body. Sizes from 2\" to 48\", ANSI 150 to 2500 classes. Meets API 6D, NACE MR0175." },
-    products_es: "Válvulas de bola trunnion mounted, cuerpo soldado, full bore",
-    products_en: "Trunnion mounted ball valves, welded body, full bore",
-    country: "Italia",
-  },
-  {
-    slug: "versa",
-    name: "Versa Valves",
-    logo: "/images/logos/versa.svg",
-    image: "/images/products/versa-e4-solenoid.png",
-    es: { desc: "Fabricante estadounidense de válvulas solenoides y de control direccional. Soluciones para automatización y control de procesos con montaje NAMUR y certificaciones ATEX." },
-    en: { desc: "American manufacturer of solenoid and directional control valves. Solutions for automation and process control with NAMUR mount and ATEX certifications." },
-    products_es: "Válvulas solenoides, control direccional neumático, control direccional hidráulico, montaje NAMUR",
-    products_en: "Solenoid valves, pneumatic directional control, hydraulic directional control, NAMUR mount",
-    country: "USA",
-  },
-];
+import Link from 'next/link';
+import Image from 'next/image';
+import { useLocale } from 'next-intl';
+import { ChevronRight, ArrowRight, MapPin } from 'lucide-react';
+import { stockImages, getBlur } from '@/data/images';
+import { marcasHub, suppliers } from '@/data/suppliers';
+import Button from '@/components/ui/Button';
+import CTABanner from '@/components/ui/CTABanner';
 
 export default function SuppliersHub() {
-  const t = useTranslations("suppliers");
   const locale = useLocale();
+  const l = locale as 'es' | 'en';
   const prefix = `/${locale}`;
-  const l = locale as "es" | "en";
+
+  const priority = suppliers.filter((s) => s.isPriority);
 
   return (
     <>
-      {/* ═══ HERO - Suppliers (centered, clean with visible image) ═══ */}
-      <section className="relative overflow-hidden" style={{ minHeight: "45vh" }}>
+      {/* ═══ HERO ═══ */}
+      <section className="relative overflow-hidden" style={{ minHeight: '45vh' }}>
         <Image
           src={stockImages.suppliersHero}
           alt=""
@@ -71,99 +28,103 @@ export default function SuppliersHub() {
           className="object-cover"
           sizes="100vw"
         />
-        {/* Base overlay */}
         <div className="absolute inset-0 bg-black/50" />
-        {/* Bottom gradient for text */}
         <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/50 via-navy-dark/15 to-transparent" />
 
-        <div className="relative mx-auto max-w-[1600px] px-5 md:px-10 flex items-end" style={{ minHeight: "45vh" }}>
-          <div className="max-w-3xl pb-10 lg:pb-14 pt-28">
-            <nav className="text-sm text-white/60 mb-5 hero-subtitle">
-              <Link href={prefix} className="hover:text-white transition-colors">
-                {locale === "es" ? "Inicio" : "Home"}
+        <div
+          className="relative mx-auto flex max-w-[1600px] items-end px-5 md:px-10"
+          style={{ minHeight: '45vh' }}
+        >
+          <div className="max-w-3xl pb-10 pt-28 lg:pb-14">
+            <nav className="mb-5 text-sm text-white/60">
+              <Link href={prefix} className="transition-colors hover:text-white">
+                {l === 'es' ? 'Inicio' : 'Home'}
               </Link>
-              <ChevronRight size={14} className="inline mx-1" />
-              <span className="text-white">
-                {locale === "es" ? "Fabricantes" : "Manufacturers"}
-              </span>
+              <ChevronRight size={14} className="mx-1 inline" />
+              <span className="text-white">{l === 'es' ? 'Marcas' : 'Brands'}</span>
             </nav>
             <h1
-              className="font-heading text-white leading-tight mb-4 hero-text-strong"
-              style={{ fontSize: "clamp(2.2rem, 4.5vw, 3.5rem)", fontWeight: 500 }}
+              className="font-heading mb-4 leading-tight text-white"
+              style={{ fontSize: 'clamp(2.2rem, 4.5vw, 3.5rem)', fontWeight: 500 }}
             >
-              {t("title")}
+              {marcasHub.heroH1[l]}
             </h1>
-            <p className="text-white/85 max-w-2xl leading-relaxed hero-subtitle" style={{ fontSize: "1.1rem", lineHeight: 1.7 }}>
-              {t("subtitle")}
+            <p
+              className="max-w-2xl leading-relaxed text-white/85"
+              style={{ fontSize: '1.1rem', lineHeight: 1.7 }}
+            >
+              {marcasHub.heroH2[l]}
             </p>
           </div>
         </div>
       </section>
 
-      {/* ═══ SUPPLIERS LIST ═════════════════════════════ */}
-      <section className="py-20 lg:py-24 bg-surface">
+      {/* ═══ PRIORITY BRANDS ═══ */}
+      <section
+        className="py-20 lg:py-24"
+        style={{ background: 'linear-gradient(180deg, #ffffff 0%, #f9fafb 100%)' }}
+      >
         <div className="mx-auto max-w-[1600px] px-5 md:px-10">
-          <div className="text-center mb-16">
-            <p className="text-gold font-medium text-sm tracking-widest uppercase mb-3">
-              {locale === "es" ? "Nuestros socios" : "Our partners"}
+          <div className="mb-16 text-center">
+            <p className="mb-3 text-sm font-medium uppercase tracking-widest text-gold">
+              {l === 'es' ? 'Marcas principales' : 'Main brands'}
             </p>
-            <h2 className="font-heading text-gray-900" style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)", fontWeight: 500 }}>
-              {locale === "es"
-                ? "Alianzas con fabricantes de clase mundial"
-                : "World-class manufacturer partnerships"}
+            <h2
+              className="font-heading text-gray-900"
+              style={{ fontSize: 'clamp(1.5rem, 3.5vw, 2rem)', fontWeight: 500 }}
+            >
+              {l === 'es'
+                ? 'Alianzas con fabricantes de clase mundial'
+                : 'World-class manufacturer partnerships'}
             </h2>
-            <p className="text-gray-500 mt-3 max-w-2xl mx-auto leading-relaxed">
-              {locale === "es"
-                ? "Representamos exclusivamente a fabricantes europeos y americanos reconocidos mundialmente."
-                : "We exclusively represent globally recognized European and American manufacturers."}
-            </p>
           </div>
 
           <div className="space-y-6">
-            {suppliers.map((supplier) => (
+            {priority.map((supplier) => (
               <Link
                 key={supplier.slug}
                 href={`${prefix}/proveedores/${supplier.slug}`}
-                className="group block rounded-xl overflow-hidden shadow-card-lg"
+                className="group block overflow-hidden rounded-xl shadow-lg transition-all duration-150 hover:-translate-y-0.5 hover:shadow-xl"
               >
                 <div className="flex flex-col md:flex-row">
-                  {/* Logo + Product image */}
-                  <div className="shrink-0 w-full md:w-56 relative overflow-hidden bg-white flex items-center justify-center" style={{ minHeight: "180px" }}>
+                  <div
+                    className="flex w-full shrink-0 items-center justify-center overflow-hidden bg-white md:w-56"
+                    style={{ minHeight: '180px' }}
+                  >
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={supplier.logo}
-                      alt={supplier.name}
+                      alt={supplier.name[l]}
                       width={160}
                       height={60}
                       className="object-contain transition-transform duration-200 group-hover:scale-105"
                     />
                   </div>
-
-                  {/* Content */}
                   <div className="flex-1 p-7 md:p-8">
-                    <div className="flex items-center gap-3 mb-3">
-                      <h2 className="font-heading text-gray-900 text-xl md:text-2xl" style={{ fontWeight: 500 }}>
-                        {supplier.name}
-                      </h2>
-                      <span
-                        className="inline-flex items-center gap-1 text-xs font-medium px-2.5 py-1 rounded-xl icon-bg-navy text-gray-600"
+                    <div className="mb-3 flex items-center gap-3">
+                      <h2
+                        className="font-heading text-xl text-gray-900 md:text-2xl"
+                        style={{ fontWeight: 500 }}
                       >
+                        {supplier.name[l]}
+                      </h2>
+                      <span className="inline-flex items-center gap-1 rounded-xl bg-navy-deep/[0.06] px-2.5 py-1 text-xs font-medium text-gray-600">
                         <MapPin size={11} />
                         {supplier.country}
                       </span>
                     </div>
-                    <p className="text-gray-600 leading-relaxed mb-4 text-sm md:text-base">
-                      {supplier[l].desc}
+                    <p className="mb-3 text-sm font-medium text-gray-500 italic">
+                      {supplier.tagline[l]}
                     </p>
-                    <p className="text-sm text-gray-500 mb-5 border-t border-border-light pt-3">
-                      <span className="font-semibold text-gray-900">
-                        {locale === "es" ? "Productos:" : "Products:"}
-                      </span>{" "}
-                      {l === "es" ? supplier.products_es : supplier.products_en}
+                    <p className="mb-4 text-sm leading-relaxed text-gray-600 md:text-base">
+                      {supplier.description[l]}
                     </p>
-                    <span className="inline-flex items-center gap-1.5 text-gold font-medium text-sm group-hover:text-gold-dark transition-colors duration-150">
-                      {locale === "es" ? "Ver más" : "Learn more"}
-                      <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform duration-150" />
+                    <span className="inline-flex items-center gap-1.5 text-sm font-medium text-gold transition-colors group-hover:text-gold-dark">
+                      {l === 'es' ? 'Ver más' : 'Learn more'}
+                      <ArrowRight
+                        size={14}
+                        className="transition-transform group-hover:translate-x-0.5"
+                      />
                     </span>
                   </div>
                 </div>
@@ -173,33 +134,35 @@ export default function SuppliersHub() {
         </div>
       </section>
 
-      {/* ═══ ADDITIONAL BRANDS ══════════════════════════ */}
-      <section className="py-20 lg:py-24 bg-surface-alt">
+      {/* ═══ COMPLEMENTARY BRANDS ═══ */}
+      <section
+        className="py-20 lg:py-24"
+        style={{ background: 'linear-gradient(180deg, #f6f7f9 0%, #f0f1f5 100%)' }}
+      >
         <div className="mx-auto max-w-[1600px] px-5 md:px-10">
-          <div className="max-w-3xl mx-auto text-center">
-            <p className="text-gold font-medium text-sm tracking-widest uppercase mb-3">
-              {locale === "es" ? "Marcas adicionales" : "Additional brands"}
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="mb-3 text-sm font-medium uppercase tracking-widest text-gold">
+              {l === 'es' ? 'Portafolio complementario' : 'Complementary portfolio'}
             </p>
-            <h2 className="font-heading text-gray-900 mb-4" style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)", fontWeight: 500 }}>
-              {locale === "es"
-                ? "También representamos"
-                : "We also represent"}
+            <h2
+              className="font-heading mb-4 text-gray-900"
+              style={{ fontSize: 'clamp(1.5rem, 3.5vw, 2rem)', fontWeight: 500 }}
+            >
+              {marcasHub.complementaryH3[l]}
             </h2>
-            <p className="text-gray-500 leading-relaxed mb-10">
-              {locale === "es"
-                ? "Además de nuestros socios principales, representamos marcas como Consolidated, Masoneilan, Yokogawa, Emerson/Bettis y más."
-                : "In addition to our main partners, we represent brands like Consolidated, Masoneilan, Yokogawa, Emerson/Bettis and more."}
+            <p className="mb-10 leading-relaxed text-gray-500">
+              {marcasHub.complementaryBody[l]}
             </p>
-            <div className="flex flex-wrap items-center justify-center gap-6 mb-12">
+            <div className="mb-12 flex flex-wrap items-center justify-center gap-6">
               {[
-                { name: "Consolidated", logo: "/images/logos/consolidated.svg" },
-                { name: "Masoneilan", logo: "/images/logos/bakerhughes.svg" },
-                { name: "Yokogawa", logo: "/images/logos/yokogawa.svg" },
-                { name: "Emerson/Bettis", logo: "/images/logos/emerson.svg" },
+                { name: 'Consolidated', logo: '/images/logos/consolidated.svg' },
+                { name: 'Yokogawa', logo: '/images/logos/yokogawa.svg' },
+                { name: 'Emerson/Bettis', logo: '/images/logos/emerson.svg' },
+                { name: 'Hudson', logo: '/images/logos/hudson.svg' },
               ].map((brand) => (
                 <div
                   key={brand.name}
-                  className="px-6 py-4 bg-white rounded-xl shadow-card flex items-center gap-3"
+                  className="flex items-center gap-3 rounded-xl bg-white px-6 py-4 shadow-md"
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
@@ -212,61 +175,23 @@ export default function SuppliersHub() {
                 </div>
               ))}
             </div>
-            <Link
-              href={`${prefix}/contacto`}
-              className="inline-flex items-center px-8 py-3.5 bg-gold text-white font-medium rounded-xl btn-lift hover:bg-gold-dark"
-            >
-              {locale === "es" ? "Consultar disponibilidad" : "Check availability"}
-              <ArrowRight size={16} className="ml-2" />
-            </Link>
+            <Button variant="primary" size="lg" href={`${prefix}/contacto`}>
+              {l === 'es' ? 'Consultar Disponibilidad' : 'Check Availability'}
+            </Button>
           </div>
         </div>
       </section>
 
-      {/* ═══ CTA ════════════════════════════════════════ */}
-      <section className="relative py-24 lg:py-28 overflow-hidden">
-        <Image
-          src={stockImages.industrial}
-          alt=""
-          fill
-          placeholder="blur"
-          blurDataURL={getBlur(stockImages.industrial)}
-          className="object-cover"
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-navy-deep/65" />
-        <div className="relative mx-auto max-w-[1600px] px-5 md:px-10">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="font-heading text-white mb-4" style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)", fontWeight: 500 }}>
-              {locale === "es"
-                ? "¿Necesitas una solución específica?"
-                : "Need a specific solution?"}
-            </h2>
-            <p className="text-white/60 mb-10 leading-relaxed" style={{ fontSize: "1.05rem" }}>
-              {locale === "es"
-                ? "Nuestro equipo de ingenieros te asesora para encontrar la válvula o equipo ideal para tu operación."
-                : "Our engineering team will advise you to find the ideal valve or equipment for your operation."}
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link
-                href={`${prefix}/contacto`}
-                className="inline-flex items-center px-8 py-4 bg-gold text-white font-semibold rounded-xl btn-lift hover:bg-gold-dark"
-                style={{ fontSize: "1.05rem" }}
-              >
-                {locale === "es" ? "Solicitar cotización" : "Request a quote"}
-                <ArrowRight size={18} className="ml-2" />
-              </Link>
-              <a
-                href="tel:+525553973703"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/20 text-white font-medium rounded-xl btn-lift hover:bg-white/20"
-              >
-                <Phone size={16} />
-                +52 55 5397 3703
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* ═══ CTA FINAL ═══ */}
+      <CTABanner
+        heading={
+          l === 'es'
+            ? '¿Necesita una solución específica? Consulte con un especialista.'
+            : 'Need a specific solution? Consult a specialist.'
+        }
+        ctaText={l === 'es' ? 'Solicitar Cotización' : 'Request a Quote'}
+        ctaLink={`${prefix}/contacto`}
+      />
     </>
   );
 }

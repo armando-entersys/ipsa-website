@@ -1,360 +1,221 @@
-import Link from "next/link";
-import Image from "next/image";
-import { useLocale, useTranslations } from "next-intl";
+import Link from 'next/link';
+import Image from 'next/image';
+import { useLocale } from 'next-intl';
 import {
   Clock,
-  Package,
-  Wrench,
+  ShieldCheck,
   MapPin,
-  Zap,
-  Settings,
-  Headphones,
   ArrowRight,
-  Phone,
-  ChevronRight,
-  CircleDot,
-  Layers,
-  SlidersHorizontal,
-  Gauge,
-  Cpu,
-  Flame,
-  Droplets,
-} from "lucide-react";
-import { stockImages, getBlur } from "@/data/images";
-import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
-import { AnimatedIcon } from "@/components/ui/AnimatedIcon";
+} from 'lucide-react';
+import { type LucideIcon } from 'lucide-react';
+import { stockImages, getBlur } from '@/data/images';
+import { homeData } from '@/data/home';
+import { suppliers } from '@/data/suppliers';
+import { categoryList } from '@/data/products';
+import { services } from '@/data/services';
+import { industries } from '@/data/industries';
+import Button from '@/components/ui/Button';
+import CertBadges from '@/components/ui/CertBadges';
+import CounterSection from '@/components/ui/CounterSection';
+import CTABanner from '@/components/ui/CTABanner';
+import LogoGrid from '@/components/ui/LogoGrid';
 
-/* ── Data ──────────────────────────────────────────── */
+/* ── Icon map for pain point cards ─────────────────── */
 
-const productCategories = [
-  { slug: "valvulas-bola", es: "Válvulas de Bola", en: "Ball Valves", Icon: CircleDot, desc: { es: "Floating, Trunnion, Fully Welded, Criogénicas, Subsea", en: "Floating, Trunnion, Fully Welded, Cryogenic, Subsea" } },
-  { slug: "valvulas-compuerta", es: "Válvulas de Compuerta", en: "Gate Valves", Icon: Layers, desc: { es: "Wedge, Slab Gate, Conduit, Forjadas API 602", en: "Wedge, Slab Gate, Conduit, Forged API 602" } },
-  { slug: "valvulas-control", es: "Válvulas de Control", en: "Control Valves", Icon: SlidersHorizontal, desc: { es: "Globe, Rotary, Butterfly, Anti-surge", en: "Globe, Rotary, Butterfly, Anti-surge" } },
-  { slug: "actuadores", es: "Actuadores", en: "Actuators", Icon: Settings, desc: { es: "Neumáticos, eléctricos, hidráulicos", en: "Pneumatic, electric, hydraulic" } },
-  { slug: "actuadores-auto-contenidos", es: "Actuadores Auto-Contenidos", en: "Self-Contained Actuators", Icon: Cpu, desc: { es: "Sin fuente externa, hasta 600,000 lbs", en: "No external power, up to 600,000 lbs" } },
-  { slug: "paneles-de-control", es: "Paneles de Control", en: "Control Panels", Icon: Gauge, desc: { es: "ESD, regulación, medición custom", en: "ESD, regulation, custom metering" } },
-];
-
-const services = [
-  {
-    slug: "automatizacion",
-    Icon: Zap,
-    image: stockImages.automation,
-    es: { name: "Automatización de válvulas", desc: "Paquetes completos de automatización: válvula + actuador + accesorios, paneles ESD, comisionamiento en sitio." },
-    en: { name: "Valve automation", desc: "Complete automation packages: valve + actuator + accessories, ESD panels, on-site commissioning." },
-  },
-  {
-    slug: "ingenieria",
-    Icon: Settings,
-    image: stockImages.engineering,
-    es: { name: "Ingeniería y proyectos EPC", desc: "Desde la ingeniería conceptual hasta la entrega de instalaciones industriales funcionando." },
-    en: { name: "Engineering & EPC projects", desc: "From conceptual engineering to delivery of operating industrial facilities." },
-  },
-  {
-    slug: "soporte-in-house",
-    Icon: Headphones,
-    image: stockImages.workshop,
-    es: { name: "Centro de Automatización (CAD)", desc: "Reparación, pruebas NDE, almacén 24/7 con inventario de +$5M USD en Cd. del Carmen." },
-    en: { name: "Automation Center (CAD)", desc: "Repair, NDE testing, 24/7 warehouse with $5M+ USD inventory in Cd. del Carmen." },
-  },
-];
-
-const industries = [
-  { slug: "petroleras", image: stockImages.oilGas, Icon: Flame, es: { name: "Petroleras", desc: "Upstream, midstream y downstream" }, en: { name: "Oil & Gas", desc: "Upstream, midstream and downstream" } },
-  { slug: "aceites", image: stockImages.oils, Icon: Droplets, es: { name: "Aceites", desc: "Procesamiento y refinación" }, en: { name: "Oils", desc: "Processing and refining" } },
-  { slug: "gas", image: stockImages.gas, Icon: Gauge, es: { name: "Gas", desc: "Procesamiento, transporte y distribución" }, en: { name: "Gas", desc: "Processing, transport and distribution" } },
-];
-
-const supplierLogos = [
-  { name: "DHV Valve Group", slug: "dhv", initials: "DHV", logo: "/images/logos/dhv.svg" },
-  { name: "Della Foglia", slug: "della-foglia", initials: "DF", logo: "/images/logos/della-foglia.svg" },
-  { name: "Perar", slug: "perar", initials: "PR", logo: "/images/logos/perar.svg" },
-  { name: "Versa Valves", slug: "versa", initials: "VS", logo: "/images/logos/versa.svg" },
-];
+const iconMap: Record<string, LucideIcon> = { Clock, ShieldCheck, MapPin };
 
 /* ── Page ─────────────────────────────────────────── */
 
 export default function HomePage() {
-  const t = useTranslations();
   const locale = useLocale();
+  const l = locale as 'es' | 'en';
   const prefix = `/${locale}`;
-  const l = locale as "es" | "en";
+
+  const { hero, painPoints, brands, productPAS, about, ctaFinal } = homeData;
 
   return (
     <>
-      {/* ═══ HERO with video background ═══════════════ */}
-      <section className="relative overflow-hidden bg-navy-dark" style={{ minHeight: "80vh" }}>
-        {/* Background video */}
+      {/* ═══ SECTION 1: HERO ═══════════════════════════ */}
+      <section className="relative overflow-hidden bg-navy-dark" style={{ minHeight: '80vh' }}>
         <video
           autoPlay
           muted
           loop
           playsInline
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 h-full w-full object-cover"
         >
           <source src="/videos/hero-refinery.mp4" type="video/mp4" />
         </video>
-        {/* Dark overlay for text readability */}
         <div className="absolute inset-0 bg-black/50" />
-        {/* Bottom gradient for text area */}
         <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/60 via-navy-dark/20 to-transparent" />
 
-        <div className="relative mx-auto max-w-[1600px] px-5 md:px-10 flex items-end" style={{ minHeight: "80vh" }}>
-          <div className="max-w-3xl pb-16 lg:pb-24 pt-32">
-            {/* Gold accent line - rounded pill shape */}
-            <div className="w-20 h-1.5 bg-gold rounded-full mb-8" />
+        <div
+          className="relative mx-auto flex max-w-[1600px] items-end px-5 md:px-10"
+          style={{ minHeight: '80vh' }}
+        >
+          <div className="max-w-3xl pb-16 pt-32 lg:pb-24">
+            <div className="mb-8 h-1.5 w-20 rounded-full bg-gold" />
             <h1
-              className="font-heading text-white leading-tight mb-6 hero-text-strong"
-              style={{ fontSize: "clamp(2.5rem, 5vw, 4.5rem)", fontWeight: 500 }}
+              className="font-heading mb-6 leading-tight text-white"
+              style={{ fontSize: 'clamp(2.25rem, 4.5vw, 4rem)', fontWeight: 500 }}
             >
-              {t("hero.title")}
+              {hero.h1[l]}
             </h1>
-            <p className="text-white/90 mb-10 max-w-2xl leading-relaxed hero-subtitle" style={{ fontSize: "1.15rem", lineHeight: 1.7 }}>
-              {t("hero.subtitle")}
+            <p
+              className="mb-8 max-w-2xl leading-relaxed text-white/90"
+              style={{ fontSize: '1.15rem', lineHeight: 1.7 }}
+            >
+              {hero.h2[l]}
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link
-                href={`${prefix}/productos`}
-                className="inline-flex items-center justify-center px-7 py-3.5 bg-gold text-white font-semibold rounded-xl btn-lift hover:bg-gold-dark btn-glow"
-              >
-                {t("hero.cta")}
+
+            {/* Cert badges */}
+            <CertBadges badges={hero.certBadges} variant="light" className="mb-10 justify-start" />
+
+            <div className="flex flex-col gap-4 sm:flex-row">
+              <Button variant="primary" size="lg" href={`${prefix}${hero.ctaLink}`}>
+                {hero.cta[l]}
                 <ArrowRight size={18} className="ml-2" />
-              </Link>
-              <Link
+              </Button>
+              <Button
+                variant="outline"
+                size="lg"
                 href={`${prefix}/contacto`}
-                className="inline-flex items-center justify-center px-7 py-3.5 glass-dark text-white font-medium rounded-xl btn-lift hover:bg-white/25"
+                className="border-white text-white hover:bg-white hover:text-navy"
               >
-                {t("hero.ctaSecondary")}
-              </Link>
+                {l === 'es' ? 'Solicitar Cotización' : 'Request a Quote'}
+              </Button>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ═══ PILLARS ═════════════════════════════════ */}
+      {/* ═══ SECTION 2: PAIN POINTS ════════════════════ */}
       <section
         className="py-20 lg:py-28"
-        style={{ background: "linear-gradient(180deg, #ffffff 0%, #f9fafb 100%)" }}
+        style={{ background: 'linear-gradient(180deg, #ffffff 0%, #f9fafb 100%)' }}
       >
         <div className="mx-auto max-w-[1600px] px-5 md:px-10">
-          <h2 className="font-heading text-gray-900 text-center mb-16" style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)", fontWeight: 500 }}>
-            {t("pillars.title")}
+          <h2
+            className="font-heading mb-16 text-center text-gray-900"
+            style={{ fontSize: 'clamp(1.5rem, 3.5vw, 2rem)', fontWeight: 500 }}
+          >
+            {painPoints.h2[l]}
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              { key: "experience", Icon: Clock },
-              { key: "stock", Icon: Package },
-              { key: "engineering", Icon: Wrench },
-              { key: "presence", Icon: MapPin },
-            ].map(({ key, Icon }) => (
+          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {painPoints.cards.map((card) => {
+              const Icon = iconMap[card.icon] ?? ShieldCheck;
+              return (
+                <div
+                  key={card.key}
+                  className="group rounded-xl bg-white p-8 shadow-md transition-all duration-150 hover:-translate-y-0.5 hover:shadow-lg"
+                >
+                  <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-xl icon-bg-navy transition-colors group-hover:bg-gold group-hover:text-white">
+                    <Icon className="h-7 w-7 text-gray-700 group-hover:text-white transition-colors" />
+                  </div>
+                  <h3 className="font-heading text-lg font-semibold text-gray-900">
+                    {card.title[l]}
+                  </h3>
+                  <p className="mt-3 text-sm leading-relaxed text-gray-600">{card.body[l]}</p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ SECTION 3: MARCAS REPRESENTADAS ═══════════ */}
+      <section
+        className="relative overflow-hidden py-20 lg:py-28"
+        style={{
+          background: 'linear-gradient(160deg, #141733 0%, #1a2550 50%, #1e2d5a 100%)',
+        }}
+      >
+        <div
+          className="absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)',
+            backgroundSize: '40px 40px',
+          }}
+        />
+        <div className="relative mx-auto max-w-[1600px] px-5 text-center md:px-10">
+          <h2
+            className="font-heading mb-14 text-white"
+            style={{ fontSize: 'clamp(1.5rem, 3.5vw, 2rem)', fontWeight: 500 }}
+          >
+            {brands.h3[l]}
+          </h2>
+          <LogoGrid
+            logos={brands.logos.map((slug) => {
+              const supplier = suppliers.find((s) => s.slug === slug);
+              return {
+                name: supplier?.name[l] ?? slug,
+                image: supplier?.logo ?? `/images/logos/${slug}.svg`,
+                href: `${prefix}/proveedores/${slug}`,
+              };
+            })}
+            columns={5}
+            className="mx-auto max-w-5xl"
+          />
+          <div className="mt-12">
+            <Button variant="primary" size="lg" href={`${prefix}/proveedores`}>
+              {l === 'es' ? 'Conoce Todas Nuestras Marcas' : 'See All Our Brands'}
+              <ArrowRight size={16} className="ml-2" />
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ SECTION 4: PRODUCT PAS BLOCKS ═════════════ */}
+      <section
+        className="py-20 lg:py-28"
+        style={{ background: 'linear-gradient(180deg, #f6f7f9 0%, #f0f1f5 100%)' }}
+      >
+        <div className="mx-auto max-w-[1600px] px-5 md:px-10">
+          <div className="flex flex-col gap-16">
+            {productPAS.blocks.map((block, i) => (
               <div
-                key={key}
-                className="text-center group bg-white rounded-xl p-8 shadow-card card-modern"
+                key={block.title[l]}
+                className={`flex flex-col items-center gap-10 lg:flex-row ${i % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}
               >
-                <div className="relative w-16 h-16 mx-auto mb-5">
-                  <AnimatedIcon
-                    type="pulse-ring"
-                    size={64}
-                    className="absolute inset-0"
+                {/* Image */}
+                <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl lg:w-1/2">
+                  <Image
+                    src={block.image}
+                    alt={block.title[l]}
+                    fill
+                    placeholder="blur"
+                    blurDataURL={getBlur(block.image)}
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
                   />
-                  <div
-                    className="relative w-full h-full rounded-xl flex items-center justify-center transition-all duration-150 group-hover:scale-110"
-                    style={{ background: "linear-gradient(135deg, rgba(200, 146, 42, 0.12), rgba(200, 146, 42, 0.04))" }}
-                  >
-                    <Icon size={28} className="text-gold" strokeWidth={1.5} />
+                </div>
+                {/* Copy */}
+                <div className="flex-1 lg:w-1/2">
+                  <h3 className="font-heading text-2xl font-bold text-gray-900 lg:text-3xl">
+                    {block.title[l]}
+                  </h3>
+                  <p className="mt-4 text-gray-600 leading-relaxed">{block.pas[l]}</p>
+                  <div className="mt-6">
+                    <Button variant="outline" size="md" href={`${prefix}/productos`}>
+                      {l === 'es' ? 'Ver Productos' : 'View Products'}
+                      <ArrowRight size={14} className="ml-2" />
+                    </Button>
                   </div>
                 </div>
-                <h3 className="font-heading font-semibold text-gray-900 text-lg mb-3">
-                  {t(`pillars.${key}.title`)}
-                </h3>
-                <p className="text-gray-500 text-sm leading-relaxed">
-                  {t(`pillars.${key}.description`)}
-                </p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ═══ FEATURED PRODUCTS ═══════════════════════ */}
-      <section
-        className="py-20 lg:py-28"
-        style={{ background: "linear-gradient(180deg, #f6f7f9 0%, #f0f1f5 100%)" }}
-      >
-        <div className="mx-auto max-w-[1600px] px-5 md:px-10">
-          <div className="flex items-end justify-between mb-14">
-            <div>
-              <h2 className="font-heading text-gray-900" style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)", fontWeight: 500 }}>
-                {t("products.title")}
-              </h2>
-              <p className="text-gray-500 mt-3 max-w-xl leading-relaxed">
-                {locale === "es"
-                  ? "Válvulas, actuadores y sistemas de control de los principales fabricantes mundiales."
-                  : "Valves, actuators and control systems from leading global manufacturers."}
-              </p>
-            </div>
-            <Link
-              href={`${prefix}/productos`}
-              className="hidden md:inline-flex items-center gap-1 text-gold font-medium hover:text-gold-dark transition-colors duration-150"
-            >
-              {t("products.viewAll")} <ChevronRight size={18} />
-            </Link>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {productCategories.map((product) => {
-              const PIcon = product.Icon;
-              return (
-                <Link
-                  key={product.slug}
-                  href={`${prefix}/productos/${product.slug}`}
-                  className="group block bg-white rounded-xl p-8 shadow-card card-modern"
-                >
-                  <div className="flex items-start gap-5">
-                    <div
-                      className="w-12 h-12 shrink-0 rounded-xl flex items-center justify-center transition-all duration-150 group-hover:scale-110"
-                      style={{ background: "linear-gradient(135deg, rgba(26, 35, 50, 0.08), rgba(42, 82, 152, 0.06))" }}
-                    >
-                      <PIcon size={22} className="text-gray-700 group-hover:text-gold transition-colors duration-150" strokeWidth={1.5} />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <h3 className="font-heading font-semibold text-gray-900 text-base mb-1">
-                        {product[l]}
-                      </h3>
-                      <p className="text-gray-500 text-sm leading-relaxed mb-3">
-                        {product.desc[l]}
-                      </p>
-                      <span className="text-sm text-gold font-medium inline-flex items-center gap-1 group-hover:text-gold-dark transition-colors duration-150">
-                        {locale === "es" ? "Ver más" : "Read more"}
-                        <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform duration-150" />
-                      </span>
-                    </div>
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
-          <div className="mt-10 text-center md:hidden">
-            <Link href={`${prefix}/productos`} className="inline-flex items-center gap-1 text-gold font-medium">
-              {t("products.viewAll")} <ChevronRight size={18} />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* ═══ SUPPLIERS (dark section with logos) ══════ */}
-      <section
-        className="py-20 lg:py-28 relative overflow-hidden"
-        style={{ background: "linear-gradient(160deg, #141733 0%, #1a2550 50%, #1e2d5a 100%)" }}
-      >
-        {/* Subtle texture */}
-        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)", backgroundSize: "40px 40px" }} />
-        {/* Soft radial glow */}
-        <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at 50% 0%, rgba(200, 146, 42, 0.06) 0%, transparent 60%)" }} />
-        <div className="relative mx-auto max-w-[1600px] px-5 md:px-10 text-center">
-          <p className="text-gold-light font-medium text-sm tracking-widest uppercase mb-4">
-            {locale === "es" ? "Nuestros fabricantes" : "Our manufacturers"}
-          </p>
-          <h2 className="font-heading text-white mb-4" style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)", fontWeight: 500 }}>
-            {t("suppliers.title")}
-          </h2>
-          <p className="text-white/50 max-w-2xl mx-auto mb-14 leading-relaxed">
-            {locale === "es"
-              ? "Alianzas exclusivas con fabricantes europeos y americanos de clase mundial."
-              : "Exclusive partnerships with world-class European and American manufacturers."}
-          </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto mb-12">
-            {supplierLogos.map((supplier) => (
-              <Link
-                key={supplier.slug}
-                href={`${prefix}/proveedores/${supplier.slug}`}
-                className="group flex flex-col items-center justify-center p-6 rounded-xl glass-dark transition-all duration-150 hover:bg-white/[0.08] overflow-hidden"
-              >
-                <div className="relative w-full h-16 mb-4 flex items-center justify-center">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={supplier.logo}
-                    alt={supplier.name}
-                    width={140}
-                    height={50}
-                    className="object-contain brightness-0 invert opacity-80 transition-all duration-200 group-hover:opacity-100"
-                  />
-                </div>
-                <span className="text-sm text-white/70 font-medium group-hover:text-gold-light transition-colors duration-150 text-center">
-                  {supplier.name}
-                </span>
-              </Link>
-            ))}
-          </div>
-          <Link
-            href={`${prefix}/proveedores`}
-            className="inline-flex items-center gap-2 px-7 py-3.5 bg-gold text-white font-medium rounded-xl btn-lift hover:bg-gold-dark"
-          >
-            {t("suppliers.viewAll")} <ArrowRight size={16} />
-          </Link>
-        </div>
-      </section>
-
-      {/* ═══ SERVICES (with images) ══════════════════ */}
-      <section
-        className="py-20 lg:py-28"
-        style={{ background: "linear-gradient(180deg, #ffffff 0%, #f9fafb 100%)" }}
-      >
-        <div className="mx-auto max-w-[1600px] px-5 md:px-10">
-          <div className="text-center mb-16">
-            <p className="text-gold font-medium text-sm tracking-widest uppercase mb-3">
-              {locale === "es" ? "Soluciones integrales" : "Comprehensive solutions"}
-            </p>
-            <h2 className="font-heading text-gray-900 mb-4" style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)", fontWeight: 500 }}>
-              {t("services.title")}
-            </h2>
-            <p className="text-gray-500 max-w-2xl mx-auto leading-relaxed">
-              {t("services.subtitle")}
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {services.map((service) => (
-              <Link
-                key={service.slug}
-                href={`${prefix}/servicios/${service.slug}`}
-                className="group block rounded-xl overflow-hidden bg-white shadow-card card-modern transition-transform duration-150 hover:scale-[1.02]"
-              >
-                {/* Service image */}
-                <div className="relative h-56 overflow-hidden">
-                  <Image
-                    src={service.image}
-                    alt={service[l].name}
-                    fill
-                    placeholder="blur"
-                    blurDataURL={getBlur(service.image)}
-                    className="object-cover transition-transform duration-300 group-hover:scale-110"
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent group-hover:from-black/20 transition-colors duration-150" />
-                </div>
-                <div className="p-8">
-                  <h3 className="font-heading font-semibold text-gray-900 text-lg mb-2">
-                    {service[l].name}
-                  </h3>
-                  <p className="text-gray-500 text-sm leading-relaxed mb-4">
-                    {service[l].desc}
-                  </p>
-                  <span className="text-gold font-medium text-sm inline-flex items-center gap-1 group-hover:text-gold-dark transition-colors duration-150">
-                    {t("services.learnMore")}
-                    <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform duration-150" />
-                  </span>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ═══ WHY IPSA + STATS ════════════════════════ */}
-      <section className="relative py-20 lg:py-28 overflow-hidden">
-        {/* Split background with rounded inner edge */}
+      {/* ═══ SECTION 5: SOBRE NOSOTROS + COUNTERS ══════ */}
+      <section className="relative overflow-hidden py-20 lg:py-28">
         <div className="absolute inset-0">
-          <div className="absolute inset-y-0 left-0 w-1/2" style={{ background: "linear-gradient(180deg, #f6f7f9 0%, #f0f1f5 100%)" }} />
-          <div className="absolute inset-y-0 right-0 w-1/2 hidden lg:block">
+          <div
+            className="absolute inset-y-0 left-0 w-1/2"
+            style={{ background: 'linear-gradient(180deg, #f6f7f9 0%, #f0f1f5 100%)' }}
+          />
+          <div className="absolute inset-y-0 right-0 hidden w-1/2 lg:block">
             <Image
               src={stockImages.industrial}
               alt=""
@@ -369,55 +230,32 @@ export default function HomePage() {
         </div>
 
         <div className="relative mx-auto max-w-[1600px] px-5 md:px-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-2">
             <div>
-              <p className="text-gold font-medium text-sm tracking-widest uppercase mb-4">
-                {locale === "es" ? "Nuestra diferencia" : "Our difference"}
-              </p>
-              <h2 className="font-heading text-gray-900 mb-6" style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)", fontWeight: 500 }}>
-                {locale === "es" ? "¿Por qué elegir IPSA?" : "Why choose IPSA?"}
-              </h2>
-              <p className="text-gray-600 leading-relaxed mb-4">
-                {locale === "es"
-                  ? "Nuestra combinación única de inventario extenso, alianzas con fabricantes de clase mundial y capacidad de ingeniería nos permite ser la solución integral para nuestros clientes."
-                  : "Our unique combination of extensive inventory, world-class manufacturer partnerships, and engineering capability allows us to be the comprehensive solution for our clients."}
-              </p>
-              <p className="text-gray-600 leading-relaxed mb-10">
-                {locale === "es"
-                  ? "No necesitas coordinar múltiples proveedores cuando IPSA puede ofrecerte soluciones completas bajo un solo techo."
-                  : "No need to coordinate multiple suppliers when IPSA can offer complete solutions under one roof."}
-              </p>
-
-              {/* Stats in rounded pill cards */}
-              <div className="grid grid-cols-3 gap-4 mb-10">
-                {[
-                  { number: "38+", es: "Años", en: "Years" },
-                  { number: "6", es: "Sedes", en: "Locations" },
-                  { number: "$5M+", es: "Inventario USD", en: "Inventory USD" },
-                ].map((stat) => (
-                  <div
-                    key={stat.number}
-                    className="text-center bg-white rounded-xl py-6 px-4 shadow-card"
-                  >
-                    <AnimatedCounter
-                      value={stat.number}
-                      className="font-heading text-gold"
-                      style={{ fontSize: "2.25rem", fontWeight: 600, lineHeight: 1 }}
-                    />
-                    <p className="text-gray-400 text-xs mt-2 uppercase tracking-wider font-medium">{stat[l]}</p>
-                  </div>
-                ))}
-              </div>
-
-              <Link
-                href={`${prefix}/nosotros`}
-                className="inline-flex items-center px-7 py-3.5 bg-navy-deep text-white font-medium rounded-xl btn-lift hover:bg-navy"
+              <h2
+                className="font-heading mb-6 text-gray-900"
+                style={{ fontSize: 'clamp(1.5rem, 3.5vw, 2rem)', fontWeight: 500 }}
               >
-                {locale === "es" ? "Conocer más" : "Learn more"} <ArrowRight size={16} className="ml-2" />
-              </Link>
+                {about.h2[l]}
+              </h2>
+              <p className="mb-10 leading-relaxed text-gray-600">{about.body[l]}</p>
+
+              <CounterSection
+                counters={about.counters.map((c) => ({
+                  value: c.value,
+                  suffix: c.suffix,
+                  label: c.label[l],
+                }))}
+                className="mb-10"
+              />
+
+              <Button variant="secondary" size="lg" href={`${prefix}/nosotros`}>
+                {l === 'es' ? 'Conocer Más' : 'Learn More'}
+                <ArrowRight size={16} className="ml-2" />
+              </Button>
             </div>
-            {/* Right side is the image (visible via absolute positioning on lg) */}
-            <div className="lg:hidden relative h-64 rounded-xl overflow-hidden shadow-card">
+            {/* Mobile image fallback */}
+            <div className="relative h-64 overflow-hidden rounded-xl shadow-md lg:hidden">
               <Image
                 src={stockImages.industrial}
                 alt=""
@@ -433,249 +271,168 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ═══ INDUSTRIES (with background images) ═════ */}
+      {/* ═══ FEATURED: Products / Services / Industries ═ */}
       <section
         className="py-20 lg:py-28"
-        style={{ background: "linear-gradient(180deg, #ffffff 0%, #f9fafb 100%)" }}
+        style={{ background: 'linear-gradient(180deg, #ffffff 0%, #f9fafb 100%)' }}
       >
         <div className="mx-auto max-w-[1600px] px-5 md:px-10">
-          <div className="text-center mb-14">
-            <p className="text-gold font-medium text-sm tracking-widest uppercase mb-3">
-              {locale === "es" ? "Sectores que atendemos" : "Sectors we serve"}
-            </p>
-            <h2 className="font-heading text-gray-900" style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)", fontWeight: 500 }}>
-              {t("industries.title")}
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {industries.map((industry) => (
-              <Link
-                key={industry.slug}
-                href={`${prefix}/industrias/${industry.slug}`}
-                className="group block relative rounded-xl overflow-hidden shadow-card transition-all duration-200 hover:scale-[1.02]"
-                style={{ minHeight: "340px" }}
+          {/* Products preview */}
+          <div className="mb-20">
+            <div className="mb-10 flex items-end justify-between">
+              <h2
+                className="font-heading text-gray-900"
+                style={{ fontSize: 'clamp(1.5rem, 3.5vw, 2rem)', fontWeight: 500 }}
               >
-                <Image
-                  src={industry.image}
-                  alt={industry[l].name}
-                  fill
-                  placeholder="blur"
-                  blurDataURL={getBlur(industry.image)}
-                  className="object-cover transition-transform duration-300 group-hover:scale-105"
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/80 via-navy-deep/30 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-8">
-                  <div className="flex items-center gap-3 mb-3">
-                    <industry.Icon size={20} className="text-gold-light" strokeWidth={1.5} />
-                    <h3 className="font-heading font-bold text-white text-2xl">
-                      {industry[l].name}
-                    </h3>
-                  </div>
-                  <p className="text-white/60 text-sm mb-3">{industry[l].desc}</p>
-                  <span className="inline-flex items-center gap-1 text-gold-light font-medium text-sm group-hover:text-gold-lighter transition-colors duration-150">
-                    {locale === "es" ? "Conoce más" : "Learn more"}
-                    <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform duration-150" />
-                  </span>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ═══ GROUP IPSA ══════════════════════════════ */}
-      <section
-        className="py-20 lg:py-28"
-        style={{ background: "linear-gradient(180deg, #f6f7f9 0%, #f0f1f5 100%)" }}
-      >
-        <div className="mx-auto max-w-[1600px] px-5 md:px-10">
-          <div className="text-center mb-14">
-            <h2 className="font-heading text-gray-900 mb-4" style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)", fontWeight: 500 }}>
-              {t("aboutPage.group")}
-            </h2>
-            <p className="text-gray-500 max-w-3xl mx-auto leading-relaxed">
-              {t("aboutPage.groupText")}
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              { key: "ipsa", color: "#141733", gradientFrom: "rgba(20, 23, 51, 0.04)", gradientTo: "rgba(20, 23, 51, 0.01)" },
-              { key: "maepsa", color: "#bb9034", gradientFrom: "rgba(187, 144, 52, 0.05)", gradientTo: "rgba(187, 144, 52, 0.01)" },
-              { key: "certus", color: "#203c88", gradientFrom: "rgba(32, 60, 136, 0.04)", gradientTo: "rgba(32, 60, 136, 0.01)" },
-            ].map(({ key, color, gradientFrom, gradientTo }) => (
-              <div
-                key={key}
-                className="text-center p-10 rounded-xl shadow-card card-modern"
-                style={{
-                  background: `linear-gradient(160deg, ${gradientFrom}, #ffffff 30%, ${gradientTo})`,
-                }}
-              >
-                <div
-                  className="w-16 h-16 rounded-xl flex items-center justify-center mx-auto mb-5"
-                  style={{ background: color }}
-                >
-                  <span className="text-white font-heading font-bold text-lg">
-                    {key === "ipsa" ? "IP" : key === "maepsa" ? "MA" : "CS"}
-                  </span>
-                </div>
-                <h3 className="font-heading font-bold text-gray-900 text-xl mb-2">
-                  {t(`aboutPage.${key}`)}
-                </h3>
-                <p className="text-gray-500 text-sm leading-relaxed">
-                  {t(`aboutPage.${key}Desc`)}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ═══ LOCATIONS ═══════════════════════════════ */}
-      <section
-        className="py-20 lg:py-28"
-        style={{ background: "linear-gradient(180deg, #ffffff 0%, #f9fafb 100%)" }}
-      >
-        <div className="mx-auto max-w-[1600px] px-5 md:px-10">
-          <div className="text-center mb-14">
-            <p className="text-gold font-medium text-sm tracking-widest uppercase mb-3">
-              {locale === "es" ? "Presencia" : "Presence"}
-            </p>
-            <h2 className="font-heading text-gray-900" style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)", fontWeight: 500 }}>
-              {t("aboutPage.locations")}
-            </h2>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-5">
-            {[
-              { city: "CDMX", label: "HQ", full: "Ciudad de México" },
-              { city: "Cd. del Carmen", label: "CAD", full: "Campeche" },
-              { city: "Paraíso", label: "Taller", full: "Tabasco" },
-              { city: "Houston", label: "Intl.", full: "Texas, USA" },
-              { city: "Villahermosa", label: "Ventas", full: "Tabasco" },
-              { city: "Tampico", label: "Ventas", full: "Tamaulipas" },
-            ].map((loc) => (
-              <div
-                key={loc.city}
-                className="rounded-xl p-5 text-center shadow-card card-hover"
-                style={{
-                  background: "linear-gradient(160deg, #ffffff, #f8f9fc)",
-                }}
-              >
-                <MapPin size={18} className="text-gold mx-auto mb-3" strokeWidth={1.5} />
-                <div className="font-heading font-semibold text-gray-900 text-sm">{loc.city}</div>
-                <div className="text-xs text-gray-500 mt-0.5">{loc.full}</div>
-                <div
-                  className="mt-3 inline-block text-[10px] font-semibold px-3 py-1 rounded-full"
-                  style={{ background: "rgba(200, 146, 42, 0.1)", color: "#bb9034" }}
-                >
-                  {loc.label}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ═══ CERTIFICATIONS ══════════════════════════ */}
-      <section
-        className="py-16 lg:py-24"
-        style={{ background: "linear-gradient(180deg, #f6f7f9 0%, #f0f1f5 100%)" }}
-      >
-        <div className="mx-auto max-w-[1600px] px-5 md:px-10">
-          <div className="text-center mb-12">
-            <p className="text-gold font-medium text-sm tracking-widest uppercase mb-3">
-              {locale === "es" ? "Calidad certificada" : "Certified quality"}
-            </p>
-            <h2 className="font-heading text-gray-900" style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)", fontWeight: 500 }}>
-              {locale === "es" ? "Normas y certificaciones" : "Standards & certifications"}
-            </h2>
-          </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-5 max-w-5xl mx-auto">
-            {[
-              { code: "ISO 9001", logo: "/images/certs/iso-9001.png", desc: { es: "Sistema de gestión de calidad", en: "Quality management system" } },
-              { code: "API 6D", logo: "/images/certs/api.png", desc: { es: "Válvulas de tubería", en: "Pipeline valves" } },
-              { code: "API 6A", logo: "/images/certs/api.png", desc: { es: "Equipo de cabezal de pozo", en: "Wellhead equipment" } },
-              { code: "NACE MR0175", logo: "/images/certs/ampp.svg", desc: { es: "Servicio ácido (sour)", en: "Sour service" } },
-              { code: "NORSOK", logo: "/images/certs/norsok.svg", desc: { es: "Estándar noruego offshore", en: "Norwegian offshore standard" } },
-              { code: "SIL III", logo: "/images/certs/tuv-sud.png", desc: { es: "Seguridad funcional", en: "Functional safety" } },
-            ].map((cert) => (
-              <div
-                key={cert.code}
-                className="relative bg-white rounded-xl p-6 text-center group shadow-card card-modern"
-              >
-                <div className="w-16 h-16 mx-auto mb-3 flex items-center justify-center">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={cert.logo}
-                    alt={cert.code}
-                    className="max-w-full max-h-full object-contain"
-                  />
-                </div>
-                <div className="font-heading font-bold text-gray-900 text-sm tracking-wider mb-1">
-                  {cert.code}
-                </div>
-                <div className="text-[11px] text-gray-500 leading-snug">
-                  {cert.desc[l]}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ═══ CONTACT CTA ═════════════════════════════ */}
-      <section className="relative py-24 lg:py-32 overflow-hidden">
-        <Image
-          src={stockImages.industrial}
-          alt=""
-          fill
-          placeholder="blur"
-          blurDataURL={getBlur(stockImages.industrial)}
-          className="object-cover"
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-navy-deep/60" />
-        {/* Soft radial glow */}
-        <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at 50% 50%, rgba(200, 146, 42, 0.08) 0%, transparent 60%)" }} />
-        <div className="relative mx-auto max-w-[1600px] px-5 md:px-10">
-          <div className="max-w-3xl mx-auto text-center">
-            <div
-              className="inline-block rounded-xl px-10 py-12 md:px-16 md:py-16"
-              style={{
-                background: "rgba(255, 255, 255, 0.04)",
-                backdropFilter: "blur(12px)",
-                WebkitBackdropFilter: "blur(12px)",
-                border: "1px solid rgba(255, 255, 255, 0.06)",
-              }}
-            >
-              <h2 className="font-heading text-white mb-4" style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)", fontWeight: 500 }}>
-                {locale === "es" ? "Hablemos de tu proyecto" : "Let's talk about your project"}
+                {l === 'es' ? 'Nuestros Productos' : 'Our Products'}
               </h2>
-              <p className="text-white/60 mb-10 leading-relaxed" style={{ fontSize: "1.05rem" }}>
-                {locale === "es"
-                  ? "Nuestro equipo de ingenieros está listo para ayudarte a encontrar la solución correcta."
-                  : "Our engineering team is ready to help you find the right solution."}
-              </p>
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Link
+                href={`${prefix}/productos`}
+                className="hidden items-center gap-1 font-medium text-gold transition-colors hover:text-gold-dark md:inline-flex"
+              >
+                {l === 'es' ? 'Ver todos' : 'View all'} <ArrowRight size={16} />
+              </Link>
+            </div>
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              {categoryList.slice(0, 4).map((cat) => (
                 <Link
-                  href={`${prefix}/contacto`}
-                  className="inline-flex items-center px-7 py-3.5 bg-gold text-white font-semibold rounded-xl btn-lift hover:bg-gold-dark"
+                  key={cat.slug}
+                  href={`${prefix}/productos/${cat.slug}`}
+                  className="group block rounded-xl bg-white p-6 shadow-md transition-all duration-150 hover:-translate-y-0.5 hover:shadow-lg"
                 >
-                  {locale === "es" ? "Enviar mensaje" : "Send a message"}
-                  <ArrowRight size={18} className="ml-2" />
+                  <h3 className="font-heading text-base font-semibold text-gray-900">
+                    {cat[l].name}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-gray-500 line-clamp-2">
+                    {cat[l].desc}
+                  </p>
+                  <span className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-gold transition-colors group-hover:text-gold-dark">
+                    {l === 'es' ? 'Ver más' : 'Read more'}
+                    <ArrowRight
+                      size={13}
+                      className="transition-transform group-hover:translate-x-1"
+                    />
+                  </span>
                 </Link>
-                <a
-                  href="tel:+525553973703"
-                  className="inline-flex items-center gap-2 px-7 py-3.5 glass-dark text-white font-medium rounded-xl btn-lift hover:bg-white/20"
+              ))}
+            </div>
+          </div>
+
+          {/* Services preview */}
+          <div className="mb-20">
+            <div className="mb-10 flex items-end justify-between">
+              <h2
+                className="font-heading text-gray-900"
+                style={{ fontSize: 'clamp(1.5rem, 3.5vw, 2rem)', fontWeight: 500 }}
+              >
+                {l === 'es' ? 'Servicios Especializados' : 'Specialized Services'}
+              </h2>
+              <Link
+                href={`${prefix}/servicios`}
+                className="hidden items-center gap-1 font-medium text-gold transition-colors hover:text-gold-dark md:inline-flex"
+              >
+                {l === 'es' ? 'Ver todos' : 'View all'} <ArrowRight size={16} />
+              </Link>
+            </div>
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+              {services.map((svc) => (
+                <Link
+                  key={svc.slug}
+                  href={`${prefix}/servicios/${svc.slug}`}
+                  className="group block overflow-hidden rounded-xl bg-white shadow-md transition-all duration-150 hover:shadow-lg"
                 >
-                  <Phone size={16} />
-                  +52 55 5397 3703
-                </a>
-              </div>
+                  <div className="relative h-48 overflow-hidden">
+                    <Image
+                      src={svc.image}
+                      alt={svc.name[l]}
+                      fill
+                      placeholder="blur"
+                      blurDataURL={getBlur(svc.image)}
+                      className="object-cover transition-transform duration-300 group-hover:scale-105"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+                  </div>
+                  <div className="p-6">
+                    <h3 className="font-heading text-lg font-semibold text-gray-900">
+                      {svc.name[l]}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-gray-500">
+                      {svc.description[l]}
+                    </p>
+                    <span className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-gold transition-colors group-hover:text-gold-dark">
+                      {l === 'es' ? 'Conoce más' : 'Learn more'}
+                      <ArrowRight
+                        size={13}
+                        className="transition-transform group-hover:translate-x-1"
+                      />
+                    </span>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Industries preview */}
+          <div>
+            <div className="mb-10 flex items-end justify-between">
+              <h2
+                className="font-heading text-gray-900"
+                style={{ fontSize: 'clamp(1.5rem, 3.5vw, 2rem)', fontWeight: 500 }}
+              >
+                {l === 'es' ? 'Industrias que Atendemos' : 'Industries We Serve'}
+              </h2>
+              <Link
+                href={`${prefix}/industrias`}
+                className="hidden items-center gap-1 font-medium text-gold transition-colors hover:text-gold-dark md:inline-flex"
+              >
+                {l === 'es' ? 'Ver todas' : 'View all'} <ArrowRight size={16} />
+              </Link>
+            </div>
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+              {industries.map((ind) => (
+                <Link
+                  key={ind.slug}
+                  href={`${prefix}/industrias/${ind.slug}`}
+                  className="group relative block overflow-hidden rounded-xl shadow-md transition-all duration-200 hover:scale-[1.02]"
+                  style={{ minHeight: '300px' }}
+                >
+                  <Image
+                    src={ind.image}
+                    alt={ind.name[l]}
+                    fill
+                    placeholder="blur"
+                    blurDataURL={getBlur(ind.image)}
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/80 via-navy-deep/30 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-8">
+                    <h3 className="font-heading text-2xl font-bold text-white">
+                      {ind.name[l]}
+                    </h3>
+                    <p className="mt-2 text-sm text-white/60">{ind.description[l]}</p>
+                    <span className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-gold-light transition-colors group-hover:text-gold">
+                      {l === 'es' ? 'Conoce más' : 'Learn more'}
+                      <ArrowRight
+                        size={13}
+                        className="transition-transform group-hover:translate-x-1"
+                      />
+                    </span>
+                  </div>
+                </Link>
+              ))}
             </div>
           </div>
         </div>
       </section>
+
+      {/* ═══ SECTION 6: CTA FINAL ══════════════════════ */}
+      <CTABanner
+        heading={ctaFinal.h2[l]}
+        ctaText={ctaFinal.cta[l]}
+        ctaLink={`${prefix}${ctaFinal.ctaLink}`}
+      />
     </>
   );
 }

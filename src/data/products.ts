@@ -1,5 +1,6 @@
 // ---------------------------------------------------------------------------
-// products.ts - Complete product hierarchy data for IPSA
+// products.ts – Restructured per UX Writing specs (Feb 2026)
+// 10 categories in 4 macro-blocks, with UX copy fields
 // ---------------------------------------------------------------------------
 
 // --- Types -----------------------------------------------------------------
@@ -15,6 +16,14 @@ export interface SubType {
   standards?: string[];
 }
 
+export type MacroBlock = 'A' | 'B' | 'C' | 'D';
+
+export interface ProductPAS {
+  problema: { es: string; en: string };
+  agitacion: { es: string; en: string };
+  solucion: { es: string; en: string };
+}
+
 export interface ProductCategory {
   slug: string;
   es: { name: string; desc: string };
@@ -27,7 +36,55 @@ export interface ProductCategory {
   industries: string[];
   services: string[];
   subtypes: SubType[];
+  // UX Writing additions
+  block: MacroBlock;
+  blockLabel: { es: string; en: string };
+  heroH1: { es: string; en: string };
+  heroH2: { es: string; en: string };
+  ctaPrimary: { es: string; en: string };
+  ctaSecondary: { es: string; en: string };
+  definition: { es: string; en: string };
+  pas?: ProductPAS;
+  certChecklist?: string[];
+  relatedBrands: string[];
 }
+
+// --- Macro-Block labels ---------------------------------------------------
+
+export const macroBlockLabels: Record<MacroBlock, { es: string; en: string; copy: { es: string; en: string } }> = {
+  A: {
+    es: 'Válvulas de Aislamiento y Bloqueo (On/Off)',
+    en: 'Isolation & Shutoff Valves (On/Off)',
+    copy: {
+      es: 'Diseñadas para garantizar un cierre hermético y seguro, deteniendo o permitiendo el paso del fluido en líneas principales, cabezales y trampas de diablos.',
+      en: 'Designed to ensure a tight and secure closure, stopping or allowing fluid flow in main lines, headers, and pig traps.',
+    },
+  },
+  B: {
+    es: 'Válvulas de Regulación y Retención',
+    en: 'Regulation & Retention Valves',
+    copy: {
+      es: 'Equipos fundamentales para direccionar el flujo en un solo sentido protegiendo equipos críticos, o para estrangular y dosificar manualmente los caudales de proceso.',
+      en: 'Essential equipment for directing flow in one direction to protect critical equipment, or for manually throttling and dosing process flow rates.',
+    },
+  },
+  C: {
+    es: 'Control, Seguridad y Automatización',
+    en: 'Control, Safety & Automation',
+    copy: {
+      es: 'Componentes de precisión que regulan y protegen automáticamente las variables críticas de presión, flujo y temperatura, integrándose con los sistemas de seguridad funcional.',
+      en: 'Precision components that automatically regulate and protect critical pressure, flow, and temperature variables, integrating with functional safety systems.',
+    },
+  },
+  D: {
+    es: 'Soluciones Integradas',
+    en: 'Integrated Solutions',
+    copy: {
+      es: 'Ensambles de ingeniería que combinan válvulas, actuadores y controles en paquetes listos para instalar, reduciendo tiempos de proyecto y asegurando la compatibilidad total.',
+      en: 'Engineering assemblies that combine valves, actuators, and controls in ready-to-install packages, reducing project timelines and ensuring total compatibility.',
+    },
+  },
+};
 
 // --- Manufacturers ---------------------------------------------------------
 
@@ -36,800 +93,631 @@ export const manufacturers: Record<
   { name: string; slug: string; image: string; logo: string; country: string; website: string }
 > = {
   dhv: {
-    name: "DHV Valve Group",
-    slug: "dhv",
-    image: "/images/products/dhv-trunnion-2pc.jpg",
-    logo: "/images/logos/dhv.svg",
-    country: "International",
-    website: "https://www.dhvindustries.com",
+    name: 'DHV Valve Group',
+    slug: 'dhv',
+    image: '/images/products/dhv-trunnion-2pc.jpg',
+    logo: '/images/logos/dhv.svg',
+    country: 'International',
+    website: 'https://www.dhvindustries.com',
   },
-  "della-foglia": {
-    name: "Della Foglia",
-    slug: "della-foglia",
-    image: "/images/products/df-trunnion-automated.jpg",
-    logo: "/images/logos/della-foglia.svg",
-    country: "Italia",
-    website: "https://www.dellafoglia.it",
+  'della-foglia': {
+    name: 'Della Foglia',
+    slug: 'della-foglia',
+    image: '/images/products/df-trunnion-automated.jpg',
+    logo: '/images/logos/della-foglia.svg',
+    country: 'Italia',
+    website: 'https://www.dellafoglia.it',
   },
   perar: {
-    name: "Perar",
-    slug: "perar",
-    image: "/images/products/df-trunnion-wb-coated.jpg",
-    logo: "/images/logos/perar.svg",
-    country: "Italia",
-    website: "https://www.pfrvalves.com",
+    name: 'Perar',
+    slug: 'perar',
+    image: '/images/products/df-trunnion-wb-coated.jpg',
+    logo: '/images/logos/perar.svg',
+    country: 'Italia',
+    website: 'https://www.pfrvalves.com',
   },
   versa: {
-    name: "Versa Valves",
-    slug: "versa",
-    image: "/images/products/versa-e4-solenoid.png",
-    logo: "/images/logos/versa.svg",
-    country: "USA",
-    website: "https://www.versaproducts.com",
+    name: 'Versa Valves',
+    slug: 'versa',
+    image: '/images/products/versa-e4-solenoid.png',
+    logo: '/images/logos/versa.svg',
+    country: 'USA',
+    website: 'https://www.versaproducts.com',
   },
   consolidated: {
-    name: "Consolidated (Emerson)",
-    slug: "",
-    image: "",
-    logo: "/images/logos/consolidated.svg",
-    country: "USA",
-    website: "https://www.emerson.com",
+    name: 'Consolidated (Emerson)',
+    slug: '',
+    image: '',
+    logo: '/images/logos/consolidated.svg',
+    country: 'USA',
+    website: 'https://www.emerson.com',
   },
   masoneilan: {
-    name: "Masoneilan (Baker Hughes)",
-    slug: "",
-    image: "",
-    logo: "/images/logos/bakerhughes.svg",
-    country: "USA",
-    website: "https://www.bakerhughes.com",
+    name: 'Masoneilan (Baker Hughes)',
+    slug: '',
+    image: '',
+    logo: '/images/logos/bakerhughes.svg',
+    country: 'USA',
+    website: 'https://www.bakerhughes.com',
   },
   yokogawa: {
-    name: "Yokogawa",
-    slug: "",
-    image: "",
-    logo: "/images/logos/yokogawa.svg",
-    country: "Japan",
-    website: "https://www.yokogawa.com",
+    name: 'Yokogawa',
+    slug: '',
+    image: '',
+    logo: '/images/logos/yokogawa.svg',
+    country: 'Japan',
+    website: 'https://www.yokogawa.com',
   },
   emerson: {
-    name: "Emerson / Bettis / Shafer",
-    slug: "",
-    image: "",
-    logo: "/images/logos/emerson.svg",
-    country: "USA",
-    website: "https://www.emerson.com",
+    name: 'Emerson / Bettis / Shafer',
+    slug: '',
+    image: '',
+    logo: '/images/logos/emerson.svg',
+    country: 'USA',
+    website: 'https://www.emerson.com',
   },
 };
 
-// --- Product Categories (keyed by slug) ------------------------------------
+// --- Hub-level copy --------------------------------------------------------
+
+export const productosHub = {
+  heroH1: {
+    es: 'Portafolio de Productos IPSA: Soluciones de Alta Ingeniería en Control de Fluidos.',
+    en: 'IPSA Product Portfolio: High-Engineering Solutions in Fluid Control.',
+  },
+  heroH2: {
+    es: 'Desde el aislamiento confiable en líneas submarinas hasta el pilotaje neumático de precisión. Integramos las mejores marcas globales con el respaldo de nuestra División de Ingeniería y Automatización.',
+    en: 'From reliable isolation in subsea lines to precision pneumatic piloting. We integrate the best global brands with the support of our Engineering and Automation Division.',
+  },
+  ctaPrimary: { es: 'Hablar con un Ingeniero', en: 'Talk to an Engineer' },
+  ctaSecondary: { es: 'Descargar Catálogo General', en: 'Download General Catalog' },
+};
+
+// --- Product Categories (10 categories) ------------------------------------
 
 export const productCategories: Record<string, ProductCategory> = {
   // =========================================================================
-  // 1. BALL VALVES
+  // BLOCK A: AISLAMIENTO Y BLOQUEO
   // =========================================================================
-  "valvulas-bola": {
-    slug: "valvulas-bola",
-    es: {
-      name: "Válvulas de Bola",
-      desc: "Válvulas de bola de alta calidad para aplicaciones críticas en la industria del petróleo, gas y petroquímica. Disponibles en configuraciones flotante, trunnion mounted, fully welded, top entry, doble bloqueo y purga, criogénicas, alta presión y subsea.",
-    },
-    en: {
-      name: "Ball Valves",
-      desc: "High-quality ball valves for critical applications in the oil, gas, and petrochemical industries. Available in floating, trunnion mounted, fully welded, top entry, double block & bleed, cryogenic, high-pressure, and subsea configurations.",
-    },
-    image: "/images/products/dhv-trunnion-2pc.jpg",
-    sizes: '1/2" a 64"',
-    pressureClasses: "ANSI 150-2500",
-    standards: [
-      "API 6D",
-      "API 6A",
-      "API 6DSS",
-      "API 607",
-      "API 6FA",
-      "NACE MR0175",
-      "ISO 15848",
-      "ISO 10497",
-    ],
-    suppliers: ["dhv", "della-foglia", "perar"],
-    industries: ["petroleras", "gas", "petroquimica", "energia", "mineria"],
-    services: ["automatizacion", "ingenieria", "soporte-in-house"],
-    subtypes: [
-      {
-        slug: "floating",
-        es: {
-          name: "Válvulas de Bola Flotante",
-          desc: "Válvulas de bola flotante donde la bola se desplaza ligeramente hacia el asiento aguas abajo por efecto de la presión del fluido, proporcionando un sello confiable. Ideales para aplicaciones de baja a media presión en diámetros reducidos.",
-        },
-        en: {
-          name: "Floating Ball Valves",
-          desc: "Floating ball valves where the ball shifts slightly toward the downstream seat under fluid pressure, providing a reliable seal. Ideal for low to medium pressure applications in smaller diameters.",
-        },
-        manufacturers: ["dhv", "della-foglia"],
-        image: "/images/products/dhv-floater.jpg",
-        sizes: '1/2" to 12"',
-        pressureClasses: "ANSI 150-600",
-      },
-      {
-        slug: "trunnion",
-        es: {
-          name: "Válvulas de Bola Trunnion Mounted",
-          desc: "Válvulas de bola con montaje trunnion donde la bola está soportada por un eje superior e inferior, reduciendo el torque de operación y permitiendo diámetros y presiones mayores. Construcción robusta para servicio severo en refinación, gas natural y producción offshore.",
-        },
-        en: {
-          name: "Trunnion Mounted Ball Valves",
-          desc: "Trunnion mounted ball valves where the ball is supported by upper and lower shafts, reducing operating torque and enabling larger diameters and higher pressures. Robust construction for severe service in refining, natural gas, and offshore production.",
-        },
-        manufacturers: ["dhv", "della-foglia", "perar"],
-        image: "/images/products/dhv-trunnion-2pc.jpg",
-        sizes: '2" to 64"',
-        pressureClasses: "ANSI 150-2500",
-      },
-      {
-        slug: "fully-welded",
-        es: {
-          name: "Válvulas de Bola Fully Welded Body",
-          desc: "Válvulas de bola con cuerpo totalmente soldado que elimina posibles puntos de fuga en la envolvente. Diseñadas para líneas de transmisión de gas, oleoductos y aplicaciones donde la integridad del sello externo es crítica. Construcción compacta y ligera.",
-        },
-        en: {
-          name: "Fully Welded Body Ball Valves",
-          desc: "Ball valves with a fully welded body that eliminates potential leak points on the pressure envelope. Designed for gas transmission lines, pipelines, and applications where external seal integrity is critical. Compact and lightweight construction.",
-        },
-        manufacturers: ["della-foglia", "perar"],
-        image: "/images/products/df-trunnion-wb.jpg",
-        sizes: '2" to 48"',
-        pressureClasses: "ANSI 150-900",
-      },
-      {
-        slug: "top-entry",
-        es: {
-          name: "Válvulas de Bola Top Entry",
-          desc: "Válvulas de bola con acceso superior que permiten el mantenimiento en línea sin desmontar la válvula de la tubería. Reducen significativamente los tiempos de paro y los costos de mantenimiento en instalaciones donde la continuidad operativa es prioritaria.",
-        },
-        en: {
-          name: "Top Entry Ball Valves",
-          desc: "Top entry ball valves that allow in-line maintenance without removing the valve from the pipeline. Significantly reduce downtime and maintenance costs in installations where operational continuity is a priority.",
-        },
-        manufacturers: ["della-foglia"],
-        image: "/images/products/df-trunnion-coated.jpg",
-        sizes: '2" to 42"',
-      },
-      {
-        slug: "dbb",
-        es: {
-          name: "Válvulas de Doble Bloqueo y Purga (DBB)",
-          desc: "Válvulas de doble bloqueo y purga que proporcionan doble aislamiento positivo y una cavidad intermedia con venteo, permitiendo verificar la integridad de cada sello. Esenciales para operaciones de mantenimiento seguro y aislamiento de líneas.",
-        },
-        en: {
-          name: "Double Block & Bleed Valves (DBB)",
-          desc: "Double block and bleed valves providing dual positive isolation with an intermediate cavity and bleed port, allowing verification of each seal's integrity. Essential for safe maintenance operations and line isolation.",
-        },
-        manufacturers: ["dhv", "della-foglia"],
-        image: "/images/products/dhv-trunnion-dbb.jpg",
-        sizes: '2" to 36"',
-      },
-      {
-        slug: "criogenicas",
-        es: {
-          name: "Válvulas de Bola Criogénicas",
-          desc: "Válvulas de bola diseñadas para servicio criogénico en aplicaciones de GNL, etileno y gases licuados. Incorporan extensión de vástago para proteger los sellos y empaques de las temperaturas extremadamente bajas, cumpliendo con los requisitos de BS 6364.",
-        },
-        en: {
-          name: "Cryogenic Ball Valves",
-          desc: "Ball valves designed for cryogenic service in LNG, ethylene, and liquefied gas applications. Feature stem extensions to protect seals and packing from extremely low temperatures, meeting BS 6364 requirements.",
-        },
-        manufacturers: ["della-foglia"],
-        image: "/images/products/df-trunnion-wb-coated.jpg",
-        sizes: '2" to 36"',
-      },
-      {
-        slug: "alta-presion",
-        es: {
-          name: "Válvulas de Bola de Alta Presión",
-          desc: "Válvulas de bola diseñadas para operar a presiones extremadamente altas, hasta 15,000 psi. Fabricadas con materiales de alta resistencia y tolerancias estrictas para servicio en pozos de alta presión, inyección de agua y aplicaciones de fracturamiento hidráulico.",
-        },
-        en: {
-          name: "High Pressure Ball Valves",
-          desc: "Ball valves designed to operate at extremely high pressures, up to 15,000 psi. Manufactured with high-strength materials and tight tolerances for service in high-pressure wells, water injection, and hydraulic fracturing applications.",
-        },
-        manufacturers: ["della-foglia"],
-        image: "/images/products/df-product-2.jpg",
-      },
-      {
-        slug: "subsea",
-        es: {
-          name: "Válvulas de Bola Subsea",
-          desc: "Válvulas de bola diseñadas para instalación y operación en el fondo marino conforme a API 6DSS. Construidas para resistir la presión externa del agua, ambientes corrosivos y las demandas de operación remota mediante ROV. Críticas para árboles de navidad submarinos y manifolds.",
-        },
-        en: {
-          name: "Subsea Ball Valves",
-          desc: "Ball valves designed for installation and operation on the seabed per API 6DSS. Built to withstand external water pressure, corrosive environments, and the demands of remote ROV operation. Critical for subsea trees and manifolds.",
-        },
-        manufacturers: ["della-foglia"],
-        image: "/images/products/df-product-3.jpg",
-        standards: ["API 6DSS"],
-      },
-    ],
-  },
 
-  // =========================================================================
-  // 2. GATE VALVES
-  // =========================================================================
-  "valvulas-compuerta": {
-    slug: "valvulas-compuerta",
-    es: {
-      name: "Válvulas de Compuerta",
-      desc: "Válvulas de compuerta diseñadas para servicio on/off en líneas de proceso. Ideales para aplicaciones que requieren flujo sin obstrucción y cierre hermético en refinación, petroquímica y transmisión de hidrocarburos.",
-    },
-    en: {
-      name: "Gate Valves",
-      desc: "Gate valves designed for on/off service in process lines. Ideal for applications requiring unobstructed flow and tight shutoff in refining, petrochemical, and hydrocarbon transmission.",
-    },
-    image: "/images/products/dhv-gate-valve.png",
+  // A1 - Válvulas de Bola Trunnion
+  'valvulas-bola-trunnion': {
+    slug: 'valvulas-bola-trunnion',
+    es: { name: 'Válvulas de Bola Trunnion', desc: 'Válvulas de bola con montaje trunnion para aislamiento crítico en ductos, estaciones de compresión y aplicaciones subsea. Cuerpo atornillado y soldado.' },
+    en: { name: 'Trunnion Ball Valves', desc: 'Trunnion mounted ball valves for critical isolation in pipelines, compression stations, and subsea applications. Bolted and welded body.' },
+    image: '/images/products/dhv-trunnion-2pc.jpg',
     sizes: '2" a 48"',
-    pressureClasses: "ANSI 150-2500",
-    standards: ["API 600", "API 602", "API 6D", "NACE MR0175"],
-    suppliers: ["dhv"],
-    industries: ["petroleras", "gas", "petroquimica", "energia"],
-    services: ["automatizacion", "ingenieria", "soporte-in-house"],
+    pressureClasses: 'ANSI 150–2500',
+    standards: ['API 6D', 'API 6A', 'API 6DSS', 'API 607', 'NACE MR0175', 'ISO 15848'],
+    suppliers: ['perar', 'della-foglia', 'dhv'],
+    industries: ['oil-gas', 'energetico'],
+    services: ['automatizacion', 'ingenieria'],
+    block: 'A',
+    blockLabel: { es: 'Aislamiento y Bloqueo', en: 'Isolation & Shutoff' },
+    heroH1: {
+      es: 'Válvulas de Bola Trunnion: El Estándar de Aislamiento Crítico.',
+      en: 'Trunnion Ball Valves: The Critical Isolation Standard.',
+    },
+    heroH2: {
+      es: 'Ingeniería de aislamiento para los entornos más hostiles. Tecnología probada para alta presión, corrosión extrema y aplicaciones submarinas con certificación API 6D y 6DSS.',
+      en: 'Isolation engineering for the most hostile environments. Proven technology for high pressure, extreme corrosion, and subsea applications with API 6D and 6DSS certification.',
+    },
+    ctaPrimary: { es: 'Consultar Inventario Trunnion', en: 'Check Trunnion Inventory' },
+    ctaSecondary: { es: 'Solicitar Ingeniería de Aplicación', en: 'Request Application Engineering' },
+    definition: {
+      es: 'Una válvula de bola trunnion es un dispositivo de aislamiento donde la bola está soportada por un eje (trunnion) superior e inferior, reduciendo el torque de operación y permitiendo operar en diámetros y presiones mayores. Su diseño robusto la convierte en la elección principal para ductos de transporte, estaciones de compresión y aplicaciones donde la integridad del sello es crítica.',
+      en: 'A trunnion ball valve is an isolation device where the ball is supported by upper and lower shafts (trunnion), reducing operating torque and enabling operation at larger diameters and higher pressures. Its robust design makes it the primary choice for transportation pipelines, compression stations, and applications where seal integrity is critical.',
+    },
+    pas: {
+      problema: {
+        es: 'Los proyectos de ductos y plataformas enfrentan tiempos de espera de hasta 40 semanas para obtener válvulas trunnion certificadas desde Europa.',
+        en: 'Pipeline and platform projects face lead times of up to 40 weeks to obtain certified trunnion valves from Europe.',
+      },
+      agitacion: {
+        es: 'Cada semana de retraso compromete los cronogramas de puesta en marcha y genera costos millonarios por inactividad de equipos y personal.',
+        en: 'Every week of delay compromises commissioning schedules and generates millions in costs due to equipment and personnel downtime.',
+      },
+      solucion: {
+        es: 'IPSA mantiene stock estratégico de válvulas Trunnion Perar y Della Foglia en México, con certificación API 6D/6DSS y trazabilidad completa.',
+        en: 'IPSA maintains strategic stock of Perar and Della Foglia Trunnion valves in Mexico, with API 6D/6DSS certification and full traceability.',
+      },
+    },
+    certChecklist: ['API 6D', 'API 6A', 'API 6DSS', 'NACE MR0175', 'ISO 15848', 'SIL 3'],
+    relatedBrands: ['perar', 'della-foglia'],
     subtypes: [
       {
-        slug: "wedge",
-        es: {
-          name: "Válvulas de Compuerta de Cuña",
-          desc: "Válvulas de compuerta con obturador tipo cuña (wedge) que proporciona un sello bidireccional confiable. Disponibles en cuña sólida, flexible y dividida para adaptarse a diversas condiciones de servicio, incluyendo alta temperatura y presión.",
-        },
-        en: {
-          name: "Wedge Gate Valves",
-          desc: "Gate valves with a wedge-type disc providing reliable bidirectional sealing. Available in solid, flexible, and split wedge designs to suit various service conditions, including high temperature and pressure.",
-        },
-        manufacturers: ["dhv"],
-        image: "/images/products/dhv-gate-valve.png",
+        slug: 'atornillado',
+        es: { name: 'Trunnion Cuerpo Atornillado', desc: 'Válvulas trunnion con cuerpo atornillado (bolted body) para mantenimiento en campo sin necesidad de soldadura.' },
+        en: { name: 'Bolted Body Trunnion', desc: 'Trunnion valves with bolted body for field maintenance without welding.' },
+        manufacturers: ['perar', 'della-foglia', 'dhv'],
+        image: '/images/products/dhv-trunnion-2pc.jpg',
+        sizes: '2" to 48"',
+        pressureClasses: 'ANSI 150-2500',
       },
       {
-        slug: "slab-gate",
-        es: {
-          name: "Válvulas de Compuerta Slab Gate",
-          desc: "Válvulas de compuerta con obturador plano (slab gate) diseñadas para servicio en oleoductos y gasoductos. El diseño de placa plana minimiza la acumulación de sólidos en la cavidad y proporciona un cierre metálico confiable.",
-        },
-        en: {
-          name: "Slab Gate Valves",
-          desc: "Gate valves with a flat slab gate designed for pipeline service in oil and gas transmission. The flat plate design minimizes solids accumulation in the cavity and provides reliable metal-to-metal sealing.",
-        },
-        manufacturers: ["dhv"],
-        image: "/images/products/dhv-gates.jpg",
+        slug: 'soldado',
+        es: { name: 'Trunnion Cuerpo Soldado', desc: 'Válvulas trunnion con cuerpo totalmente soldado que elimina posibles puntos de fuga. Ideal para líneas de transmisión de gas y oleoductos.' },
+        en: { name: 'Welded Body Trunnion', desc: 'Trunnion valves with fully welded body eliminating potential leak points. Ideal for gas transmission lines and pipelines.' },
+        manufacturers: ['perar', 'della-foglia'],
+        image: '/images/products/df-trunnion-wb.jpg',
+        sizes: '2" to 48"',
+        pressureClasses: 'ANSI 150-900',
       },
       {
-        slug: "conduit",
-        es: {
-          name: "Válvulas de Compuerta Conduit",
-          desc: "Válvulas de compuerta tipo conduit con paso completo que permite el paso de herramientas de limpieza (pigs) a través de la válvula. Esenciales para líneas de transmisión donde se requiere piggability y mínima caída de presión.",
-        },
-        en: {
-          name: "Conduit Gate Valves",
-          desc: "Conduit gate valves with full bore that allows the passage of cleaning tools (pigs) through the valve. Essential for transmission lines where piggability and minimal pressure drop are required.",
-        },
-        manufacturers: ["dhv"],
-        image: "/images/products/dhv-gates.jpg",
+        slug: 'subsea',
+        es: { name: 'Trunnion Subsea (API 6DSS)', desc: 'Válvulas diseñadas para instalación en el fondo marino. Operación remota mediante ROV bajo presiones hidrostáticas extremas.' },
+        en: { name: 'Subsea Trunnion (API 6DSS)', desc: 'Valves designed for seabed installation. Remote ROV operation under extreme hydrostatic pressures.' },
+        manufacturers: ['della-foglia', 'perar'],
+        image: '/images/products/df-product-3.jpg',
+        standards: ['API 6DSS'],
+      },
+    ],
+  },
+
+  // A2 - Válvulas de Bola Flotante
+  'valvulas-bola-flotante': {
+    slug: 'valvulas-bola-flotante',
+    es: { name: 'Válvulas de Bola Flotante', desc: 'Válvulas de bola flotante para aislamiento en líneas auxiliares, servicios generales e instrumentación. Diseño compacto y económico.' },
+    en: { name: 'Floating Ball Valves', desc: 'Floating ball valves for isolation in auxiliary lines, general services, and instrumentation. Compact and economical design.' },
+    image: '/images/products/dhv-floater.jpg',
+    sizes: '1/2" a 12"',
+    pressureClasses: 'ANSI 150–600',
+    standards: ['API 6D', 'API 607', 'ISO 17292'],
+    suppliers: ['della-foglia', 'dhv'],
+    industries: ['oil-gas', 'energetico', 'privado'],
+    services: ['automatizacion', 'ingenieria'],
+    block: 'A',
+    blockLabel: { es: 'Aislamiento y Bloqueo', en: 'Isolation & Shutoff' },
+    heroH1: {
+      es: 'Válvulas de Bola Flotante: Versatilidad y Confiabilidad en Cada Línea.',
+      en: 'Floating Ball Valves: Versatility and Reliability in Every Line.',
+    },
+    heroH2: {
+      es: 'La solución confiable para aislamiento en líneas auxiliares, drenajes, venteos y servicios generales. Desde diámetros reducidos hasta configuraciones especiales con disponibilidad inmediata.',
+      en: 'The reliable solution for isolation in auxiliary lines, drains, vents, and general services. From small diameters to special configurations with immediate availability.',
+    },
+    ctaPrimary: { es: 'Ver Inventario de Flotantes', en: 'View Floating Valve Inventory' },
+    ctaSecondary: { es: 'Solicitar Asesoría Técnica', en: 'Request Technical Advice' },
+    definition: {
+      es: 'Una válvula de bola flotante es un dispositivo de aislamiento donde la bola no está fijada mecánicamente, sino que "flota" entre los asientos, siendo empujada contra el asiento aguas abajo por la presión del fluido para lograr el sello. Su diseño simple y económico la hace ideal para aplicaciones de baja a media presión.',
+      en: 'A floating ball valve is an isolation device where the ball is not mechanically fixed but "floats" between the seats, being pushed against the downstream seat by fluid pressure to achieve the seal. Its simple and economical design makes it ideal for low to medium pressure applications.',
+    },
+    certChecklist: ['API 6D', 'API 607', 'ISO 17292'],
+    relatedBrands: ['della-foglia', 'dhv'],
+    subtypes: [
+      {
+        slug: 'estandar',
+        es: { name: 'Bola Flotante Estándar', desc: 'Válvulas flotantes estándar en diámetros de 1/2" a 12" para servicios generales y líneas auxiliares.' },
+        en: { name: 'Standard Floating Ball', desc: 'Standard floating valves from 1/2" to 12" for general services and auxiliary lines.' },
+        manufacturers: ['dhv', 'della-foglia'],
+        image: '/images/products/dhv-floater.jpg',
+        sizes: '1/2" to 12"',
+        pressureClasses: 'ANSI 150-600',
       },
       {
-        slug: "forjadas",
-        es: {
-          name: "Válvulas de Compuerta Forjadas (API 602)",
-          desc: "Válvulas de compuerta de cuerpo forjado conforme a API 602 para diámetros pequeños y altas presiones. Su construcción forjada proporciona mayor resistencia mecánica y son ideales para instrumentación, tomas de muestra y líneas auxiliares.",
-        },
-        en: {
-          name: "Forged Gate Valves (API 602)",
-          desc: "Forged body gate valves per API 602 for small diameters and high pressures. Their forged construction provides superior mechanical strength and they are ideal for instrumentation, sample points, and auxiliary lines.",
-        },
-        manufacturers: ["dhv"],
-        image: "/images/products/dhv-forged.png",
-        standards: ["API 602"],
+        slug: 'top-entry',
+        es: { name: 'Bola Flotante Top Entry', desc: 'Válvulas con acceso superior para mantenimiento en línea sin desmontaje de tubería.' },
+        en: { name: 'Top Entry Floating Ball', desc: 'Valves with top access for in-line maintenance without pipe dismantling.' },
+        manufacturers: ['della-foglia'],
+        image: '/images/products/df-trunnion-coated.jpg',
+        sizes: '2" to 24"',
+      },
+      {
+        slug: 'criogenica',
+        es: { name: 'Bola Flotante Criogénica', desc: 'Válvulas para servicio criogénico en GNL, etileno y gases licuados, con extensión de vástago conforme a BS 6364.' },
+        en: { name: 'Cryogenic Floating Ball', desc: 'Valves for cryogenic service in LNG, ethylene, and liquefied gases, with stem extension per BS 6364.' },
+        manufacturers: ['della-foglia'],
+        image: '/images/products/df-trunnion-wb-coated.jpg',
+      },
+    ],
+  },
+
+  // A3 - Válvulas de Compuerta
+  'valvulas-compuerta': {
+    slug: 'valvulas-compuerta',
+    es: { name: 'Válvulas de Compuerta', desc: 'Válvulas de compuerta para aislamiento principal en refinerías, ductos e infraestructura de generación. Flujo total sin obstrucción.' },
+    en: { name: 'Gate Valves', desc: 'Gate valves for primary isolation in refineries, pipelines, and power generation infrastructure. Full bore unobstructed flow.' },
+    image: '/images/products/dhv-gate.jpg',
+    sizes: '2" a 36"',
+    pressureClasses: 'ANSI 150–2500',
+    standards: ['API 600', 'API 6D', 'ASME B16.34'],
+    suppliers: ['dhv'],
+    industries: ['oil-gas', 'energetico'],
+    services: ['ingenieria'],
+    block: 'A',
+    blockLabel: { es: 'Aislamiento y Bloqueo', en: 'Isolation & Shutoff' },
+    heroH1: {
+      es: 'Válvulas de Compuerta: Aislamiento Robusto para Infraestructura Crítica.',
+      en: 'Gate Valves: Robust Isolation for Critical Infrastructure.',
+    },
+    heroH2: {
+      es: 'El estándar de confiabilidad para aislamiento en refinerías, ductos y plantas de generación. Diseño que garantiza flujo total sin obstrucción y cierre hermético bajo los estándares API y ASME.',
+      en: 'The reliability standard for isolation in refineries, pipelines, and power plants. Design that guarantees full unobstructed flow and tight shutoff under API and ASME standards.',
+    },
+    ctaPrimary: { es: 'Ver Stock de Compuerta DHV', en: 'View DHV Gate Valve Stock' },
+    ctaSecondary: { es: 'Consultar Especificaciones', en: 'Check Specifications' },
+    definition: {
+      es: 'Una válvula de compuerta utiliza una compuerta (gate) que se desplaza perpendicularmente al flujo para abrir o cerrar el paso del fluido. Su diseño de paso completo la convierte en la opción principal cuando se requiere mínima caída de presión y flujo sin obstrucción.',
+      en: 'A gate valve uses a gate that moves perpendicular to the flow to open or close fluid passage. Its full-bore design makes it the primary option when minimum pressure drop and unobstructed flow are required.',
+    },
+    certChecklist: ['API 600', 'API 6D', 'ASME B16.34'],
+    relatedBrands: ['dhv'],
+    subtypes: [
+      {
+        slug: 'slab',
+        es: { name: 'Compuerta Tipo Slab', desc: 'Válvulas de compuerta con disco plano (slab) para servicio en ductos de transmisión de gas y petróleo.' },
+        en: { name: 'Slab Gate Valve', desc: 'Gate valves with flat disc (slab) for service in gas and oil transmission pipelines.' },
+        manufacturers: ['dhv'],
+        image: '/images/products/dhv-gate.jpg',
+        sizes: '2" to 36"',
+        pressureClasses: 'ANSI 150-2500',
+      },
+      {
+        slug: 'wedge',
+        es: { name: 'Compuerta Tipo Cuña', desc: 'Válvulas de compuerta con cuña flexible o sólida para servicio en refinerías y plantas de proceso.' },
+        en: { name: 'Wedge Gate Valve', desc: 'Gate valves with flexible or solid wedge for refinery and process plant service.' },
+        manufacturers: ['dhv'],
+        image: '/images/products/dhv-gate.jpg',
+        sizes: '2" to 24"',
+        pressureClasses: 'ANSI 150-1500',
       },
     ],
   },
 
   // =========================================================================
-  // 3. CONTROL VALVES
+  // BLOCK B: REGULACION Y RETENCION
   // =========================================================================
-  "valvulas-control": {
-    slug: "valvulas-control",
-    es: {
-      name: "Válvulas de Control",
-      desc: "Válvulas de control para regulación precisa de flujo, presión y temperatura en procesos industriales. Incluyen soluciones globo, rotativas, mariposa y anti-surge para protección de compresores y turbomaquinaria.",
+
+  // B1 - Válvulas de Globo
+  'valvulas-globo': {
+    slug: 'valvulas-globo',
+    es: { name: 'Válvulas de Globo', desc: 'Válvulas de globo para regulación y estrangulación de flujo en servicios de vapor, líquidos y gases industriales.' },
+    en: { name: 'Globe Valves', desc: 'Globe valves for flow regulation and throttling in steam, liquid, and industrial gas services.' },
+    image: '/images/products/dhv-globe.jpg',
+    sizes: '2" a 24"',
+    pressureClasses: 'ANSI 150–2500',
+    standards: ['API 600', 'ASME B16.34', 'BS 1873'],
+    suppliers: ['dhv'],
+    industries: ['energetico', 'privado'],
+    services: ['ingenieria'],
+    block: 'B',
+    blockLabel: { es: 'Regulación y Retención', en: 'Regulation & Retention' },
+    heroH1: {
+      es: 'Válvulas de Globo: Regulación Precisa para Procesos Críticos.',
+      en: 'Globe Valves: Precise Regulation for Critical Processes.',
     },
-    en: {
-      name: "Control Valves",
-      desc: "Control valves for precise regulation of flow, pressure, and temperature in industrial processes. Include globe, rotary, butterfly, and anti-surge solutions for compressor and turbomachinery protection.",
+    heroH2: {
+      es: 'Control manual de flujo y estrangulación en servicios de vapor, enfriamiento y procesos químicos. Diseñadas bajo estándares ASME para la máxima durabilidad en condiciones térmicas severas.',
+      en: 'Manual flow control and throttling in steam, cooling, and chemical process services. Designed under ASME standards for maximum durability in severe thermal conditions.',
     },
-    image: "/images/products/df-trunnion-coated.jpg",
-    sizes: '1" a 36"',
-    pressureClasses: "ANSI 150-2500",
-    standards: ["ISA", "IEC 61511", "IEC 61508", "API 553"],
-    suppliers: [],
-    industries: ["petroleras", "aceites", "gas", "petroquimica", "energia"],
-    services: ["automatizacion", "ingenieria"],
+    ctaPrimary: { es: 'Ver Inventario de Globo', en: 'View Globe Valve Inventory' },
+    ctaSecondary: { es: 'Consultar Aplicaciones', en: 'Check Applications' },
+    definition: {
+      es: 'Una válvula de globo utiliza un disco que se mueve perpendicularmente al asiento para regular el caudal de fluido. Su diseño permite un control preciso del flujo, lo que la hace ideal para aplicaciones de estrangulación y regulación manual en servicios de vapor, líquidos calientes y gases.',
+      en: 'A globe valve uses a disc that moves perpendicular to the seat to regulate fluid flow. Its design allows precise flow control, making it ideal for throttling and manual regulation in steam, hot liquid, and gas services.',
+    },
+    certChecklist: ['API 600', 'ASME B16.34', 'BS 1873'],
+    relatedBrands: ['dhv'],
     subtypes: [
       {
-        slug: "globe",
-        es: {
-          name: "Válvulas de Control Globo",
-          desc: "Válvulas de control tipo globo que ofrecen una regulación precisa del flujo mediante un obturador lineal. Disponibles en configuraciones de cuerpo recto, angular y de tres vías para una amplia gama de aplicaciones de proceso, incluyendo servicio con cavitación y alta caída de presión.",
-        },
-        en: {
-          name: "Globe Control Valves",
-          desc: "Globe-type control valves offering precise flow regulation through a linear plug. Available in straight-body, angle, and three-way configurations for a wide range of process applications, including cavitation and high pressure-drop service.",
-        },
-        manufacturers: ["masoneilan"],
-        image: "/images/products/df-trunnion-coated.jpg",
+        slug: 'estandar',
+        es: { name: 'Globo Estándar', desc: 'Válvulas de globo estándar para regulación de flujo en líneas de proceso y servicios generales.' },
+        en: { name: 'Standard Globe', desc: 'Standard globe valves for flow regulation in process lines and general services.' },
+        manufacturers: ['dhv'],
+        image: '/images/products/dhv-globe.jpg',
+        sizes: '2" to 24"',
+        pressureClasses: 'ANSI 150-2500',
+      },
+    ],
+  },
+
+  // B2 - Válvulas Check
+  'valvulas-check': {
+    slug: 'valvulas-check',
+    es: { name: 'Válvulas Check', desc: 'Válvulas de retención para prevenir el reflujo en sistemas de bombeo, compresión y distribución.' },
+    en: { name: 'Check Valves', desc: 'Check valves to prevent backflow in pumping, compression, and distribution systems.' },
+    image: '/images/products/dhv-check.jpg',
+    sizes: '2" a 36"',
+    pressureClasses: 'ANSI 150–2500',
+    standards: ['API 6D', 'ASME B16.34', 'API 594'],
+    suppliers: ['dhv'],
+    industries: ['oil-gas', 'energetico', 'privado'],
+    services: ['ingenieria'],
+    block: 'B',
+    blockLabel: { es: 'Regulación y Retención', en: 'Regulation & Retention' },
+    heroH1: {
+      es: 'Válvulas Check: La Línea de Defensa Contra el Reflujo.',
+      en: 'Check Valves: The Defense Line Against Backflow.',
+    },
+    heroH2: {
+      es: 'Protección esencial contra el golpe de ariete y el reflujo en sistemas de bombeo y compresión. El "comodín" de seguridad que previene daños catastróficos en sus equipos.',
+      en: 'Essential protection against water hammer and backflow in pumping and compression systems. The safety "wildcard" that prevents catastrophic damage to your equipment.',
+    },
+    ctaPrimary: { es: 'Ver Inventario de Check', en: 'View Check Valve Inventory' },
+    ctaSecondary: { es: 'Consultar Especificaciones', en: 'Check Specifications' },
+    definition: {
+      es: 'Una válvula check (retención) permite el flujo en una sola dirección, cerrándose automáticamente cuando el flujo se invierte. Es una pieza fundamental de seguridad en sistemas de bombeo, estaciones de compresión y cualquier instalación donde el reflujo pueda dañar equipos o comprometer la seguridad del proceso.',
+      en: 'A check valve allows flow in only one direction, closing automatically when flow reverses. It is a fundamental safety piece in pumping systems, compression stations, and any installation where backflow could damage equipment or compromise process safety.',
+    },
+    certChecklist: ['API 6D', 'ASME B16.34', 'API 594'],
+    relatedBrands: ['dhv'],
+    subtypes: [
+      {
+        slug: 'swing',
+        es: { name: 'Check Tipo Swing', desc: 'Válvulas check tipo swing (bisagra) para líneas de proceso con baja caída de presión.' },
+        en: { name: 'Swing Check', desc: 'Swing check valves for process lines with low pressure drop.' },
+        manufacturers: ['dhv'],
+        image: '/images/products/dhv-check.jpg',
+        sizes: '2" to 36"',
+        pressureClasses: 'ANSI 150-2500',
       },
       {
-        slug: "rotary",
-        es: {
-          name: "Válvulas de Control Rotativas",
-          desc: "Válvulas de control rotativas de cuarto de vuelta que combinan alta capacidad de flujo con un diseño compacto. Ideales para aplicaciones con fluidos viscosos, lodos o donde se requiere alta rangeabilidad con mínima caída de presión.",
-        },
-        en: {
-          name: "Rotary Control Valves",
-          desc: "Quarter-turn rotary control valves combining high flow capacity with a compact design. Ideal for applications with viscous fluids, slurries, or where high rangeability with minimal pressure drop is required.",
-        },
-        manufacturers: ["masoneilan"],
-        image: "/images/products/df-trunnion-coated.jpg",
-      },
-      {
-        slug: "butterfly",
-        es: {
-          name: "Válvulas de Control Mariposa",
-          desc: "Válvulas de control tipo mariposa de alto rendimiento para regulación de flujo en grandes diámetros. Ofrecen excelente relación capacidad-tamaño y son ampliamente utilizadas en servicios de utilidades, agua de enfriamiento y procesos de baja presión.",
-        },
-        en: {
-          name: "Butterfly Control Valves",
-          desc: "High-performance butterfly control valves for flow regulation in large diameters. Offer excellent capacity-to-size ratio and are widely used in utilities, cooling water, and low-pressure process services.",
-        },
-        manufacturers: ["masoneilan"],
-        image: "/images/products/df-trunnion-coated.jpg",
-      },
-      {
-        slug: "anti-surge",
-        es: {
-          name: "Válvulas Anti-Surge",
-          desc: "Válvulas anti-surge de respuesta rápida diseñadas para protección de compresores centrífugos y axiales. Proporcionan tiempos de apertura extremadamente cortos para evitar el fenómeno de surge, protegiendo la turbomaquinaria crítica de daños catastróficos.",
-        },
-        en: {
-          name: "Anti-Surge Valves",
-          desc: "Fast-response anti-surge valves designed for protection of centrifugal and axial compressors. Provide extremely short opening times to prevent surge, protecting critical turbomachinery from catastrophic damage.",
-        },
-        manufacturers: ["masoneilan"],
-        image: "/images/products/df-trunnion-coated.jpg",
+        slug: 'piston',
+        es: { name: 'Check Tipo Pistón', desc: 'Válvulas check tipo pistón para servicios de alta presión y vapor.' },
+        en: { name: 'Piston Check', desc: 'Piston check valves for high-pressure and steam services.' },
+        manufacturers: ['dhv'],
+        image: '/images/products/dhv-check.jpg',
+        sizes: '2" to 16"',
+        pressureClasses: 'ANSI 150-2500',
       },
     ],
   },
 
   // =========================================================================
-  // 4. ACTUATORS
+  // BLOCK C: CONTROL, SEGURIDAD Y AUTOMATIZACION
   // =========================================================================
-  actuadores: {
-    slug: "actuadores",
-    es: {
-      name: "Actuadores",
-      desc: "Actuadores neumáticos, eléctricos e hidráulicos para la automatización de válvulas en la industria del petróleo, gas y petroquímica. Incluyen actuadores auto-contenidos para ubicaciones remotas sin suministro de energía.",
+
+  // C1 - Válvulas de Control
+  'valvulas-control': {
+    slug: 'valvulas-control',
+    es: { name: 'Válvulas de Control', desc: 'Válvulas de control de proceso con posicionadores inteligentes para la regulación precisa de flujo, presión y temperatura.' },
+    en: { name: 'Control Valves', desc: 'Process control valves with smart positioners for precise regulation of flow, pressure, and temperature.' },
+    image: '/images/products/masoneilan-control.jpg',
+    sizes: '1" a 24"',
+    pressureClasses: 'ANSI 150–2500',
+    standards: ['IEC 61131', 'IEC 61511', 'ASME B16.34', 'ISA 75.01'],
+    suppliers: ['masoneilan'],
+    industries: ['energetico', 'privado', 'oil-gas'],
+    services: ['automatizacion'],
+    block: 'C',
+    blockLabel: { es: 'Control, Seguridad y Automatización', en: 'Control, Safety & Automation' },
+    heroH1: {
+      es: 'Válvulas de Control: Precisión Absoluta en la Regulación de Sus Procesos.',
+      en: 'Control Valves: Absolute Precision in Your Process Regulation.',
     },
-    en: {
-      name: "Actuators",
-      desc: "Pneumatic, electric, and hydraulic actuators for valve automation in the oil, gas, and petrochemical industries. Include self-contained actuators for remote locations without power supply.",
+    heroH2: {
+      es: 'Instrumentación inteligente y posicionadores de última generación para el control preciso de flujo, presión y temperatura. La tecnología que estabiliza sus operaciones más críticas.',
+      en: 'Intelligent instrumentation and state-of-the-art positioners for precise flow, pressure, and temperature control. The technology that stabilizes your most critical operations.',
     },
-    image: "/images/products/df-trunnion-automated.jpg",
-    sizes: "Torques desde 100 Nm hasta 2,000,000 Nm",
-    pressureClasses: "",
-    standards: ["ISO 5211", "NAMUR", "API 6D", "SIL"],
-    suppliers: [],
-    industries: ["petroleras", "aceites", "gas", "petroquimica", "energia"],
-    services: ["automatizacion", "ingenieria"],
+    ctaPrimary: { es: 'Ver Catálogo Masoneilan', en: 'View Masoneilan Catalog' },
+    ctaSecondary: { es: 'Solicitar Diagnóstico de Control', en: 'Request Control Diagnosis' },
+    definition: {
+      es: 'Una válvula de control es un actuador final en un lazo de regulación automática. Recibe una señal del sistema de control (4-20 mA, HART, Fieldbus) y ajusta su apertura para mantener la variable de proceso (flujo, presión, temperatura) en el valor deseado. Son el corazón de la automatización industrial.',
+      en: 'A control valve is a final actuator in an automatic control loop. It receives a signal from the control system (4-20 mA, HART, Fieldbus) and adjusts its opening to maintain the process variable (flow, pressure, temperature) at the desired value. They are the heart of industrial automation.',
+    },
+    certChecklist: ['IEC 61511', 'ASME B16.34', 'SIL 3', 'ISA 75.01'],
+    relatedBrands: ['masoneilan'],
     subtypes: [
       {
-        slug: "neumaticos-rack-pinion",
-        es: {
-          name: "Actuadores Neumáticos Rack & Pinion",
-          desc: "Actuadores neumáticos de cremallera y piñón para válvulas de cuarto de vuelta. Proporcionan operación rápida y confiable con torques de salida consistentes. Diseñados para válvulas de bola, mariposa y obturador, con opciones de simple y doble efecto.",
-        },
-        en: {
-          name: "Pneumatic Rack & Pinion Actuators",
-          desc: "Pneumatic rack and pinion actuators for quarter-turn valves. Provide fast and reliable operation with consistent output torques. Designed for ball, butterfly, and plug valves, with single and double acting options.",
-        },
-        manufacturers: ["emerson"],
-        image: "/images/products/df-trunnion-automated.jpg",
+        slug: 'globo-control',
+        es: { name: 'Control Tipo Globo', desc: 'Válvulas de control tipo globo para regulación precisa en servicios de vapor, líquidos y gases.' },
+        en: { name: 'Globe Control Valve', desc: 'Globe-type control valves for precise regulation in steam, liquid, and gas services.' },
+        manufacturers: ['masoneilan'],
+        image: '/images/products/masoneilan-control.jpg',
+        sizes: '1" to 24"',
       },
       {
-        slug: "neumaticos-scotch-yoke",
-        es: {
-          name: "Actuadores Neumáticos Scotch Yoke",
-          desc: "Actuadores neumáticos de yugo escocés que generan alto torque al inicio y fin de carrera, ideales para válvulas de gran tamaño y alta presión. Su mecanismo proporciona ventaja mecánica donde más se necesita, en la apertura y cierre de la válvula.",
-        },
-        en: {
-          name: "Pneumatic Scotch Yoke Actuators",
-          desc: "Pneumatic scotch yoke actuators generating high torque at the start and end of stroke, ideal for large-size and high-pressure valves. Their mechanism provides mechanical advantage where it is most needed, at valve opening and closing.",
-        },
-        manufacturers: ["emerson"],
-        image: "/images/products/df-trunnion-automated.jpg",
-      },
-      {
-        slug: "electricos",
-        es: {
-          name: "Actuadores Eléctricos",
-          desc: "Actuadores eléctricos multivuelta y de cuarto de vuelta para aplicaciones donde se requiere control preciso de posición y no se dispone de suministro de aire. Incorporan protección por torque y límite de carrera, con interfaces para sistemas de control distribuido.",
-        },
-        en: {
-          name: "Electric Actuators",
-          desc: "Multi-turn and quarter-turn electric actuators for applications requiring precise position control where air supply is not available. Feature torque and travel limit protection, with interfaces for distributed control systems.",
-        },
-        manufacturers: ["emerson"],
-        image: "/images/products/df-trunnion-automated.jpg",
-      },
-      {
-        slug: "hidraulicos",
-        es: {
-          name: "Actuadores Hidráulicos",
-          desc: "Actuadores hidráulicos de alto empuje para válvulas de gran tamaño y servicio severo. Capaces de generar fuerzas extremadamente altas en un paquete compacto, ideales para válvulas de compuerta, válvulas de bola de gran diámetro y aplicaciones subsea.",
-        },
-        en: {
-          name: "Hydraulic Actuators",
-          desc: "High-thrust hydraulic actuators for large valves and severe service. Capable of generating extremely high forces in a compact package, ideal for gate valves, large-diameter ball valves, and subsea applications.",
-        },
-        manufacturers: ["emerson"],
-        image: "/images/products/df-trunnion-automated.jpg",
-      },
-      {
-        slug: "auto-contenidos",
-        es: {
-          name: "Actuadores Auto-Contenidos",
-          desc: "Actuadores auto-contenidos que operan sin fuente de energía externa. Utilizan gas de la línea o acumuladores hidráulicos para operar de forma autónoma. Ideales para ubicaciones remotas como plataformas offshore, wellheads y estaciones de bombeo, con opciones de energía solar y eólica.",
-        },
-        en: {
-          name: "Self-Contained Actuators",
-          desc: "Self-contained actuators that operate without an external power source. Use line gas or hydraulic accumulators for autonomous operation. Ideal for remote locations such as offshore platforms, wellheads, and pumping stations, with solar and wind power options.",
-        },
-        manufacturers: [],
-        image: "/images/products/df-trunnion-automated.jpg",
+        slug: 'rotativas',
+        es: { name: 'Control Rotativas', desc: 'Válvulas de control rotativas (mariposa, bola V) para alto caudal y respuesta rápida.' },
+        en: { name: 'Rotary Control Valve', desc: 'Rotary control valves (butterfly, V-ball) for high flow and fast response.' },
+        manufacturers: ['masoneilan'],
+        image: '/images/products/masoneilan-control.jpg',
       },
     ],
   },
 
-  // =========================================================================
-  // 5. SAFETY RELIEF VALVES
-  // =========================================================================
-  "valvulas-seguridad": {
-    slug: "valvulas-seguridad",
-    es: {
-      name: "Válvulas de Seguridad y Alivio",
-      desc: "Válvulas de seguridad y alivio para protección contra sobrepresión en recipientes, tanques y sistemas de proceso. Diseñadas y fabricadas bajo los más estrictos códigos internacionales para garantizar la seguridad del personal y las instalaciones.",
-    },
-    en: {
-      name: "Safety Relief Valves",
-      desc: "Safety and relief valves for overpressure protection in vessels, tanks, and process systems. Designed and manufactured under the most stringent international codes to ensure personnel and facility safety.",
-    },
-    image: "/images/products/valvulas-seguridad.jpg",
+  // C2 - Válvulas de Seguridad
+  'valvulas-seguridad': {
+    slug: 'valvulas-seguridad',
+    es: { name: 'Válvulas de Seguridad', desc: 'Válvulas de alivio de presión para la protección de equipos y procesos contra sobrepresiones catastróficas.' },
+    en: { name: 'Safety Valves', desc: 'Pressure relief valves for equipment and process protection against catastrophic overpressure.' },
+    image: '/images/products/consolidated-safety.jpg',
     sizes: '1" a 12"',
-    pressureClasses: "ANSI 150-2500",
-    standards: ["API 526", "API 527", "ASME VIII", "API 520"],
-    suppliers: [],
-    industries: ["petroleras", "gas", "petroquimica", "energia"],
-    services: ["ingenieria", "soporte-in-house"],
+    pressureClasses: 'ANSI 150–2500',
+    standards: ['ASME Section VIII', 'API 520', 'API 526', 'API 527'],
+    suppliers: ['consolidated'],
+    industries: ['energetico', 'oil-gas'],
+    services: ['ingenieria'],
+    block: 'C',
+    blockLabel: { es: 'Control, Seguridad y Automatización', en: 'Control, Safety & Automation' },
+    heroH1: {
+      es: 'Válvulas de Seguridad: La Última Línea de Defensa de Sus Activos.',
+      en: 'Safety Valves: The Last Line of Defense for Your Assets.',
+    },
+    heroH2: {
+      es: 'Protección certificada contra sobrepresión bajo los estándares ASME más estrictos. Tecnología Consolidated probada en las calderas, recipientes y líneas de mayor exigencia del sector energético.',
+      en: 'Certified overpressure protection under the most stringent ASME standards. Consolidated technology proven in the most demanding boilers, vessels, and lines in the energy sector.',
+    },
+    ctaPrimary: { es: 'Ver Sistemas de Alivio', en: 'View Relief Systems' },
+    ctaSecondary: { es: 'Solicitar Auditoría de Seguridad', en: 'Request Safety Audit' },
+    definition: {
+      es: 'Una válvula de seguridad (o de alivio de presión) se abre automáticamente cuando la presión del sistema excede un valor predeterminado (set pressure), aliviando el exceso de presión para proteger el equipo y el personal. Es la última barrera física contra una explosión o una falla catastrófica.',
+      en: 'A safety valve (or pressure relief valve) automatically opens when system pressure exceeds a predetermined value (set pressure), relieving excess pressure to protect equipment and personnel. It is the last physical barrier against an explosion or catastrophic failure.',
+    },
+    certChecklist: ['ASME Section VIII', 'API 520', 'API 526', 'NACE MR0175'],
+    relatedBrands: ['consolidated'],
     subtypes: [
       {
-        slug: "convencionales",
-        es: {
-          name: "Válvulas de Seguridad Convencionales",
-          desc: "Válvulas de seguridad convencionales de acción directa con resorte. La solución más común y económica para protección contra sobrepresión en recipientes a presión. El punto de ajuste se establece mediante la compresión del resorte y se ven afectadas por la contrapresión variable.",
-        },
-        en: {
-          name: "Conventional Safety Valves",
-          desc: "Conventional direct-acting spring-loaded safety valves. The most common and economical solution for overpressure protection in pressure vessels. The set point is established by spring compression and performance is affected by variable backpressure.",
-        },
-        manufacturers: ["consolidated"],
-        image: "/images/products/valvulas-seguridad.jpg",
+        slug: 'convencional',
+        es: { name: 'Seguridad Convencional', desc: 'Válvulas de seguridad convencionales para servicios de vapor, aire y gases.' },
+        en: { name: 'Conventional Safety', desc: 'Conventional safety valves for steam, air, and gas services.' },
+        manufacturers: ['consolidated'],
+        image: '/images/products/consolidated-safety.jpg',
+        sizes: '1" to 12"',
       },
       {
-        slug: "balanceadas",
-        es: {
-          name: "Válvulas de Seguridad Balanceadas",
-          desc: "Válvulas de seguridad con fuelle balanceado que compensan el efecto de la contrapresión variable sobre el punto de ajuste. Esenciales cuando la válvula descarga a un cabezal común donde la contrapresión puede fluctuar significativamente durante eventos de alivio simultáneo.",
-        },
-        en: {
-          name: "Balanced Safety Valves",
-          desc: "Balanced bellows safety valves that compensate for the effect of variable backpressure on the set point. Essential when the valve discharges to a common header where backpressure may fluctuate significantly during simultaneous relief events.",
-        },
-        manufacturers: ["consolidated"],
-        image: "/images/products/valvulas-seguridad.jpg",
-      },
-      {
-        slug: "pilot-operated",
-        es: {
-          name: "Válvulas de Seguridad Pilotadas",
-          desc: "Válvulas de seguridad operadas por piloto que utilizan la presión del sistema para mantener la válvula cerrada. Proporcionan un sello hermético hasta el 98% del punto de ajuste y no se ven afectadas por la contrapresión. Ideales para aplicaciones de gas y servicios con alta presión de operación.",
-        },
-        en: {
-          name: "Pilot-Operated Safety Valves",
-          desc: "Pilot-operated safety valves that use system pressure to keep the valve closed. Provide a tight seal up to 98% of the set point and are unaffected by backpressure. Ideal for gas applications and services with high operating pressure.",
-        },
-        manufacturers: ["consolidated"],
-        image: "/images/products/valvulas-seguridad.jpg",
+        slug: 'balanceada',
+        es: { name: 'Seguridad Balanceada', desc: 'Válvulas de seguridad con fuelle de balance para servicio con contrapresión variable.' },
+        en: { name: 'Balanced Safety', desc: 'Safety valves with balanced bellows for service with variable backpressure.' },
+        manufacturers: ['consolidated'],
+        image: '/images/products/consolidated-safety.jpg',
       },
     ],
   },
 
-  // =========================================================================
-  // 6. SOLENOID VALVES
-  // =========================================================================
-  "valvulas-solenoides": {
-    slug: "valvulas-solenoides",
-    es: {
-      name: "Válvulas Solenoides",
-      desc: "Válvulas solenoides para control direccional neumático e hidráulico. Diseñadas para ambientes peligrosos y críticos con certificaciones ATEX, SIL, NAMUR y CSA. Amplia gama de configuraciones para montaje en línea, manifold y directamente sobre actuadores.",
-    },
-    en: {
-      name: "Solenoid Valves",
-      desc: "Solenoid valves for pneumatic and hydraulic directional control. Designed for hazardous and critical environments with ATEX, SIL, NAMUR, and CSA certifications. Wide range of configurations for in-line, manifold, and direct actuator mounting.",
-    },
-    image: "/images/products/versa-e4-solenoid.png",
+  // C3 - Válvulas Neumáticas y Solenoides
+  'valvulas-neumaticas-solenoides': {
+    slug: 'valvulas-neumaticas-solenoides',
+    es: { name: 'Válvulas Neumáticas y Solenoides', desc: 'Válvulas solenoides y de control direccional para la automatización precisa de actuadores y sistemas de seguridad.' },
+    en: { name: 'Pneumatic & Solenoid Valves', desc: 'Solenoid and directional control valves for precise actuator automation and safety systems.' },
+    image: '/images/products/versa-e4-solenoid.png',
     sizes: '1/4" a 2"',
-    pressureClasses: "Hasta 6,000 psi",
-    standards: ["ATEX", "SIL", "NAMUR", "CSA"],
-    suppliers: ["versa"],
-    industries: ["petroleras", "aceites", "gas", "petroquimica", "energia"],
-    services: ["automatizacion"],
+    pressureClasses: 'Hasta 6000 psi',
+    standards: ['NAMUR', 'VDI/VDE 3845', 'IEC 61508', 'ATEX'],
+    suppliers: ['versa'],
+    industries: ['oil-gas', 'energetico', 'privado'],
+    services: ['automatizacion'],
+    block: 'C',
+    blockLabel: { es: 'Control, Seguridad y Automatización', en: 'Control, Safety & Automation' },
+    heroH1: {
+      es: 'Válvulas Neumáticas y Solenoides: El Sistema Nervioso de Su Automatización.',
+      en: 'Pneumatic & Solenoid Valves: The Nervous System of Your Automation.',
+    },
+    heroH2: {
+      es: 'Control direccional de alta confiabilidad diseñado para operar sin fallas en ambientes corrosivos y explosivos. Certificación SIL 3 para la seguridad funcional de sus procesos automatizados.',
+      en: 'High-reliability directional control designed to operate without failures in corrosive and explosive environments. SIL 3 certification for the functional safety of your automated processes.',
+    },
+    ctaPrimary: { es: 'Consultar Stock Versa', en: 'Check Versa Stock' },
+    ctaSecondary: { es: 'Solicitar Ingeniería de Automatización', en: 'Request Automation Engineering' },
+    definition: {
+      es: 'Una válvula solenoide es un dispositivo electromecánico que utiliza un campo electromagnético para abrir o cerrar el paso de un fluido piloto (aire o hidráulico). Son el componente esencial para el control remoto de actuadores en procesos automatizados, sistemas de paro de emergencia (ESD) y aplicaciones de seguridad funcional.',
+      en: 'A solenoid valve is an electromechanical device that uses an electromagnetic field to open or close the passage of a pilot fluid (air or hydraulic). They are the essential component for remote actuator control in automated processes, emergency shutdown (ESD) systems, and functional safety applications.',
+    },
+    certChecklist: ['SIL 3', 'ATEX', 'IEC 61508', 'NAMUR'],
+    relatedBrands: ['versa'],
     subtypes: [
       {
-        slug: "neumatico",
-        es: {
-          name: "Válvulas Solenoides Neumáticas",
-          desc: "Válvulas solenoides para control direccional neumático de actuadores y cilindros. Disponibles en configuraciones 3/2, 4/2, 5/2 y 5/3 vías con voltajes de bobina estándar. Diseñadas para operación confiable en ambientes industriales y áreas clasificadas.",
-        },
-        en: {
-          name: "Pneumatic Solenoid Valves",
-          desc: "Solenoid valves for pneumatic directional control of actuators and cylinders. Available in 3/2, 4/2, 5/2, and 5/3 way configurations with standard coil voltages. Designed for reliable operation in industrial environments and classified areas.",
-        },
-        manufacturers: ["versa"],
-        image: "/images/products/versa-e4-solenoid.png",
+        slug: 'solenoide-serie-v',
+        es: { name: 'Solenoide Serie V', desc: 'Válvulas solenoides Serie V de Versa: estándar de la industria para control de actuadores en configuraciones de 3 y 4 vías.' },
+        en: { name: 'Series V Solenoid', desc: 'Versa Series V solenoid valves: industry standard for actuator control in 3 and 4-way configurations.' },
+        manufacturers: ['versa'],
+        image: '/images/products/versa-e4-solenoid.png',
       },
       {
-        slug: "hidraulico",
-        es: {
-          name: "Válvulas Solenoides Hidráulicas",
-          desc: "Válvulas solenoides para control direccional hidráulico de alta presión. Construidas en materiales resistentes a la corrosión y diseñadas para operar con fluidos hidráulicos, agua y otros medios. Ideales para sistemas hidráulicos de actuación de válvulas.",
-        },
-        en: {
-          name: "Hydraulic Solenoid Valves",
-          desc: "Solenoid valves for high-pressure hydraulic directional control. Built from corrosion-resistant materials and designed to operate with hydraulic fluids, water, and other media. Ideal for valve actuation hydraulic systems.",
-        },
-        manufacturers: ["versa"],
-        image: "/images/products/versa-vmap.webp",
+        slug: 'piloto-control',
+        es: { name: 'Válvulas Piloto y Control Direccional', desc: 'Control neumático e hidráulico de alta velocidad con reset manual o automático para sistemas de seguridad.' },
+        en: { name: 'Pilot & Directional Control Valves', desc: 'High-speed pneumatic and hydraulic control with manual or automatic reset for safety systems.' },
+        manufacturers: ['versa'],
+        image: '/images/products/versa-namur.webp',
       },
       {
-        slug: "namur",
-        es: {
-          name: "Válvulas Solenoides NAMUR",
-          desc: "Válvulas solenoides con interfaz NAMUR para montaje directo sobre actuadores neumáticos. Eliminan la necesidad de tubería entre la solenoide y el actuador, reduciendo puntos de fuga y simplificando la instalación. Certificadas ATEX para áreas clasificadas.",
-        },
-        en: {
-          name: "NAMUR Solenoid Valves",
-          desc: "Solenoid valves with NAMUR interface for direct mounting on pneumatic actuators. Eliminate the need for tubing between the solenoid and actuator, reducing leak points and simplifying installation. ATEX certified for classified areas.",
-        },
-        manufacturers: ["versa"],
-        image: "/images/products/versa-namur.webp",
-      },
-      {
-        slug: "inoxidable",
-        es: {
-          name: "Válvulas Solenoides en Acero Inoxidable",
-          desc: "Válvulas solenoides fabricadas completamente en acero inoxidable para ambientes altamente corrosivos, plataformas offshore y aplicaciones sanitarias. Resistentes a la niebla salina, químicos agresivos y condiciones ambientales extremas.",
-        },
-        en: {
-          name: "Stainless Steel Solenoid Valves",
-          desc: "Solenoid valves manufactured entirely in stainless steel for highly corrosive environments, offshore platforms, and sanitary applications. Resistant to salt spray, aggressive chemicals, and extreme environmental conditions.",
-        },
-        manufacturers: ["versa"],
-        image: "/images/products/versa-csg.webp",
+        slug: 'paquete-aire-modular',
+        es: { name: 'Paquetes de Aire Modular (MAP)', desc: 'Estaciones de control compactas que integran filtros, reguladores y válvulas en un solo bloque.' },
+        en: { name: 'Modular Air Packages (MAP)', desc: 'Compact control stations integrating filters, regulators, and valves in a single block.' },
+        manufacturers: ['versa'],
+        image: '/images/products/versa-namur.webp',
       },
     ],
   },
 
   // =========================================================================
-  // 7. CONTROL PANELS
+  // BLOCK D: SOLUCIONES INTEGRADAS
   // =========================================================================
-  "paneles-de-control": {
-    slug: "paneles-de-control",
-    es: {
-      name: "Paneles de Control",
-      desc: "Paneles de control diseñados y fabricados a la medida por IPSA para sistemas de automatización de válvulas, ESD y control de procesos. Soluciones neumáticas, electrohidráulicas y de regulación de gas, construidos bajo estrictos estándares de calidad.",
+
+  // D1 - Válvulas Automatizadas (Ensambles)
+  'valvulas-automatizadas': {
+    slug: 'valvulas-automatizadas',
+    es: { name: 'Válvulas Automatizadas', desc: 'Ensambles completos de válvula + actuador + accesorios de control. Paquetes listos para instalar con ingeniería integrada.' },
+    en: { name: 'Automated Valves', desc: 'Complete valve + actuator + control accessories assemblies. Ready-to-install packages with integrated engineering.' },
+    image: '/images/products/df-trunnion-automated.jpg',
+    sizes: '1" a 48"',
+    pressureClasses: 'ANSI 150–2500',
+    standards: ['API 6D', 'IEC 61511', 'ISA 75.01', 'NAMUR'],
+    suppliers: ['perar', 'della-foglia', 'versa', 'masoneilan'],
+    industries: ['oil-gas', 'energetico', 'privado'],
+    services: ['automatizacion'],
+    block: 'D',
+    blockLabel: { es: 'Soluciones Integradas', en: 'Integrated Solutions' },
+    heroH1: {
+      es: 'Válvulas Automatizadas: Ingeniería Integrada Lista para Instalar.',
+      en: 'Automated Valves: Integrated Engineering Ready to Install.',
     },
-    en: {
-      name: "Control Panels",
-      desc: "Control panels custom-designed and manufactured by IPSA for valve automation, ESD, and process control systems. Pneumatic, electrohydraulic, and gas regulation solutions, built under strict quality standards.",
+    heroH2: {
+      es: 'Una válvula automatizada no es un producto individual, sino un ensamble de ingeniería. Combinamos el cuerpo mecánico, la fuerza motriz y el sistema nervioso en un paquete probado y certificado.',
+      en: 'An automated valve is not an individual product but an engineering assembly. We combine the mechanical body, motive force, and nervous system into a tested and certified package.',
     },
-    image: "/images/products/ipsa-tablero-1.jpg",
-    sizes: "A medida / Custom",
-    pressureClasses: "",
-    standards: ["IEC 61508", "IEC 61511", "NFPA 70"],
-    suppliers: [],
-    industries: ["petroleras", "gas", "petroquimica", "energia"],
-    services: ["automatizacion", "ingenieria"],
+    ctaPrimary: { es: 'Configurar Mi Paquete', en: 'Configure My Package' },
+    ctaSecondary: { es: 'Hablar con un Ingeniero de Automatización', en: 'Talk to an Automation Engineer' },
+    definition: {
+      es: 'Una válvula automatizada es un ensamble de ingeniería compuesto por tres elementos fundamentales: la válvula de proceso (el cuerpo mecánico), el actuador (la fuerza motriz) y los accesorios de control (el sistema nervioso). Su propósito es permitir la operación remota, la regulación continua o el cierre seguro de un flujo sin intervención humana directa.',
+      en: 'An automated valve is an engineering assembly composed of three fundamental elements: the process valve (mechanical body), the actuator (motive force), and the control accessories (nervous system). Its purpose is to enable remote operation, continuous regulation, or safe flow closure without direct human intervention.',
+    },
+    certChecklist: ['API 6D', 'IEC 61511', 'SIL 3', 'NAMUR', 'ATEX'],
+    relatedBrands: ['perar', 'della-foglia', 'versa', 'masoneilan'],
     subtypes: [
       {
-        slug: "neumaticos",
-        es: {
-          name: "Paneles de Control Neumáticos",
-          desc: "Paneles de control neumático diseñados por IPSA para la automatización de válvulas. Incluyen válvulas solenoides, reguladores de presión, manómetros, filtros y toda la lógica neumática necesaria para el control seguro y confiable de actuadores neumáticos.",
-        },
-        en: {
-          name: "Pneumatic Control Panels",
-          desc: "Pneumatic control panels designed by IPSA for valve automation. Include solenoid valves, pressure regulators, gauges, filters, and all pneumatic logic required for safe and reliable control of pneumatic actuators.",
-        },
-        manufacturers: [],
-        image: "/images/products/ipsa-tablero-1.jpg",
+        slug: 'paquete-esd',
+        es: { name: 'Paquetes ESD', desc: 'Sistemas de paro de emergencia completos con válvula, actuador, solenoide y lógica de seguridad SIL 3.' },
+        en: { name: 'ESD Packages', desc: 'Complete emergency shutdown systems with valve, actuator, solenoid, and SIL 3 safety logic.' },
+        manufacturers: ['perar', 'versa'],
+        image: '/images/products/df-trunnion-automated.jpg',
       },
       {
-        slug: "esd",
-        es: {
-          name: "Paneles ESD (Paro de Emergencia)",
-          desc: "Paneles de paro de emergencia (ESD) diseñados conforme a IEC 61508/61511 para la protección de instalaciones críticas. Incorporan lógica de seguridad redundante, diagnósticos en línea y comunicación con sistemas de control para garantizar la respuesta inmediata ante condiciones anormales.",
-        },
-        en: {
-          name: "ESD Panels (Emergency Shutdown)",
-          desc: "Emergency shutdown (ESD) panels designed per IEC 61508/61511 for protection of critical installations. Feature redundant safety logic, online diagnostics, and control system communication to ensure immediate response to abnormal conditions.",
-        },
-        manufacturers: [],
-        image: "/images/products/ipsa-tablero-2.jpg",
-      },
-      {
-        slug: "regulacion-gas",
-        es: {
-          name: "Paneles de Regulación de Gas",
-          desc: "Paneles de regulación de gas para suministro de gas combustible, gas de instrumentos y gas de sello. Diseñados para reducir y regular la presión de gas de forma segura con redundancia, instrumentación y protección contra sobrepresión.",
-        },
-        en: {
-          name: "Gas Regulation Panels",
-          desc: "Gas regulation panels for fuel gas, instrument gas, and seal gas supply. Designed to safely reduce and regulate gas pressure with redundancy, instrumentation, and overpressure protection.",
-        },
-        manufacturers: [],
-        image: "/images/products/ipsa-tablero-3.jpg",
+        slug: 'paquete-control',
+        es: { name: 'Paquetes de Control', desc: 'Ensambles de válvula de control con posicionador inteligente y accesorios de diagnóstico integrados.' },
+        en: { name: 'Control Packages', desc: 'Control valve assemblies with smart positioner and integrated diagnostic accessories.' },
+        manufacturers: ['masoneilan'],
+        image: '/images/products/masoneilan-control.jpg',
       },
     ],
   },
 
-  // =========================================================================
-  // 8. INSTRUMENTATION
-  // =========================================================================
-  instrumentacion: {
-    slug: "instrumentacion",
-    es: {
-      name: "Instrumentación",
-      desc: "Instrumentación industrial para medición y control de procesos. Transmisores de presión y temperatura, sistemas de control distribuido (DCS) y sistemas instrumentados de seguridad (SIS) de Yokogawa para la máxima confiabilidad operativa.",
+  // D2 - Válvulas de Bola Soldadas (Transmisión)
+  'valvulas-bola-soldadas': {
+    slug: 'valvulas-bola-soldadas',
+    es: { name: 'Válvulas de Bola Soldadas', desc: 'Válvulas de bola con cuerpo totalmente soldado para líneas de transmisión de gas y oleoductos. Máxima integridad estructural.' },
+    en: { name: 'Welded Ball Valves', desc: 'Ball valves with fully welded body for gas transmission lines and pipelines. Maximum structural integrity.' },
+    image: '/images/products/df-trunnion-wb.jpg',
+    sizes: '2" a 48"',
+    pressureClasses: 'ANSI 150–900',
+    standards: ['API 6D', 'NACE MR0175', 'ISO 15848'],
+    suppliers: ['perar'],
+    industries: ['oil-gas'],
+    services: ['ingenieria'],
+    block: 'D',
+    blockLabel: { es: 'Soluciones Integradas', en: 'Integrated Solutions' },
+    heroH1: {
+      es: 'Válvulas de Bola Soldadas: Integridad Absoluta en Líneas de Transmisión.',
+      en: 'Welded Ball Valves: Absolute Integrity in Transmission Lines.',
     },
-    en: {
-      name: "Instrumentation",
-      desc: "Industrial instrumentation for process measurement and control. Pressure and temperature transmitters, distributed control systems (DCS), and safety instrumented systems (SIS) from Yokogawa for maximum operational reliability.",
+    heroH2: {
+      es: 'Cuerpo totalmente soldado que elimina puntos de fuga. La solución definitiva para líneas de transmisión de gas, oleoductos y aplicaciones donde la seguridad estructural es innegociable.',
+      en: 'Fully welded body that eliminates leak points. The definitive solution for gas transmission lines, pipelines, and applications where structural safety is non-negotiable.',
     },
-    image: "/images/products/ipsa-control-panel-1.jpg",
-    sizes: "",
-    pressureClasses: "",
-    standards: ["IEC 61508", "IEC 61511", "ISA 84"],
-    suppliers: [],
-    industries: ["petroleras", "aceites", "gas", "petroquimica", "energia"],
-    services: ["automatizacion", "ingenieria"],
+    ctaPrimary: { es: 'Consultar Inventario Soldadas', en: 'Check Welded Valve Inventory' },
+    ctaSecondary: { es: 'Solicitar Ingeniería de Ductos', en: 'Request Pipeline Engineering' },
+    definition: {
+      es: 'Una válvula de bola soldada (fully welded body) es una válvula trunnion cuyo cuerpo está sellado permanentemente mediante soldadura, eliminando completamente las juntas bridadas y los posibles puntos de fuga en la envolvente de presión. Su construcción compacta y ligera la hace ideal para enterramiento directo y líneas de transmisión.',
+      en: 'A welded ball valve (fully welded body) is a trunnion valve whose body is permanently sealed by welding, completely eliminating flanged joints and potential leak points on the pressure envelope. Its compact and lightweight construction makes it ideal for direct burial and transmission lines.',
+    },
+    certChecklist: ['API 6D', 'NACE MR0175', 'ISO 15848'],
+    relatedBrands: ['perar'],
     subtypes: [
       {
-        slug: "transmisores",
-        es: {
-          name: "Transmisores de Proceso",
-          desc: "Transmisores de presión, temperatura, nivel y flujo para medición precisa de variables de proceso. Tecnología de última generación con diagnósticos avanzados, comunicación HART, Foundation Fieldbus y Profibus para integración con cualquier sistema de control.",
-        },
-        en: {
-          name: "Process Transmitters",
-          desc: "Pressure, temperature, level, and flow transmitters for precise process variable measurement. State-of-the-art technology with advanced diagnostics, HART, Foundation Fieldbus, and Profibus communication for integration with any control system.",
-        },
-        manufacturers: ["yokogawa"],
-        image: "/images/products/ipsa-control-panel-1.jpg",
+        slug: 'enterramiento',
+        es: { name: 'Soldada para Enterramiento', desc: 'Diseño con protección anticorrosiva para instalación subterránea directa en ductos de transmisión.' },
+        en: { name: 'Buried Welded Valve', desc: 'Design with anti-corrosion protection for direct underground installation in transmission pipelines.' },
+        manufacturers: ['perar'],
+        image: '/images/products/df-trunnion-wb.jpg',
+        sizes: '4" to 48"',
       },
       {
-        slug: "dcs",
-        es: {
-          name: "Sistemas de Control Distribuido (DCS)",
-          desc: "Sistemas de control distribuido Yokogawa para la operación integrada de plantas de proceso. Plataformas CENTUM VP y ProSafe-RS que proporcionan control, monitoreo y optimización de procesos con la más alta disponibilidad y seguridad cibernética.",
-        },
-        en: {
-          name: "Distributed Control Systems (DCS)",
-          desc: "Yokogawa distributed control systems for integrated plant operation. CENTUM VP and ProSafe-RS platforms providing process control, monitoring, and optimization with the highest availability and cybersecurity.",
-        },
-        manufacturers: ["yokogawa"],
-        image: "/images/products/ipsa-control-panel-1.jpg",
-      },
-      {
-        slug: "sis",
-        es: {
-          name: "Sistemas Instrumentados de Seguridad (SIS)",
-          desc: "Sistemas instrumentados de seguridad certificados SIL conforme a IEC 61508/61511 para la protección de plantas de proceso. Incluyen controladores de seguridad, sensores y elementos finales integrados en una arquitectura de seguridad funcional completa.",
-        },
-        en: {
-          name: "Safety Instrumented Systems (SIS)",
-          desc: "SIL-certified safety instrumented systems per IEC 61508/61511 for process plant protection. Include safety controllers, sensors, and final elements integrated in a complete functional safety architecture.",
-        },
-        manufacturers: ["yokogawa"],
-        image: "/images/products/ipsa-control-panel-1.jpg",
-      },
-    ],
-  },
-
-  // =========================================================================
-  // 9. ACCESSORIES & SPARE PARTS
-  // =========================================================================
-  "accesorios-refacciones": {
-    slug: "accesorios-refacciones",
-    es: {
-      name: "Accesorios y Refacciones",
-      desc: "Accesorios y refacciones para válvulas y actuadores. Filtros reguladores, posicionadores, cajas de interruptores de límite y partes de repuesto originales para mantener sus equipos en óptimas condiciones de operación.",
-    },
-    en: {
-      name: "Accessories & Spare Parts",
-      desc: "Accessories and spare parts for valves and actuators. Filter regulators, positioners, limit switch boxes, and original replacement parts to keep your equipment in optimal operating condition.",
-    },
-    image: "/images/products/versa-namur.webp",
-    sizes: "",
-    pressureClasses: "",
-    standards: [],
-    suppliers: [],
-    industries: ["petroleras", "aceites", "gas", "petroquimica", "energia", "mineria"],
-    services: ["soporte-in-house"],
-    subtypes: [
-      {
-        slug: "filtros-reguladores",
-        es: {
-          name: "Filtros Reguladores",
-          desc: "Filtros reguladores de aire para suministro limpio y a presión constante hacia actuadores neumáticos y posicionadores. Eliminan partículas y humedad del aire de instrumentos, protegiendo los componentes neumáticos y asegurando operación confiable.",
-        },
-        en: {
-          name: "Filter Regulators",
-          desc: "Air filter regulators for clean, constant-pressure supply to pneumatic actuators and positioners. Remove particles and moisture from instrument air, protecting pneumatic components and ensuring reliable operation.",
-        },
-        manufacturers: [],
-        image: "/images/products/versa-namur.webp",
-      },
-      {
-        slug: "posicionadores",
-        es: {
-          name: "Posicionadores",
-          desc: "Posicionadores electroneumáticos e inteligentes para válvulas de control. Reciben la señal de control (4-20 mA o digital) y ajustan la presión de aire al actuador para posicionar la válvula con precisión. Incluyen diagnósticos avanzados para mantenimiento predictivo.",
-        },
-        en: {
-          name: "Positioners",
-          desc: "Electro-pneumatic and smart positioners for control valves. Receive the control signal (4-20 mA or digital) and adjust air pressure to the actuator to precisely position the valve. Include advanced diagnostics for predictive maintenance.",
-        },
-        manufacturers: [],
-        image: "/images/products/versa-namur.webp",
-      },
-      {
-        slug: "switch-boxes",
-        es: {
-          name: "Cajas de Interruptores de Límite",
-          desc: "Cajas de interruptores de límite (switch boxes) para indicación de posición abierto/cerrado de válvulas. Montaje conforme a NAMUR/VDI/VDE 3845 con interruptores mecánicos, sensores inductivos y transmisores de posición continua. Certificaciones para áreas clasificadas.",
-        },
-        en: {
-          name: "Limit Switch Boxes",
-          desc: "Limit switch boxes for open/closed valve position indication. NAMUR/VDI/VDE 3845 compliant mounting with mechanical switches, inductive sensors, and continuous position transmitters. Certified for classified areas.",
-        },
-        manufacturers: [],
-        image: "/images/products/versa-namur.webp",
-      },
-      {
-        slug: "refacciones",
-        es: {
-          name: "Refacciones y Partes de Repuesto",
-          desc: "Partes de repuesto originales para válvulas, actuadores y accesorios. Incluyen kits de sellos, asientos, empaques, resortes, diafragmas y todos los componentes consumibles necesarios para el mantenimiento preventivo y correctivo de sus equipos.",
-        },
-        en: {
-          name: "Spare Parts & Replacement Parts",
-          desc: "Original spare parts for valves, actuators, and accessories. Include seal kits, seats, packing, springs, diaphragms, and all consumable components needed for preventive and corrective maintenance of your equipment.",
-        },
-        manufacturers: [],
-        image: "/images/products/versa-namur.webp",
+        slug: 'aerea',
+        es: { name: 'Soldada Instalación Aérea', desc: 'Configuración para instalación aérea en estaciones de regulación y medición.' },
+        en: { name: 'Above Ground Welded', desc: 'Configuration for above-ground installation at regulation and metering stations.' },
+        manufacturers: ['perar'],
+        image: '/images/products/df-trunnion-wb-coated.jpg',
+        sizes: '2" to 36"',
       },
     ],
   },
@@ -862,4 +750,9 @@ export function getAllSubtypes(): Array<
   }
 
   return result;
+}
+
+/** Get categories by macro-block */
+export function getCategoriesByBlock(block: MacroBlock): ProductCategory[] {
+  return categoryList.filter((cat) => cat.block === block);
 }

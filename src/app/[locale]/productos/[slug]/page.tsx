@@ -1,9 +1,42 @@
-import Link from "next/link";
-import Image from "next/image";
-import { ChevronRight, ArrowRight, Phone, Shield, MapPin } from "lucide-react";
-import { notFound } from "next/navigation";
-import { stockImages, getBlur } from "@/data/images";
-import { productCategories, manufacturers } from "@/data/products";
+import type { Metadata } from 'next';
+import Link from 'next/link';
+import Image from 'next/image';
+import { ChevronRight, ArrowRight, Phone, Shield, MapPin } from 'lucide-react';
+import { notFound } from 'next/navigation';
+import { stockImages, getBlur } from '@/data/images';
+import { productCategories, categoryList, manufacturers } from '@/data/products';
+import { services as serviceData } from '@/data/services';
+import { industries as industryData } from '@/data/industries';
+import Button from '@/components/ui/Button';
+import PASSection from '@/components/ui/PASSection';
+import CertBadges from '@/components/ui/CertBadges';
+import CTABanner from '@/components/ui/CTABanner';
+
+export function generateStaticParams() {
+  return categoryList.flatMap((c) => [
+    { locale: 'es', slug: c.slug },
+    { locale: 'en', slug: c.slug },
+  ]);
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string; slug: string }>;
+}): Promise<Metadata> {
+  const { locale, slug } = await params;
+  const category = productCategories[slug];
+  if (!category) return {};
+  const l = locale as 'es' | 'en';
+  return {
+    title: category[l].name,
+    description: category.heroH2[l],
+    openGraph: {
+      title: category.heroH1[l],
+      description: category.heroH2[l],
+    },
+  };
+}
 
 export default async function ProductCategoryPage({
   params,
@@ -15,49 +48,31 @@ export default async function ProductCategoryPage({
   const category = productCategories[slug];
   if (!category) notFound();
 
-  const l = locale as "es" | "en";
+  const l = locale as 'es' | 'en';
   const prefix = `/${locale}`;
   const data = category[l];
 
-  /* ── Resolve suppliers from manufacturer IDs ── */
   const categorySuppliers = (category.suppliers ?? [])
     .map((id: string) => manufacturers[id])
     .filter(Boolean);
 
-  /* ── Subtypes ── */
   const subtypes = category.subtypes ?? [];
-
-  /* ── Standards ── */
   const standards = category.standards ?? [];
 
-  /* ── Services ── */
-  const serviceNames: Record<string, { es: string; en: string }> = {
-    automatizacion: { es: "Automatización de Válvulas", en: "Valve Automation" },
-    ingenieria: { es: "Ingeniería y Proyectos EPC", en: "Engineering & EPC Projects" },
-    "soporte-in-house": { es: "Centro de Automatización (CAD)", en: "Automation Center (CAD)" },
-  };
-  const services = (category.services ?? []).map((slug: string) => ({
-    slug,
-    es: serviceNames[slug]?.es ?? slug,
-    en: serviceNames[slug]?.en ?? slug,
-  }));
+  const relatedServices = (category.services ?? []).map((svcSlug: string) => {
+    const svc = serviceData.find((s) => s.slug === svcSlug);
+    return { slug: svcSlug, name: svc?.name[l] ?? svcSlug };
+  });
 
-  /* ── Industries ── */
-  const industryNames: Record<string, { es: string; en: string }> = {
-    petroleras: { es: "Petroleras", en: "Oil & Gas" },
-    aceites: { es: "Aceites", en: "Oils" },
-    gas: { es: "Gas", en: "Gas" },
-  };
-  const industries = (category.industries ?? []).map((slug: string) => ({
-    slug,
-    es: industryNames[slug]?.es ?? slug,
-    en: industryNames[slug]?.en ?? slug,
-  }));
+  const relatedIndustries = (category.industries ?? []).map((indSlug: string) => {
+    const ind = industryData.find((i) => i.slug === indSlug);
+    return { slug: indSlug, name: ind?.name[l] ?? indSlug };
+  });
 
   return (
     <>
-      {/* ======== HERO (product-specific image) ======== */}
-      <section className="relative overflow-hidden" style={{ minHeight: "50vh" }}>
+      {/* ═══ HERO ═══ */}
+      <section className="relative overflow-hidden" style={{ minHeight: '50vh' }}>
         <Image
           src={category.image}
           alt=""
@@ -70,106 +85,128 @@ export default async function ProductCategoryPage({
         <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/60 via-navy-dark/20 to-transparent" />
 
         <div
-          className="relative mx-auto max-w-[1600px] px-5 md:px-10 flex items-end"
-          style={{ minHeight: "50vh" }}
+          className="relative mx-auto flex max-w-[1600px] items-end px-5 md:px-10"
+          style={{ minHeight: '50vh' }}
         >
-          <div className="max-w-3xl pb-12 lg:pb-16 pt-28">
-            {/* Breadcrumb */}
-            <nav className="text-sm text-white/60 hero-subtitle mb-6">
-              <Link href={prefix} className="hover:text-white transition-colors">
-                {locale === "es" ? "Inicio" : "Home"}
+          <div className="max-w-3xl pb-12 pt-28 lg:pb-16">
+            <nav className="mb-6 text-sm text-white/60">
+              <Link href={prefix} className="transition-colors hover:text-white">
+                {l === 'es' ? 'Inicio' : 'Home'}
               </Link>
-              <ChevronRight size={14} className="inline mx-1" />
+              <ChevronRight size={14} className="mx-1 inline" />
               <Link
                 href={`${prefix}/productos`}
-                className="hover:text-white transition-colors"
+                className="transition-colors hover:text-white"
               >
-                {locale === "es" ? "Productos" : "Products"}
+                {l === 'es' ? 'Productos' : 'Products'}
               </Link>
-              <ChevronRight size={14} className="inline mx-1" />
+              <ChevronRight size={14} className="mx-1 inline" />
               <span className="text-white">{data.name}</span>
             </nav>
 
-            <div className="w-12 h-1 bg-gradient-to-r from-gold to-gold-light rounded-full mb-6" />
+            <div className="mb-6 h-1 w-12 rounded-full bg-gradient-to-r from-gold to-gold-light" />
 
             <h1
-              className="font-heading text-white leading-tight mb-6 hero-text-strong"
-              style={{
-                fontSize: "clamp(2.25rem, 4.5vw, 3.75rem)",
-                fontWeight: 500,
-              }}
+              className="font-heading mb-4 leading-tight text-white"
+              style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', fontWeight: 500 }}
             >
-              {data.name}
+              {category.heroH1[l]}
             </h1>
+            <p className="max-w-2xl leading-relaxed text-white/80" style={{ fontSize: '1.1rem' }}>
+              {category.heroH2[l]}
+            </p>
+
+            {/* Cert badges */}
+            {category.certChecklist && category.certChecklist.length > 0 && (
+              <CertBadges
+                badges={category.certChecklist}
+                variant="light"
+                className="mt-6 justify-start"
+              />
+            )}
+
             {/* Glass stats chips */}
             {(category.sizes || category.pressureClasses) && (
-              <div className="flex flex-wrap gap-3 mt-8">
+              <div className="mt-6 flex flex-wrap gap-3">
                 {category.sizes && (
-                  <div className="bg-white/10 backdrop-blur-sm rounded-lg px-4 py-2.5 border border-white/10">
-                    <div className="text-[10px] text-white/50 font-medium uppercase tracking-wider">
-                      {locale === "es" ? "Tamaños" : "Sizes"}
+                  <div className="rounded-lg border border-white/10 bg-white/10 px-4 py-2.5 backdrop-blur-sm">
+                    <div className="text-[10px] font-medium uppercase tracking-wider text-white/50">
+                      {l === 'es' ? 'Tamaños' : 'Sizes'}
                     </div>
-                    <div className="text-white font-semibold text-sm">{category.sizes}</div>
+                    <div className="text-sm font-semibold text-white">{category.sizes}</div>
                   </div>
                 )}
                 {category.pressureClasses && (
-                  <div className="bg-white/10 backdrop-blur-sm rounded-lg px-4 py-2.5 border border-white/10">
-                    <div className="text-[10px] text-white/50 font-medium uppercase tracking-wider">
-                      {locale === "es" ? "Clases" : "Classes"}
+                  <div className="rounded-lg border border-white/10 bg-white/10 px-4 py-2.5 backdrop-blur-sm">
+                    <div className="text-[10px] font-medium uppercase tracking-wider text-white/50">
+                      {l === 'es' ? 'Clases' : 'Classes'}
                     </div>
-                    <div className="text-white font-semibold text-sm">{category.pressureClasses}</div>
-                  </div>
-                )}
-                {subtypes.length > 0 && (
-                  <div className="bg-white/10 backdrop-blur-sm rounded-lg px-4 py-2.5 border border-white/10">
-                    <div className="text-[10px] text-white/50 font-medium uppercase tracking-wider">
-                      {locale === "es" ? "Configuraciones" : "Configurations"}
-                    </div>
-                    <div className="text-white font-semibold text-sm">
-                      {subtypes.length} {locale === "es" ? "tipos" : "types"}
-                    </div>
+                    <div className="text-sm font-semibold text-white">{category.pressureClasses}</div>
                   </div>
                 )}
               </div>
             )}
+
+            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+              <Button variant="primary" size="lg" href={`${prefix}/contacto`}>
+                {category.ctaPrimary[l]}
+              </Button>
+              <Button
+                variant="outline"
+                size="md"
+                href={`${prefix}/catalogo`}
+                className="border-white text-white hover:bg-white hover:text-navy"
+              >
+                {category.ctaSecondary[l]}
+              </Button>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ======== CONTENT ======== */}
+      {/* ═══ CONTENT ═══ */}
       <section
         className="py-16 lg:py-20"
-        style={{ background: "linear-gradient(180deg, #ffffff 0%, #f9fafb 100%)" }}
+        style={{ background: 'linear-gradient(180deg, #ffffff 0%, #f9fafb 100%)' }}
       >
         <div className="mx-auto max-w-[1600px] px-5 md:px-10">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-14">
-            {/* ──── Main content ──── */}
-            <div className="lg:col-span-2 space-y-16">
-              {/* Category description */}
+          <div className="grid grid-cols-1 gap-14 lg:grid-cols-3">
+            {/* ── Main content ── */}
+            <div className="space-y-16 lg:col-span-2">
+              {/* Definition */}
               <div>
-                <p className="text-gray-600 leading-relaxed" style={{ fontSize: "1.05rem", lineHeight: 1.8 }}>
-                  {data.desc}
+                <p
+                  className="leading-relaxed text-gray-600"
+                  style={{ fontSize: '1.05rem', lineHeight: 1.8 }}
+                >
+                  {category.definition[l]}
                 </p>
               </div>
 
-              {/* Subtypes as rich product cards */}
+              {/* PAS Section */}
+              {category.pas && (
+                <PASSection
+                  variant="full"
+                  problema={category.pas.problema[l]}
+                  agitacion={category.pas.agitacion[l]}
+                  solucion={category.pas.solucion[l]}
+                  className="!py-0"
+                />
+              )}
+
+              {/* Subtypes */}
               {subtypes.length > 0 && (
                 <div>
-                  <p className="text-gold font-medium text-sm tracking-widest uppercase mb-3">
-                    {locale === "es" ? "Configuraciones" : "Configurations"}
+                  <p className="mb-3 text-sm font-medium uppercase tracking-widest text-gold">
+                    {l === 'es' ? 'Configuraciones' : 'Configurations'}
                   </p>
                   <h2
-                    className="font-heading text-gray-900 mb-2"
-                    style={{ fontSize: "clamp(1.5rem, 3.5vw, 1.75rem)", fontWeight: 500 }}
+                    className="font-heading mb-8 text-gray-900"
+                    style={{ fontSize: 'clamp(1.5rem, 3.5vw, 1.75rem)', fontWeight: 500 }}
                   >
-                    {locale === "es" ? "Tipos disponibles" : "Available types"}
+                    {l === 'es' ? 'Tipos disponibles' : 'Available types'}
                   </h2>
-                  <p className="text-gray-500 text-sm leading-relaxed mb-8 max-w-xl">
-                    {locale === "es"
-                      ? "Selecciona la configuración que mejor se adapte a tu aplicación."
-                      : "Select the configuration that best fits your application."}
-                  </p>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                     {subtypes.map((st) => {
                       const stSuppliers = (st.manufacturers ?? [])
                         .map((id: string) => manufacturers[id])
@@ -178,75 +215,49 @@ export default async function ProductCategoryPage({
                         <Link
                           key={st.slug}
                           href={`${prefix}/productos/${slug}/${st.slug}`}
-                          className="group block rounded-xl overflow-hidden bg-white border border-gray-100 card-modern transition-all duration-150"
+                          className="group block overflow-hidden rounded-xl border border-gray-100 bg-white shadow-md transition-all duration-150 hover:-translate-y-0.5 hover:shadow-lg"
                         >
-                          {/* Thumbnail */}
                           {st.image && (
-                            <div
-                              className="relative w-full overflow-hidden"
-                              style={{ aspectRatio: "16/10" }}
-                            >
+                            <div className="relative w-full overflow-hidden" style={{ aspectRatio: '16/10' }}>
                               <Image
                                 src={st.image}
                                 alt={st[l].name}
                                 fill
-                                className="object-cover group-hover:scale-[1.03] transition-transform duration-200"
+                                className="object-cover transition-transform duration-200 group-hover:scale-[1.03]"
                                 sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
                               />
-                              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
                             </div>
                           )}
                           <div className="p-6">
-                            <h3
-                              className="font-heading text-gray-900 font-semibold mb-2 group-hover:text-gold transition-colors duration-150"
-                              style={{ fontSize: "1.05rem" }}
-                            >
+                            <h3 className="font-heading font-semibold text-gray-900 transition-colors group-hover:text-gold">
                               {st[l].name}
                             </h3>
-                            <p className="text-gray-500 text-sm leading-relaxed line-clamp-2 mb-4">
+                            <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-gray-500">
                               {st[l].desc}
                             </p>
-
-                            {/* Specs row */}
-                            <div className="flex flex-wrap gap-x-4 gap-y-1 mb-4">
-                              {st.sizes && (
-                                <span className="text-xs text-gray-400">
-                                  <span className="font-medium text-gray-600">
-                                    {locale === "es" ? "Tamaños" : "Sizes"}:
-                                  </span>{" "}
-                                  {st.sizes}
-                                </span>
-                              )}
-                              {st.pressureClasses && (
-                                <span className="text-xs text-gray-400">
-                                  <span className="font-medium text-gray-600">
-                                    {locale === "es" ? "Clases" : "Classes"}:
-                                  </span>{" "}
-                                  {st.pressureClasses}
-                                </span>
-                              )}
-                            </div>
-
-                            {/* Manufacturer badges */}
+                            {st.sizes && (
+                              <span className="mt-3 block text-xs text-gray-400">
+                                <span className="font-medium text-gray-600">
+                                  {l === 'es' ? 'Tamaños' : 'Sizes'}:
+                                </span>{' '}
+                                {st.sizes}
+                              </span>
+                            )}
                             {stSuppliers.length > 0 && (
-                              <div className="flex flex-wrap gap-1.5 mb-4">
+                              <div className="mt-3 flex flex-wrap gap-1.5">
                                 {stSuppliers.map((mfg) => (
                                   <span
                                     key={mfg.slug || mfg.name}
-                                    className="text-[11px] font-medium text-navy-alt bg-navy-deep/[0.06] px-2.5 py-1 rounded-md"
+                                    className="rounded-md bg-navy-deep/[0.06] px-2.5 py-1 text-[11px] font-medium text-navy"
                                   >
                                     {mfg.name}
                                   </span>
                                 ))}
                               </div>
                             )}
-
-                            <span className="inline-flex items-center gap-1.5 text-sm text-gold font-semibold group-hover:text-gold-dark transition-colors duration-150">
-                              {locale === "es" ? "Ver detalles" : "View details"}
-                              <ArrowRight
-                                size={14}
-                                className="group-hover:translate-x-0.5 transition-transform duration-150"
-                              />
+                            <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-gold transition-colors group-hover:text-gold-dark">
+                              {l === 'es' ? 'Ver detalles' : 'View details'}
+                              <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />
                             </span>
                           </div>
                         </Link>
@@ -259,127 +270,71 @@ export default async function ProductCategoryPage({
               {/* Technical specifications */}
               {(category.sizes || category.pressureClasses) && (
                 <div>
-                  <p className="text-gold font-medium text-sm tracking-widest uppercase mb-3">
-                    {locale === "es" ? "Datos tecnicos" : "Technical data"}
+                  <p className="mb-3 text-sm font-medium uppercase tracking-widest text-gold">
+                    {l === 'es' ? 'Datos técnicos' : 'Technical data'}
                   </p>
                   <h2
-                    className="font-heading text-gray-900 mb-8"
-                    style={{ fontSize: "clamp(1.5rem, 3.5vw, 1.75rem)", fontWeight: 500 }}
+                    className="font-heading mb-8 text-gray-900"
+                    style={{ fontSize: 'clamp(1.5rem, 3.5vw, 1.75rem)', fontWeight: 500 }}
                   >
-                    {locale === "es" ? "Especificaciones" : "Specifications"}
+                    {l === 'es' ? 'Especificaciones' : 'Specifications'}
                   </h2>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                     {category.sizes && (
                       <div
-                        className="p-6 rounded-xl bg-white border border-gray-100"
-                        style={{ borderLeft: "3px solid var(--color-gold)" }}
+                        className="rounded-xl border border-gray-100 bg-white p-6"
+                        style={{ borderLeft: '3px solid var(--color-gold)' }}
                       >
-                        <dt className="text-xs text-gray-400 font-medium uppercase tracking-wider mb-2">
-                          {locale === "es" ? "Rango de tamaños" : "Size range"}
+                        <dt className="mb-2 text-xs font-medium uppercase tracking-wider text-gray-400">
+                          {l === 'es' ? 'Rango de tamaños' : 'Size range'}
                         </dt>
-                        <dd
-                          className="text-gray-900 font-semibold"
-                          style={{ fontSize: "1.1rem" }}
-                        >
-                          {category.sizes}
-                        </dd>
+                        <dd className="text-lg font-semibold text-gray-900">{category.sizes}</dd>
                       </div>
                     )}
                     {category.pressureClasses && (
                       <div
-                        className="p-6 rounded-xl bg-white border border-gray-100"
-                        style={{ borderLeft: "3px solid var(--color-gold)" }}
+                        className="rounded-xl border border-gray-100 bg-white p-6"
+                        style={{ borderLeft: '3px solid var(--color-gold)' }}
                       >
-                        <dt className="text-xs text-gray-400 font-medium uppercase tracking-wider mb-2">
-                          {locale === "es" ? "Clases de presión" : "Pressure classes"}
+                        <dt className="mb-2 text-xs font-medium uppercase tracking-wider text-gray-400">
+                          {l === 'es' ? 'Clases de presión' : 'Pressure classes'}
                         </dt>
-                        <dd
-                          className="text-gray-900 font-semibold"
-                          style={{ fontSize: "1.1rem" }}
-                        >
-                          {category.pressureClasses}
-                        </dd>
+                        <dd className="text-lg font-semibold text-gray-900">{category.pressureClasses}</dd>
                       </div>
                     )}
                   </div>
                 </div>
               )}
 
-              {/* Standards & certifications */}
+              {/* Standards */}
               {standards.length > 0 && (
                 <div>
-                  <p className="text-gold font-medium text-sm tracking-widest uppercase mb-3">
-                    {locale === "es" ? "Cumplimiento" : "Compliance"}
+                  <p className="mb-3 text-sm font-medium uppercase tracking-widest text-gold">
+                    {l === 'es' ? 'Cumplimiento' : 'Compliance'}
                   </p>
                   <h2
-                    className="font-heading text-gray-900 mb-8"
-                    style={{ fontSize: "clamp(1.5rem, 3.5vw, 1.75rem)", fontWeight: 500 }}
+                    className="font-heading mb-8 text-gray-900"
+                    style={{ fontSize: 'clamp(1.5rem, 3.5vw, 1.75rem)', fontWeight: 500 }}
                   >
-                    {locale === "es"
-                      ? "Normas y certificaciones"
-                      : "Standards & certifications"}
+                    {l === 'es' ? 'Normas y certificaciones' : 'Standards & certifications'}
                   </h2>
-                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
-                    {standards.map((std) => {
-                      const logoMap: Record<string, string> = {
-                        "API 6D": "/images/logos/api.png",
-                        "API 6A": "/images/logos/api.png",
-                        "API 6DSS": "/images/logos/api.png",
-                        "API 607": "/images/logos/api.png",
-                        "API 6FA": "/images/logos/api.png",
-                        "API 600": "/images/logos/api.png",
-                        "API 602": "/images/logos/api.png",
-                        "API 526": "/images/logos/api.png",
-                        "API 527": "/images/logos/api.png",
-                        "API 520": "/images/logos/api.png",
-                        "API 553": "/images/logos/api.png",
-                        "NACE MR0175": "/images/logos/nace.svg",
-                        "ISO 15848": "/images/logos/iso.png",
-                        "ISO 10497": "/images/logos/iso.png",
-                        "ISO 5211": "/images/logos/iso.png",
-                        "ASME VIII": "/images/logos/asme.svg",
-                        "NORSOK M-650": "/images/logos/norsok.svg",
-                        "ATEX": "/images/logos/atex.png",
-                        "SIL": "/images/logos/sil.png",
-                        "NAMUR": "/images/logos/namur.svg",
-                        "CSA": "/images/logos/csa.svg",
-                        "ISA": "/images/logos/isa.svg",
-                        "ISA 84": "/images/logos/isa.svg",
-                        "IEC 61508": "/images/logos/iec.svg",
-                        "IEC 61511": "/images/logos/iec.svg",
-                        "NFPA 70": "/images/logos/nfpa.svg",
-                      };
-                      const logo = logoMap[std];
-                      return (
+                  <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4">
+                    {standards.map((std) => (
+                      <div
+                        key={std}
+                        className="flex items-center gap-3 rounded-xl border border-gray-100 bg-white p-4"
+                      >
                         <div
-                          key={std}
-                          className="flex items-center gap-3 p-4 rounded-xl bg-white border border-gray-100"
+                          className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg"
+                          style={{ background: 'linear-gradient(135deg, #141733, #203c88)' }}
                         >
-                          {logo ? (
-                            <div className="w-8 h-8 shrink-0 flex items-center justify-center">
-                              {/* eslint-disable-next-line @next/next/no-img-element */}
-                              <img src={logo} alt={std} width={32} height={32} className="object-contain" />
-                            </div>
-                          ) : (
-                            <div
-                              className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0"
-                              style={{
-                                background: "linear-gradient(135deg, #141733, #203c88)",
-                              }}
-                            >
-                              <Shield
-                                size={14}
-                                className="text-gold-light"
-                                strokeWidth={1.5}
-                              />
-                            </div>
-                          )}
-                          <span className="text-sm font-semibold text-gray-900 tracking-wide">
-                            {std}
-                          </span>
+                          <Shield size={14} className="text-gold-light" strokeWidth={1.5} />
                         </div>
-                      );
-                    })}
+                        <span className="text-sm font-semibold tracking-wide text-gray-900">
+                          {std}
+                        </span>
+                      </div>
+                    ))}
                   </div>
                 </div>
               )}
@@ -387,114 +342,74 @@ export default async function ProductCategoryPage({
               {/* Manufacturers */}
               {categorySuppliers.length > 0 && (
                 <div>
-                  <p className="text-gold font-medium text-sm tracking-widest uppercase mb-3">
-                    {locale === "es" ? "Representaciones" : "Partnerships"}
+                  <p className="mb-3 text-sm font-medium uppercase tracking-widest text-gold">
+                    {l === 'es' ? 'Representaciones' : 'Partnerships'}
                   </p>
                   <h2
-                    className="font-heading text-gray-900 mb-8"
-                    style={{ fontSize: "clamp(1.5rem, 3.5vw, 1.75rem)", fontWeight: 500 }}
+                    className="font-heading mb-8 text-gray-900"
+                    style={{ fontSize: 'clamp(1.5rem, 3.5vw, 1.75rem)', fontWeight: 500 }}
                   >
-                    {locale === "es" ? "Marcas disponibles" : "Available brands"}
+                    {l === 'es' ? 'Marcas disponibles' : 'Available brands'}
                   </h2>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                     {categorySuppliers.map(
-                      (s: {
-                        name: string;
-                        slug: string;
-                        image: string;
-                        logo: string;
-                        country: string;
-                      }) => (
+                      (s: { name: string; slug: string; image: string; logo: string; country: string }) => (
                         <Link
                           key={s.slug || s.name}
-                          href={
-                            s.slug
-                              ? `${prefix}/proveedores/${s.slug}`
-                              : `${prefix}/proveedores`
-                          }
-                          className="group flex items-center gap-5 p-5 rounded-xl bg-white border border-gray-100 card-modern transition-all duration-150"
+                          href={s.slug ? `${prefix}/proveedores/${s.slug}` : `${prefix}/proveedores`}
+                          className="group flex items-center gap-5 rounded-xl border border-gray-100 bg-white p-5 shadow-md transition-all duration-150 hover:-translate-y-0.5 hover:shadow-lg"
                         >
-                          <div className="w-28 h-14 rounded-xl flex items-center justify-center relative overflow-hidden shrink-0 bg-white border border-gray-100">
+                          <div className="relative flex h-14 w-28 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-gray-100 bg-white">
                             {s.logo ? (
                               /* eslint-disable-next-line @next/next/no-img-element */
-                              <img
-                                src={s.logo}
-                                alt={s.name}
-                                width={90}
-                                height={36}
-                                className="object-contain"
-                              />
-                            ) : s.image ? (
-                              <Image
-                                src={s.image}
-                                alt={s.name}
-                                fill
-                                className="object-contain p-2"
-                                sizes="112px"
-                              />
+                              <img src={s.logo} alt={s.name} width={90} height={36} className="object-contain" />
                             ) : (
-                              <span className="text-sm font-bold text-navy-alt">
-                                {s.name
-                                  .split(" ")[0]
-                                  .substring(0, 3)
-                                  .toUpperCase()}
+                              <span className="text-sm font-bold text-navy">
+                                {s.name.split(' ')[0].substring(0, 3).toUpperCase()}
                               </span>
                             )}
                           </div>
-                          <div className="flex-1 min-w-0">
-                            <span className="block text-gray-900 font-semibold group-hover:text-gold transition-colors duration-150">
+                          <div className="min-w-0 flex-1">
+                            <span className="block font-semibold text-gray-900 transition-colors group-hover:text-gold">
                               {s.name}
                             </span>
-                            <span className="flex items-center gap-1.5 text-xs text-gray-400 mt-1">
+                            <span className="mt-1 flex items-center gap-1.5 text-xs text-gray-400">
                               <MapPin size={11} />
                               {s.country}
                             </span>
                           </div>
-                          <ArrowRight
-                            size={16}
-                            className="text-gray-300 group-hover:text-gold group-hover:translate-x-0.5 transition-all duration-150 shrink-0"
-                          />
+                          <ArrowRight size={16} className="shrink-0 text-gray-300 transition-all group-hover:translate-x-0.5 group-hover:text-gold" />
                         </Link>
-                      )
+                      ),
                     )}
                   </div>
                 </div>
               )}
             </div>
 
-            {/* ──── Sidebar ──── */}
+            {/* ── Sidebar ── */}
             <div className="space-y-6">
-              {/* CTA with gold top accent */}
-              <div className="rounded-xl relative overflow-hidden bg-navy-section">
+              {/* CTA card */}
+              <div className="relative overflow-hidden rounded-xl bg-navy-deep">
                 <div className="h-1 bg-gradient-to-r from-gold to-gold-light" />
                 <div className="p-7">
-                  <p className="text-gold-light font-medium text-sm tracking-widest uppercase mb-2">
-                    {locale === "es" ? "Cotización" : "Quote"}
+                  <p className="mb-2 text-sm font-medium uppercase tracking-widest text-gold-light">
+                    {l === 'es' ? 'Cotización' : 'Quote'}
                   </p>
-                  <h3
-                    className="font-heading text-white mb-3"
-                    style={{ fontSize: "1.25rem", fontWeight: 600 }}
-                  >
-                    {locale === "es"
-                      ? "Solicita tu cotización"
-                      : "Request a quote"}
+                  <h3 className="font-heading mb-3 text-xl font-semibold text-white">
+                    {l === 'es' ? 'Solicita tu cotización' : 'Request a quote'}
                   </h3>
-                  <p className="text-white/60 text-sm leading-relaxed mb-5">
-                    {locale === "es"
-                      ? "Nuestros ingenieros te ayudan a seleccionar el equipo correcto."
-                      : "Our engineers help you select the right equipment."}
+                  <p className="mb-5 text-sm leading-relaxed text-white/60">
+                    {l === 'es'
+                      ? 'Nuestros ingenieros te ayudan a seleccionar el equipo correcto.'
+                      : 'Our engineers help you select the right equipment.'}
                   </p>
-                  <Link
-                    href={`${prefix}/contacto`}
-                    className="block w-full text-center px-6 py-3.5 bg-gold text-white font-semibold rounded-xl btn-lift hover:bg-gold-dark transition-colors"
-                  >
-                    {locale === "es"
-                      ? "Solicitar cotización"
-                      : "Request a quote"}
-                  </Link>
+                  <Button variant="primary" className="w-full" href={`${prefix}/contacto`}>
+                    {category.ctaPrimary[l]}
+                  </Button>
                   <a
                     href="tel:+525553973703"
-                    className="flex items-center justify-center gap-2 mt-4 text-white/50 text-sm hover:text-white transition-colors"
+                    className="mt-4 flex items-center justify-center gap-2 text-sm text-white/50 transition-colors hover:text-white"
                   >
                     <Phone size={14} />
                     +52 55 5397 3703
@@ -502,11 +417,8 @@ export default async function ProductCategoryPage({
                 </div>
               </div>
 
-              {/* Category product image */}
-              <div
-                className="relative rounded-xl overflow-hidden"
-                style={{ aspectRatio: "4/3" }}
-              >
+              {/* Product image */}
+              <div className="relative overflow-hidden rounded-xl" style={{ aspectRatio: '4/3' }}>
                 <Image
                   src={category.image}
                   alt={data.name}
@@ -516,80 +428,60 @@ export default async function ProductCategoryPage({
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/60 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-5">
-                  <p className="text-white font-heading font-semibold text-sm">
-                    {data.name}
-                  </p>
+                  <p className="font-heading text-sm font-semibold text-white">{data.name}</p>
                 </div>
               </div>
 
               {/* Related services */}
-              {services.length > 0 && (
-                <div className="p-7 rounded-xl bg-white border border-gray-100 shadow-card">
-                  <p className="text-gold font-medium text-sm tracking-widest uppercase mb-2">
-                    {locale === "es" ? "Soporte" : "Support"}
+              {relatedServices.length > 0 && (
+                <div className="rounded-xl border border-gray-100 bg-white p-7 shadow-md">
+                  <p className="mb-2 text-sm font-medium uppercase tracking-widest text-gold">
+                    {l === 'es' ? 'Soporte' : 'Support'}
                   </p>
-                  <h3
-                    className="font-heading text-gray-900 mb-4"
-                    style={{ fontSize: "1.1rem", fontWeight: 600 }}
-                  >
-                    {locale === "es"
-                      ? "Servicios relacionados"
-                      : "Related services"}
+                  <h3 className="font-heading mb-4 text-lg font-semibold text-gray-900">
+                    {l === 'es' ? 'Servicios relacionados' : 'Related services'}
                   </h3>
                   <ul className="space-y-1">
-                    {services.map(
-                      (s: { es: string; en: string; slug: string }) => (
-                        <li key={s.slug}>
-                          <Link
-                            href={`${prefix}/servicios/${s.slug}`}
-                            className="group flex items-center justify-between py-2.5 px-3 rounded-lg hover:bg-gray-50 transition-colors duration-150"
-                          >
-                            <span className="text-sm text-gray-700 group-hover:text-gray-900 font-medium transition-colors duration-150">
-                              {s[l]}
-                            </span>
-                            <ArrowRight
-                              size={14}
-                              className="text-gold group-hover:translate-x-0.5 transition-transform duration-150"
-                            />
-                          </Link>
-                        </li>
-                      )
-                    )}
+                    {relatedServices.map((s) => (
+                      <li key={s.slug}>
+                        <Link
+                          href={`${prefix}/servicios/${s.slug}`}
+                          className="group flex items-center justify-between rounded-lg px-3 py-2.5 transition-colors hover:bg-gray-50"
+                        >
+                          <span className="text-sm font-medium text-gray-700 transition-colors group-hover:text-gray-900">
+                            {s.name}
+                          </span>
+                          <ArrowRight size={14} className="text-gold transition-transform group-hover:translate-x-0.5" />
+                        </Link>
+                      </li>
+                    ))}
                   </ul>
                 </div>
               )}
 
               {/* Related industries */}
-              {industries.length > 0 && (
-                <div className="p-7 rounded-xl bg-white border border-gray-100 shadow-card">
-                  <p className="text-gold font-medium text-sm tracking-widest uppercase mb-2">
-                    {locale === "es" ? "Sectores" : "Sectors"}
+              {relatedIndustries.length > 0 && (
+                <div className="rounded-xl border border-gray-100 bg-white p-7 shadow-md">
+                  <p className="mb-2 text-sm font-medium uppercase tracking-widest text-gold">
+                    {l === 'es' ? 'Sectores' : 'Sectors'}
                   </p>
-                  <h3
-                    className="font-heading text-gray-900 mb-4"
-                    style={{ fontSize: "1.1rem", fontWeight: 600 }}
-                  >
-                    {locale === "es" ? "Industrias" : "Industries"}
+                  <h3 className="font-heading mb-4 text-lg font-semibold text-gray-900">
+                    {l === 'es' ? 'Industrias' : 'Industries'}
                   </h3>
                   <ul className="space-y-1">
-                    {industries.map(
-                      (ind: { es: string; en: string; slug: string }) => (
-                        <li key={ind.slug}>
-                          <Link
-                            href={`${prefix}/industrias/${ind.slug}`}
-                            className="group flex items-center justify-between py-2.5 px-3 rounded-lg hover:bg-gray-50 transition-colors duration-150"
-                          >
-                            <span className="text-sm text-gray-700 group-hover:text-gray-900 font-medium transition-colors duration-150">
-                              {ind[l]}
-                            </span>
-                            <ArrowRight
-                              size={14}
-                              className="text-gold group-hover:translate-x-0.5 transition-transform duration-150"
-                            />
-                          </Link>
-                        </li>
-                      )
-                    )}
+                    {relatedIndustries.map((ind) => (
+                      <li key={ind.slug}>
+                        <Link
+                          href={`${prefix}/industrias/${ind.slug}`}
+                          className="group flex items-center justify-between rounded-lg px-3 py-2.5 transition-colors hover:bg-gray-50"
+                        >
+                          <span className="text-sm font-medium text-gray-700 transition-colors group-hover:text-gray-900">
+                            {ind.name}
+                          </span>
+                          <ArrowRight size={14} className="text-gold transition-transform group-hover:translate-x-0.5" />
+                        </Link>
+                      </li>
+                    ))}
                   </ul>
                 </div>
               )}
@@ -598,59 +490,17 @@ export default async function ProductCategoryPage({
         </div>
       </section>
 
-      {/* ======== CONTACT CTA ======== */}
-      <section className="relative py-24 lg:py-28 overflow-hidden">
-        <Image
-          src={stockImages.industrial}
-          alt=""
-          fill
-          placeholder="blur"
-          blurDataURL={getBlur(stockImages.industrial)}
-          className="object-cover"
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-navy-deep/65" />
-        <div className="relative mx-auto max-w-[1600px] px-5 md:px-10">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2
-              className="font-heading text-white mb-4 hero-text"
-              style={{
-                fontSize: "clamp(1.5rem, 3.5vw, 2rem)",
-                fontWeight: 500,
-              }}
-            >
-              {locale === "es"
-                ? "Hablemos de tu proyecto"
-                : "Let's talk about your project"}
-            </h2>
-            <p
-              className="text-white/60 mb-10 leading-relaxed hero-subtitle"
-              style={{ fontSize: "1.05rem" }}
-            >
-              {locale === "es"
-                ? "Nuestro equipo de ingenieros está listo para ayudarte a encontrar la solución correcta."
-                : "Our engineering team is ready to help you find the right solution."}
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link
-                href={`${prefix}/contacto`}
-                className="inline-flex items-center px-8 py-4 bg-gold text-white font-semibold rounded-xl btn-lift hover:bg-gold-dark"
-                style={{ fontSize: "1.05rem" }}
-              >
-                {locale === "es" ? "Enviar mensaje" : "Send a message"}
-                <ArrowRight size={18} className="ml-2" />
-              </Link>
-              <a
-                href="tel:+525553973703"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/20 text-white font-medium rounded-xl btn-lift hover:bg-white/20"
-              >
-                <Phone size={16} />
-                +52 55 5397 3703
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* ═══ CTA FINAL ═══ */}
+      <CTABanner
+        heading={l === 'es' ? 'Hablemos de su proyecto' : "Let's talk about your project"}
+        subtext={
+          l === 'es'
+            ? 'Nuestro equipo de ingenieros está listo para ayudarle a encontrar la solución correcta.'
+            : 'Our engineering team is ready to help you find the right solution.'
+        }
+        ctaText={l === 'es' ? 'Contactar Especialista' : 'Contact a Specialist'}
+        ctaLink={`${prefix}/contacto`}
+      />
     </>
   );
 }

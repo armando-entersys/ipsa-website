@@ -1,273 +1,262 @@
-import Link from "next/link";
-import Image from "next/image";
-import { ChevronRight, ArrowRight, Phone, AlertTriangle, CheckCircle } from "lucide-react";
-import { notFound } from "next/navigation";
-import { stockImages, getBlur } from "@/data/images";
+import type { Metadata } from 'next';
+import Link from 'next/link';
+import Image from 'next/image';
+import { ChevronRight, ArrowRight } from 'lucide-react';
+import { notFound } from 'next/navigation';
+import { stockImages, getBlur } from '@/data/images';
+import { industries } from '@/data/industries';
+import Button from '@/components/ui/Button';
+import PASSection from '@/components/ui/PASSection';
+import EcosystemGrid from '@/components/ui/EcosystemGrid';
+import MatrixTable from '@/components/ui/MatrixTable';
+import InHouseBanner from '@/components/ui/InHouseBanner';
+import CTABanner from '@/components/ui/CTABanner';
 
-const industryData: Record<string, {
-  es: { name: string; desc: string; challenge: string; solution: string; products: string[]; standards: string[] };
-  en: { name: string; desc: string; challenge: string; solution: string; products: string[]; standards: string[] };
-}> = {
-  petroleras: {
-    es: {
-      name: "Industria Petrolera",
-      desc: "Soluciones para operaciones upstream (exploración y producción), midstream (transporte y almacenamiento) y downstream (refinación y petroquímica).",
-      challenge: "Las plataformas offshore y plantas de proceso petrolero operan en ambientes de alta corrosión, presión extrema, temperaturas variables y presencia de H2S. Una falla de válvula puede significar un paro de producción de millones de dólares por día, además de riesgos para el personal y el medio ambiente.",
-      solution: "IPSA suministra válvulas trunnion mounted de Della Foglia y Perar con cuerpo fully welded, en materiales duplex y super duplex, probadas hidrostáticamente y con certificación completa. Nuestros actuadores auto-contenidos Certus operan sin fuente de energía externa, ideales para locaciones remotas. El CAD en Cd. del Carmen ofrece reparación y stock 24/7 para la zona offshore del Golfo de México.",
-      products: ["Válvulas de bola trunnion mounted", "Válvulas de compuerta API 6D", "Actuadores auto-contenidos", "Paneles de control ESD", "Válvulas solenoides para ESD", "Instrumentación de proceso"],
-      standards: ["API 6D", "API 6A", "API 14C", "NACE MR0175", "ISO 15156", "ISO 15848"],
-    },
-    en: {
-      name: "Oil & Gas Industry",
-      desc: "Solutions for upstream (exploration and production), midstream (transport and storage) and downstream (refining and petrochemical) operations.",
-      challenge: "Offshore platforms and oil processing plants operate in high corrosion, extreme pressure, variable temperature and H2S environments. A valve failure can mean a production shutdown worth millions of dollars per day, plus risks to personnel and the environment.",
-      solution: "IPSA supplies trunnion mounted ball valves from Della Foglia and Perar with fully welded body, in duplex and super duplex materials, hydrostatically tested with complete certification. Our Certus self-contained actuators operate without external power, ideal for remote locations. The CAD in Cd. del Carmen offers 24/7 repair and stock for the Gulf of Mexico offshore zone.",
-      products: ["Trunnion mounted ball valves", "API 6D gate valves", "Self-contained actuators", "ESD control panels", "Solenoid valves for ESD", "Process instrumentation"],
-      standards: ["API 6D", "API 6A", "API 14C", "NACE MR0175", "ISO 15156", "ISO 15848"],
-    },
-  },
-  aceites: {
-    es: {
-      name: "Industria de Aceites",
-      desc: "Equipos especializados para procesamiento, refinación y manejo de aceites industriales.",
-      challenge: "El procesamiento de aceites requiere equipos resistentes a altas temperaturas, fluidos viscosos y condiciones de operación continua. El control preciso del proceso es crítico para la calidad del producto final.",
-      solution: "IPSA ofrece válvulas de control de alta precisión, sistemas de automatización con instrumentación Yokogawa, y soporte técnico especializado para mantener la continuidad operativa de las plantas de proceso.",
-      products: ["Válvulas de control", "Válvulas de bola", "Actuadores eléctricos y neumáticos", "Instrumentación de proceso", "Paneles de control"],
-      standards: ["ISA", "IEC 61511", "API 553", "ASME B16.34"],
-    },
-    en: {
-      name: "Oils Industry",
-      desc: "Specialized equipment for processing, refining and handling of industrial oils.",
-      challenge: "Oil processing requires equipment resistant to high temperatures, viscous fluids and continuous operation conditions. Precise process control is critical for final product quality.",
-      solution: "IPSA offers high-precision control valves, automation systems with Yokogawa instrumentation, and specialized technical support to maintain operational continuity of process plants.",
-      products: ["Control valves", "Ball valves", "Electric and pneumatic actuators", "Process instrumentation", "Control panels"],
-      standards: ["ISA", "IEC 61511", "API 553", "ASME B16.34"],
-    },
-  },
-  gas: {
-    es: {
-      name: "Industria del Gas",
-      desc: "Válvulas y sistemas para procesamiento, transporte y distribución de gas natural y GNL.",
-      challenge: "La industria del gas exige estanqueidad absoluta para cumplir con regulaciones de emisiones fugitivas, capacidad criogénica para GNL (hasta -196 grados C), y configuraciones Double Block & Bleed para aislamiento seguro en gasoductos.",
-      solution: "IPSA suministra válvulas de bola con certificación ISO 15848 para fugitive emissions, válvulas criogénicas de Della Foglia probadas a -196 grados C, y configuraciones DBB para aislamiento seguro. Nuestros paneles de control custom aseguran la operación confiable de estaciones de regulación y medición.",
-      products: ["Válvulas de bola criogénicas", "Válvulas DBB (Double Block & Bleed)", "Válvulas de seguridad", "Actuadores neumáticos y eléctricos", "Paneles de regulación de gas", "Skids de medición de flujo"],
-      standards: ["API 6D", "ISO 15848", "NACE MR0175", "BS 6364", "EN 1473"],
-    },
-    en: {
-      name: "Gas Industry",
-      desc: "Valves and systems for natural gas and LNG processing, transport and distribution.",
-      challenge: "The gas industry demands absolute tightness to comply with fugitive emissions regulations, cryogenic capability for LNG (down to -196°C), and Double Block & Bleed configurations for safe pipeline isolation.",
-      solution: "IPSA supplies ball valves with ISO 15848 certification for fugitive emissions, Della Foglia cryogenic valves tested at -196°C, and DBB configurations for safe isolation. Our custom control panels ensure reliable operation of regulation and metering stations.",
-      products: ["Cryogenic ball valves", "DBB (Double Block & Bleed) valves", "Safety relief valves", "Pneumatic and electric actuators", "Gas regulation panels", "Flow measurement skids"],
-      standards: ["API 6D", "ISO 15848", "NACE MR0175", "BS 6364", "EN 1473"],
-    },
-  },
-};
+export function generateStaticParams() {
+  return industries.flatMap((i) => [
+    { locale: 'es', slug: i.slug },
+    { locale: 'en', slug: i.slug },
+  ]);
+}
 
-export default async function IndustryPage({ params }: { params: Promise<{ locale: string; slug: string }> }) {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string; slug: string }>;
+}): Promise<Metadata> {
   const { locale, slug } = await params;
-  const industry = industryData[slug];
+  const industry = industries.find((i) => i.slug === slug);
+  if (!industry) return {};
+  const l = locale as 'es' | 'en';
+  return {
+    title: industry.name[l],
+    description: industry.heroH2[l],
+    openGraph: {
+      title: industry.heroH1[l],
+      description: industry.heroH2[l],
+    },
+  };
+}
+
+export default async function IndustryPage({
+  params,
+}: {
+  params: Promise<{ locale: string; slug: string }>;
+}) {
+  const { locale, slug } = await params;
+  const industry = industries.find((i) => i.slug === slug);
   if (!industry) notFound();
 
-  const l = locale as "es" | "en";
+  const l = locale as 'es' | 'en';
   const prefix = `/${locale}`;
-  const data = industry[l];
 
   return (
     <>
-      {/* ═══ HERO with background image ═══════════════ */}
-      <section className="relative overflow-hidden" style={{ minHeight: "55vh" }}>
+      {/* ═══ HERO ═══ */}
+      <section className="relative overflow-hidden" style={{ minHeight: '55vh' }}>
         <Image
-          src={stockImages.industriesHero}
+          src={industry.image}
           alt=""
           fill
           priority
           placeholder="blur"
-          blurDataURL={getBlur(stockImages.industriesHero)}
+          blurDataURL={getBlur(industry.image)}
           className="object-cover"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-black/65" />
+        <div className="absolute inset-0 bg-black/60" />
         <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/70 via-navy-dark/25 to-transparent" />
 
-        <div className="relative mx-auto max-w-[1600px] px-5 md:px-10 flex items-center" style={{ minHeight: "55vh" }}>
+        <div
+          className="relative mx-auto flex max-w-[1600px] items-center px-5 md:px-10"
+          style={{ minHeight: '55vh' }}
+        >
           <div className="max-w-3xl py-24 lg:py-32">
-            <nav className="text-sm text-white/60 hero-subtitle mb-6">
-              <Link href={prefix} className="hover:text-white transition-colors">
-                {locale === "es" ? "Inicio" : "Home"}
+            <nav className="mb-6 text-sm text-white/60">
+              <Link href={prefix} className="transition-colors hover:text-white">
+                {l === 'es' ? 'Inicio' : 'Home'}
               </Link>
-              <ChevronRight size={14} className="inline mx-1" />
-              <Link href={`${prefix}/industrias`} className="hover:text-white transition-colors">
-                {locale === "es" ? "Industrias" : "Industries"}
+              <ChevronRight size={14} className="mx-1 inline" />
+              <Link
+                href={`${prefix}/industrias`}
+                className="transition-colors hover:text-white"
+              >
+                {l === 'es' ? 'Industrias' : 'Industries'}
               </Link>
-              <ChevronRight size={14} className="inline mx-1" />
-              <span className="text-white">{data.name}</span>
+              <ChevronRight size={14} className="mx-1 inline" />
+              <span className="text-white">{industry.name[l]}</span>
             </nav>
             <h1
-              className="font-heading text-white leading-tight mb-6 hero-text-strong"
-              style={{ fontSize: "clamp(2.5rem, 5vw, 4.5rem)", fontWeight: 500 }}
+              className="font-heading mb-4 leading-tight text-white"
+              style={{ fontSize: 'clamp(2.25rem, 4.5vw, 4rem)', fontWeight: 500 }}
             >
-              {data.name}
+              {industry.heroH1[l]}
             </h1>
-            <p className="text-white/85 hero-subtitle max-w-2xl leading-relaxed" style={{ fontSize: "1.15rem", lineHeight: 1.7 }}>
-              {data.desc}
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* ═══ CHALLENGE / SOLUTION ═════════════════════ */}
-      <section className="py-20 lg:py-24 bg-surface">
-        <div className="mx-auto max-w-[1600px] px-5 md:px-10">
-          <div className="text-center mb-14">
-            <p className="text-gold font-medium text-sm tracking-widest uppercase mb-3">
-              {locale === "es" ? "Entendemos tu operación" : "We understand your operation"}
-            </p>
-            <h2 className="font-heading text-gray-900" style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)", fontWeight: 500 }}>
-              {locale === "es" ? "El reto y nuestra respuesta" : "The challenge and our response"}
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Challenge card */}
-            <div
-              className="p-8 lg:p-10 rounded-xl bg-surface-alt shadow-card"
+            <p
+              className="max-w-2xl leading-relaxed text-white/85"
+              style={{ fontSize: '1.15rem', lineHeight: 1.7 }}
             >
-              <div className="flex items-center gap-3 mb-5">
-                <div
-                  className="w-10 h-10 rounded-xl flex items-center justify-center icon-bg-gold"
-                >
-                  <AlertTriangle size={20} className="text-gold" strokeWidth={1.5} />
-                </div>
-                <h3 className="font-heading font-semibold text-gray-900 text-xl">
-                  {locale === "es" ? "El reto" : "The challenge"}
-                </h3>
-              </div>
-              <p className="text-gray-600 leading-relaxed">{data.challenge}</p>
+              {industry.heroH2[l]}
+            </p>
+            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+              <Button variant="primary" size="lg" href={`${prefix}${industry.ctaPrimaryLink}`}>
+                {industry.ctaPrimary[l]}
+              </Button>
+              <Button
+                variant="outline"
+                size="lg"
+                href={`${prefix}${industry.ctaSecondaryLink}`}
+                className="border-white text-white hover:bg-white hover:text-navy"
+              >
+                {industry.ctaSecondary[l]}
+              </Button>
             </div>
-            {/* Solution card */}
-            <div
-              className="p-8 lg:p-10 rounded-xl bg-navy-alt"
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ PAS SECTION ═══ */}
+      <PASSection
+        variant="compact"
+        heading={industry.pas.h2[l]}
+        body={industry.pas.body[l]}
+        cta={
+          industry.pas.ctaInterconnect && industry.pas.ctaInterconnectLink
+            ? {
+                text: industry.pas.ctaInterconnect[l],
+                href: `${prefix}${industry.pas.ctaInterconnectLink}`,
+              }
+            : undefined
+        }
+      />
+
+      {/* ═══ ECOSYSTEM ═══ */}
+      {industry.ecosystem.length > 0 && (
+        <section
+          className="py-16 lg:py-20"
+          style={{ background: 'linear-gradient(180deg, #f6f7f9 0%, #f0f1f5 100%)' }}
+        >
+          <div className="mx-auto max-w-6xl px-6">
+            <h2
+              className="font-heading mb-10 text-center text-gray-900"
+              style={{ fontSize: 'clamp(1.5rem, 3.5vw, 2rem)', fontWeight: 500 }}
             >
-              <div className="flex items-center gap-3 mb-5">
-                <div
-                  className="w-10 h-10 rounded-xl flex items-center justify-center icon-bg-gold"
-                >
-                  <CheckCircle size={20} className="text-gold-light" strokeWidth={1.5} />
-                </div>
-                <h3 className="font-heading font-semibold text-white text-xl">
-                  {locale === "es" ? "Nuestra solución" : "Our solution"}
-                </h3>
-              </div>
-              <p className="text-white/80 leading-relaxed">{data.solution}</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ═══ PRODUCTS & STANDARDS ═════════════════════ */}
-      <section className="py-20 lg:py-24 bg-surface-alt">
-        <div className="mx-auto max-w-[1600px] px-5 md:px-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-            {/* Products */}
-            <div>
-              <p className="text-gold font-medium text-sm tracking-widest uppercase mb-3">
-                {locale === "es" ? "Equipos especializados" : "Specialized equipment"}
-              </p>
-              <h2 className="font-heading text-gray-900 mb-6" style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)", fontWeight: 500 }}>
-                {locale === "es" ? "Productos para esta industria" : "Products for this industry"}
-              </h2>
-              <ul className="space-y-4">
-                {data.products.map((p) => (
-                  <li key={p} className="flex items-start gap-3 text-gray-700 leading-relaxed">
-                    <div className="w-2 h-2 bg-gold rounded-full mt-2 shrink-0" />
-                    {p}
-                  </li>
-                ))}
-              </ul>
-              <Link
-                href={`${prefix}/productos`}
-                className="inline-flex items-center gap-2 mt-8 px-7 py-3 bg-navy-deep text-white font-medium rounded-xl btn-lift hover:bg-navy"
-              >
-                {locale === "es" ? "Ver todos los productos" : "View all products"}
-                <ArrowRight size={16} />
-              </Link>
-            </div>
-
-            {/* Standards */}
-            <div>
-              <p className="text-gold font-medium text-sm tracking-widest uppercase mb-3">
-                {locale === "es" ? "Cumplimiento normativo" : "Regulatory compliance"}
-              </p>
-              <h2 className="font-heading text-gray-900 mb-6" style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)", fontWeight: 500 }}>
-                {locale === "es" ? "Normas aplicables" : "Applicable standards"}
-              </h2>
-              <div className="flex flex-wrap gap-3">
-                {data.standards.map((std) => (
-                  <span
-                    key={std}
-                    className="text-gray-900 text-sm font-medium px-4 py-2 rounded-xl bg-navy-deep/[0.06] shadow-card"
-                  >
-                    {std}
-                  </span>
-                ))}
-              </div>
-              <p className="text-gray-500 text-sm mt-6 leading-relaxed">
-                {locale === "es"
-                  ? "Todos nuestros productos cumplen con las normas internacionales más exigentes de la industria."
-                  : "All our products comply with the most demanding international industry standards."}
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ═══ CTA with background image ════════════════ */}
-      <section className="relative py-24 lg:py-28 overflow-hidden">
-        <Image
-          src={stockImages.industrial}
-          alt=""
-          fill
-          placeholder="blur"
-          blurDataURL={getBlur(stockImages.industrial)}
-          className="object-cover"
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-navy-deep/80" />
-        <div className="relative mx-auto max-w-[1600px] px-5 md:px-10">
-          <div className="max-w-3xl mx-auto text-center">
-            <p className="text-gold font-medium text-sm tracking-widest uppercase mb-3">
-              {locale === "es" ? "Siguiente paso" : "Next step"}
-            </p>
-            <h2 className="font-heading text-white mb-4" style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)", fontWeight: 500 }}>
-              {locale === "es"
-                ? `Hablemos de tu proyecto en ${data.name.toLowerCase()}`
-                : `Let's discuss your ${data.name.toLowerCase()} project`}
+              {l === 'es' ? 'Ecosistema de Soluciones' : 'Solutions Ecosystem'}
             </h2>
-            <p className="text-white/60 mb-10 leading-relaxed" style={{ fontSize: "1.05rem" }}>
-              {locale === "es"
-                ? "Nuestro equipo de ingenieros especializados está listo para ayudarte a encontrar la solución correcta."
-                : "Our team of specialized engineers is ready to help you find the right solution."}
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link
-                href={`${prefix}/contacto`}
-                className="inline-flex items-center px-8 py-4 bg-gold text-white font-semibold rounded-xl btn-lift hover:bg-gold-dark"
-                style={{ fontSize: "1.05rem" }}
-              >
-                {locale === "es" ? "Contactar especialista" : "Contact a specialist"}
-                <ArrowRight size={18} className="ml-2" />
-              </Link>
-              <a
-                href="tel:+525553973703"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/20 text-white font-medium rounded-xl btn-lift hover:bg-white/20"
-              >
-                <Phone size={16} />
-                +52 55 5397 3703
-              </a>
-            </div>
+            <EcosystemGrid
+              items={industry.ecosystem.map((block) => ({
+                title: block.title[l],
+                copy: block.copy[l],
+                ctaText: block.cta[l],
+                ctaLink: `${prefix}${block.ctaLink}`,
+              }))}
+            />
+          </div>
+        </section>
+      )}
+
+      {/* ═══ MATRIX TABLE ═══ */}
+      {industry.matrix.length > 0 && (
+        <section className="py-16 lg:py-20">
+          <div className="mx-auto max-w-6xl px-6">
+            <MatrixTable
+              heading={l === 'es' ? 'Matriz de Aplicación' : 'Application Matrix'}
+              headers={{
+                proceso: l === 'es' ? 'Proceso' : 'Process',
+                tecnologia: l === 'es' ? 'Tecnología' : 'Technology',
+                marca: l === 'es' ? 'Marca' : 'Brand',
+                servicio: l === 'es' ? 'Servicio IPSA' : 'IPSA Service',
+              }}
+              rows={industry.matrix.map((row) => ({
+                proceso: row.proceso[l],
+                tecnologia: row.tecnologia[l],
+                marca: row.marca,
+                servicio: row.servicio[l],
+                servicioLink: `${prefix}${row.servicioLink}`,
+              }))}
+            />
+          </div>
+        </section>
+      )}
+
+      {/* ═══ IN-HOUSE DIFFERENTIAL ═══ */}
+      <InHouseBanner
+        heading={industry.inHouseDifferential.h2[l]}
+        body={industry.inHouseDifferential.body[l]}
+        ctaText={industry.inHouseDifferential.cta[l]}
+        ctaLink={`${prefix}${industry.inHouseDifferential.ctaLink}`}
+      />
+
+      {/* ═══ CROSS-REFERENCES ═══ */}
+      <section
+        className="py-16 lg:py-20"
+        style={{ background: 'linear-gradient(180deg, #ffffff 0%, #f9fafb 100%)' }}
+      >
+        <div className="mx-auto max-w-6xl px-6">
+          <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
+            {/* Related Products */}
+            {industry.relatedProducts.length > 0 && (
+              <div>
+                <h3 className="font-heading mb-4 text-xl font-semibold text-gray-900">
+                  {l === 'es' ? 'Productos Relacionados' : 'Related Products'}
+                </h3>
+                <ul className="space-y-2">
+                  {industry.relatedProducts.map((slug) => (
+                    <li key={slug}>
+                      <Link
+                        href={`${prefix}/productos/${slug}`}
+                        className="group flex items-center justify-between rounded-lg px-3 py-2.5 transition-colors hover:bg-gray-50"
+                      >
+                        <span className="text-sm font-medium text-gray-700 transition-colors group-hover:text-gray-900">
+                          {slug.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase())}
+                        </span>
+                        <ArrowRight
+                          size={14}
+                          className="text-gold transition-transform group-hover:translate-x-0.5"
+                        />
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+            {/* Related Services */}
+            {industry.relatedServices.length > 0 && (
+              <div>
+                <h3 className="font-heading mb-4 text-xl font-semibold text-gray-900">
+                  {l === 'es' ? 'Servicios Relacionados' : 'Related Services'}
+                </h3>
+                <ul className="space-y-2">
+                  {industry.relatedServices.map((slug) => (
+                    <li key={slug}>
+                      <Link
+                        href={`${prefix}/servicios/${slug}`}
+                        className="group flex items-center justify-between rounded-lg px-3 py-2.5 transition-colors hover:bg-gray-50"
+                      >
+                        <span className="text-sm font-medium text-gray-700 transition-colors group-hover:text-gray-900">
+                          {slug.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase())}
+                        </span>
+                        <ArrowRight
+                          size={14}
+                          className="text-gold transition-transform group-hover:translate-x-0.5"
+                        />
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </div>
         </div>
       </section>
+
+      {/* ═══ CTA FINAL ═══ */}
+      <CTABanner
+        heading={industry.ctaFinal.h2[l]}
+        subtext={industry.ctaFinal.subtexto[l]}
+        ctaText={industry.ctaFinal.cta[l]}
+        ctaLink={`${prefix}/contacto`}
+      />
     </>
   );
 }

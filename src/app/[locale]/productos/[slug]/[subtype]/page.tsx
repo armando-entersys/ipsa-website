@@ -1,9 +1,39 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { ChevronRight, ArrowRight, Phone, Mail, MapPin, Shield } from "lucide-react";
 import { notFound } from "next/navigation";
 import { stockImages, getBlur } from "@/data/images";
-import { productCategories, manufacturers } from "@/data/products";
+import { productCategories, getAllSubtypes, manufacturers } from "@/data/products";
+import CTABanner from "@/components/ui/CTABanner";
+
+export function generateStaticParams() {
+  return getAllSubtypes().flatMap((st) => [
+    { locale: "es", slug: st.categorySlug, subtype: st.slug },
+    { locale: "en", slug: st.categorySlug, subtype: st.slug },
+  ]);
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string; slug: string; subtype: string }>;
+}): Promise<Metadata> {
+  const { locale, slug, subtype } = await params;
+  const category = productCategories[slug];
+  if (!category) return {};
+  const st = category.subtypes.find((s) => s.slug === subtype);
+  if (!st) return {};
+  const l = locale as "es" | "en";
+  return {
+    title: st[l].name,
+    description: st[l].desc,
+    openGraph: {
+      title: `${st[l].name} | ${category[l].name}`,
+      description: st[l].desc,
+    },
+  };
+}
 
 export default async function SubtypeDetailPage({
   params,
@@ -541,58 +571,14 @@ export default async function SubtypeDetailPage({
       </section>
 
       {/* ======== BOTTOM CTA ======== */}
-      <section className="relative py-24 lg:py-28 overflow-hidden">
-        <Image
-          src={stockImages.industrial}
-          alt=""
-          fill
-          placeholder="blur"
-          blurDataURL={getBlur(stockImages.industrial)}
-          className="object-cover"
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-navy-deep/65" />
-        <div className="relative mx-auto max-w-[1600px] px-5 md:px-10">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2
-              className="font-heading text-white mb-4 hero-text"
-              style={{
-                fontSize: "clamp(1.5rem, 3.5vw, 2rem)",
-                fontWeight: 500,
-              }}
-            >
-              {locale === "es"
-                ? "Hablemos de tu proyecto"
-                : "Let's talk about your project"}
-            </h2>
-            <p
-              className="text-white/60 mb-10 leading-relaxed hero-subtitle"
-              style={{ fontSize: "1.05rem" }}
-            >
-              {locale === "es"
-                ? "Nuestro equipo de ingenieros está listo para ayudarte a encontrar la solución correcta."
-                : "Our engineering team is ready to help you find the right solution."}
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link
-                href={`${prefix}/contacto`}
-                className="inline-flex items-center px-8 py-4 bg-gold text-white font-semibold rounded-xl btn-lift hover:bg-gold-dark"
-                style={{ fontSize: "1.05rem" }}
-              >
-                {locale === "es" ? "Enviar mensaje" : "Send a message"}
-                <ArrowRight size={18} className="ml-2" />
-              </Link>
-              <a
-                href="tel:+525553973703"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/20 text-white font-medium rounded-xl btn-lift hover:bg-white/20"
-              >
-                <Phone size={16} />
-                +52 55 5397 3703
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
+      <CTABanner
+        heading={locale === "es" ? "Hablemos de su proyecto" : "Let's talk about your project"}
+        subtext={locale === "es"
+          ? "Nuestro equipo de ingenieros está listo para ayudarle a encontrar la solución correcta."
+          : "Our engineering team is ready to help you find the right solution."}
+        ctaText={locale === "es" ? "Contactar Especialista" : "Contact a Specialist"}
+        ctaLink={`${prefix}/contacto`}
+      />
     </>
   );
 }
