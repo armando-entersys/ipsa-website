@@ -13,7 +13,7 @@ services:
       - "traefik.http.routers.ipsa-web.tls.certresolver=letsencrypt"
       - "traefik.http.services.ipsa-web.loadbalancer.server.port=3000"
     networks:
-      - traefik-public
+      - traefik
     deploy:
       resources:
         limits:
@@ -30,5 +30,5 @@ services:
       start_period: 40s
 
 networks:
-  traefik-public:
+  traefik:
     external: true
