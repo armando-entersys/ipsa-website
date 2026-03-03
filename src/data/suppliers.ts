@@ -135,7 +135,7 @@ export const suppliers: Supplier[] = [
     country: 'Italy',
     website: 'https://perar.net',
     logo: '/images/logos/perar-official.png',
-    image: '/images/heroes/products-hero.jpg',
+    image: '/images/heroes/perar-hero.jpg',
     products: {
       es: ['Válvulas de bola trunnion mounted', 'Válvulas de cuerpo soldado', 'Tamaños de 2" a 48"', 'Clases ANSI 150 a 2500'],
       en: ['Trunnion mounted ball valves', 'Welded body valves', 'Sizes from 2" to 48"', 'ANSI class 150 to 2500'],
@@ -223,7 +223,7 @@ export const suppliers: Supplier[] = [
     country: 'Italy',
     website: 'https://www.dellafoglia.it',
     logo: '/images/logos/della-foglia-official.svg',
-    image: '/images/heroes/industries-hero.jpg',
+    image: '/images/heroes/della-foglia-hero.jpg',
     products: {
       es: ['Válvulas de bola flotante (1/2" - 64")', 'Válvulas de bola trunnion mounted', 'Válvulas de bola top entry', 'Válvulas subsea', 'Válvulas criogénicas', 'Válvulas de alta presión (hasta 15,000 psi)'],
       en: ['Floating ball valves (1/2" - 64")', 'Trunnion mounted ball valves', 'Top entry ball valves', 'Subsea valves', 'Cryogenic valves', 'High pressure valves (up to 15,000 psi)'],
@@ -310,7 +310,7 @@ export const suppliers: Supplier[] = [
     country: 'International',
     website: 'https://www.dhvindustries.com',
     logo: '/images/logos/dhv-official.png',
-    image: '/images/heroes/suppliers-hero.jpg',
+    image: '/images/heroes/dhv-hero.jpg',
     products: {
       es: ['Válvulas de compuerta (slab y wedge)', 'Válvulas de globo', 'Válvulas de retención (check)', 'Válvulas de bola flotante'],
       en: ['Gate valves (slab and wedge)', 'Globe valves', 'Check valves', 'Floating ball valves'],
@@ -398,7 +398,7 @@ export const suppliers: Supplier[] = [
     country: 'USA',
     website: 'https://www.versa-valves.com',
     logo: '/images/logos/versa-official.png',
-    image: '/images/heroes/services-hero.jpg',
+    image: '/images/heroes/versa-hero.png',
     products: {
       es: ['Válvulas solenoides', 'Control direccional neumático', 'Control direccional hidráulico', 'Válvulas montaje NAMUR'],
       en: ['Solenoid valves', 'Pneumatic directional control', 'Hydraulic directional control', 'NAMUR mount valves'],
@@ -485,7 +485,7 @@ export const suppliers: Supplier[] = [
     country: 'USA',
     website: 'https://valves.bakerhughes.com/masoneilan',
     logo: '/images/logos/bakerhughes.svg',
-    image: '/images/heroes/about-hero.jpg',
+    image: '/images/heroes/masoneilan-hero.jpg',
     products: {
       es: ['Válvulas de control tipo globo', 'Válvulas de control rotativas', 'Posicionadores inteligentes', 'Reguladores de presión'],
       en: ['Globe-type control valves', 'Rotary control valves', 'Smart positioners', 'Pressure regulators'],

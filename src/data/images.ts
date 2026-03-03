@@ -25,14 +25,14 @@ export const stockImages = {
   oils: "/images/heroes/oils.jpg",
 
   // Services
-  automation: "/images/heroes/products-hero.jpg",
-  engineering: "/images/heroes/services-hero.jpg",
-  workshop: "/images/heroes/industries-hero.jpg",
+  automation: "/images/heroes/automation-hero.jpg",
+  engineering: "/images/heroes/engineering-hero.jpg",
+  workshop: "/images/products/ipsa-tablero-1.jpg",
 
   // Products
-  valves: "/images/heroes/products-hero.jpg",
-  pipeline: "/images/heroes/industries-hero.jpg",
-  industrial: "/images/heroes/industries-hero.jpg",
+  valves: "/images/products/df-factory-valves.jpg",
+  pipeline: "/images/heroes/oil-gas.jpg",
+  industrial: "/images/heroes/gas.jpg",
 
   // About / team
   team: "/images/heroes/about-hero.jpg",
