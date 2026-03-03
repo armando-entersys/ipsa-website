@@ -47,6 +47,15 @@ export interface ProductCategory {
   pas?: ProductPAS;
   certChecklist?: string[];
   relatedBrands: string[];
+  ctaFinal?: {
+    h2: { es: string; en: string };
+    subtexto: { es: string; en: string };
+    cta: { es: string; en: string };
+  };
+  automationBanner?: {
+    h2: { es: string; en: string };
+    body: { es: string; en: string };
+  };
 }
 
 // --- Macro-Block labels ---------------------------------------------------
@@ -96,7 +105,7 @@ export const manufacturers: Record<
     name: 'DHV Valve Group',
     slug: 'dhv',
     image: '/images/products/dhv-trunnion-2pc.jpg',
-    logo: '/images/logos/dhv.svg',
+    logo: '/images/logos/dhv-official.png',
     country: 'International',
     website: 'https://www.dhvindustries.com',
   },
@@ -104,7 +113,7 @@ export const manufacturers: Record<
     name: 'Della Foglia',
     slug: 'della-foglia',
     image: '/images/products/df-trunnion-automated.jpg',
-    logo: '/images/logos/della-foglia.svg',
+    logo: '/images/logos/della-foglia-official.svg',
     country: 'Italia',
     website: 'https://www.dellafoglia.it',
   },
@@ -112,7 +121,7 @@ export const manufacturers: Record<
     name: 'Perar',
     slug: 'perar',
     image: '/images/products/df-trunnion-wb-coated.jpg',
-    logo: '/images/logos/perar.svg',
+    logo: '/images/logos/perar-official.png',
     country: 'Italia',
     website: 'https://www.pfrvalves.com',
   },
@@ -120,7 +129,7 @@ export const manufacturers: Record<
     name: 'Versa Valves',
     slug: 'versa',
     image: '/images/products/versa-e4-solenoid.png',
-    logo: '/images/logos/versa.svg',
+    logo: '/images/logos/versa-official.png',
     country: 'USA',
     website: 'https://www.versaproducts.com',
   },
@@ -224,6 +233,15 @@ export const productCategories: Record<string, ProductCategory> = {
     },
     certChecklist: ['API 6D', 'API 6A', 'API 6DSS', 'NACE MR0175', 'ISO 15848', 'SIL 3'],
     relatedBrands: ['perar', 'della-foglia'],
+    ctaFinal: {
+      h2: { es: '¿Requiere aislamiento de alta presión con mantenimiento accesible?', en: 'Need high-pressure isolation with accessible maintenance?' },
+      subtexto: { es: 'Consulte a nuestros especialistas para seleccionar la configuración de 2 o 3 piezas adecuada para su proceso.', en: 'Consult our specialists to select the right 2 or 3-piece configuration for your process.' },
+      cta: { es: 'Contactar a Ventas Técnicas', en: 'Contact Technical Sales' },
+    },
+    automationBanner: {
+      h2: { es: 'Listas para la automatización de alto torque.', en: 'Ready for high-torque automation.' },
+      body: { es: 'Las válvulas Trunnion están diseñadas nativamente para manejar altas presiones, lo que requiere cajas de engranajes (gearboxes) para su operación manual. Nuestra División de Automatización retira el esfuerzo humano integrando actuadores neumáticos, eléctricos o electrohidráulicos directamente a la válvula. Entregamos paquetes completos de Paro de Emergencia (ESD) probados en nuestro taller.', en: 'Trunnion valves are natively designed to handle high pressures, requiring gearboxes for manual operation. Our Automation Division removes human effort by integrating pneumatic, electric, or electrohydraulic actuators directly to the valve. We deliver complete Emergency Shutdown (ESD) packages tested in our workshop.' },
+    },
     subtypes: [
       {
         slug: 'atornillado',
@@ -284,6 +302,15 @@ export const productCategories: Record<string, ProductCategory> = {
     },
     certChecklist: ['API 6D', 'API 607', 'ISO 17292'],
     relatedBrands: ['della-foglia', 'dhv'],
+    ctaFinal: {
+      h2: { es: '¿Necesita refaccionar sus líneas de servicio o purgas?', en: 'Need to refurbish your service or purge lines?' },
+      subtexto: { es: 'Consulte con nuestros ingenieros disponibilidad de stock masivo para envío inmediato o solicite su ensamble automatizado.', en: 'Check with our engineers for bulk stock availability for immediate shipping or request your automated assembly.' },
+      cta: { es: 'Contactar a Ventas Técnicas', en: 'Contact Technical Sales' },
+    },
+    automationBanner: {
+      h2: { es: 'Transforme su operación manual en un sistema autónomo.', en: 'Transform your manual operation into an autonomous system.' },
+      body: { es: 'Las válvulas de bola flotante son las candidatas perfectas para la modernización de su planta. Nuestra División de Automatización retira la palanca manual e integra actuadores neumáticos de cuarto de vuelta (rack and pinion) o actuadores eléctricos. Entregamos secuencias On/Off automatizadas, rápidas y seguras, listas para conectarse a su panel de control.', en: 'Floating ball valves are the perfect candidates for modernizing your plant. Our Automation Division removes the manual lever and integrates quarter-turn pneumatic actuators (rack and pinion) or electric actuators. We deliver automated, fast, and safe On/Off sequences ready to connect to your control panel.' },
+    },
     subtypes: [
       {
         slug: 'estandar',
@@ -342,6 +369,15 @@ export const productCategories: Record<string, ProductCategory> = {
     },
     certChecklist: ['API 600', 'API 6D', 'ASME B16.34'],
     relatedBrands: ['dhv'],
+    ctaFinal: {
+      h2: { es: '¿Requiere aislamiento absoluto para sus líneas de proceso?', en: 'Need absolute isolation for your process lines?' },
+      subtexto: { es: 'Consulte con nuestros ingenieros disponibilidad de stock en forjado y fundido, o solicite la automatización de sus equipos.', en: 'Check with our engineers for forged and cast stock availability, or request the automation of your equipment.' },
+      cta: { es: 'Contactar a Especialistas en DHV', en: 'Contact DHV Specialists' },
+    },
+    automationBanner: {
+      h2: { es: 'Potencia para diámetros mayores y alta presión.', en: 'Power for larger diameters and high pressure.' },
+      body: { es: 'Las válvulas de compuerta son dispositivos de múltiples vueltas (multi-turn) que, en diámetros grandes o presiones elevadas, requieren un esfuerzo humano extremo. Nuestra División de Automatización integra actuadores eléctricos de alto torque o sistemas de engranajes reductores (Gears), permitiendo la operación remota y segura de sus líneas de bloqueo principales.', en: 'Gate valves are multi-turn devices that, in large diameters or high pressures, require extreme human effort. Our Automation Division integrates high-torque electric actuators or gear reducer systems, enabling remote and safe operation of your main shutoff lines.' },
+    },
     subtypes: [
       {
         slug: 'slab',
@@ -398,6 +434,15 @@ export const productCategories: Record<string, ProductCategory> = {
     },
     certChecklist: ['API 600', 'ASME B16.34', 'BS 1873'],
     relatedBrands: ['dhv'],
+    ctaFinal: {
+      h2: { es: '¿Necesita dosificar o estrangular un fluido crítico?', en: 'Need to dose or throttle a critical fluid?' },
+      subtexto: { es: 'Consulte con nuestros especialistas para el cálculo del Coeficiente de Flujo (Cv) y verifique disponibilidad en stock.', en: 'Consult our specialists for Flow Coefficient (Cv) calculation and check stock availability.' },
+      cta: { es: 'Contactar a Ventas Técnicas', en: 'Contact Technical Sales' },
+    },
+    automationBanner: {
+      h2: { es: 'Evolucione hacia el control automático.', en: 'Evolve toward automatic control.' },
+      body: { es: 'Una válvula de globo manual puede transformarse en el elemento final de un lazo de control continuo. Nuestra División de Automatización integra actuadores eléctricos de múltiples vueltas o neumáticos lineales, permitiendo que su sistema regule presión, nivel o temperatura de forma remota y autónoma.', en: 'A manual globe valve can be transformed into the final element of a continuous control loop. Our Automation Division integrates multi-turn electric or linear pneumatic actuators, allowing your system to regulate pressure, level, or temperature remotely and autonomously.' },
+    },
     subtypes: [
       {
         slug: 'estandar',
@@ -441,6 +486,11 @@ export const productCategories: Record<string, ProductCategory> = {
     },
     certChecklist: ['API 6D', 'ASME B16.34', 'API 594'],
     relatedBrands: ['dhv'],
+    ctaFinal: {
+      h2: { es: '¿Requiere protección contra reflujo en sus sistemas de bombeo?', en: 'Need backflow protection in your pumping systems?' },
+      subtexto: { es: 'Consulte a nuestros ingenieros para el dimensionamiento exacto y disponibilidad inmediata en stock.', en: 'Consult our engineers for exact sizing and immediate stock availability.' },
+      cta: { es: 'Contactar a Ventas Técnicas', en: 'Contact Technical Sales' },
+    },
     subtypes: [
       {
         slug: 'swing',
@@ -497,6 +547,15 @@ export const productCategories: Record<string, ProductCategory> = {
     },
     certChecklist: ['IEC 61511', 'ASME B16.34', 'SIL 3', 'ISA 75.01'],
     relatedBrands: ['masoneilan'],
+    ctaFinal: {
+      h2: { es: '¿Enfrenta problemas de cavitación o inestabilidad en su proceso?', en: 'Facing cavitation or instability issues in your process?' },
+      subtexto: { es: 'Comparta sus condiciones de operación con nuestros especialistas y reciba una propuesta de dimensionamiento exacto.', en: 'Share your operating conditions with our specialists and receive an exact sizing proposal.' },
+      cta: { es: 'Contactar a un Ingeniero de Control', en: 'Contact a Control Engineer' },
+    },
+    automationBanner: {
+      h2: { es: 'Un lazo de control perfecto requiere integración total.', en: 'A perfect control loop requires total integration.' },
+      body: { es: 'Una válvula de control excepcional no opera sola. A través de nuestra División de Automatización, entregamos ensambles calibrados que incluyen Preparación de Aire Neumático (Air Preparation de Versa) y Calibración de lazo (Loop Tuning) para que la respuesta de la válvula a la señal de control sea instantánea y sin oscilaciones.', en: 'An exceptional control valve does not operate alone. Through our Automation Division, we deliver calibrated assemblies that include Pneumatic Air Preparation (Versa Air Preparation) and Loop Tuning so that the valve\'s response to the control signal is instantaneous and oscillation-free.' },
+    },
     subtypes: [
       {
         slug: 'globo-control',
@@ -546,6 +605,15 @@ export const productCategories: Record<string, ProductCategory> = {
     },
     certChecklist: ['ASME Section VIII', 'API 520', 'API 526', 'NACE MR0175'],
     relatedBrands: ['consolidated'],
+    ctaFinal: {
+      h2: { es: '¿Su planta cuenta con la protección de sobrepresión adecuada?', en: 'Does your plant have adequate overpressure protection?' },
+      subtexto: { es: 'Hable con un especialista para auditar sus sistemas de alivio o cotizar refaccionamiento inmediato.', en: 'Talk to a specialist to audit your relief systems or quote immediate refurbishment.' },
+      cta: { es: 'Solicitar Auditoría de Seguridad', en: 'Request Safety Audit' },
+    },
+    automationBanner: {
+      h2: { es: 'Calibración exacta: La diferencia entre un paro y un desastre.', en: 'Exact calibration: The difference between a shutdown and a disaster.' },
+      body: { es: 'El valor de una válvula de seguridad reside en su precisión. Nuestros especialistas no solo suministran el equipo, sino que garantizan su correcta integración: Calibración milimétrica del Set Point y ensamble de válvulas de alivio Versa en paquetes de preparación de aire para entregar tableros de control blindados.', en: 'The value of a safety valve lies in its precision. Our specialists not only supply the equipment but guarantee its correct integration: Millimetric Set Point calibration and assembly of Versa relief valves in air preparation packages to deliver armored control panels.' },
+    },
     subtypes: [
       {
         slug: 'convencional',
@@ -595,6 +663,15 @@ export const productCategories: Record<string, ProductCategory> = {
     },
     certChecklist: ['SIL 3', 'ATEX', 'IEC 61508', 'NAMUR'],
     relatedBrands: ['versa'],
+    ctaFinal: {
+      h2: { es: '¿Requiere asegurar el control de sus actuadores críticos?', en: 'Need to secure the control of your critical actuators?' },
+      subtexto: { es: 'Hable con un Ingeniero de Aplicación para definir la configuración de bobina y sellos adecuada para su zona.', en: 'Talk to an Application Engineer to define the right coil and seal configuration for your zone.' },
+      cta: { es: 'Solicitar Asesoría en Automatización', en: 'Request Automation Advice' },
+    },
+    automationBanner: {
+      h2: { es: 'No solo entregamos el componente, integramos la solución.', en: 'We don\'t just deliver the component, we integrate the solution.' },
+      body: { es: 'Nuestra División de Automatización diseña y ensambla tableros de control y paneles electrohidráulicos utilizando estos componentes Versa, entregando equipos con Pruebas de Aceptación en Fábrica (FAT) documentadas.', en: 'Our Automation Division designs and assembles control panels and electrohydraulic panels using these Versa components, delivering equipment with documented Factory Acceptance Tests (FAT).' },
+    },
     subtypes: [
       {
         slug: 'solenoide-serie-v',
@@ -654,6 +731,15 @@ export const productCategories: Record<string, ProductCategory> = {
     },
     certChecklist: ['API 6D', 'IEC 61511', 'SIL 3', 'NAMUR', 'ATEX'],
     relatedBrands: ['perar', 'della-foglia', 'versa', 'masoneilan'],
+    ctaFinal: {
+      h2: { es: '¿Listo para automatizar su próximo proyecto crítico?', en: 'Ready to automate your next critical project?' },
+      subtexto: { es: 'Hable con nuestros especialistas para el cálculo de torques y la selección del paquete de actuación adecuado.', en: 'Talk to our specialists for torque calculation and selection of the right actuation package.' },
+      cta: { es: 'Cotizar Ensamble Automatizado', en: 'Quote Automated Assembly' },
+    },
+    automationBanner: {
+      h2: { es: 'Validación total antes de la llegada a sitio.', en: 'Total validation before arrival at site.' },
+      body: { es: 'En IPSA realizamos las Pruebas de Aceptación en Fábrica (FAT) en nuestro propio taller. Calibramos el conjunto completo para garantizar que la válvula abra y cierre exactamente en el tiempo requerido por su protocolo de seguridad.', en: 'At IPSA we perform Factory Acceptance Tests (FAT) in our own workshop. We calibrate the complete assembly to ensure the valve opens and closes exactly within the time required by your safety protocol.' },
+    },
     subtypes: [
       {
         slug: 'paquete-esd',
@@ -702,6 +788,15 @@ export const productCategories: Record<string, ProductCategory> = {
     },
     certChecklist: ['API 6D', 'NACE MR0175', 'ISO 15848'],
     relatedBrands: ['perar'],
+    ctaFinal: {
+      h2: { es: '¿Necesita integridad absoluta en sus líneas de transmisión?', en: 'Need absolute integrity in your transmission lines?' },
+      subtexto: { es: 'Consulte con nuestros ingenieros para especificaciones de ductos y disponibilidad de inventario soldado.', en: 'Consult our engineers for pipeline specifications and welded inventory availability.' },
+      cta: { es: 'Contactar a Ventas Técnicas', en: 'Contact Technical Sales' },
+    },
+    automationBanner: {
+      h2: { es: 'Control remoto a lo largo de toda la línea.', en: 'Remote control along the entire line.' },
+      body: { es: 'Las válvulas de transporte no pueden depender de la operación manual. Nuestra División de Automatización integra actuadores especializados tipo Gas-Over-Oil (Gas sobre Aceite), neumáticos de alto torque o sistemas electrohidráulicos. Entregamos soluciones que permiten el cierre seguro y remoto desde el cuarto de control central, incluso a cientos de kilómetros de distancia.', en: 'Transport valves cannot depend on manual operation. Our Automation Division integrates specialized Gas-Over-Oil actuators, high-torque pneumatic, or electrohydraulic systems. We deliver solutions that enable safe and remote closure from the central control room, even hundreds of kilometers away.' },
+    },
     subtypes: [
       {
         slug: 'enterramiento',

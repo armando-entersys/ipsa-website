@@ -73,10 +73,9 @@ export default async function SubtypeDetailPage({
   const serviceNames: Record<string, { es: string; en: string }> = {
     automatizacion: { es: "Automatización de Válvulas", en: "Valve Automation" },
     ingenieria: { es: "Ingeniería y Proyectos EPC", en: "Engineering & EPC Projects" },
-    "soporte-in-house": { es: "Centro de Automatización (CAD)", en: "Automation Center (CAD)" },
   };
   const relatedServices = (category.services ?? []).map((slug: string) => ({
-    slug,
+    slug: slug === 'soporte-in-house' ? 'automatizacion' : slug,
     es: serviceNames[slug]?.es ?? slug,
     en: serviceNames[slug]?.en ?? slug,
   }));
@@ -191,14 +190,14 @@ export default async function SubtypeDetailPage({
               {/* Product showcase image */}
               {subtypeData.image && (
                 <div
-                  className="relative w-full rounded-xl overflow-hidden shadow-card"
-                  style={{ aspectRatio: "16/9" }}
+                  className="relative w-full rounded-xl overflow-hidden shadow-card bg-gray-50"
+                  style={{ aspectRatio: "1/1" }}
                 >
                   <Image
                     src={subtypeData.image}
                     alt={stName}
                     fill
-                    className="object-cover"
+                    className="object-contain"
                     sizes="(max-width: 1024px) 100vw, 66vw"
                   />
                 </div>
@@ -268,7 +267,7 @@ export default async function SubtypeDetailPage({
                       return mfr.slug ? (
                         <Link
                           key={mfr.slug}
-                          href={`${prefix}/proveedores/${mfr.slug}`}
+                          href={`${prefix}/fabricantes/${mfr.slug}`}
                           className="group p-5 rounded-xl bg-white border border-gray-100 card-modern transition-all duration-150"
                         >
                           {card}
@@ -372,6 +371,7 @@ export default async function SubtypeDetailPage({
                         "NACE MR0175": "/images/logos/nace.svg",
                         "ISO 15848": "/images/logos/iso.png",
                         "ISO 10497": "/images/logos/iso.png",
+                        "ISO 17292": "/images/logos/iso.png",
                         "ISO 5211": "/images/logos/iso.png",
                         "ASME VIII": "/images/logos/asme.svg",
                         "NORSOK M-650": "/images/logos/norsok.svg",

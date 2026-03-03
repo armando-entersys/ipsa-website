@@ -19,163 +19,219 @@ import {
 
 const productCategories = {
   es: [
+    // ── A: Aislamiento y Bloqueo ──
     {
-      title: "Válvulas de Bola",
-      href: "/productos/valvulas-bola",
-      image: "/images/products/dhv-floater.jpg",
+      title: "Válvulas de Bola Trunnion",
+      href: "/productos/valvulas-bola-trunnion",
+      image: "/images/products/dhv-trunnion-2pc.jpg",
+      block: "Aislamiento y Bloqueo",
       items: [
-        { label: "Floating (Bola Flotante)", href: "/productos/valvulas-bola/floating" },
-        { label: "Trunnion Mounted (Bola Fija)", href: "/productos/valvulas-bola/trunnion" },
-        { label: "Fully Welded", href: "/productos/valvulas-bola/fully-welded" },
-        { label: "Criogénicas", href: "/productos/valvulas-bola/criogenicas" },
-        { label: "Subsea (API 6DSS)", href: "/productos/valvulas-bola/subsea" },
-        { label: "Alta Presión", href: "/productos/valvulas-bola/alta-presion" },
-        { label: "Double Block & Bleed", href: "/productos/valvulas-bola/dbb" },
+        { label: "Cuerpo Atornillado", href: "/productos/valvulas-bola-trunnion/atornillado" },
+        { label: "Cuerpo Soldado", href: "/productos/valvulas-bola-trunnion/soldado" },
+        { label: "Subsea (API 6DSS)", href: "/productos/valvulas-bola-trunnion/subsea" },
+      ],
+    },
+    {
+      title: "Válvulas de Bola Flotante",
+      href: "/productos/valvulas-bola-flotante",
+      image: "/images/products/dhv-floater.jpg",
+      block: "Aislamiento y Bloqueo",
+      items: [
+        { label: "Flotante Estándar", href: "/productos/valvulas-bola-flotante/estandar" },
+        { label: "Flotante Top Entry", href: "/productos/valvulas-bola-flotante/top-entry" },
+        { label: "Flotante Criogénica", href: "/productos/valvulas-bola-flotante/criogenica" },
       ],
     },
     {
       title: "Válvulas de Compuerta",
       href: "/productos/valvulas-compuerta",
-      image: "/images/products/dhv-gate-valve.png",
+      image: "/images/products/dhv-gate.jpg",
+      block: "Aislamiento y Bloqueo",
       items: [
-        { label: "Wedge Gate", href: "/productos/valvulas-compuerta/wedge" },
-        { label: "Slab Gate", href: "/productos/valvulas-compuerta/slab-gate" },
-        { label: "Conduit Gate", href: "/productos/valvulas-compuerta/conduit" },
-        { label: "Forjadas (API 602)", href: "/productos/valvulas-compuerta/forjadas" },
+        { label: "Compuerta Tipo Slab", href: "/productos/valvulas-compuerta/slab" },
+        { label: "Compuerta Tipo Cuña", href: "/productos/valvulas-compuerta/wedge" },
       ],
     },
+    // ── B: Regulación y Retención ──
+    {
+      title: "Válvulas de Globo",
+      href: "/productos/valvulas-globo",
+      image: "/images/products/dhv-globe.jpg",
+      block: "Regulación y Retención",
+      items: [
+        { label: "Globo Estándar", href: "/productos/valvulas-globo/estandar" },
+      ],
+    },
+    {
+      title: "Válvulas Check",
+      href: "/productos/valvulas-check",
+      image: "/images/products/dhv-check.jpg",
+      block: "Regulación y Retención",
+      items: [
+        { label: "Check Tipo Swing", href: "/productos/valvulas-check/swing" },
+        { label: "Check Tipo Pistón", href: "/productos/valvulas-check/piston" },
+      ],
+    },
+    // ── C: Control, Seguridad y Automatización ──
     {
       title: "Válvulas de Control",
       href: "/productos/valvulas-control",
-      image: "/images/products/ipsa-control-panel-1.jpg",
+      image: "/images/products/masoneilan-control.jpg",
+      block: "Control y Seguridad",
       items: [
-        { label: "Globe", href: "/productos/valvulas-control/globe" },
-        { label: "Rotary", href: "/productos/valvulas-control/rotary" },
-        { label: "Butterfly", href: "/productos/valvulas-control/butterfly" },
-        { label: "Anti-surge", href: "/productos/valvulas-control/anti-surge" },
-      ],
-    },
-    {
-      title: "Actuadores",
-      href: "/productos/actuadores",
-      image: "/images/products/df-trunnion-automated.jpg",
-      items: [
-        { label: "Neumáticos (Rack & Pinion)", href: "/productos/actuadores/neumaticos-rack-pinion" },
-        { label: "Neumáticos (Scotch Yoke)", href: "/productos/actuadores/neumaticos-scotch-yoke" },
-        { label: "Eléctricos", href: "/productos/actuadores/electricos" },
-        { label: "Hidráulicos", href: "/productos/actuadores/hidraulicos" },
-        { label: "Auto-Contenidos", href: "/productos/actuadores/auto-contenidos" },
+        { label: "Control Tipo Globo", href: "/productos/valvulas-control/globo-control" },
+        { label: "Control Rotativas", href: "/productos/valvulas-control/rotativas" },
       ],
     },
     {
       title: "Válvulas de Seguridad",
       href: "/productos/valvulas-seguridad",
-      image: "/images/products/ipsa-control-panel-1.jpg",
-      items: [],
+      image: "/images/products/consolidated-safety.jpg",
+      block: "Control y Seguridad",
+      items: [
+        { label: "Seguridad Convencional", href: "/productos/valvulas-seguridad/convencional" },
+        { label: "Seguridad Balanceada", href: "/productos/valvulas-seguridad/balanceada" },
+      ],
     },
     {
-      title: "Válvulas Solenoides",
-      href: "/productos/valvulas-solenoides",
+      title: "Válvulas Neumáticas y Solenoides",
+      href: "/productos/valvulas-neumaticas-solenoides",
       image: "/images/products/versa-e4-solenoid.png",
-      items: [],
+      block: "Control y Seguridad",
+      items: [
+        { label: "Solenoide Serie V", href: "/productos/valvulas-neumaticas-solenoides/solenoide-serie-v" },
+        { label: "Piloto y Control Direccional", href: "/productos/valvulas-neumaticas-solenoides/piloto-control" },
+        { label: "Paquetes de Aire Modular", href: "/productos/valvulas-neumaticas-solenoides/paquete-aire-modular" },
+      ],
+    },
+    // ── D: Soluciones Integradas ──
+    {
+      title: "Válvulas Automatizadas",
+      href: "/productos/valvulas-automatizadas",
+      image: "/images/products/df-trunnion-automated.jpg",
+      block: "Soluciones Integradas",
+      items: [
+        { label: "Paquetes ESD", href: "/productos/valvulas-automatizadas/paquete-esd" },
+        { label: "Paquetes de Control", href: "/productos/valvulas-automatizadas/paquete-control" },
+      ],
     },
     {
-      title: "Paneles de Control",
-      href: "/productos/paneles-de-control",
-      image: "/images/products/ipsa-control-panel-1.jpg",
-      items: [],
-    },
-    {
-      title: "Instrumentación",
-      href: "/productos/instrumentacion",
-      image: "/images/products/ipsa-control-panel-1.jpg",
-      items: [],
-    },
-    {
-      title: "Accesorios y Refacciones",
-      href: "/productos/accesorios-refacciones",
-      image: "/images/products/df-factory-valves.jpg",
-      items: [],
+      title: "Válvulas de Bola Soldadas",
+      href: "/productos/valvulas-bola-soldadas",
+      image: "/images/products/df-trunnion-wb.jpg",
+      block: "Soluciones Integradas",
+      items: [
+        { label: "Soldada para Enterramiento", href: "/productos/valvulas-bola-soldadas/enterramiento" },
+        { label: "Soldada Instalación Aérea", href: "/productos/valvulas-bola-soldadas/aerea" },
+      ],
     },
   ],
   en: [
+    // ── A: Isolation & Shutoff ──
     {
-      title: "Ball Valves",
-      href: "/productos/valvulas-bola",
-      image: "/images/products/dhv-floater.jpg",
+      title: "Trunnion Ball Valves",
+      href: "/productos/valvulas-bola-trunnion",
+      image: "/images/products/dhv-trunnion-2pc.jpg",
+      block: "Isolation & Shutoff",
       items: [
-        { label: "Floating Ball Valves", href: "/productos/valvulas-bola/floating" },
-        { label: "Trunnion Mounted", href: "/productos/valvulas-bola/trunnion" },
-        { label: "Fully Welded", href: "/productos/valvulas-bola/fully-welded" },
-        { label: "Cryogenic", href: "/productos/valvulas-bola/criogenicas" },
-        { label: "Subsea (API 6DSS)", href: "/productos/valvulas-bola/subsea" },
-        { label: "High Pressure", href: "/productos/valvulas-bola/alta-presion" },
-        { label: "Double Block & Bleed", href: "/productos/valvulas-bola/dbb" },
+        { label: "Bolted Body Trunnion", href: "/productos/valvulas-bola-trunnion/atornillado" },
+        { label: "Welded Body Trunnion", href: "/productos/valvulas-bola-trunnion/soldado" },
+        { label: "Subsea (API 6DSS)", href: "/productos/valvulas-bola-trunnion/subsea" },
+      ],
+    },
+    {
+      title: "Floating Ball Valves",
+      href: "/productos/valvulas-bola-flotante",
+      image: "/images/products/dhv-floater.jpg",
+      block: "Isolation & Shutoff",
+      items: [
+        { label: "Standard Floating Ball", href: "/productos/valvulas-bola-flotante/estandar" },
+        { label: "Top Entry Floating Ball", href: "/productos/valvulas-bola-flotante/top-entry" },
+        { label: "Cryogenic Floating Ball", href: "/productos/valvulas-bola-flotante/criogenica" },
       ],
     },
     {
       title: "Gate Valves",
       href: "/productos/valvulas-compuerta",
-      image: "/images/products/dhv-gate-valve.png",
+      image: "/images/products/dhv-gate.jpg",
+      block: "Isolation & Shutoff",
       items: [
-        { label: "Wedge Gate", href: "/productos/valvulas-compuerta/wedge" },
-        { label: "Slab Gate", href: "/productos/valvulas-compuerta/slab-gate" },
-        { label: "Conduit Gate", href: "/productos/valvulas-compuerta/conduit" },
-        { label: "Forged (API 602)", href: "/productos/valvulas-compuerta/forjadas" },
+        { label: "Slab Gate Valve", href: "/productos/valvulas-compuerta/slab" },
+        { label: "Wedge Gate Valve", href: "/productos/valvulas-compuerta/wedge" },
       ],
     },
+    // ── B: Regulation & Retention ──
+    {
+      title: "Globe Valves",
+      href: "/productos/valvulas-globo",
+      image: "/images/products/dhv-globe.jpg",
+      block: "Regulation & Retention",
+      items: [
+        { label: "Standard Globe", href: "/productos/valvulas-globo/estandar" },
+      ],
+    },
+    {
+      title: "Check Valves",
+      href: "/productos/valvulas-check",
+      image: "/images/products/dhv-check.jpg",
+      block: "Regulation & Retention",
+      items: [
+        { label: "Swing Check", href: "/productos/valvulas-check/swing" },
+        { label: "Piston Check", href: "/productos/valvulas-check/piston" },
+      ],
+    },
+    // ── C: Control, Safety & Automation ──
     {
       title: "Control Valves",
       href: "/productos/valvulas-control",
-      image: "/images/products/ipsa-control-panel-1.jpg",
+      image: "/images/products/masoneilan-control.jpg",
+      block: "Control & Safety",
       items: [
-        { label: "Globe", href: "/productos/valvulas-control/globe" },
-        { label: "Rotary", href: "/productos/valvulas-control/rotary" },
-        { label: "Butterfly", href: "/productos/valvulas-control/butterfly" },
-        { label: "Anti-surge", href: "/productos/valvulas-control/anti-surge" },
+        { label: "Globe Control Valve", href: "/productos/valvulas-control/globo-control" },
+        { label: "Rotary Control Valve", href: "/productos/valvulas-control/rotativas" },
       ],
     },
     {
-      title: "Actuators",
-      href: "/productos/actuadores",
-      image: "/images/products/df-trunnion-automated.jpg",
-      items: [
-        { label: "Pneumatic (Rack & Pinion)", href: "/productos/actuadores/neumaticos-rack-pinion" },
-        { label: "Pneumatic (Scotch Yoke)", href: "/productos/actuadores/neumaticos-scotch-yoke" },
-        { label: "Electric", href: "/productos/actuadores/electricos" },
-        { label: "Hydraulic", href: "/productos/actuadores/hidraulicos" },
-        { label: "Self-Contained", href: "/productos/actuadores/auto-contenidos" },
-      ],
-    },
-    {
-      title: "Safety Relief Valves",
+      title: "Safety Valves",
       href: "/productos/valvulas-seguridad",
-      image: "/images/products/ipsa-control-panel-1.jpg",
-      items: [],
+      image: "/images/products/consolidated-safety.jpg",
+      block: "Control & Safety",
+      items: [
+        { label: "Conventional Safety", href: "/productos/valvulas-seguridad/convencional" },
+        { label: "Balanced Safety", href: "/productos/valvulas-seguridad/balanceada" },
+      ],
     },
     {
-      title: "Solenoid Valves",
-      href: "/productos/valvulas-solenoides",
+      title: "Pneumatic & Solenoid Valves",
+      href: "/productos/valvulas-neumaticas-solenoides",
       image: "/images/products/versa-e4-solenoid.png",
-      items: [],
+      block: "Control & Safety",
+      items: [
+        { label: "Series V Solenoid", href: "/productos/valvulas-neumaticas-solenoides/solenoide-serie-v" },
+        { label: "Pilot & Directional Control", href: "/productos/valvulas-neumaticas-solenoides/piloto-control" },
+        { label: "Modular Air Packages", href: "/productos/valvulas-neumaticas-solenoides/paquete-aire-modular" },
+      ],
+    },
+    // ── D: Integrated Solutions ──
+    {
+      title: "Automated Valves",
+      href: "/productos/valvulas-automatizadas",
+      image: "/images/products/df-trunnion-automated.jpg",
+      block: "Integrated Solutions",
+      items: [
+        { label: "ESD Packages", href: "/productos/valvulas-automatizadas/paquete-esd" },
+        { label: "Control Packages", href: "/productos/valvulas-automatizadas/paquete-control" },
+      ],
     },
     {
-      title: "Control Panels",
-      href: "/productos/paneles-de-control",
-      image: "/images/products/ipsa-control-panel-1.jpg",
-      items: [],
-    },
-    {
-      title: "Instrumentation",
-      href: "/productos/instrumentacion",
-      image: "/images/products/ipsa-control-panel-1.jpg",
-      items: [],
-    },
-    {
-      title: "Accessories & Spare Parts",
-      href: "/productos/accesorios-refacciones",
-      image: "/images/products/df-factory-valves.jpg",
-      items: [],
+      title: "Welded Ball Valves",
+      href: "/productos/valvulas-bola-soldadas",
+      image: "/images/products/df-trunnion-wb.jpg",
+      block: "Integrated Solutions",
+      items: [
+        { label: "Buried Welded Valve", href: "/productos/valvulas-bola-soldadas/enterramiento" },
+        { label: "Above Ground Welded", href: "/productos/valvulas-bola-soldadas/aerea" },
+      ],
     },
   ],
 };
@@ -190,12 +246,12 @@ const otherNavItems = [
       es: [
         { label: "Automatización de Válvulas", href: "/servicios/automatizacion", desc: "Paquetes completos de automatización" },
         { label: "Ingeniería y Proyectos EPC", href: "/servicios/ingenieria", desc: "Ingeniería conceptual hasta la entrega" },
-        { label: "Centro de Automatización (CAD)", href: "/servicios/soporte-in-house", desc: "Reparación, pruebas NDE, almacén 24/7" },
+        { label: "Centro de Automatización (CAD)", href: "/servicios/automatizacion", desc: "Reparación, pruebas NDE, almacén 24/7" },
       ],
       en: [
         { label: "Valve Automation", href: "/servicios/automatizacion", desc: "Complete automation packages" },
         { label: "Engineering & EPC Projects", href: "/servicios/ingenieria", desc: "From concept to delivery" },
-        { label: "Automation Center (CAD)", href: "/servicios/soporte-in-house", desc: "Repair, NDE testing, 24/7 warehouse" },
+        { label: "Automation Center (CAD)", href: "/servicios/automatizacion", desc: "Repair, NDE testing, 24/7 warehouse" },
       ],
     },
   },
@@ -204,32 +260,34 @@ const otherNavItems = [
     href: "/industrias",
     children: {
       es: [
-        { label: "Petroleras", href: "/industrias/petroleras", desc: "Upstream, midstream y downstream" },
-        { label: "Aceites", href: "/industrias/aceites", desc: "Procesamiento y refinación" },
-        { label: "Gas", href: "/industrias/gas", desc: "Procesamiento, transporte y distribución" },
+        { label: "Oil & Gas", href: "/industrias/oil-gas", desc: "Alta presión, corrosión y aplicaciones Subsea" },
+        { label: "Sector Energético", href: "/industrias/energetico", desc: "Ciclos combinados, hidroeléctricas y renovables" },
+        { label: "Sector Privado", href: "/industrias/privado", desc: "Química, alimentos y manufactura" },
       ],
       en: [
-        { label: "Oil & Gas", href: "/industrias/petroleras", desc: "Upstream, midstream and downstream" },
-        { label: "Oils", href: "/industrias/aceites", desc: "Processing and refining" },
-        { label: "Gas", href: "/industrias/gas", desc: "Processing, transport and distribution" },
+        { label: "Oil & Gas", href: "/industrias/oil-gas", desc: "High pressure, corrosion and Subsea applications" },
+        { label: "Energy Sector", href: "/industrias/energetico", desc: "Combined cycles, hydroelectric and renewables" },
+        { label: "Private Sector", href: "/industrias/privado", desc: "Chemical, food and manufacturing" },
       ],
     },
   },
   {
     key: "suppliers",
-    href: "/proveedores",
+    href: "/fabricantes",
     children: {
       es: [
-        { label: "DHV Valve Group", href: "/proveedores/dhv", desc: "Fabricante europeo de válvulas de bola" },
-        { label: "Della Foglia", href: "/proveedores/della-foglia", desc: "Especialista en válvulas trunnion" },
-        { label: "Perar", href: "/proveedores/perar", desc: "Actuadores neumáticos e hidráulicos" },
-        { label: "Versa Valves", href: "/proveedores/versa", desc: "Válvulas solenoides y neumáticas" },
+        { label: "Perar", href: "/fabricantes/perar", desc: "Válvulas Trunnion de alta exigencia y Subsea" },
+        { label: "Della Foglia", href: "/fabricantes/della-foglia", desc: "Soluciones a medida para condiciones extremas" },
+        { label: "DHV Valve Group", href: "/fabricantes/dhv", desc: "Compuerta, Globo, Check y Bola con calidad API" },
+        { label: "Versa Valves", href: "/fabricantes/versa", desc: "Control direccional y electroválvulas" },
+        { label: "Masoneilan", href: "/fabricantes/masoneilan", desc: "Válvulas de control e instrumentación" },
       ],
       en: [
-        { label: "DHV Valve Group", href: "/proveedores/dhv", desc: "European ball valve manufacturer" },
-        { label: "Della Foglia", href: "/proveedores/della-foglia", desc: "Trunnion valve specialist" },
-        { label: "Perar", href: "/proveedores/perar", desc: "Pneumatic & hydraulic actuators" },
-        { label: "Versa Valves", href: "/proveedores/versa", desc: "Solenoid & pneumatic valves" },
+        { label: "Perar", href: "/fabricantes/perar", desc: "High-demand Trunnion and Subsea valves" },
+        { label: "Della Foglia", href: "/fabricantes/della-foglia", desc: "Custom solutions for extreme conditions" },
+        { label: "DHV Valve Group", href: "/fabricantes/dhv", desc: "Gate, Globe, Check & Ball with API quality" },
+        { label: "Versa Valves", href: "/fabricantes/versa", desc: "Directional control and solenoid valves" },
+        { label: "Masoneilan", href: "/fabricantes/masoneilan", desc: "Control valves and instrumentation" },
       ],
     },
   },
@@ -494,30 +552,41 @@ export default function Header() {
           <div className="mx-auto max-w-[1600px] px-5 md:px-10">
             <div className="flex" style={{ minHeight: "380px" }}>
               {/* Left: Category list */}
-              <div className="w-72 shrink-0 py-5 pr-5 border-r border-gray-100">
-                {categories.map((cat, idx) => (
-                  <Link
-                    key={cat.href}
-                    href={`${prefix}${cat.href}`}
-                    onClick={closeDropdown}
-                    onMouseEnter={() => setHoveredCategory(idx)}
-                    className={`group flex items-center justify-between px-4 py-2.5 rounded-lg text-sm transition-all duration-150 ${
-                      hoveredCategory === idx
-                        ? "bg-gray-50 text-gray-900 font-semibold"
-                        : "text-gray-600 hover:text-gray-900 hover:bg-gray-50/50"
-                    }`}
-                  >
-                    <span>{cat.title}</span>
-                    {cat.items.length > 0 && (
-                      <ChevronRight
-                        size={14}
-                        className={`transition-all duration-150 ${
-                          hoveredCategory === idx ? "text-gold opacity-100" : "opacity-0"
+              <div className="w-72 shrink-0 py-5 pr-5 border-r border-gray-100 overflow-y-auto" style={{ maxHeight: "420px" }}>
+                {categories.map((cat, idx) => {
+                  const prevBlock = idx > 0 ? (categories[idx - 1] as { block?: string }).block : null;
+                  const currentBlock = (cat as { block?: string }).block;
+                  const showDivider = currentBlock && currentBlock !== prevBlock;
+                  return (
+                    <div key={cat.href}>
+                      {showDivider && (
+                        <div className={`px-4 ${idx > 0 ? "mt-3 pt-3 border-t border-gray-100" : ""}`}>
+                          <span className="text-[10px] font-bold uppercase tracking-widest text-gold/70">{currentBlock}</span>
+                        </div>
+                      )}
+                      <Link
+                        href={`${prefix}${cat.href}`}
+                        onClick={closeDropdown}
+                        onMouseEnter={() => setHoveredCategory(idx)}
+                        className={`group flex items-center justify-between px-4 py-2 rounded-lg text-sm transition-all duration-150 ${
+                          hoveredCategory === idx
+                            ? "bg-gray-50 text-gray-900 font-semibold"
+                            : "text-gray-600 hover:text-gray-900 hover:bg-gray-50/50"
                         }`}
-                      />
-                    )}
-                  </Link>
-                ))}
+                      >
+                        <span>{cat.title}</span>
+                        {cat.items.length > 0 && (
+                          <ChevronRight
+                            size={14}
+                            className={`transition-all duration-150 ${
+                              hoveredCategory === idx ? "text-gold opacity-100" : "opacity-0"
+                            }`}
+                          />
+                        )}
+                      </Link>
+                    </div>
+                  );
+                })}
 
                 {/* View all products link */}
                 <div className="mt-4 pt-4 border-t border-gray-100 px-4">
@@ -572,12 +641,12 @@ export default function Header() {
 
                 {/* Category image */}
                 <div className="w-56 shrink-0">
-                  <div className="relative h-48 rounded-xl overflow-hidden mb-4">
+                  <div className="relative h-56 rounded-xl overflow-hidden mb-4 bg-gray-50">
                     <Image
                       src={activeCategory.image}
                       alt={activeCategory.title}
                       fill
-                      className="object-cover"
+                      className="object-contain"
                       sizes="224px"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-navy-alt/70 to-transparent" />
@@ -654,40 +723,38 @@ export default function Header() {
                 </div>
                 {mobileAccordion === "products" && (
                   <div className="bg-navy-dark/60">
-                    {categories.filter(c => c.items.length > 0).map((col) => (
-                      <div key={col.title}>
-                        <Link
-                          href={`${prefix}${col.href}`}
-                          onClick={() => setMobileOpen(false)}
-                          className="flex items-center gap-2 pl-8 pr-6 py-3 text-sm text-gold-light font-semibold border-l-[3px] border-gold/40 ml-6"
-                        >
-                          <span className="w-1.5 h-1.5 rounded-full bg-gold/60" />
-                          {col.title}
-                        </Link>
-                        {col.items.map((item) => (
+                    {categories.map((col, idx) => {
+                      const prevBlock = idx > 0 ? (categories[idx - 1] as { block?: string }).block : null;
+                      const currentBlock = (col as { block?: string }).block;
+                      const showDivider = currentBlock && currentBlock !== prevBlock;
+                      return (
+                        <div key={col.title}>
+                          {showDivider && (
+                            <div className={`pl-8 pr-6 ${idx > 0 ? "pt-3 mt-1 border-t border-white/5" : "pt-2"} ml-6`}>
+                              <span className="text-[10px] font-bold uppercase tracking-widest text-gold/50">{currentBlock}</span>
+                            </div>
+                          )}
                           <Link
-                            key={item.label}
-                            href={`${prefix}${item.href}`}
+                            href={`${prefix}${col.href}`}
                             onClick={() => setMobileOpen(false)}
-                            className="block pl-14 pr-6 py-1.5 text-xs text-white/50 border-l-[3px] border-white/5 ml-6 hover:text-white/70 transition-colors duration-200"
+                            className="flex items-center gap-2 pl-8 pr-6 py-2.5 text-sm text-gold-light font-semibold border-l-[3px] border-gold/40 ml-6"
                           >
-                            {item.label}
+                            <span className="w-1.5 h-1.5 rounded-full bg-gold/60" />
+                            {col.title}
                           </Link>
-                        ))}
-                      </div>
-                    ))}
-                    <div className="px-8 pt-3 pb-4 ml-6 border-l-[3px] border-white/5">
-                      {categories.filter(c => c.items.length === 0).map((cat) => (
-                        <Link
-                          key={cat.title}
-                          href={`${prefix}${cat.href}`}
-                          onClick={() => setMobileOpen(false)}
-                          className="block py-1.5 text-sm text-white/50 hover:text-white/70 transition-colors duration-200"
-                        >
-                          {cat.title}
-                        </Link>
-                      ))}
-                    </div>
+                          {col.items.map((item) => (
+                            <Link
+                              key={item.label}
+                              href={`${prefix}${item.href}`}
+                              onClick={() => setMobileOpen(false)}
+                              className="block pl-14 pr-6 py-1.5 text-xs text-white/50 border-l-[3px] border-white/5 ml-6 hover:text-white/70 transition-colors duration-200"
+                            >
+                              {item.label}
+                            </Link>
+                          ))}
+                        </div>
+                      );
+                    })}
                   </div>
                 )}
               </div>

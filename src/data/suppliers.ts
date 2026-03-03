@@ -43,6 +43,7 @@ export interface Supplier {
   website?: string;
   products: { es: string[]; en: string[] };
   certifications: SupplierCertification[];
+  heroBadges?: string[]; // subset of certifications to highlight in hero
   relatedProducts: string[];
   isPriority: boolean;
   // UX Writing fields
@@ -132,8 +133,9 @@ export const suppliers: Supplier[] = [
       en: 'Perar is an Italian manufacturer specialized in the production of trunnion mounted ball valves with welded body. Their valves are manufactured in sizes from 2" to 48" and pressure classes ANSI 150 to 2500.',
     },
     country: 'Italy',
-    logo: '/images/suppliers/perar-logo.png',
-    image: '/images/suppliers/perar.jpg',
+    website: 'https://perar.net',
+    logo: '/images/logos/perar-official.png',
+    image: '/images/heroes/products-hero.jpg',
     products: {
       es: ['Válvulas de bola trunnion mounted', 'Válvulas de cuerpo soldado', 'Tamaños de 2" a 48"', 'Clases ANSI 150 a 2500'],
       en: ['Trunnion mounted ball valves', 'Welded body valves', 'Sizes from 2" to 48"', 'ANSI class 150 to 2500'],
@@ -145,6 +147,7 @@ export const suppliers: Supplier[] = [
       { name: 'ISO 9001', description: { es: 'Sistema de gestión de calidad', en: 'Quality management system' } },
       { name: 'SIL 3', description: { es: 'Nivel de integridad de seguridad III', en: 'Safety Integrity Level III' } },
     ],
+    heroBadges: ['API 6D', 'API 6A', 'API 6DSS'],
     relatedProducts: ['valvulas-bola-trunnion', 'valvulas-bola-soldadas'],
     isPriority: true,
     heroH1: { es: 'Perar: El estándar global en válvulas de bola para servicios severos.', en: 'Perar: The global standard in ball valves for severe service.' },
@@ -157,14 +160,14 @@ export const suppliers: Supplier[] = [
     productCategories: [
       {
         title: { es: 'Válvulas de Bola Trunnion (Cuerpo Atornillado y Soldado)', en: 'Trunnion Ball Valves (Bolted and Welded Body)' },
-        uso: { es: 'Aislamiento crítico en ductos de transporte y estaciones de compresión.', en: 'Critical isolation in transportation pipelines and compression stations.' },
+        uso: { es: 'Aislamiento crítico en ductos de transporte y estaciones de compresión. Diseñadas para un mantenimiento sencillo y una vida útil prolongada.', en: 'Critical isolation in transportation pipelines and compression stations. Designed for easy maintenance and extended service life.' },
         industrias: ['oil-gas', 'energetico'],
         cta: { es: 'Ver Ficha Técnica Trunnion', en: 'View Trunnion Data Sheet' },
         ctaLink: '/productos/valvulas-bola-trunnion',
       },
       {
         title: { es: 'Soluciones Subsea (API 6DSS)', en: 'Subsea Solutions (API 6DSS)' },
-        uso: { es: 'Ingeniería especializada para el lecho marino. Presiones hidrostáticas extremas durante décadas.', en: 'Specialized engineering for the seabed. Extreme hydrostatic pressures for decades.' },
+        uso: { es: 'Ingeniería especializada para el lecho marino. Válvulas diseñadas para operar bajo presiones hidrostáticas extremas durante décadas.', en: 'Specialized engineering for the seabed. Valves designed to operate under extreme hydrostatic pressures for decades.' },
         industrias: ['oil-gas'],
         cta: { es: 'Explorar Capacidades Subsea', en: 'Explore Subsea Capabilities' },
         ctaLink: '/productos/valvulas-bola-trunnion',
@@ -218,8 +221,9 @@ export const suppliers: Supplier[] = [
       en: 'Della Foglia is an Italian ball valve manufacturer founded in 1962 with a long tradition of engineering and manufacturing excellence.',
     },
     country: 'Italy',
-    logo: '/images/suppliers/della-foglia-logo.png',
-    image: '/images/suppliers/della-foglia.jpg',
+    website: 'https://www.dellafoglia.it',
+    logo: '/images/logos/della-foglia-official.svg',
+    image: '/images/heroes/industries-hero.jpg',
     products: {
       es: ['Válvulas de bola flotante (1/2" - 64")', 'Válvulas de bola trunnion mounted', 'Válvulas de bola top entry', 'Válvulas subsea', 'Válvulas criogénicas', 'Válvulas de alta presión (hasta 15,000 psi)'],
       en: ['Floating ball valves (1/2" - 64")', 'Trunnion mounted ball valves', 'Top entry ball valves', 'Subsea valves', 'Cryogenic valves', 'High pressure valves (up to 15,000 psi)'],
@@ -230,6 +234,7 @@ export const suppliers: Supplier[] = [
       { name: 'API 6DSS', description: { es: 'Válvulas subsea', en: 'Subsea valves' } },
       { name: 'ISO 9001', description: { es: 'Sistema de gestión de calidad', en: 'Quality management system' } },
     ],
+    heroBadges: ['Especialistas en Hidrógeno y Servicios Severos'],
     relatedProducts: ['valvulas-bola-trunnion', 'valvulas-bola-flotante'],
     isPriority: true,
     heroH1: { es: 'Della Foglia: Soluciones avanzadas para los procesos industriales más exigentes.', en: 'Della Foglia: Advanced solutions for the most demanding industrial processes.' },
@@ -242,21 +247,21 @@ export const suppliers: Supplier[] = [
     productCategories: [
       {
         title: { es: 'Válvulas de Bola con Asientos Metálicos', en: 'Metal Seated Ball Valves' },
-        uso: { es: 'Servicios abrasivos y temperaturas que exceden los sellos blandos convencionales.', en: 'Abrasive services and temperatures exceeding conventional soft seals.' },
+        uso: { es: 'Diseñadas para servicios abrasivos y temperaturas que exceden los límites de los sellos blandos convencionales.', en: 'Designed for abrasive services and temperatures exceeding the limits of conventional soft seals.' },
         industrias: ['energetico'],
         cta: { es: 'Ver Detalles Técnicos', en: 'View Technical Details' },
         ctaLink: '/productos/valvulas-bola-trunnion',
       },
       {
         title: { es: 'Válvulas para Hidrógeno y Descarbonización', en: 'Hydrogen & Decarbonization Valves' },
-        uso: { es: 'Sellado avanzado para moléculas de hidrógeno, cero fugas.', en: 'Advanced sealing for hydrogen molecules, zero leaks.' },
+        uso: { es: 'Ingeniería de sellado avanzada para el manejo de moléculas de hidrógeno, asegurando cero fugas en la nueva frontera energética.', en: 'Advanced sealing engineering for handling hydrogen molecules, ensuring zero leaks in the new energy frontier.' },
         industrias: ['energetico'],
         cta: { es: 'Explorar Soluciones de Hidrógeno', en: 'Explore Hydrogen Solutions' },
         ctaLink: '/productos/valvulas-bola-flotante',
       },
       {
         title: { es: 'Válvulas de Bola de Entrada Superior (Top Entry)', en: 'Top Entry Ball Valves' },
-        uso: { es: 'Mantenimiento en línea para evitar paros prolongados.', en: 'In-line maintenance to avoid prolonged shutdowns.' },
+        uso: { es: 'Ideales para instalaciones donde el mantenimiento en línea es crítico para evitar paros prolongados.', en: 'Ideal for installations where in-line maintenance is critical to avoid prolonged shutdowns.' },
         industrias: ['oil-gas'],
         cta: { es: 'Ver Ventajas de Mantenimiento', en: 'View Maintenance Advantages' },
         ctaLink: '/productos/valvulas-bola-flotante',
@@ -265,8 +270,8 @@ export const suppliers: Supplier[] = [
     pas: {
       h2: { es: 'Protegemos su inversión en la transición hacia nuevas energías.', en: 'We protect your investment in the transition to new energies.' },
       problema: { es: 'Los procesos de descarbonización y el manejo de hidrógeno presentan riesgos de fragilización y fugas que las válvulas estándar no pueden gestionar.', en: 'Decarbonization processes and hydrogen handling present embrittlement and leak risks that standard valves cannot manage.' },
-      agitacion: { es: 'Un error en la selección de materiales en procesos térmicos o de hidrógeno puede comprometer la seguridad estructural de la planta.', en: 'A material selection error in thermal or hydrogen processes can compromise the structural safety of the plant.' },
-      solucion: { es: 'IPSA suministra tecnología Della Foglia, probada en los laboratorios más exigentes del mundo para servicios severos.', en: 'IPSA supplies Della Foglia technology, tested in the world\'s most demanding laboratories for severe service.' },
+      agitacion: { es: 'Un error en la selección de materiales en procesos térmicos o de hidrógeno puede comprometer no solo la rentabilidad, sino la seguridad estructural de la planta.', en: 'A material selection error in thermal or hydrogen processes can compromise not only profitability, but the structural safety of the plant.' },
+      solucion: { es: 'IPSA suministra tecnología Della Foglia, probada en los laboratorios más exigentes del mundo para garantizar un rendimiento impecable en servicios severos.', en: 'IPSA supplies Della Foglia technology, tested in the world\'s most demanding laboratories to guarantee impeccable performance in severe service.' },
       ctaInterconnect: { es: 'Asegure su cumplimiento normativo con nuestra División de Ingeniería', en: 'Ensure your regulatory compliance with our Engineering Division' },
       ctaInterconnectLink: '/servicios/ingenieria',
     },
@@ -303,8 +308,9 @@ export const suppliers: Supplier[] = [
       en: 'DHV Valve Group is an international high-quality valve manufacturer with its own foundry of 26,500 m² with a production capacity of 8,000 tons per year.',
     },
     country: 'International',
-    logo: '/images/suppliers/dhv-logo.png',
-    image: '/images/suppliers/dhv.jpg',
+    website: 'https://www.dhvindustries.com',
+    logo: '/images/logos/dhv-official.png',
+    image: '/images/heroes/suppliers-hero.jpg',
     products: {
       es: ['Válvulas de compuerta (slab y wedge)', 'Válvulas de globo', 'Válvulas de retención (check)', 'Válvulas de bola flotante'],
       en: ['Gate valves (slab and wedge)', 'Globe valves', 'Check valves', 'Floating ball valves'],
@@ -316,6 +322,7 @@ export const suppliers: Supplier[] = [
       { name: 'ISO 9001', description: { es: 'Sistema de gestión de calidad', en: 'Quality management system' } },
       { name: 'NORSOK M-650', description: { es: 'Cualificación de fabricantes', en: 'Manufacturer qualification' } },
     ],
+    heroBadges: ['Certificación API 600 y 6D — Listas para Envío'],
     relatedProducts: ['valvulas-compuerta', 'valvulas-globo', 'valvulas-check', 'valvulas-bola-flotante'],
     isPriority: true,
     heroH1: { es: 'DHV Valve Group: La columna vertebral de su integridad operativa.', en: 'DHV Valve Group: The backbone of your operational integrity.' },
@@ -328,7 +335,7 @@ export const suppliers: Supplier[] = [
     productCategories: [
       {
         title: { es: 'Válvulas de Compuerta (Gate Valves)', en: 'Gate Valves' },
-        uso: { es: 'Aislamiento principal en refinerías y ductos. Flujo total con mínima caída de presión.', en: 'Primary isolation in refineries and pipelines. Full flow with minimum pressure drop.' },
+        uso: { es: 'Aislamiento principal en refinerías y ductos. Diseñadas para un flujo total con mínima caída de presión.', en: 'Primary isolation in refineries and pipelines. Designed for full flow with minimum pressure drop.' },
         industrias: ['oil-gas', 'energetico'],
         cta: { es: 'Ver Especificaciones de Compuerta', en: 'View Gate Valve Specs' },
         ctaLink: '/productos/valvulas-compuerta',
@@ -342,7 +349,7 @@ export const suppliers: Supplier[] = [
       },
       {
         title: { es: 'Válvulas de Retención (Check Valves)', en: 'Check Valves' },
-        uso: { es: 'El "comodín" de seguridad que previene el reflujo en bombeo y compresión.', en: 'The safety "wildcard" that prevents backflow in pumping and compression.' },
+        uso: { es: 'El "comodín" de seguridad que previene el reflujo en sistemas de bombeo y estaciones de compresión.', en: 'The safety "wildcard" that prevents backflow in pumping systems and compression stations.' },
         industrias: ['oil-gas', 'privado'],
         cta: { es: 'Ver Especificaciones de Retención', en: 'View Check Valve Specs' },
         ctaLink: '/productos/valvulas-check',
@@ -350,20 +357,20 @@ export const suppliers: Supplier[] = [
     ],
     pas: {
       h2: { es: 'Evite riesgos en sus paros de planta con suministro certificado.', en: 'Avoid risks in your plant shutdowns with certified supply.' },
-      problema: { es: 'Los paros programados enfrentan retrasos por falta de válvulas "comodín" que cumplan con ASME B16.34.', en: 'Planned shutdowns face delays due to lack of "wildcard" valves that comply with ASME B16.34.' },
-      agitacion: { es: 'Instalar componentes de origen dudoso puede comprometer la integridad de la planta tras el arranque.', en: 'Installing components of dubious origin can compromise plant integrity after startup.' },
-      solucion: { es: 'IPSA mantiene un inventario permanente de DHV Valve Group, asegurando trazabilidad total y respaldo de fábrica.', en: 'IPSA maintains permanent DHV Valve Group inventory, ensuring full traceability and factory support.' },
+      problema: { es: 'Los paros programados suelen enfrentar retrasos por falta de válvulas "comodín" que cumplan con los estándares ASME B16.34.', en: 'Planned shutdowns often face delays due to lack of "wildcard" valves that comply with ASME B16.34 standards.' },
+      agitacion: { es: 'Instalar componentes sin respaldo técnico o de origen dudoso puede comprometer la integridad de la planta tras el arranque.', en: 'Installing components without technical backing or of dubious origin can compromise plant integrity after startup.' },
+      solucion: { es: 'IPSA mantiene un inventario permanente de DHV Valve Group, asegurando que cada válvula instalada cuente con trazabilidad total y respaldo de fábrica.', en: 'IPSA maintains permanent DHV Valve Group inventory, ensuring every installed valve has full traceability and factory support.' },
       ctaInterconnect: { es: 'Optimice su gestión de activos con nuestra División de Ingeniería', en: 'Optimize your asset management with our Engineering Division' },
       ctaInterconnectLink: '/servicios/ingenieria',
     },
     navCircular: [
-      { label: { es: 'Para Refinerías', en: 'For Refineries' }, description: { es: 'Cumplimiento API 600 para alta temperatura.', en: 'API 600 compliance for high temperature.' }, link: '/industrias/oil-gas' },
-      { label: { es: 'Para Ciclo Combinado', en: 'For Combined Cycle' }, description: { es: 'Diseño ASME para vapor y enfriamiento.', en: 'ASME design for steam and cooling.' }, link: '/industrias/energetico' },
-      { label: { es: 'Para Tratamiento de Aguas', en: 'For Water Treatment' }, description: { es: 'Bola flotante y check para procesos industriales.', en: 'Floating ball and check for industrial processes.' }, link: '/industrias/privado' },
+      { label: { es: 'Para Refinerías', en: 'For Refineries' }, description: { es: 'Cumplimiento estricto de API 600 para condiciones de alta temperatura.', en: 'Strict API 600 compliance for high-temperature conditions.' }, link: '/industrias/oil-gas' },
+      { label: { es: 'Para Ciclo Combinado', en: 'For Combined Cycle' }, description: { es: 'Diseño ASME para sistemas de vapor y enfriamiento.', en: 'ASME design for steam and cooling systems.' }, link: '/industrias/energetico' },
+      { label: { es: 'Para Tratamiento de Aguas', en: 'For Water Treatment' }, description: { es: 'Válvulas de bola flotante y check para procesos industriales generales.', en: 'Floating ball and check valves for general industrial processes.' }, link: '/industrias/privado' },
     ],
     inHouse: {
       h2: { es: 'Consultoría en sitio para la selección de materiales.', en: 'On-site consultancy for material selection.' },
-      body: { es: 'No solo suministramos el equipo. Nuestros ingenieros residentes le ayudan a dimensionar la válvula DHV exacta según sus condiciones de presión y fluido.', en: 'We don\'t just supply the equipment. Our resident engineers help you size the exact DHV valve for your pressure and fluid conditions.' },
+      body: { es: 'No solo suministramos el equipo. Nuestros ingenieros residentes le ayudan a dimensionar la válvula DHV exacta según sus condiciones de presión y fluido, garantizando una vida útil prolongada.', en: 'We don\'t just supply the equipment. Our resident engineers help you size the exact DHV valve for your pressure and fluid conditions, ensuring extended service life.' },
       cta: { es: 'Hablar con un Especialista en Campo', en: 'Talk to a Field Specialist' },
     },
     ctaFinal: {
@@ -389,8 +396,9 @@ export const suppliers: Supplier[] = [
       en: 'Versa Valves is a leading American manufacturer of solenoid and directional control valves for industrial applications.',
     },
     country: 'USA',
-    logo: '/images/suppliers/versa-logo.png',
-    image: '/images/suppliers/versa.jpg',
+    website: 'https://www.versa-valves.com',
+    logo: '/images/logos/versa-official.png',
+    image: '/images/heroes/services-hero.jpg',
     products: {
       es: ['Válvulas solenoides', 'Control direccional neumático', 'Control direccional hidráulico', 'Válvulas montaje NAMUR'],
       en: ['Solenoid valves', 'Pneumatic directional control', 'Hydraulic directional control', 'NAMUR mount valves'],
@@ -401,6 +409,7 @@ export const suppliers: Supplier[] = [
       { name: 'UL Listed', description: { es: 'Certificación de seguridad UL', en: 'UL safety certification' } },
       { name: 'CSA', description: { es: 'Áreas clasificadas', en: 'Classified areas' } },
     ],
+    heroBadges: ['Certificación SIL 3 — Listas para entrega inmediata'],
     relatedProducts: ['valvulas-neumaticas-solenoides', 'valvulas-automatizadas'],
     isPriority: true,
     heroH1: { es: 'Versa Valves: Excelencia en control neumático para condiciones críticas.', en: 'Versa Valves: Excellence in pneumatic control for critical conditions.' },
@@ -413,21 +422,21 @@ export const suppliers: Supplier[] = [
     productCategories: [
       {
         title: { es: 'Válvulas Solenoide de la Serie V', en: 'Series V Solenoid Valves' },
-        uso: { es: 'Estándar de la industria para control de actuadores. Configuraciones de 3 y 4 vías.', en: 'Industry standard for actuator control. 3 and 4-way configurations.' },
+        uso: { es: 'El estándar de la industria para el control de actuadores. Disponibles en configuraciones de 3 y 4 vías para aplicaciones exigentes.', en: 'The industry standard for actuator control. Available in 3 and 4-way configurations for demanding applications.' },
         industrias: ['oil-gas', 'energetico'],
         cta: { es: 'Ver Ficha Técnica Serie V', en: 'View Series V Data Sheet' },
         ctaLink: '/productos/valvulas-neumaticas-solenoides',
       },
       {
         title: { es: 'Válvulas Piloto y de Control Direccional', en: 'Pilot & Directional Control Valves' },
-        uso: { es: 'Control neumático e hidráulico de alta velocidad con reset manual o automático.', en: 'High-speed pneumatic and hydraulic control with manual or automatic reset.' },
+        uso: { es: 'Control neumático e hidráulico de alta velocidad con reset manual o automático para sistemas de seguridad.', en: 'High-speed pneumatic and hydraulic control with manual or automatic reset for safety systems.' },
         industrias: ['energetico', 'privado'],
         cta: { es: 'Explorar Válvulas Piloto', en: 'Explore Pilot Valves' },
         ctaLink: '/productos/valvulas-neumaticas-solenoides',
       },
       {
         title: { es: 'Paquetes de Aire Modular (MAP)', en: 'Modular Air Packages (MAP)' },
-        uso: { es: 'Estaciones de control compactas: filtros, reguladores y válvulas en un solo bloque.', en: 'Compact control stations: filters, regulators, and valves in a single block.' },
+        uso: { es: 'Estaciones de control compactas que integran filtros, reguladores y válvulas en un solo bloque, simplificando la instalación en sitio.', en: 'Compact control stations that integrate filters, regulators, and valves in a single block, simplifying on-site installation.' },
         industrias: ['privado'],
         cta: { es: 'Ver Sistemas Modulares', en: 'View Modular Systems' },
         ctaLink: '/productos/valvulas-neumaticas-solenoides',
@@ -435,7 +444,7 @@ export const suppliers: Supplier[] = [
     ],
     pas: {
       h2: { es: 'Blindamos su seguridad funcional con componentes de alta confiabilidad.', en: 'We shield your functional safety with high-reliability components.' },
-      problema: { es: 'El uso de componentes de automatización de baja calidad en ambientes corrosivos provoca paros inesperados y compromete protocolos de seguridad.', en: 'Using low-quality automation components in corrosive environments causes unexpected shutdowns and compromises safety protocols.' },
+      problema: { es: 'El uso de componentes de automatización de baja calidad en ambientes corrosivos provoca paros inesperados y compromete los protocolos de seguridad.', en: 'Using low-quality automation components in corrosive environments causes unexpected shutdowns and compromises safety protocols.' },
       agitacion: { es: 'Una válvula solenoide que se bloquea en una zona de riesgo puede impedir un cierre de emergencia, derivando en consecuencias catastróficas.', en: 'A solenoid valve that jams in a risk zone can prevent an emergency shutdown, leading to catastrophic consequences.' },
       solucion: { es: 'IPSA integra válvulas Versa con certificación SIL 3, ofreciendo el respaldo de una marca líder que garantiza la ejecución de cada comando, siempre.', en: 'IPSA integrates Versa valves with SIL 3 certification, offering the backing of a leading brand that guarantees the execution of every command, always.' },
       ctaInterconnect: { es: 'Conozca cómo nuestra División de Automatización integra estos componentes en sus tableros de control', en: 'Learn how our Automation Division integrates these components into your control panels' },
@@ -443,8 +452,8 @@ export const suppliers: Supplier[] = [
     },
     navCircular: [
       { label: { es: 'Zonas Clasificadas', en: 'Classified Areas' }, description: { es: 'Solenoides a prueba de explosión para refinerías y plataformas.', en: 'Explosion-proof solenoids for refineries and platforms.' }, link: '/industrias/oil-gas' },
-      { label: { es: 'Control de Turbinas', en: 'Turbine Control' }, description: { es: 'Pilotos de alta velocidad para plantas eléctricas.', en: 'High-speed pilots for power plants.' }, link: '/industrias/energetico' },
-      { label: { es: 'Automatización General', en: 'General Automation' }, description: { es: 'Control neumático eficiente para líneas de producción.', en: 'Efficient pneumatic control for production lines.' }, link: '/industrias/privado' },
+      { label: { es: 'Control de Turbinas', en: 'Turbine Control' }, description: { es: 'Pilotos de alta velocidad para la regulación de plantas eléctricas.', en: 'High-speed pilots for power plant regulation.' }, link: '/industrias/energetico' },
+      { label: { es: 'Automatización General', en: 'General Automation' }, description: { es: 'Control neumático eficiente para líneas de producción continua.', en: 'Efficient pneumatic control for continuous production lines.' }, link: '/industrias/privado' },
     ],
     inHouse: {
       h2: { es: 'Ingeniería de Aplicación Versa en sus instalaciones.', en: 'Versa Application Engineering at your facilities.' },
@@ -474,8 +483,9 @@ export const suppliers: Supplier[] = [
       en: 'Masoneilan (Baker Hughes) is the world reference in process control valves and intelligent instrumentation. Their digital positioners and control valves are the backbone of automation in power plants, refineries, and chemical processes.',
     },
     country: 'USA',
+    website: 'https://valves.bakerhughes.com/masoneilan',
     logo: '/images/logos/bakerhughes.svg',
-    image: '/images/suppliers/masoneilan.jpg',
+    image: '/images/heroes/about-hero.jpg',
     products: {
       es: ['Válvulas de control tipo globo', 'Válvulas de control rotativas', 'Posicionadores inteligentes', 'Reguladores de presión'],
       en: ['Globe-type control valves', 'Rotary control valves', 'Smart positioners', 'Pressure regulators'],
@@ -486,6 +496,7 @@ export const suppliers: Supplier[] = [
       { name: 'SIL 3', description: { es: 'Nivel de integridad de seguridad III', en: 'Safety Integrity Level III' } },
       { name: 'ISA 75.01', description: { es: 'Dimensionamiento de válvulas de control', en: 'Control valve sizing' } },
     ],
+    heroBadges: ['Más de 140 años de innovación en control de procesos'],
     relatedProducts: ['valvulas-control', 'valvulas-automatizadas'],
     isPriority: true,
     heroH1: { es: 'Masoneilan: Precisión absoluta en el control de sus procesos.', en: 'Masoneilan: Absolute precision in your process control.' },
@@ -498,21 +509,21 @@ export const suppliers: Supplier[] = [
     productCategories: [
       {
         title: { es: 'Válvulas de Control Tipo Globo', en: 'Globe-Type Control Valves' },
-        uso: { es: 'Regulación precisa en servicios de vapor, líquidos y gases de proceso.', en: 'Precise regulation in steam, liquid, and process gas services.' },
+        uso: { es: 'Regulación precisa de flujo, presión y temperatura en servicios de vapor, líquidos y gases de proceso. Incluye la icónica serie 41005 guiada por jaula con más de 100 años de trayectoria comprobada.', en: 'Precise flow, pressure, and temperature regulation in steam, liquid, and process gas services. Includes the iconic cage-guided 41005 series with over 100 years of proven track record.' },
         industrias: ['energetico', 'oil-gas'],
         cta: { es: 'Ver Especificaciones de Control', en: 'View Control Valve Specs' },
         ctaLink: '/productos/valvulas-control',
       },
       {
         title: { es: 'Posicionadores Inteligentes', en: 'Smart Positioners' },
-        uso: { es: 'Diagnóstico en tiempo real y ajuste automático para maximizar la eficiencia del lazo de control.', en: 'Real-time diagnostics and automatic adjustment to maximize control loop efficiency.' },
+        uso: { es: 'Diagnóstico en tiempo real y ajuste automático para maximizar la eficiencia del lazo de control. Tecnología de detección de posición sin contacto y certificación SIL 3 para sistemas de parada de emergencia.', en: 'Real-time diagnostics and automatic adjustment to maximize control loop efficiency. Non-contact position sensing technology and SIL 3 certification for emergency shutdown systems.' },
         industrias: ['energetico', 'privado'],
         cta: { es: 'Explorar Instrumentación', en: 'Explore Instrumentation' },
         ctaLink: '/productos/valvulas-control',
       },
       {
         title: { es: 'Reguladores de Presión', en: 'Pressure Regulators' },
-        uso: { es: 'Estabilización de líneas de vapor y gases industriales en plantas de manufactura.', en: 'Steam and industrial gas line stabilization in manufacturing plants.' },
+        uso: { es: 'Estabilización autónoma de líneas de vapor y gases industriales en plantas de manufactura. Soluciones autocontenidas que no requieren alimentación externa.', en: 'Autonomous stabilization of steam and industrial gas lines in manufacturing plants. Self-contained solutions requiring no external power supply.' },
         industrias: ['privado'],
         cta: { es: 'Ver Reguladores', en: 'View Regulators' },
         ctaLink: '/productos/valvulas-control',
@@ -520,25 +531,25 @@ export const suppliers: Supplier[] = [
     ],
     pas: {
       h2: { es: 'Estabilidad garantizada en sus variables críticas de proceso.', en: 'Guaranteed stability in your critical process variables.' },
-      problema: { es: 'La falta de precisión en el control de flujo y temperatura genera inestabilidad en los ciclos de vapor y reduce el ROI de sus turbinas.', en: 'Lack of precision in flow and temperature control generates instability in steam cycles and reduces your turbine ROI.' },
-      agitacion: { es: 'Un posicionador desajustado o una válvula de control desgastada puede derivar en variabilidad del producto, desperdicio energético y paros de emergencia.', en: 'A misadjusted positioner or worn control valve can lead to product variability, energy waste, and emergency shutdowns.' },
-      solucion: { es: 'IPSA integra tecnología Masoneilan con soporte de automatización residente, asegurando que cada lazo de control opere en su punto óptimo.', en: 'IPSA integrates Masoneilan technology with resident automation support, ensuring every control loop operates at its optimal point.' },
+      problema: { es: 'La falta de precisión en el control de flujo y temperatura genera inestabilidad en los ciclos de vapor y reduce el ROI de sus turbinas. Sin diagnóstico predictivo, los problemas se detectan cuando ya es demasiado tarde.', en: 'Lack of precision in flow and temperature control generates instability in steam cycles and reduces your turbine ROI. Without predictive diagnostics, problems are detected when it is already too late.' },
+      agitacion: { es: 'Un posicionador desajustado o una válvula de control desgastada puede derivar en variabilidad del producto, desperdicio energético y paros de emergencia que cuestan millones en producción perdida.', en: 'A misadjusted positioner or worn control valve can lead to product variability, energy waste, and emergency shutdowns that cost millions in lost production.' },
+      solucion: { es: 'IPSA integra tecnología Masoneilan con soporte de automatización residente, asegurando que cada lazo de control opere en su punto óptimo. Nuestro acceso directo a piezas OEM y el software de diagnóstico ValVue garantizan una respuesta inmediata.', en: 'IPSA integrates Masoneilan technology with resident automation support, ensuring every control loop operates at its optimal point. Our direct access to OEM parts and ValVue diagnostic software guarantee an immediate response.' },
       ctaInterconnect: { es: 'Conozca nuestra División de Automatización para diagnóstico en tiempo real', en: 'Learn about our Automation Division for real-time diagnostics' },
       ctaInterconnectLink: '/servicios/automatizacion',
     },
     navCircular: [
-      { label: { es: 'Generación de Energía', en: 'Power Generation' }, description: { es: 'Control preciso de vapor y turbinas.', en: 'Precise steam and turbine control.' }, link: '/industrias/energetico' },
-      { label: { es: 'Oil & Gas', en: 'Oil & Gas' }, description: { es: 'Regulación en estaciones de bombeo y procesamiento.', en: 'Regulation at pumping and processing stations.' }, link: '/industrias/oil-gas' },
-      { label: { es: 'Manufactura', en: 'Manufacturing' }, description: { es: 'Estabilización de procesos industriales.', en: 'Industrial process stabilization.' }, link: '/industrias/privado' },
+      { label: { es: 'Generación de Energía', en: 'Power Generation' }, description: { es: 'Control preciso de vapor y turbinas. Bypass, acondicionamiento y agua de alimentación de calderas.', en: 'Precise steam and turbine control. Bypass, conditioning, and boiler feedwater.' }, link: '/industrias/energetico' },
+      { label: { es: 'Oil & Gas', en: 'Oil & Gas' }, description: { es: 'Regulación en estaciones de bombeo, procesamiento de hidrocarburos y plataformas offshore.', en: 'Regulation at pumping stations, hydrocarbon processing, and offshore platforms.' }, link: '/industrias/oil-gas' },
+      { label: { es: 'Manufactura', en: 'Manufacturing' }, description: { es: 'Estabilización de procesos industriales, pulpa y papel, y líneas de producción continua.', en: 'Industrial process stabilization, pulp and paper, and continuous production lines.' }, link: '/industrias/privado' },
     ],
     inHouse: {
       h2: { es: 'Diagnóstico y calibración en sitio.', en: 'On-site diagnostics and calibration.' },
-      body: { es: 'Nuestros especialistas en automatización realizan diagnósticos predictivos de sus válvulas de control Masoneilan directamente en su planta, maximizando el tiempo entre mantenimientos.', en: 'Our automation specialists perform predictive diagnostics on your Masoneilan control valves directly at your plant, maximizing time between maintenance.' },
+      body: { es: 'Nuestros especialistas en automatización realizan diagnósticos predictivos de sus válvulas de control Masoneilan directamente en su planta, maximizando el tiempo entre mantenimientos. Con acceso al software ValVue y piezas OEM originales, restauramos el rendimiento de fábrica sin tiempos de espera.', en: 'Our automation specialists perform predictive diagnostics on your Masoneilan control valves directly at your plant, maximizing time between maintenance. With access to ValVue software and original OEM parts, we restore factory performance with no waiting time.' },
       cta: { es: 'Hablar con un Especialista en Control', en: 'Talk to a Control Specialist' },
     },
     ctaFinal: {
       h2: { es: '¿Busca maximizar la estabilidad de sus procesos de control?', en: 'Looking to maximize the stability of your control processes?' },
-      subtexto: { es: 'Consulte con nuestros ingenieros de automatización y obtenga un plan de optimización.', en: 'Consult with our automation engineers and get an optimization plan.' },
+      subtexto: { es: 'Consulte con nuestros ingenieros de automatización y obtenga un plan de optimización personalizado.', en: 'Consult with our automation engineers and get a personalized optimization plan.' },
       cta: { es: 'Solicitar Cotización Masoneilan', en: 'Request Masoneilan Quote' },
     },
   },

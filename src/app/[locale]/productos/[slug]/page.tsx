@@ -7,6 +7,7 @@ import { stockImages, getBlur } from '@/data/images';
 import { productCategories, categoryList, manufacturers } from '@/data/products';
 import { services as serviceData } from '@/data/services';
 import { industries as industryData } from '@/data/industries';
+import { Zap } from 'lucide-react';
 import Button from '@/components/ui/Button';
 import PASSection from '@/components/ui/PASSection';
 import CertBadges from '@/components/ui/CertBadges';
@@ -218,12 +219,12 @@ export default async function ProductCategoryPage({
                           className="group block overflow-hidden rounded-xl border border-gray-100 bg-white shadow-md transition-all duration-150 hover:-translate-y-0.5 hover:shadow-lg"
                         >
                           {st.image && (
-                            <div className="relative w-full overflow-hidden" style={{ aspectRatio: '16/10' }}>
+                            <div className="relative w-full overflow-hidden bg-gray-50" style={{ aspectRatio: '1/1' }}>
                               <Image
                                 src={st.image}
                                 alt={st[l].name}
                                 fill
-                                className="object-cover transition-transform duration-200 group-hover:scale-[1.03]"
+                                className="object-contain transition-transform duration-200 group-hover:scale-[1.03]"
                                 sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
                               />
                             </div>
@@ -356,7 +357,7 @@ export default async function ProductCategoryPage({
                       (s: { name: string; slug: string; image: string; logo: string; country: string }) => (
                         <Link
                           key={s.slug || s.name}
-                          href={s.slug ? `${prefix}/proveedores/${s.slug}` : `${prefix}/proveedores`}
+                          href={s.slug ? `${prefix}/fabricantes/${s.slug}` : `${prefix}/fabricantes`}
                           className="group flex items-center gap-5 rounded-xl border border-gray-100 bg-white p-5 shadow-md transition-all duration-150 hover:-translate-y-0.5 hover:shadow-lg"
                         >
                           <div className="relative flex h-14 w-28 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-gray-100 bg-white">
@@ -418,12 +419,12 @@ export default async function ProductCategoryPage({
               </div>
 
               {/* Product image */}
-              <div className="relative overflow-hidden rounded-xl" style={{ aspectRatio: '4/3' }}>
+              <div className="relative overflow-hidden rounded-xl bg-gray-50" style={{ aspectRatio: '1/1' }}>
                 <Image
                   src={category.image}
                   alt={data.name}
                   fill
-                  className="object-cover"
+                  className="object-contain"
                   sizes="(max-width: 1024px) 100vw, 33vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/60 to-transparent" />
@@ -490,15 +491,44 @@ export default async function ProductCategoryPage({
         </div>
       </section>
 
+      {/* ═══ AUTOMATION BANNER ═══ */}
+      {category.automationBanner && (
+        <section className="bg-navy-deep py-16 lg:py-20">
+          <div className="mx-auto max-w-[1600px] px-5 md:px-10">
+            <div className="mx-auto max-w-3xl text-center">
+              <div className="mb-4 flex justify-center">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gold/20">
+                  <Zap className="h-6 w-6 text-gold" />
+                </div>
+              </div>
+              <h2
+                className="font-heading mb-4 text-white"
+                style={{ fontSize: 'clamp(1.25rem, 3vw, 1.75rem)', fontWeight: 500 }}
+              >
+                {category.automationBanner.h2[l]}
+              </h2>
+              <p className="mb-8 leading-relaxed text-white/60" style={{ fontSize: '1rem', lineHeight: 1.8 }}>
+                {category.automationBanner.body[l]}
+              </p>
+              <Link
+                href={`${prefix}/servicios/automatizacion`}
+                className="inline-flex items-center gap-2 rounded-lg border border-gold/30 bg-gold/10 px-6 py-3 text-sm font-semibold text-gold-light transition-all hover:border-gold hover:bg-gold hover:text-white"
+              >
+                {l === 'es' ? 'Conozca nuestra División de Automatización' : 'Learn about our Automation Division'}
+                <ArrowRight size={14} />
+              </Link>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* ═══ CTA FINAL ═══ */}
       <CTABanner
-        heading={l === 'es' ? 'Hablemos de su proyecto' : "Let's talk about your project"}
-        subtext={
-          l === 'es'
-            ? 'Nuestro equipo de ingenieros está listo para ayudarle a encontrar la solución correcta.'
-            : 'Our engineering team is ready to help you find the right solution.'
-        }
-        ctaText={l === 'es' ? 'Contactar Especialista' : 'Contact a Specialist'}
+        heading={category.ctaFinal?.h2[l] ?? (l === 'es' ? 'Hablemos de su proyecto' : "Let's talk about your project")}
+        subtext={category.ctaFinal?.subtexto[l] ?? (l === 'es'
+          ? 'Nuestro equipo de ingenieros está listo para ayudarle a encontrar la solución correcta.'
+          : 'Our engineering team is ready to help you find the right solution.')}
+        ctaText={category.ctaFinal?.cta[l] ?? (l === 'es' ? 'Contactar Especialista' : 'Contact a Specialist')}
         ctaLink={`${prefix}/contacto`}
       />
     </>

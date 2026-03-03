@@ -46,12 +46,12 @@ function ProductCard({ title, description, image, href, className = '' }: Produc
     <div
       className={`group flex flex-col overflow-hidden rounded-xl bg-white shadow-md transition-all duration-150 hover:shadow-lg hover:-translate-y-0.5 ${className}`}
     >
-      <div className="relative aspect-[4/3] overflow-hidden">
+      <div className="relative aspect-square overflow-hidden bg-gray-50">
         <Image
           src={image}
           alt={title}
           fill
-          className="object-cover transition-transform duration-150 group-hover:scale-105"
+          className="object-contain transition-transform duration-150 group-hover:scale-105"
         />
       </div>
       <div className="flex flex-1 flex-col p-5">

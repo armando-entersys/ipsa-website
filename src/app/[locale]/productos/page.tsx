@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useLocale } from 'next-intl';
-import { ArrowRight, ChevronRight } from 'lucide-react';
+import { ArrowRight, ChevronRight, Ruler, ShieldCheck, Wrench } from 'lucide-react';
 import { stockImages, getBlur } from '@/data/images';
 import {
   productosHub,
@@ -123,12 +123,12 @@ export default function ProductsHub() {
                         href={`${prefix}/productos/${cat.slug}`}
                         className="group block overflow-hidden rounded-xl border border-gray-100 bg-white shadow-md transition-all duration-150 hover:-translate-y-0.5 hover:shadow-lg"
                       >
-                        <div className="relative overflow-hidden" style={{ aspectRatio: '16/10' }}>
+                        <div className="relative overflow-hidden bg-gray-50" style={{ aspectRatio: '1/1' }}>
                           <Image
                             src={cat.image}
                             alt={data.name}
                             fill
-                            className="object-cover transition-transform duration-200 group-hover:scale-[1.04]"
+                            className="object-contain transition-transform duration-200 group-hover:scale-[1.04]"
                             sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
@@ -190,6 +190,160 @@ export default function ProductsHub() {
               </div>
             );
           })}
+        </div>
+      </section>
+
+      {/* ═══ MARCAS ALIADAS ═══ */}
+      <section
+        className="py-20 lg:py-24"
+        style={{ background: 'linear-gradient(180deg, #f6f7f9 0%, #f0f1f5 100%)' }}
+      >
+        <div className="mx-auto max-w-[1600px] px-5 md:px-10">
+          <div className="mb-12 text-center">
+            <p className="mb-3 text-sm font-medium uppercase tracking-widest text-gold">
+              {l === 'es' ? 'Nuestras Representaciones' : 'Our Partnerships'}
+            </p>
+            <h2
+              className="font-heading mb-4 text-gray-900"
+              style={{ fontSize: 'clamp(1.5rem, 3.5vw, 2rem)', fontWeight: 500 }}
+            >
+              {l === 'es' ? 'Marcas Aliadas' : 'Allied Brands'}
+            </h2>
+            <p className="mx-auto max-w-2xl text-gray-500 leading-relaxed">
+              {l === 'es'
+                ? 'No somos solo distribuidores; somos el canal técnico y de integración de los fabricantes más respetados a nivel global en la industria pesada.'
+                : 'We are not just distributors; we are the technical and integration channel for the most respected manufacturers globally in heavy industry.'}
+            </p>
+          </div>
+          <div className="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-5">
+            {[
+              { id: 'perar', tagline: { es: 'Excelencia italiana en válvulas Trunnion de alta exigencia, servicio submarino y criogénico.', en: 'Italian excellence in high-demand Trunnion valves, subsea and cryogenic service.' } },
+              { id: 'della-foglia', tagline: { es: 'Soluciones europeas hechas a medida para condiciones extremas y cero emisiones.', en: 'Custom European solutions for extreme conditions and zero emissions.' } },
+              { id: 'dhv', tagline: { es: 'Versatilidad absoluta en válvulas de proceso estandarizadas con calidad API.', en: 'Absolute versatility in standardized process valves with API quality.' } },
+              { id: 'versa', tagline: { es: 'El cerebro de la automatización. Líderes en control direccional y electroválvulas.', en: 'The brain of automation. Leaders in directional control and solenoid valves.' } },
+              { id: 'masoneilan', tagline: { es: 'Control de procesos con inteligencia y modulación exacta.', en: 'Process control with intelligence and exact modulation.' } },
+            ].map((brand) => {
+              const mfr = manufacturers[brand.id];
+              if (!mfr) return null;
+              return (
+                <div
+                  key={brand.id}
+                  className="flex flex-col items-center rounded-xl border border-gray-100 bg-white p-6 text-center shadow-sm"
+                >
+                  <div className="mb-4 flex h-16 w-full items-center justify-center">
+                    {mfr.logo ? (
+                      <Image src={mfr.logo} alt={mfr.name} width={100} height={40} className="object-contain" />
+                    ) : (
+                      <span className="text-lg font-bold text-navy">{mfr.name}</span>
+                    )}
+                  </div>
+                  <h3 className="font-heading text-sm font-semibold text-gray-900">{mfr.name}</h3>
+                  <p className="mt-2 text-xs leading-relaxed text-gray-400">{brand.tagline[l]}</p>
+                  {mfr.slug && (
+                    <Link
+                      href={`${prefix}/fabricantes/${mfr.slug}`}
+                      className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-gold transition-colors hover:text-gold-dark"
+                    >
+                      {l === 'es' ? 'Ver más' : 'Learn more'}
+                      <ArrowRight size={11} />
+                    </Link>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ DIFERENCIADOR IPSA ═══ */}
+      <section
+        className="py-20 lg:py-24"
+        style={{ background: 'linear-gradient(180deg, #ffffff 0%, #f9fafb 100%)' }}
+      >
+        <div className="mx-auto max-w-[1600px] px-5 md:px-10">
+          <div className="mb-12 text-center">
+            <p className="mb-3 text-sm font-medium uppercase tracking-widest text-gold">
+              {l === 'es' ? 'Valor Agregado' : 'Added Value'}
+            </p>
+            <h2
+              className="font-heading text-gray-900"
+              style={{ fontSize: 'clamp(1.5rem, 3.5vw, 2rem)', fontWeight: 500 }}
+            >
+              {l === 'es' ? '¿Por qué elegir el Portafolio IPSA?' : 'Why choose the IPSA Portfolio?'}
+            </h2>
+          </div>
+          <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 md:grid-cols-3">
+            {[
+              {
+                icon: Ruler,
+                title: { es: 'Selección y Dimensionamiento', en: 'Selection & Sizing' },
+                body: {
+                  es: 'Nuestros ingenieros calculan coeficientes de flujo (Cv), torques y requerimientos metalúrgicos para asegurar que usted compre exactamente lo que su proceso necesita.',
+                  en: 'Our engineers calculate flow coefficients (Cv), torques, and metallurgical requirements to ensure you buy exactly what your process needs.',
+                },
+              },
+              {
+                icon: ShieldCheck,
+                title: { es: 'Cumplimiento Normativo Estricto', en: 'Strict Regulatory Compliance' },
+                body: {
+                  es: 'Equipos certificados bajo API 6D, API 6A, ASME, NACE, y estándares de emisiones fugitivas e integridad SIL.',
+                  en: 'Equipment certified under API 6D, API 6A, ASME, NACE, and fugitive emissions and SIL integrity standards.',
+                },
+              },
+              {
+                icon: Wrench,
+                title: { es: 'Integración en Taller Propio', en: 'In-House Workshop Integration' },
+                body: {
+                  es: 'No tercerizamos. Ensamblamos válvulas, actuadores y tableros neumáticos, entregando equipos con Pruebas de Aceptación en Fábrica (FAT) documentadas.',
+                  en: 'We don\'t outsource. We assemble valves, actuators, and pneumatic panels, delivering equipment with documented Factory Acceptance Tests (FAT).',
+                },
+              },
+            ].map((item) => {
+              const Icon = item.icon;
+              return (
+                <div key={item.title[l]} className="rounded-xl border border-gray-100 bg-white p-8 shadow-md">
+                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-navy-deep/[0.06]">
+                    <Icon className="h-6 w-6 text-gold" />
+                  </div>
+                  <h3 className="font-heading text-lg font-semibold text-gray-900">{item.title[l]}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-gray-500">{item.body[l]}</p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ BUSCADOR POR INDUSTRIA ═══ */}
+      <section className="bg-navy-deep py-16">
+        <div className="mx-auto max-w-4xl px-5 text-center md:px-10">
+          <h2
+            className="font-heading mb-4 text-white"
+            style={{ fontSize: 'clamp(1.25rem, 3vw, 1.75rem)', fontWeight: 500 }}
+          >
+            {l === 'es' ? 'Buscar por Industria' : 'Search by Industry'}
+          </h2>
+          <p className="mb-8 text-sm text-white/50">
+            {l === 'es'
+              ? 'Encuentre las soluciones específicas para su sector industrial.'
+              : 'Find the specific solutions for your industrial sector.'}
+          </p>
+          <div className="flex flex-wrap justify-center gap-4">
+            {[
+              { label: { es: 'Oil & Gas', en: 'Oil & Gas' }, href: '/industrias/oil-gas' },
+              { label: { es: 'Generación de Energía', en: 'Power Generation' }, href: '/industrias/energetico' },
+              { label: { es: 'Industria General', en: 'General Industry' }, href: '/industrias/privado' },
+            ].map((ind) => (
+              <Link
+                key={ind.href}
+                href={`${prefix}${ind.href}`}
+                className="group rounded-lg border border-white/20 bg-white/10 px-8 py-3.5 text-sm font-semibold text-white transition-all duration-150 hover:border-gold hover:bg-gold hover:text-white"
+              >
+                {ind.label[l]}
+                <ArrowRight size={14} className="ml-2 inline transition-transform group-hover:translate-x-0.5" />
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 
