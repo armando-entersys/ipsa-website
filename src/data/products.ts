@@ -152,7 +152,7 @@ export const manufacturers: Record<
     name: 'Masoneilan (Baker Hughes)',
     slug: '',
     image: '',
-    logo: '/images/logos/bakerhughes.svg',
+    logo: '/images/logos/bakerhughes.webp',
     country: 'USA',
     website: 'https://www.bakerhughes.com',
   },

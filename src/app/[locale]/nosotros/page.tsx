@@ -55,7 +55,7 @@ const brandLogos = [
   { name: 'Della Foglia', logo: '/images/logos/della-foglia-official.svg', slug: 'della-foglia' },
   { name: 'DHV Valve Group', logo: '/images/logos/dhv-official.png', slug: 'dhv' },
   { name: 'Versa Valves', logo: '/images/logos/versa-official.png', slug: 'versa' },
-  { name: 'Masoneilan', logo: '/images/logos/bakerhughes.svg', slug: 'masoneilan' },
+  { name: 'Masoneilan', logo: '/images/logos/bakerhughes.webp', slug: 'masoneilan' },
   { name: 'Consolidated', logo: '/images/logos/consolidated.svg', slug: '' },
 ];
 

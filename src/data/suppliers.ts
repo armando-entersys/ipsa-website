@@ -484,7 +484,7 @@ export const suppliers: Supplier[] = [
     },
     country: 'USA',
     website: 'https://valves.bakerhughes.com/masoneilan',
-    logo: '/images/logos/bakerhughes.svg',
+    logo: '/images/logos/bakerhughes.webp',
     image: '/images/heroes/masoneilan-hero.jpg',
     products: {
       es: ['Válvulas de control tipo globo', 'Válvulas de control rotativas', 'Posicionadores inteligentes', 'Reguladores de presión'],

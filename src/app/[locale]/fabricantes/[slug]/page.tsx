@@ -306,19 +306,24 @@ export default async function SupplierPage({
                 </div>
               </div>
 
-              {/* Nav Circular */}
+              {/* Explore by Industry */}
               {supplier.navCircular.length > 0 && (
-                <div>
+                <div className="rounded-xl border border-gray-100 bg-white p-7 shadow-md">
                   <h3 className="font-heading mb-4 font-semibold text-gray-900">
-                    {l === 'es' ? 'Explorar' : 'Explore'}
+                    {l === 'es' ? 'Explorar por industria' : 'Explore by industry'}
                   </h3>
-                  <NavCircular
-                    items={supplier.navCircular.map((nav) => ({
-                      label: nav.label[l],
-                      description: nav.description[l],
-                      link: `${prefix}${nav.link}`,
-                    }))}
-                  />
+                  <div className="flex flex-wrap gap-2">
+                    {supplier.navCircular.map((nav) => (
+                      <Link
+                        key={nav.label[l]}
+                        href={`${prefix}${nav.link}`}
+                        className="inline-flex items-center gap-1.5 rounded-lg bg-navy-deep/[0.06] px-4 py-2.5 text-sm font-medium text-navy transition-colors hover:bg-gold/10 hover:text-gold"
+                      >
+                        {nav.label[l]}
+                        <ArrowRight size={13} className="opacity-50" />
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               )}
 
