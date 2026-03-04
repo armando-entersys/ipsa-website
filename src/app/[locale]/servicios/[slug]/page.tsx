@@ -102,12 +102,12 @@ export default async function ServicePage({
       {/* ═══ HERO ═══ */}
       <section className="relative overflow-hidden min-h-[40vh] md:min-h-[55vh]">
         <Image
-          src={stockImages.servicesHero}
+          src={service.image || stockImages.servicesHero}
           alt=""
           fill
           priority
           placeholder="blur"
-          blurDataURL={getBlur(stockImages.servicesHero)}
+          blurDataURL={getBlur(service.image || stockImages.servicesHero)}
           className="object-cover"
           sizes="100vw"
         />
