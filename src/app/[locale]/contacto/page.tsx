@@ -12,8 +12,11 @@ import {
   Clock,
   Send,
   CheckCircle,
+  Loader2,
+  AlertCircle,
 } from "lucide-react";
 import { stockImages, getBlur } from "@/data/images";
+import { trackEvent } from "@/lib/analytics";
 
 const offices = [
   {
@@ -47,11 +50,57 @@ export default function ContactPage() {
   const t = useTranslations("contact");
   const locale = useLocale();
   const prefix = `/${locale}`;
+
+  const [form, setForm] = useState({
+    name: "",
+    company: "",
+    email: "",
+    phone: "",
+    industry: "",
+    queryType: "",
+    message: "",
+  });
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
   const [submitted, setSubmitted] = useState(false);
 
-  function handleSubmit(e: React.FormEvent) {
+  function handleChange(
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >,
+  ) {
+    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  }
+
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    setSubmitted(true);
+    setLoading(true);
+    setError("");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data.error || "Failed");
+      }
+      setSubmitted(true);
+      trackEvent("generate_lead", {
+        form_name: "contact",
+        industry: form.industry,
+        query_type: form.queryType,
+      });
+    } catch {
+      setError(
+        locale === "es"
+          ? "Error al enviar el mensaje. Por favor intente nuevamente."
+          : "Failed to send message. Please try again.",
+      );
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
@@ -121,6 +170,12 @@ export default function ContactPage() {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-5">
+                  {error && (
+                    <div className="flex items-center gap-3 bg-red-50 text-red-700 rounded-xl p-4 text-sm">
+                      <AlertCircle size={18} className="shrink-0" />
+                      {error}
+                    </div>
+                  )}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-1.5">
@@ -128,6 +183,9 @@ export default function ContactPage() {
                       </label>
                       <input
                         type="text"
+                        name="name"
+                        value={form.name}
+                        onChange={handleChange}
                         required
                         className="input-field rounded-xl w-full px-4 py-3 text-sm"
                       />
@@ -138,6 +196,9 @@ export default function ContactPage() {
                       </label>
                       <input
                         type="text"
+                        name="company"
+                        value={form.company}
+                        onChange={handleChange}
                         required
                         className="input-field rounded-xl w-full px-4 py-3 text-sm"
                       />
@@ -150,6 +211,9 @@ export default function ContactPage() {
                       </label>
                       <input
                         type="email"
+                        name="email"
+                        value={form.email}
+                        onChange={handleChange}
                         required
                         className="input-field rounded-xl w-full px-4 py-3 text-sm"
                       />
@@ -160,6 +224,9 @@ export default function ContactPage() {
                       </label>
                       <input
                         type="tel"
+                        name="phone"
+                        value={form.phone}
+                        onChange={handleChange}
                         required
                         className="input-field rounded-xl w-full px-4 py-3 text-sm"
                       />
@@ -171,6 +238,9 @@ export default function ContactPage() {
                         {t("industry")}
                       </label>
                       <select
+                        name="industry"
+                        value={form.industry}
+                        onChange={handleChange}
                         className="input-field rounded-xl w-full px-4 py-3 text-sm bg-white"
                       >
                         <option value="">{t("selectOption")}</option>
@@ -185,6 +255,9 @@ export default function ContactPage() {
                         {t("queryType")}
                       </label>
                       <select
+                        name="queryType"
+                        value={form.queryType}
+                        onChange={handleChange}
                         className="input-field rounded-xl w-full px-4 py-3 text-sm bg-white"
                       >
                         <option value="">{t("selectOption")}</option>
@@ -200,6 +273,9 @@ export default function ContactPage() {
                       {t("message")}
                     </label>
                     <textarea
+                      name="message"
+                      value={form.message}
+                      onChange={handleChange}
                       rows={4}
                       className="input-field rounded-xl w-full px-4 py-3 text-sm resize-none"
                     />
@@ -212,10 +288,19 @@ export default function ContactPage() {
                   </div>
                   <button
                     type="submit"
-                    className="inline-flex items-center px-8 py-3.5 bg-gold text-white font-medium rounded-xl btn-lift hover:bg-gold-dark transition-colors"
+                    disabled={loading}
+                    className="inline-flex items-center px-8 py-3.5 bg-gold text-white font-medium rounded-xl btn-lift hover:bg-gold-dark transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
                   >
-                    <Send size={16} className="mr-2" />
-                    {t("submit")}
+                    {loading ? (
+                      <Loader2 size={16} className="mr-2 animate-spin" />
+                    ) : (
+                      <Send size={16} className="mr-2" />
+                    )}
+                    {loading
+                      ? locale === "es"
+                        ? "Enviando..."
+                        : "Sending..."
+                      : t("submit")}
                   </button>
                 </form>
               )}

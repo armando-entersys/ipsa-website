@@ -9,6 +9,9 @@ services:
       - GA_MEASUREMENT_ID=${GA_MEASUREMENT_ID:-}
       - GOOGLE_SITE_VERIFICATION=${GOOGLE_SITE_VERIFICATION:-}
       - BING_SITE_VERIFICATION=${BING_SITE_VERIFICATION:-}
+      - RESEND_API_KEY=${RESEND_API_KEY:-}
+      - CONTACT_EMAIL=${CONTACT_EMAIL:-ventas.mexico@ipsa-cv.com.mx}
+      - RESEND_FROM=${RESEND_FROM:-IPSA Web <onboarding@resend.dev>}
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.ipsa-web.rule=Host(`ipsa.scram2k.com`)"

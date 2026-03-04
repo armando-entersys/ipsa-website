@@ -10,6 +10,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import BackToTop from "@/components/layout/BackToTop";
 import WhatsAppButton from "@/components/layout/WhatsAppButton";
+import AnalyticsTracker from "@/components/layout/AnalyticsTracker";
 import "../globals.css";
 
 const SITE_URL = "https://ipsacv.com.mx";
@@ -231,6 +232,7 @@ export default async function LocaleLayout({
           <Footer />
           <WhatsAppButton />
           <BackToTop />
+          <AnalyticsTracker />
         </NextIntlClientProvider>
       </body>
       {process.env.GA_MEASUREMENT_ID && (
