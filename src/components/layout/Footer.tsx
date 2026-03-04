@@ -13,7 +13,7 @@ export default function Footer() {
     { label: tNav("products"), href: `${prefix}/productos` },
     { label: tNav("services"), href: `${prefix}/servicios` },
     { label: tNav("industries"), href: `${prefix}/industrias` },
-    { label: tNav("suppliers"), href: `${prefix}/proveedores` },
+    { label: tNav("suppliers"), href: `${prefix}/fabricantes` },
     { label: tNav("about"), href: `${prefix}/nosotros` },
     { label: tNav("contact"), href: `${prefix}/contacto` },
   ];
@@ -78,19 +78,27 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Col 3: Houston */}
+          {/* Col 3: Cd. del Carmen */}
           <div className="hidden lg:block">
             <h3
               className="text-white font-semibold mb-4 text-lg font-heading"
             >
-              IPSA (Houston)
+              IPSA (Cd. del Carmen)
             </h3>
             <p className="text-white/85 text-sm leading-relaxed">
-              1601 Peach Leaf St,
+              Calle 19, No. 210,
               <br />
-              Houston, TX 77039
+              Col. Salitral, CP 24130,
               <br />
-              United States
+              Cd. del Carmen, Campeche
+            </p>
+            <p className="mt-3">
+              <a
+                href="tel:+529381380550"
+                className="text-white/85 text-sm hover:text-gold-light transition-colors duration-150"
+              >
+                +52 938 138 0550
+              </a>
             </p>
           </div>
 

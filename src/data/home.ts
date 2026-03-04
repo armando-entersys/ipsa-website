@@ -17,20 +17,25 @@ export interface ProductPASBlock {
   image: string;
 }
 
+export interface BenefitStatement {
+  text: { es: string; en: string };
+  icon: string;
+}
+
 export const homeData = {
   // SECCION 1: Hero Section
   hero: {
     h1: {
-      es: 'Asegure la continuidad de sus procesos críticos con el mayor stock de componentes certificados en México.',
-      en: 'Ensure the continuity of your critical processes with the largest stock of certified components in Mexico.',
+      es: 'El mayor stock de componentes certificados en México.',
+      en: 'The largest stock of certified components in Mexico.',
     },
     h2: {
-      es: 'No permita que los tiempos de entrega globales detengan su operación. Disponibilidad inmediata de válvulas de alta especificación bajo las normas API, ASME y SIL 3.',
-      en: 'Don\'t let global lead times stop your operation. Immediate availability of high-specification valves under API, ASME, and SIL 3 standards.',
+      es: 'Disponibilidad inmediata de válvulas de alta especificación bajo normas API, ASME y SIL 3.',
+      en: 'Immediate availability of high-specification valves under API, ASME, and SIL 3 standards.',
     },
     cta: {
-      es: 'Consultar Inventario en Almacén',
-      en: 'Check Warehouse Inventory',
+      es: 'Consultar Inventario',
+      en: 'Check Inventory',
     },
     ctaLink: '/productos',
     certBadges: ['API 6D', 'API 6A', 'ASME', 'SIL 3'],
@@ -76,8 +81,8 @@ export const homeData = {
   // SECCION 3: Marcas Representadas
   brands: {
     h3: {
-      es: 'Tecnología de origen certificada por las marcas líderes a nivel mundial.',
-      en: 'Origin-certified technology from the world\'s leading brands.',
+      es: 'Tecnología certificada por las marcas líderes del mundo.',
+      en: 'Certified technology from the world\'s leading brands.',
     },
     logos: ['perar', 'versa', 'della-foglia', 'dhv', 'masoneilan'],
   },
@@ -94,7 +99,7 @@ export const homeData = {
           es: '¿Proyectos en pausa por plazos de fabricación europea? Cada día de inactividad compromete sus metas de producción. Ofrecemos disponibilidad de válvulas Trunnion listas para su instalación.',
           en: 'Projects on hold due to European manufacturing timelines? Every day of downtime compromises your production goals. We offer Trunnion valves available and ready for installation.',
         },
-        image: '/images/home/valvulas-alta-spec.jpg',
+        image: '/images/heroes/products-hero.jpg',
       },
       {
         title: {
@@ -105,7 +110,7 @@ export const homeData = {
           es: 'El reemplazo urgente en ambientes corrosivos requiere máxima fiabilidad. No arriesgue su seguridad con componentes genéricos. Acceda al stock permanente de control direccional líder en confiabilidad operativa.',
           en: 'Urgent replacement in corrosive environments requires maximum reliability. Don\'t risk your safety with generic components. Access the permanent stock of directional control leading in operational reliability.',
         },
-        image: '/images/home/control-automatizacion.jpg',
+        image: '/images/heroes/services-hero.jpg',
       },
     ] as ProductPASBlock[],
   },
@@ -117,23 +122,48 @@ export const homeData = {
       en: 'Our mission is to protect the integrity of your infrastructure.',
     },
     body: {
-      es: 'En IPSA, la excelencia reside en la selección de lo que ponemos a su disposición. Actuamos como el filtro de calidad y el seguro logístico que el mercado mexicano requiere. No solo entregamos válvulas; entregamos la tranquilidad de saber que su planta cuenta con el respaldo de las normativas internacionales más estrictas.',
-      en: 'At IPSA, excellence resides in the selection of what we put at your disposal. We act as the quality filter and logistical insurance that the Mexican market requires. We don\'t just deliver valves; we deliver the peace of mind of knowing your plant has the backing of the most stringent international standards.',
+      es: 'Actuamos como el filtro de calidad y el seguro logístico que el mercado mexicano requiere. No solo entregamos válvulas; entregamos la tranquilidad del respaldo normativo internacional.',
+      en: 'We act as the quality filter and logistical insurance the Mexican market requires. We don\'t just deliver valves; we deliver the peace of mind of international regulatory backing.',
     },
+    benefits: [
+      {
+        text: {
+          es: 'Duerma tranquilo sabiendo que sus procesos cumplen con SIL 3 y API 6D.',
+          en: 'Rest easy knowing your processes comply with SIL 3 and API 6D.',
+        },
+        icon: 'ShieldCheck',
+      },
+      {
+        text: {
+          es: 'Extienda la vida útil de su infraestructura con materiales diseñados para servicio severo.',
+          en: 'Extend the lifespan of your infrastructure with materials designed for severe service.',
+        },
+        icon: 'Wrench',
+      },
+    ] as BenefitStatement[],
     counters: [
       { key: 'almacen', value: '2,500', suffix: 'm²', label: { es: 'de inventario disponible', en: 'of available inventory' } },
       { key: 'marcas', value: '6', suffix: '+', label: { es: 'representaciones exclusivas', en: 'exclusive representations' } },
       { key: 'experiencia', value: '38', suffix: '+', label: { es: 'años de experiencia', en: 'years of experience' } },
+      { key: 'aliados', value: '55', suffix: '+', label: { es: 'años de experiencia de nuestros aliados', en: 'years of experience from our allies' } },
     ],
   },
 
   // SECCION 6: CTA Final
   ctaFinal: {
     h2: {
-      es: '¿Listo para asegurar su suministro? Consulte disponibilidad técnica ahora.',
-      en: 'Ready to secure your supply? Check technical availability now.',
+      es: '¿Listo para asegurar su suministro?',
+      en: 'Ready to secure your supply?',
+    },
+    subtext: {
+      es: 'Consulte disponibilidad y especificaciones técnicas.',
+      en: 'Check availability and technical specifications.',
     },
     cta: {
+      es: 'Configurar Solución',
+      en: 'Configure Solution',
+    },
+    ctaSecondary: {
       es: 'Hablar con un Especialista',
       en: 'Talk to a Specialist',
     },

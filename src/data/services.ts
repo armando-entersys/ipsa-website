@@ -66,26 +66,26 @@ export interface Service {
 // ---------------------------------------------------------------------------
 export const serviciosHub = {
   heroH1: {
-    es: 'Ingeniería de vanguardia diseñada para proteger y optimizar su eficiencia operativa.',
-    en: 'Cutting-edge engineering designed to protect and optimize your operational efficiency.',
+    es: 'Ingeniería y automatización para proteger su eficiencia operativa.',
+    en: 'Engineering and automation to protect your operational efficiency.',
   },
   heroH2: {
-    es: 'Transformamos desafíos técnicos en sistemas inteligentes y flujos de trabajo de alta precisión, respaldados por especialistas presentes en su propia planta.',
-    en: 'We transform technical challenges into intelligent systems and high-precision workflows, backed by specialists present at your own plant.',
+    es: 'Sistemas inteligentes y flujos de alta precisión, con especialistas en su propia planta.',
+    en: 'Intelligent systems and high-precision workflows, with specialists at your own plant.',
   },
   ctaHero: {
-    es: 'Explorar Capacidades Técnicas',
-    en: 'Explore Technical Capabilities',
+    es: 'Explorar Capacidades',
+    en: 'Explore Capabilities',
   },
   // Línea A summary (for hub card)
   lineaA: {
     h2: {
-      es: 'Sistemas inteligentes: Reduzca el error humano y maximice su tiempo de actividad.',
-      en: 'Intelligent systems: Reduce human error and maximize your uptime.',
+      es: 'Sistemas inteligentes: Menos error humano, más tiempo de actividad.',
+      en: 'Intelligent systems: Less human error, more uptime.',
     },
     body: {
-      es: 'Implementamos arquitecturas de control que permiten un monitoreo en tiempo real y una escalabilidad sin precedentes. No solo automatizamos procesos; blindamos su producción contra la obsolescencia.',
-      en: 'We implement control architectures that enable real-time monitoring and unprecedented scalability. We don\'t just automate processes; we safeguard your production against obsolescence.',
+      es: 'Arquitecturas de control con monitoreo en tiempo real y escalabilidad. Blindamos su producción contra la obsolescencia.',
+      en: 'Control architectures with real-time monitoring and scalability. We safeguard your production against obsolescence.',
     },
     features: {
       es: [
@@ -107,12 +107,12 @@ export const serviciosHub = {
   // Línea B summary (for hub card)
   lineaB: {
     h2: {
-      es: 'Optimización de infraestructura: El diseño detrás de una rentabilidad constante.',
-      en: 'Infrastructure optimization: The design behind constant profitability.',
+      es: 'Optimización de infraestructura para una rentabilidad constante.',
+      en: 'Infrastructure optimization for constant profitability.',
     },
     body: {
-      es: 'Analizamos y reconfiguramos sus flujos de trabajo para eliminar cuellos de botella. Nuestra ingeniería asegura que cada activo de su planta trabaje al máximo de su capacidad operativa y bajo estricto cumplimiento normativo.',
-      en: 'We analyze and reconfigure your workflows to eliminate bottlenecks. Our engineering ensures every asset in your plant operates at maximum capacity under strict regulatory compliance.',
+      es: 'Reconfiguramos flujos de trabajo para eliminar cuellos de botella. Cada activo al máximo de capacidad bajo cumplimiento normativo.',
+      en: 'We reconfigure workflows to eliminate bottlenecks. Every asset at maximum capacity under regulatory compliance.',
     },
     features: {
       es: [
@@ -134,12 +134,12 @@ export const serviciosHub = {
   // In-House Transversal (hub level)
   inHouse: {
     h2: {
-      es: 'Especialistas de IPSA dentro de su planta: Respuesta inmediata donde ocurre la operación.',
-      en: 'IPSA specialists inside your plant: Immediate response where operations happen.',
+      es: 'Especialistas de IPSA en su planta: Respuesta inmediata en sitio.',
+      en: 'IPSA specialists at your plant: Immediate on-site response.',
     },
     body: {
-      es: 'Nuestra mayor ventaja competitiva es la presencia. Desplegamos consultores y técnicos residentes que eliminan los tiempos de traslado y comprenden su operación desde adentro.',
-      en: 'Our greatest competitive advantage is presence. We deploy resident consultants and technicians who eliminate travel times and understand your operation from the inside.',
+      es: 'Consultores y técnicos residentes que eliminan tiempos de traslado y comprenden su operación desde adentro.',
+      en: 'Resident consultants and technicians who eliminate travel times and understand your operation from the inside.',
     },
     enAutomatizacion: {
       es: 'Programadores en sitio para ajustes críticos y mantenimiento preventivo.',
@@ -256,29 +256,29 @@ export const services: Service[] = [
       en: 'Intelligent control systems, PLC/SCADA integration, and legacy system migration.',
     },
     icon: 'Settings',
-    image: '/images/services/automatizacion.jpg',
+    image: '/images/heroes/automation-hero.jpg',
 
     heroH1: {
-      es: 'Sistemas de control inteligente: Reduzca el error humano y maximice su producción.',
-      en: 'Intelligent control systems: Reduce human error and maximize your production.',
+      es: 'Control inteligente: Menos error humano, más producción.',
+      en: 'Intelligent control: Less human error, more production.',
     },
     heroH2: {
-      es: 'Implementamos arquitecturas de automatización que transforman datos en decisiones en tiempo real, garantizando una operación fluida, segura y escalable.',
-      en: 'We implement automation architectures that transform data into real-time decisions, ensuring smooth, safe, and scalable operations.',
+      es: 'Arquitecturas de automatización que transforman datos en decisiones en tiempo real para una operación segura y escalable.',
+      en: 'Automation architectures that transform data into real-time decisions for safe and scalable operations.',
     },
     ctaHero: {
-      es: 'Solicitar Diagnóstico de Automatización',
-      en: 'Request Automation Diagnosis',
+      es: 'Solicitar Diagnóstico',
+      en: 'Request Diagnosis',
     },
 
     introduction: {
       h2: {
-        es: 'Más allá de la tecnología: Inteligencia al servicio de su planta.',
-        en: 'Beyond technology: Intelligence at the service of your plant.',
+        es: 'Inteligencia al servicio de su planta.',
+        en: 'Intelligence at the service of your plant.',
       },
       body: {
-        es: 'En un entorno industrial donde cada segundo cuenta, la automatización es el escudo contra la ineficiencia. En IPSA, no solo instalamos componentes; diseñamos ecosistemas inteligentes que permiten el monitoreo total de sus procesos. Nuestra especialidad radica en integrar tecnología de vanguardia con la infraestructura existente, asegurando una transición hacia el Smart Manufacturing sin riesgos operativos.',
-        en: 'In an industrial environment where every second counts, automation is the shield against inefficiency. At IPSA, we don\'t just install components; we design intelligent ecosystems that enable total monitoring of your processes. Our specialty lies in integrating cutting-edge technology with existing infrastructure, ensuring a transition to Smart Manufacturing without operational risks.',
+        es: 'No solo instalamos componentes; diseñamos ecosistemas inteligentes para el monitoreo total de sus procesos. Integramos tecnología de vanguardia con su infraestructura existente, asegurando una transición al Smart Manufacturing sin riesgos.',
+        en: 'We don\'t just install components; we design intelligent ecosystems for total process monitoring. We integrate cutting-edge technology with your existing infrastructure, ensuring a risk-free Smart Manufacturing transition.',
       },
     },
 
@@ -440,29 +440,29 @@ export const services: Service[] = [
       en: 'Critical infrastructure design, asset management, and regulatory compliance.',
     },
     icon: 'PenTool',
-    image: '/images/services/ingenieria.jpg',
+    image: '/images/heroes/engineering-hero.jpg',
 
     heroH1: {
-      es: 'Diseño de infraestructura crítica: Transformamos su ingeniería en un activo rentable.',
-      en: 'Critical infrastructure design: We transform your engineering into a profitable asset.',
+      es: 'Infraestructura crítica: Su ingeniería como activo rentable.',
+      en: 'Critical infrastructure: Your engineering as a profitable asset.',
     },
     heroH2: {
-      es: 'Optimizamos sus líneas de producción y flujos de trabajo mediante análisis técnico avanzado, asegurando el cumplimiento normativo y la máxima eficiencia desde el primer plano.',
-      en: 'We optimize your production lines and workflows through advanced technical analysis, ensuring regulatory compliance and maximum efficiency from the very first blueprint.',
+      es: 'Optimizamos líneas de producción y flujos de trabajo con análisis técnico avanzado, cumplimiento normativo y máxima eficiencia.',
+      en: 'We optimize production lines and workflows with advanced technical analysis, regulatory compliance, and maximum efficiency.',
     },
     ctaHero: {
-      es: 'Optimizar mi Infraestructura',
-      en: 'Optimize my Infrastructure',
+      es: 'Optimizar Infraestructura',
+      en: 'Optimize Infrastructure',
     },
 
     introduction: {
       h2: {
-        es: 'Ingeniería de detalle para una industria que exige cero fallos.',
-        en: 'Detailed engineering for an industry that demands zero failures.',
+        es: 'Ingeniería de detalle: Cero fallos, máxima eficiencia.',
+        en: 'Detailed engineering: Zero failures, maximum efficiency.',
       },
       body: {
-        es: 'Los cuellos de botella y la infraestructura obsoleta no solo detienen su producción, ponen en riesgo la seguridad de su planta. En IPSA, abordamos cada proyecto bajo un esquema de Mejora Continua. Diseñamos layouts que maximizan el flujo de materiales y energía, reduciendo costos operativos y extendiendo la vida útil de sus activos.',
-        en: 'Bottlenecks and obsolete infrastructure don\'t just stop your production—they put your plant safety at risk. At IPSA, we approach every project under a Continuous Improvement framework. We design layouts that maximize material and energy flow, reducing operating costs and extending your asset lifespan.',
+        es: 'Abordamos cada proyecto bajo Mejora Continua. Diseñamos layouts que maximizan el flujo de materiales y energía, reduciendo costos operativos y extendiendo la vida útil de sus activos.',
+        en: 'We approach every project under Continuous Improvement. We design layouts that maximize material and energy flow, reducing operating costs and extending asset lifespan.',
       },
     },
 
@@ -603,7 +603,7 @@ export const services: Service[] = [
     ],
 
     relatedProducts: [
-      'valvulas-bola-trunnion',
+      'valvulas-bola-trunnion-atornillado',
       'valvulas-compuerta',
       'valvulas-seguridad',
       'valvulas-globo',

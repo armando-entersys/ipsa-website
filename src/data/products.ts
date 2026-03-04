@@ -29,6 +29,7 @@ export interface ProductCategory {
   es: { name: string; desc: string };
   en: { name: string; desc: string };
   image: string;
+  heroImage: string;
   sizes: string;
   pressureClasses: string;
   standards: string[];
@@ -171,15 +172,15 @@ export const manufacturers: Record<
 
 export const productosHub = {
   heroH1: {
-    es: 'Portafolio de Productos IPSA: Soluciones de Alta Ingeniería en Control de Fluidos.',
-    en: 'IPSA Product Portfolio: High-Engineering Solutions in Fluid Control.',
+    es: 'Soluciones de Alta Ingeniería en Control de Fluidos.',
+    en: 'High-Engineering Fluid Control Solutions.',
   },
   heroH2: {
-    es: 'Desde el aislamiento confiable en líneas submarinas hasta el pilotaje neumático de precisión. Integramos las mejores marcas globales con el respaldo de nuestra División de Ingeniería y Automatización.',
-    en: 'From reliable isolation in subsea lines to precision pneumatic piloting. We integrate the best global brands with the support of our Engineering and Automation Division.',
+    es: 'Desde aislamiento subsea hasta pilotaje neumático de precisión. Las mejores marcas globales con respaldo de ingeniería y automatización.',
+    en: 'From subsea isolation to precision pneumatic piloting. Top global brands backed by engineering and automation.',
   },
   ctaPrimary: { es: 'Hablar con un Ingeniero', en: 'Talk to an Engineer' },
-  ctaSecondary: { es: 'Descargar Catálogo General', en: 'Download General Catalog' },
+  ctaSecondary: { es: 'Descargar Catálogo', en: 'Download Catalog' },
 };
 
 // --- Product Categories (10 categories) ------------------------------------
@@ -189,82 +190,81 @@ export const productCategories: Record<string, ProductCategory> = {
   // BLOCK A: AISLAMIENTO Y BLOQUEO
   // =========================================================================
 
-  // A1 - Válvulas de Bola Trunnion
-  'valvulas-bola-trunnion': {
-    slug: 'valvulas-bola-trunnion',
-    es: { name: 'Válvulas de Bola Trunnion', desc: 'Válvulas de bola con montaje trunnion para aislamiento crítico en ductos, estaciones de compresión y aplicaciones subsea. Cuerpo atornillado y soldado.' },
-    en: { name: 'Trunnion Ball Valves', desc: 'Trunnion mounted ball valves for critical isolation in pipelines, compression stations, and subsea applications. Bolted and welded body.' },
-    image: '/images/products/dhv-trunnion-2pc.jpg',
+  // A1 - Válvulas de Bola Trunnion Cuerpo Soldado
+  'valvulas-bola-trunnion-soldado': {
+    slug: 'valvulas-bola-trunnion-soldado',
+    es: { name: 'Válvulas de Bola Trunnion Cuerpo Soldado', desc: 'Válvulas trunnion con cuerpo totalmente soldado para máxima integridad en ductos, oleoductos y aplicaciones subsea.' },
+    en: { name: 'Welded Body Trunnion Ball Valves', desc: 'Trunnion valves with fully welded body for maximum integrity in pipelines, oil lines, and subsea applications.' },
+    image: '/images/products/df-trunnion-wb.jpg',
+    heroImage: '/images/products/df-fully-welded-body.jpg',
     sizes: '2" a 48"',
-    pressureClasses: 'ANSI 150–2500',
-    standards: ['API 6D', 'API 6A', 'API 6DSS', 'API 607', 'NACE MR0175', 'ISO 15848'],
-    suppliers: ['perar', 'della-foglia', 'dhv'],
+    pressureClasses: 'ANSI 150–900',
+    standards: ['API 6D', 'API 6DSS', 'NACE MR0175', 'ISO 15848'],
+    suppliers: ['perar', 'della-foglia'],
     industries: ['oil-gas', 'energetico'],
     services: ['automatizacion', 'ingenieria'],
     block: 'A',
     blockLabel: { es: 'Aislamiento y Bloqueo', en: 'Isolation & Shutoff' },
     heroH1: {
-      es: 'Válvulas de Bola Trunnion: El Estándar de Aislamiento Crítico.',
-      en: 'Trunnion Ball Valves: The Critical Isolation Standard.',
+      es: 'Trunnion Cuerpo Soldado: Integridad Total en Líneas de Transmisión.',
+      en: 'Welded Body Trunnion: Total Integrity in Transmission Lines.',
     },
     heroH2: {
-      es: 'Ingeniería de aislamiento para los entornos más hostiles. Tecnología probada para alta presión, corrosión extrema y aplicaciones submarinas con certificación API 6D y 6DSS.',
-      en: 'Isolation engineering for the most hostile environments. Proven technology for high pressure, extreme corrosion, and subsea applications with API 6D and 6DSS certification.',
+      es: 'Cuerpo totalmente soldado que elimina puntos de fuga. Tecnología certificada para ductos, oleoductos y aplicaciones subsea.',
+      en: 'Fully welded body that eliminates leak points. Certified technology for pipelines, oil lines, and subsea applications.',
     },
-    ctaPrimary: { es: 'Consultar Inventario Trunnion', en: 'Check Trunnion Inventory' },
-    ctaSecondary: { es: 'Solicitar Ingeniería de Aplicación', en: 'Request Application Engineering' },
+    ctaPrimary: { es: 'Consultar Inventario', en: 'Check Inventory' },
+    ctaSecondary: { es: 'Solicitar Ingeniería', en: 'Request Engineering' },
     definition: {
-      es: 'Una válvula de bola trunnion es un dispositivo de aislamiento donde la bola está soportada por un eje (trunnion) superior e inferior, reduciendo el torque de operación y permitiendo operar en diámetros y presiones mayores. Su diseño robusto la convierte en la elección principal para ductos de transporte, estaciones de compresión y aplicaciones donde la integridad del sello es crítica.',
-      en: 'A trunnion ball valve is an isolation device where the ball is supported by upper and lower shafts (trunnion), reducing operating torque and enabling operation at larger diameters and higher pressures. Its robust design makes it the primary choice for transportation pipelines, compression stations, and applications where seal integrity is critical.',
+      es: 'Una válvula trunnion de cuerpo soldado es un dispositivo de aislamiento donde la bola está soportada por ejes superior e inferior (trunnion) y el cuerpo está sellado permanentemente mediante soldadura, eliminando juntas bridadas y posibles puntos de fuga. Su construcción compacta la hace ideal para enterramiento directo y líneas de transmisión de gas y petróleo.',
+      en: 'A welded body trunnion valve is an isolation device where the ball is supported by upper and lower shafts (trunnion) and the body is permanently sealed by welding, eliminating flanged joints and potential leak points. Its compact construction makes it ideal for direct burial and gas and oil transmission lines.',
     },
     pas: {
       problema: {
-        es: 'Los proyectos de ductos y plataformas enfrentan tiempos de espera de hasta 40 semanas para obtener válvulas trunnion certificadas desde Europa.',
-        en: 'Pipeline and platform projects face lead times of up to 40 weeks to obtain certified trunnion valves from Europe.',
+        es: 'Los proyectos de ductos enfrentan tiempos de espera de hasta 40 semanas para válvulas trunnion certificadas desde Europa.',
+        en: 'Pipeline projects face lead times of up to 40 weeks for certified trunnion valves from Europe.',
       },
       agitacion: {
-        es: 'Cada semana de retraso compromete los cronogramas de puesta en marcha y genera costos millonarios por inactividad de equipos y personal.',
-        en: 'Every week of delay compromises commissioning schedules and generates millions in costs due to equipment and personnel downtime.',
+        es: 'Cada semana de retraso compromete cronogramas de puesta en marcha y genera costos millonarios por inactividad.',
+        en: 'Every week of delay compromises commissioning schedules and generates millions in downtime costs.',
       },
       solucion: {
         es: 'IPSA mantiene stock estratégico de válvulas Trunnion Perar y Della Foglia en México, con certificación API 6D/6DSS y trazabilidad completa.',
         en: 'IPSA maintains strategic stock of Perar and Della Foglia Trunnion valves in Mexico, with API 6D/6DSS certification and full traceability.',
       },
     },
-    certChecklist: ['API 6D', 'API 6A', 'API 6DSS', 'NACE MR0175', 'ISO 15848', 'SIL 3'],
+    certChecklist: ['API 6D', 'API 6DSS', 'NACE MR0175', 'ISO 15848'],
     relatedBrands: ['perar', 'della-foglia'],
     ctaFinal: {
-      h2: { es: '¿Requiere aislamiento de alta presión con mantenimiento accesible?', en: 'Need high-pressure isolation with accessible maintenance?' },
-      subtexto: { es: 'Consulte a nuestros especialistas para seleccionar la configuración de 2 o 3 piezas adecuada para su proceso.', en: 'Consult our specialists to select the right 2 or 3-piece configuration for your process.' },
-      cta: { es: 'Contactar a Ventas Técnicas', en: 'Contact Technical Sales' },
+      h2: { es: '¿Necesita integridad absoluta en sus líneas de transmisión?', en: 'Need absolute integrity in your transmission lines?' },
+      subtexto: { es: 'Consulte disponibilidad de inventario soldado y especificaciones de ductos.', en: 'Check welded inventory availability and pipeline specifications.' },
+      cta: { es: 'Contactar Ventas Técnicas', en: 'Contact Technical Sales' },
     },
     automationBanner: {
-      h2: { es: 'Listas para la automatización de alto torque.', en: 'Ready for high-torque automation.' },
-      body: { es: 'Las válvulas Trunnion están diseñadas nativamente para manejar altas presiones, lo que requiere cajas de engranajes (gearboxes) para su operación manual. Nuestra División de Automatización retira el esfuerzo humano integrando actuadores neumáticos, eléctricos o electrohidráulicos directamente a la válvula. Entregamos paquetes completos de Paro de Emergencia (ESD) probados en nuestro taller.', en: 'Trunnion valves are natively designed to handle high pressures, requiring gearboxes for manual operation. Our Automation Division removes human effort by integrating pneumatic, electric, or electrohydraulic actuators directly to the valve. We deliver complete Emergency Shutdown (ESD) packages tested in our workshop.' },
+      h2: { es: 'Control remoto a lo largo de toda la línea.', en: 'Remote control along the entire line.' },
+      body: { es: 'Las válvulas de transporte no pueden depender de operación manual. Integramos actuadores Gas-Over-Oil, neumáticos de alto torque o sistemas electrohidráulicos para cierre remoto desde el cuarto de control.', en: 'Transport valves cannot depend on manual operation. We integrate Gas-Over-Oil actuators, high-torque pneumatic, or electrohydraulic systems for remote closure from the control room.' },
     },
     subtypes: [
       {
-        slug: 'atornillado',
-        es: { name: 'Trunnion Cuerpo Atornillado', desc: 'Válvulas trunnion con cuerpo atornillado (bolted body) para mantenimiento en campo sin necesidad de soldadura.' },
-        en: { name: 'Bolted Body Trunnion', desc: 'Trunnion valves with bolted body for field maintenance without welding.' },
-        manufacturers: ['perar', 'della-foglia', 'dhv'],
-        image: '/images/products/dhv-trunnion-2pc.jpg',
-        sizes: '2" to 48"',
-        pressureClasses: 'ANSI 150-2500',
+        slug: 'enterramiento',
+        es: { name: 'Soldada para Enterramiento', desc: 'Diseño con protección anticorrosiva para instalación subterránea directa en ductos de transmisión.' },
+        en: { name: 'Buried Welded Valve', desc: 'Design with anti-corrosion protection for direct underground installation in transmission pipelines.' },
+        manufacturers: ['perar', 'della-foglia'],
+        image: '/images/products/df-product-2.jpg',
+        sizes: '4" to 48"',
       },
       {
-        slug: 'soldado',
-        es: { name: 'Trunnion Cuerpo Soldado', desc: 'Válvulas trunnion con cuerpo totalmente soldado que elimina posibles puntos de fuga. Ideal para líneas de transmisión de gas y oleoductos.' },
-        en: { name: 'Welded Body Trunnion', desc: 'Trunnion valves with fully welded body eliminating potential leak points. Ideal for gas transmission lines and pipelines.' },
+        slug: 'aerea',
+        es: { name: 'Soldada Instalación Aérea', desc: 'Configuración para instalación aérea en estaciones de regulación y medición.' },
+        en: { name: 'Above Ground Welded', desc: 'Configuration for above-ground installation at regulation and metering stations.' },
         manufacturers: ['perar', 'della-foglia'],
-        image: '/images/products/df-trunnion-wb.jpg',
-        sizes: '2" to 48"',
-        pressureClasses: 'ANSI 150-900',
+        image: '/images/products/della-foglia-trunnion.jpg',
+        sizes: '2" to 36"',
       },
       {
         slug: 'subsea',
-        es: { name: 'Trunnion Subsea (API 6DSS)', desc: 'Válvulas diseñadas para instalación en el fondo marino. Operación remota mediante ROV bajo presiones hidrostáticas extremas.' },
-        en: { name: 'Subsea Trunnion (API 6DSS)', desc: 'Valves designed for seabed installation. Remote ROV operation under extreme hydrostatic pressures.' },
+        es: { name: 'Trunnion Subsea (API 6DSS)', desc: 'Válvulas para instalación en el fondo marino. Operación remota mediante ROV bajo presiones hidrostáticas extremas.' },
+        en: { name: 'Subsea Trunnion (API 6DSS)', desc: 'Valves for seabed installation. Remote ROV operation under extreme hydrostatic pressures.' },
         manufacturers: ['della-foglia', 'perar'],
         image: '/images/products/df-product-3.jpg',
         standards: ['API 6DSS'],
@@ -272,12 +272,97 @@ export const productCategories: Record<string, ProductCategory> = {
     ],
   },
 
-  // A2 - Válvulas de Bola Flotante
+  // A2 - Válvulas de Bola Trunnion Cuerpo Atornillado
+  'valvulas-bola-trunnion-atornillado': {
+    slug: 'valvulas-bola-trunnion-atornillado',
+    es: { name: 'Válvulas de Bola Trunnion Cuerpo Atornillado', desc: 'Válvulas trunnion con cuerpo atornillado para mantenimiento en campo sin soldadura. Alta presión y diámetros grandes.' },
+    en: { name: 'Bolted Body Trunnion Ball Valves', desc: 'Trunnion valves with bolted body for field maintenance without welding. High pressure and large diameters.' },
+    image: '/images/products/dhv-trunnion-2pc.jpg',
+    heroImage: '/images/products/df-trunnion-side-entry.jpg',
+    sizes: '2" a 48"',
+    pressureClasses: 'ANSI 150–2500',
+    standards: ['API 6D', 'API 6A', 'API 607', 'NACE MR0175', 'ISO 15848'],
+    suppliers: ['perar', 'della-foglia', 'dhv'],
+    industries: ['oil-gas', 'energetico'],
+    services: ['automatizacion', 'ingenieria'],
+    block: 'A',
+    blockLabel: { es: 'Aislamiento y Bloqueo', en: 'Isolation & Shutoff' },
+    heroH1: {
+      es: 'Trunnion Cuerpo Atornillado: Aislamiento Crítico con Mantenimiento en Campo.',
+      en: 'Bolted Body Trunnion: Critical Isolation with Field Maintenance.',
+    },
+    heroH2: {
+      es: 'Diseño robusto que permite mantenimiento en sitio sin soldadura. Tecnología probada para estaciones de compresión, refinerías y alta presión.',
+      en: 'Robust design enabling on-site maintenance without welding. Proven technology for compression stations, refineries, and high pressure.',
+    },
+    ctaPrimary: { es: 'Consultar Inventario', en: 'Check Inventory' },
+    ctaSecondary: { es: 'Solicitar Ingeniería', en: 'Request Engineering' },
+    definition: {
+      es: 'Una válvula trunnion de cuerpo atornillado es un dispositivo de aislamiento donde la bola está soportada por ejes (trunnion) y el cuerpo se une mediante pernos, permitiendo el desmontaje en campo para mantenimiento de asientos y sellos sin necesidad de cortar la línea. Su diseño la hace ideal para refinerías, estaciones de compresión y aplicaciones donde el acceso para mantenimiento es prioritario.',
+      en: 'A bolted body trunnion valve is an isolation device where the ball is supported by shafts (trunnion) and the body is joined by bolts, allowing field disassembly for seat and seal maintenance without cutting the line. Its design makes it ideal for refineries, compression stations, and applications where maintenance access is a priority.',
+    },
+    pas: {
+      problema: {
+        es: 'Los proyectos de plataformas y refinerías enfrentan tiempos de espera de hasta 40 semanas para válvulas trunnion certificadas desde Europa.',
+        en: 'Platform and refinery projects face lead times of up to 40 weeks for certified trunnion valves from Europe.',
+      },
+      agitacion: {
+        es: 'Cada semana de retraso compromete cronogramas de puesta en marcha y genera costos millonarios por inactividad.',
+        en: 'Every week of delay compromises commissioning schedules and generates millions in downtime costs.',
+      },
+      solucion: {
+        es: 'IPSA mantiene stock estratégico de válvulas Trunnion Perar, Della Foglia y DHV en México, con certificación API 6D y trazabilidad completa.',
+        en: 'IPSA maintains strategic stock of Perar, Della Foglia, and DHV Trunnion valves in Mexico, with API 6D certification and full traceability.',
+      },
+    },
+    certChecklist: ['API 6D', 'API 6A', 'API 607', 'NACE MR0175', 'ISO 15848', 'SIL 3'],
+    relatedBrands: ['perar', 'della-foglia', 'dhv'],
+    ctaFinal: {
+      h2: { es: '¿Requiere aislamiento de alta presión con mantenimiento accesible?', en: 'Need high-pressure isolation with accessible maintenance?' },
+      subtexto: { es: 'Consulte la configuración de 2 o 3 piezas adecuada para su proceso.', en: 'Check the right 2 or 3-piece configuration for your process.' },
+      cta: { es: 'Contactar Ventas Técnicas', en: 'Contact Technical Sales' },
+    },
+    automationBanner: {
+      h2: { es: 'Automatización de alto torque.', en: 'High-torque automation.' },
+      body: { es: 'Las válvulas Trunnion requieren cajas de engranajes para operación manual. Nuestra División de Automatización integra actuadores neumáticos, eléctricos o electrohidráulicos. Entregamos paquetes ESD probados en nuestro taller.', en: 'Trunnion valves require gearboxes for manual operation. Our Automation Division integrates pneumatic, electric, or electrohydraulic actuators. We deliver ESD packages tested in our workshop.' },
+    },
+    subtypes: [
+      {
+        slug: '2-piezas',
+        es: { name: 'Trunnion 2 Piezas', desc: 'Cuerpo en dos piezas atornilladas para mantenimiento estándar en campo.' },
+        en: { name: '2-Piece Trunnion', desc: 'Two-piece bolted body for standard field maintenance.' },
+        manufacturers: ['perar', 'della-foglia', 'dhv'],
+        image: '/images/products/dhv-trunnion-2pc.jpg',
+        sizes: '2" to 48"',
+        pressureClasses: 'ANSI 150-2500',
+      },
+      {
+        slug: '3-piezas',
+        es: { name: 'Trunnion 3 Piezas', desc: 'Cuerpo en tres piezas para acceso total al internado. Mantenimiento completo sin retirar de línea.' },
+        en: { name: '3-Piece Trunnion', desc: 'Three-piece body for full access to internals. Complete maintenance without removing from line.' },
+        manufacturers: ['della-foglia', 'dhv'],
+        image: '/images/products/df-trunnion-coated.jpg',
+        sizes: '2" to 36"',
+        pressureClasses: 'ANSI 150-2500',
+      },
+      {
+        slug: 'top-entry',
+        es: { name: 'Trunnion Top Entry', desc: 'Acceso superior para mantenimiento en línea sin desmontaje de tubería.' },
+        en: { name: 'Top Entry Trunnion', desc: 'Top access for in-line maintenance without pipe dismantling.' },
+        manufacturers: ['della-foglia'],
+        image: '/images/products/df-trunnion-side-entry.jpg',
+        sizes: '4" to 36"',
+      },
+    ],
+  },
+
+  // A3 - Válvulas de Bola Flotante
   'valvulas-bola-flotante': {
     slug: 'valvulas-bola-flotante',
     es: { name: 'Válvulas de Bola Flotante', desc: 'Válvulas de bola flotante para aislamiento en líneas auxiliares, servicios generales e instrumentación. Diseño compacto y económico.' },
     en: { name: 'Floating Ball Valves', desc: 'Floating ball valves for isolation in auxiliary lines, general services, and instrumentation. Compact and economical design.' },
     image: '/images/products/dhv-floater.jpg',
+    heroImage: '/images/products/df-floating-ball.jpg',
     sizes: '1/2" a 12"',
     pressureClasses: 'ANSI 150–600',
     standards: ['API 6D', 'API 607', 'ISO 17292'],
@@ -339,12 +424,13 @@ export const productCategories: Record<string, ProductCategory> = {
     ],
   },
 
-  // A3 - Válvulas de Compuerta
+  // A4 - Válvulas de Compuerta
   'valvulas-compuerta': {
     slug: 'valvulas-compuerta',
     es: { name: 'Válvulas de Compuerta', desc: 'Válvulas de compuerta para aislamiento principal en refinerías, ductos e infraestructura de generación. Flujo total sin obstrucción.' },
     en: { name: 'Gate Valves', desc: 'Gate valves for primary isolation in refineries, pipelines, and power generation infrastructure. Full bore unobstructed flow.' },
     image: '/images/products/dhv-gate.jpg',
+    heroImage: '/images/products/dhv-gate-valve-wide.jpg',
     sizes: '2" a 36"',
     pressureClasses: 'ANSI 150–2500',
     standards: ['API 600', 'API 6D', 'ASME B16.34'],
@@ -410,6 +496,7 @@ export const productCategories: Record<string, ProductCategory> = {
     es: { name: 'Válvulas de Globo', desc: 'Válvulas de globo para regulación y estrangulación de flujo en servicios de vapor, líquidos y gases industriales.' },
     en: { name: 'Globe Valves', desc: 'Globe valves for flow regulation and throttling in steam, liquid, and industrial gas services.' },
     image: '/images/products/dhv-globe.jpg',
+    heroImage: '/images/products/df-high-pressure.jpg',
     sizes: '2" a 24"',
     pressureClasses: 'ANSI 150–2500',
     standards: ['API 600', 'ASME B16.34', 'BS 1873'],
@@ -459,9 +546,10 @@ export const productCategories: Record<string, ProductCategory> = {
   // B2 - Válvulas Check
   'valvulas-check': {
     slug: 'valvulas-check',
-    es: { name: 'Válvulas Check', desc: 'Válvulas de retención para prevenir el reflujo en sistemas de bombeo, compresión y distribución.' },
-    en: { name: 'Check Valves', desc: 'Check valves to prevent backflow in pumping, compression, and distribution systems.' },
+    es: { name: 'Válvulas Check o Retención', desc: 'Válvulas de retención para prevenir el reflujo en sistemas de bombeo, compresión y distribución.' },
+    en: { name: 'Check / Non-Return Valves', desc: 'Check valves to prevent backflow in pumping, compression, and distribution systems.' },
     image: '/images/products/dhv-check.jpg',
+    heroImage: '/images/products/dhv-forged-wide.jpg',
     sizes: '2" a 36"',
     pressureClasses: 'ANSI 150–2500',
     standards: ['API 6D', 'ASME B16.34', 'API 594'],
@@ -523,6 +611,7 @@ export const productCategories: Record<string, ProductCategory> = {
     es: { name: 'Válvulas de Control', desc: 'Válvulas de control de proceso con posicionadores inteligentes para la regulación precisa de flujo, presión y temperatura.' },
     en: { name: 'Control Valves', desc: 'Process control valves with smart positioners for precise regulation of flow, pressure, and temperature.' },
     image: '/images/products/masoneilan-control.jpg',
+    heroImage: '/images/products/masoneilan-camflex.jpg',
     sizes: '1" a 24"',
     pressureClasses: 'ANSI 150–2500',
     standards: ['IEC 61131', 'IEC 61511', 'ASME B16.34', 'ISA 75.01'],
@@ -578,9 +667,10 @@ export const productCategories: Record<string, ProductCategory> = {
   // C2 - Válvulas de Seguridad
   'valvulas-seguridad': {
     slug: 'valvulas-seguridad',
-    es: { name: 'Válvulas de Seguridad', desc: 'Válvulas de alivio de presión para la protección de equipos y procesos contra sobrepresiones catastróficas.' },
-    en: { name: 'Safety Valves', desc: 'Pressure relief valves for equipment and process protection against catastrophic overpressure.' },
+    es: { name: 'Válvulas de Seguridad, Alivio o Relevo', desc: 'Válvulas de alivio de presión para la protección de equipos y procesos contra sobrepresiones catastróficas.' },
+    en: { name: 'Safety, Relief & Pressure Relief Valves', desc: 'Pressure relief valves for equipment and process protection against catastrophic overpressure.' },
     image: '/images/products/consolidated-safety.jpg',
+    heroImage: '/images/products/df-hipps.jpg',
     sizes: '1" a 12"',
     pressureClasses: 'ANSI 150–2500',
     standards: ['ASME Section VIII', 'API 520', 'API 526', 'API 527'],
@@ -639,6 +729,7 @@ export const productCategories: Record<string, ProductCategory> = {
     es: { name: 'Válvulas Neumáticas y Solenoides', desc: 'Válvulas solenoides y de control direccional para la automatización precisa de actuadores y sistemas de seguridad.' },
     en: { name: 'Pneumatic & Solenoid Valves', desc: 'Solenoid and directional control valves for precise actuator automation and safety systems.' },
     image: '/images/products/versa-e4-solenoid.png',
+    heroImage: '/images/products/versa-e8z-solenoid.png',
     sizes: '1/4" a 2"',
     pressureClasses: 'Hasta 6000 psi',
     standards: ['NAMUR', 'VDI/VDE 3845', 'IEC 61508', 'ATEX'],
@@ -707,6 +798,7 @@ export const productCategories: Record<string, ProductCategory> = {
     es: { name: 'Válvulas Automatizadas', desc: 'Ensambles completos de válvula + actuador + accesorios de control. Paquetes listos para instalar con ingeniería integrada.' },
     en: { name: 'Automated Valves', desc: 'Complete valve + actuator + control accessories assemblies. Ready-to-install packages with integrated engineering.' },
     image: '/images/products/df-trunnion-automated.jpg',
+    heroImage: '/images/products/df-automated-valve.jpg',
     sizes: '1" a 48"',
     pressureClasses: 'ANSI 150–2500',
     standards: ['API 6D', 'IEC 61511', 'ISA 75.01', 'NAMUR'],
@@ -758,64 +850,6 @@ export const productCategories: Record<string, ProductCategory> = {
     ],
   },
 
-  // D2 - Válvulas de Bola Soldadas (Transmisión)
-  'valvulas-bola-soldadas': {
-    slug: 'valvulas-bola-soldadas',
-    es: { name: 'Válvulas de Bola Soldadas', desc: 'Válvulas de bola con cuerpo totalmente soldado para líneas de transmisión de gas y oleoductos. Máxima integridad estructural.' },
-    en: { name: 'Welded Ball Valves', desc: 'Ball valves with fully welded body for gas transmission lines and pipelines. Maximum structural integrity.' },
-    image: '/images/products/df-trunnion-wb.jpg',
-    sizes: '2" a 48"',
-    pressureClasses: 'ANSI 150–900',
-    standards: ['API 6D', 'NACE MR0175', 'ISO 15848'],
-    suppliers: ['perar'],
-    industries: ['oil-gas'],
-    services: ['ingenieria'],
-    block: 'D',
-    blockLabel: { es: 'Soluciones Integradas', en: 'Integrated Solutions' },
-    heroH1: {
-      es: 'Válvulas de Bola Soldadas: Integridad Absoluta en Líneas de Transmisión.',
-      en: 'Welded Ball Valves: Absolute Integrity in Transmission Lines.',
-    },
-    heroH2: {
-      es: 'Cuerpo totalmente soldado que elimina puntos de fuga. La solución definitiva para líneas de transmisión de gas, oleoductos y aplicaciones donde la seguridad estructural es innegociable.',
-      en: 'Fully welded body that eliminates leak points. The definitive solution for gas transmission lines, pipelines, and applications where structural safety is non-negotiable.',
-    },
-    ctaPrimary: { es: 'Consultar Inventario Soldadas', en: 'Check Welded Valve Inventory' },
-    ctaSecondary: { es: 'Solicitar Ingeniería de Ductos', en: 'Request Pipeline Engineering' },
-    definition: {
-      es: 'Una válvula de bola soldada (fully welded body) es una válvula trunnion cuyo cuerpo está sellado permanentemente mediante soldadura, eliminando completamente las juntas bridadas y los posibles puntos de fuga en la envolvente de presión. Su construcción compacta y ligera la hace ideal para enterramiento directo y líneas de transmisión.',
-      en: 'A welded ball valve (fully welded body) is a trunnion valve whose body is permanently sealed by welding, completely eliminating flanged joints and potential leak points on the pressure envelope. Its compact and lightweight construction makes it ideal for direct burial and transmission lines.',
-    },
-    certChecklist: ['API 6D', 'NACE MR0175', 'ISO 15848'],
-    relatedBrands: ['perar'],
-    ctaFinal: {
-      h2: { es: '¿Necesita integridad absoluta en sus líneas de transmisión?', en: 'Need absolute integrity in your transmission lines?' },
-      subtexto: { es: 'Consulte con nuestros ingenieros para especificaciones de ductos y disponibilidad de inventario soldado.', en: 'Consult our engineers for pipeline specifications and welded inventory availability.' },
-      cta: { es: 'Contactar a Ventas Técnicas', en: 'Contact Technical Sales' },
-    },
-    automationBanner: {
-      h2: { es: 'Control remoto a lo largo de toda la línea.', en: 'Remote control along the entire line.' },
-      body: { es: 'Las válvulas de transporte no pueden depender de la operación manual. Nuestra División de Automatización integra actuadores especializados tipo Gas-Over-Oil (Gas sobre Aceite), neumáticos de alto torque o sistemas electrohidráulicos. Entregamos soluciones que permiten el cierre seguro y remoto desde el cuarto de control central, incluso a cientos de kilómetros de distancia.', en: 'Transport valves cannot depend on manual operation. Our Automation Division integrates specialized Gas-Over-Oil actuators, high-torque pneumatic, or electrohydraulic systems. We deliver solutions that enable safe and remote closure from the central control room, even hundreds of kilometers away.' },
-    },
-    subtypes: [
-      {
-        slug: 'enterramiento',
-        es: { name: 'Soldada para Enterramiento', desc: 'Diseño con protección anticorrosiva para instalación subterránea directa en ductos de transmisión.' },
-        en: { name: 'Buried Welded Valve', desc: 'Design with anti-corrosion protection for direct underground installation in transmission pipelines.' },
-        manufacturers: ['perar'],
-        image: '/images/products/df-product-2.jpg',
-        sizes: '4" to 48"',
-      },
-      {
-        slug: 'aerea',
-        es: { name: 'Soldada Instalación Aérea', desc: 'Configuración para instalación aérea en estaciones de regulación y medición.' },
-        en: { name: 'Above Ground Welded', desc: 'Configuration for above-ground installation at regulation and metering stations.' },
-        manufacturers: ['perar'],
-        image: '/images/products/della-foglia-trunnion.jpg',
-        sizes: '2" to 36"',
-      },
-    ],
-  },
 };
 
 // --- Convenience exports ---------------------------------------------------

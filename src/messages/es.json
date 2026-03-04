@@ -18,27 +18,27 @@
   },
   "hero": {
     "title": "Ingeniería, automatización y válvulas industriales",
-    "subtitle": "Más de 38 años respaldando a la industria mexicana con soluciones integrales en válvulas, actuadores y automatización de procesos.",
-    "cta": "Conoce nuestros servicios",
+    "subtitle": "+38 años respaldando a la industria mexicana con válvulas, actuadores y automatización.",
+    "cta": "Nuestros servicios",
     "ctaSecondary": "Solicitar cotización"
   },
   "pillars": {
     "title": "¿Por qué elegir IPSA?",
     "experience": {
       "title": "+38 años de experiencia",
-      "description": "Desde 1986 sirviendo a la industria petrolera, petroquímica y de gas en México."
+      "description": "Desde 1986 en la industria petrolera, petroquímica y de gas en México."
     },
     "stock": {
       "title": "Stock disponible 24/7",
-      "description": "Inventario de válvulas y actuadores valorado en más de $5M USD, listo para entrega inmediata."
+      "description": "Inventario de válvulas y actuadores +$5M USD, listo para entrega inmediata."
     },
     "engineering": {
       "title": "Ingeniería in-house",
-      "description": "Diseño, automatización, pruebas y reparación en nuestro Centro de Automatización y Distribución."
+      "description": "Diseño, automatización, pruebas y reparación en nuestro centro de operaciones."
     },
     "presence": {
       "title": "Presencia nacional",
-      "description": "6 sedes estratégicas en México y Houston, TX para estar cerca de tu operación."
+      "description": "6 sedes estratégicas en México para estar cerca de tu operación."
     }
   },
   "products": {
@@ -56,7 +56,7 @@
   },
   "services": {
     "title": "Servicios especializados",
-    "subtitle": "Automatización, ingeniería y soporte técnico in-house para la industria de proceso.",
+    "subtitle": "Automatización, ingeniería y soporte técnico in-house.",
     "viewAll": "Ver todos los servicios",
     "learnMore": "Conoce más",
     "process": "Nuestro proceso",
@@ -67,7 +67,7 @@
   },
   "industries": {
     "title": "Industrias que atendemos",
-    "subtitle": "Soluciones especializadas para los sectores más exigentes de la industria de proceso.",
+    "subtitle": "Soluciones para los sectores más exigentes de la industria.",
     "viewAll": "Ver todas las industrias",
     "challenge": "El reto",
     "solution": "Nuestra solución",
@@ -90,22 +90,40 @@
     "downloadCatalog": "Descargar catálogo"
   },
   "aboutPage": {
-    "title": "Sobre IPSA",
-    "subtitle": "Desde 1986, integrando soluciones industriales con ingeniería, automatización y servicio de calidad.",
+    "title": "+38 años asegurando la continuidad de la industria en México.",
+    "subtitle": "Desde 1986, el socio estratégico que garantiza tecnología de vanguardia y respuesta inmediata en sitio.",
+    "heroCta": "Explorar Infraestructura",
+    "historyTitle": "Compromiso con la soberanía operativa.",
+    "historyText": "IPSA nació para resolver necesidades críticas de procura y servicios del sector energético. Lo que comenzó como respuesta a requerimientos inmediatos, se transformó en una empresa EPC integral. Hoy diseñamos el futuro de la eficiencia industrial mediante alianzas globales y capital humano especializado.",
+    "timeline1986": "Fundación de IPSA como proveedor especializado para el sector energético.",
+    "timelineExpansion": "Expansión al sector Oil & Gas con representaciones internacionales.",
+    "timelineEPC": "Consolidación como empresa EPC con capacidad de ingeniería de detalle.",
+    "timelineAlliances": "Alianzas estratégicas globales y presencia en Houston, TX.",
     "whoWeAre": "Quiénes somos",
     "whoWeAreText": "Ingeniería de Partes S.A. de C.V. es una organización fundada en 1986, totalmente orientada al servicio de la industria. Ponemos a disposición nuestra División de Servicio en el área de Automatización y Control y la División de Ingeniería, con fuerza técnica especializada que comprende coordinadores de proyecto, ingenieros de aplicación, ingenieros de campo y técnicos especialistas.",
-    "group": "Un grupo integrado",
-    "groupText": "IPSA, MAEPSA y Certus Process Solutions forman una cadena de suministro completa, desde la ingeniería y procura hasta la fabricación y el servicio postventa.",
+    "capacityTitle": "Donde su operación nos necesita.",
+    "capacityNacional": "Centros de Distribución",
+    "capacityNacionalText": "Almacenes con stock estratégico en Edo. de México, Villahermosa y Cd. del Carmen para entregas inmediatas.",
+    "capacityHouston": "Conexión Houston",
+    "capacityHoustonText": "Presencia en Texas para agilizar la cadena de suministro internacional y procura de componentes de alta especificación.",
+    "capacityTecnica": "Expertos en Campo",
+    "capacityTecnicaText": "Ingenieros de aplicación y especialistas residentes listos para consulta en sitio.",
+    "alliancesTitle": "Tecnología global, disponibilidad local.",
+    "alliancesText": "Representaciones exclusivas de fabricantes líderes mundiales. Canal oficial que conecta marcas como Perar, Masoneilan y Versa con la industria mexicana.",
+    "alliancesCerts": "Productos certificados bajo los estándares más estrictos.",
+    "group": "Cadena de suministro integrada.",
+    "groupText": "Con MAEPSA y CERTUS, IPSA ofrece una solución 360°: desde ingeniería hasta fabricación de actuadores y comercialización de partes.",
     "ipsa": "IPSA",
-    "ipsaDesc": "Automatización, distribución y representación de marcas internacionales",
+    "ipsaDesc": "Automatización, distribución y representación de marcas internacionales.",
     "maepsa": "MAEPSA",
-    "maepsaDesc": "Mantenimiento, reparación y soporte técnico de equipos de proceso",
+    "maepsaDesc": "Mantenimiento, reparación y soporte técnico de equipos de proceso.",
     "certus": "Certus",
-    "certusDesc": "Fabricación de actuadores auto-contenidos en Houston, TX",
+    "certusDesc": "Fabricación de actuadores auto-contenidos en Houston, TX.",
     "locations": "Presencia estratégica",
     "values": "Nuestros valores",
     "certTitle": "Certificaciones y acreditaciones",
-    "ctaWork": "Trabaja con nosotros"
+    "ctaFinalTitle": "¿Busca un socio para su próximo gran proyecto?",
+    "ctaFinalButton": "Hablar con un Especialista"
   },
   "alliances": {
     "title": "Alianzas estratégicas",

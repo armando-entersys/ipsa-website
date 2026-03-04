@@ -27,7 +27,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     urls.push(entry(`${p}/productos`, 0.9, 'weekly'));
     urls.push(entry(`${p}/servicios`, 0.9, 'weekly'));
     urls.push(entry(`${p}/industrias`, 0.9, 'weekly'));
-    urls.push(entry(`${p}/proveedores`, 0.9, 'weekly'));
+    urls.push(entry(`${p}/fabricantes`, 0.9, 'weekly'));
     urls.push(entry(`${p}/nosotros`, 0.8));
     urls.push(entry(`${p}/nosotros/alianzas`, 0.6));
     urls.push(entry(`${p}/nosotros/historia`, 0.6));
@@ -56,7 +56,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // Suppliers
     for (const sup of suppliers) {
-      urls.push(entry(`${p}/proveedores/${sup.slug}`, 0.8));
+      urls.push(entry(`${p}/fabricantes/${sup.slug}`, 0.8));
     }
   }
 

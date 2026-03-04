@@ -1,10 +1,11 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useLocale } from 'next-intl';
-import { ChevronRight, ArrowRight } from 'lucide-react';
+import { ChevronRight, ArrowRight, ShieldCheck, CalendarCheck } from 'lucide-react';
 import { stockImages, getBlur } from '@/data/images';
 import { serviciosHub, services } from '@/data/services';
 import Button from '@/components/ui/Button';
+import CounterSection from '@/components/ui/CounterSection';
 import InHouseBanner from '@/components/ui/InHouseBanner';
 import CTABanner from '@/components/ui/CTABanner';
 
@@ -42,6 +43,12 @@ export default function ServicesHub() {
               <ChevronRight size={14} className="mx-1 inline" />
               <span className="text-white">{l === 'es' ? 'Servicios' : 'Services'}</span>
             </nav>
+            <div className="mb-5 flex items-center gap-3">
+              <ShieldCheck className="h-8 w-8 text-gold" />
+              <span className="text-sm font-semibold uppercase tracking-widest text-gold">
+                {l === 'es' ? 'Protección y Optimización Operativa' : 'Operational Protection & Optimization'}
+              </span>
+            </div>
             <h1
               className="font-heading mb-4 leading-tight text-white"
               style={{ fontSize: 'clamp(2.25rem, 4.5vw, 3.5rem)', fontWeight: 500 }}
@@ -54,6 +61,15 @@ export default function ServicesHub() {
             >
               {serviciosHub.heroH2[l]}
             </p>
+            <div className="mt-6">
+              <CounterSection
+                counters={[
+                  { value: '38', suffix: '+', label: l === 'es' ? 'años asegurando la continuidad industrial' : 'years ensuring industrial continuity' },
+                ]}
+                className="justify-start"
+                variant="light"
+              />
+            </div>
             <div className="mt-8">
               <Button variant="primary" size="lg" href={`${prefix}/contacto`}>
                 {serviciosHub.ctaHero[l]}
@@ -172,6 +188,17 @@ export default function ServicesHub() {
         body={serviciosHub.inHouse.body[l]}
         ctaText={l === 'es' ? 'Conocer el Soporte In-House' : 'Learn about In-House Support'}
         ctaLink={`${prefix}/contacto`}
+        differentials={[
+          {
+            label: l === 'es' ? 'En Automatización' : 'In Automation',
+            text: serviciosHub.inHouse.enAutomatizacion[l],
+          },
+          {
+            label: l === 'es' ? 'En Ingeniería' : 'In Engineering',
+            text: serviciosHub.inHouse.enIngenieria[l],
+          },
+        ]}
+        impactPhrase={serviciosHub.inHouse.impactPhrase[l]}
       />
 
       {/* ═══ CTA FINAL ═══ */}
@@ -180,6 +207,7 @@ export default function ServicesHub() {
         subtext={serviciosHub.ctaFinal.subtexto[l]}
         ctaText={serviciosHub.ctaFinal.cta[l]}
         ctaLink={`${prefix}/contacto`}
+        ctaIcon={<CalendarCheck size={18} />}
       />
     </>
   );

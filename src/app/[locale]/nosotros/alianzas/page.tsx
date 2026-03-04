@@ -106,7 +106,7 @@ export default function AlliancesPage() {
               return alliance.slug ? (
                 <Link
                   key={alliance.name}
-                  href={`${prefix}/proveedores/${alliance.slug}`}
+                  href={`${prefix}/fabricantes/${alliance.slug}`}
                 >
                   {content}
                 </Link>
@@ -140,7 +140,7 @@ export default function AlliancesPage() {
               : "We represent the best manufacturers in the industry."}
           </p>
           <Link
-            href={`${prefix}/proveedores`}
+            href={`${prefix}/fabricantes`}
             className="inline-flex items-center px-8 py-3.5 bg-gold text-white font-medium rounded-xl btn-lift hover:bg-gold-dark transition-colors"
           >
             {locale === "es" ? "Ver todos los fabricantes" : "View all manufacturers"}

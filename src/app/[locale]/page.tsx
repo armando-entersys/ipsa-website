@@ -6,6 +6,10 @@ import {
   ShieldCheck,
   MapPin,
   ArrowRight,
+  Phone,
+  Wrench,
+  CheckCircle,
+  Package,
 } from 'lucide-react';
 import { type LucideIcon } from 'lucide-react';
 import { stockImages, getBlur } from '@/data/images';
@@ -22,7 +26,7 @@ import LogoGrid from '@/components/ui/LogoGrid';
 
 /* ── Icon map for pain point cards ─────────────────── */
 
-const iconMap: Record<string, LucideIcon> = { Clock, ShieldCheck, MapPin };
+const iconMap: Record<string, LucideIcon> = { Clock, ShieldCheck, MapPin, Wrench };
 
 /* ── Page ─────────────────────────────────────────── */
 
@@ -44,7 +48,7 @@ export default function HomePage() {
           playsInline
           className="absolute inset-0 h-full w-full object-cover"
         >
-          <source src="/videos/hero-refinery.mp4" type="video/mp4" />
+          <source src="/videos/hero-warehouse.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-black/50" />
         <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/60 via-navy-dark/20 to-transparent" />
@@ -73,14 +77,14 @@ export default function HomePage() {
 
             <div className="flex flex-col gap-4 sm:flex-row">
               <Button variant="primary" size="lg" href={`${prefix}${hero.ctaLink}`}>
+                <Package size={18} className="mr-2" />
                 {hero.cta[l]}
-                <ArrowRight size={18} className="ml-2" />
               </Button>
               <Button
-                variant="outline"
+                variant="ghost"
                 size="lg"
                 href={`${prefix}/contacto`}
-                className="border-white text-white hover:bg-white hover:text-navy"
+                className="border-2 border-white text-white rounded-full hover:bg-white hover:text-navy-deep"
               >
                 {l === 'es' ? 'Solicitar Cotización' : 'Request a Quote'}
               </Button>
@@ -107,7 +111,7 @@ export default function HomePage() {
               return (
                 <div
                   key={card.key}
-                  className="group rounded-xl bg-white p-8 shadow-md transition-all duration-150 hover:-translate-y-0.5 hover:shadow-lg"
+                  className="group rounded-xl border border-gray-100 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md"
                 >
                   <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-xl icon-bg-navy transition-colors group-hover:bg-gold group-hover:text-white">
                     <Icon className="h-7 w-7 text-gray-700 group-hover:text-white transition-colors" />
@@ -150,14 +154,14 @@ export default function HomePage() {
               return {
                 name: supplier?.name[l] ?? slug,
                 image: supplier?.logo ?? `/images/logos/${slug}.svg`,
-                href: `${prefix}/proveedores/${slug}`,
+                href: `${prefix}/fabricantes/${slug}`,
               };
             })}
             columns={5}
             className="mx-auto max-w-5xl"
           />
           <div className="mt-12">
-            <Button variant="primary" size="lg" href={`${prefix}/proveedores`}>
+            <Button variant="primary" size="lg" href={`${prefix}/fabricantes`}>
               {l === 'es' ? 'Conoce Todas Nuestras Marcas' : 'See All Our Brands'}
               <ArrowRight size={16} className="ml-2" />
             </Button>
@@ -196,10 +200,13 @@ export default function HomePage() {
                   </h3>
                   <p className="mt-4 text-gray-600 leading-relaxed">{block.pas[l]}</p>
                   <div className="mt-6">
-                    <Button variant="outline" size="md" href={`${prefix}/productos`}>
+                    <Link
+                      href={`${prefix}/productos`}
+                      className="inline-flex items-center gap-1 font-semibold text-gold transition-colors duration-300 hover:text-gold-dark"
+                    >
                       {l === 'es' ? 'Ver Productos' : 'View Products'}
-                      <ArrowRight size={14} className="ml-2" />
-                    </Button>
+                      <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -238,7 +245,20 @@ export default function HomePage() {
               >
                 {about.h2[l]}
               </h2>
-              <p className="mb-10 leading-relaxed text-gray-600">{about.body[l]}</p>
+              <p className="mb-8 leading-relaxed text-gray-600">{about.body[l]}</p>
+
+              {/* Benefit statements from CORE doc */}
+              <div className="mb-10 space-y-3">
+                {about.benefits.map((b) => {
+                  const BIcon = iconMap[b.icon] ?? CheckCircle;
+                  return (
+                    <div key={b.icon} className="flex items-start gap-3">
+                      <BIcon className="mt-0.5 h-5 w-5 flex-shrink-0 text-gold" />
+                      <p className="text-sm font-medium leading-relaxed text-gray-700">{b.text[l]}</p>
+                    </div>
+                  );
+                })}
+              </div>
 
               <CounterSection
                 counters={about.counters.map((c) => ({
@@ -298,7 +318,7 @@ export default function HomePage() {
                 <Link
                   key={cat.slug}
                   href={`${prefix}/productos/${cat.slug}`}
-                  className="group block rounded-xl bg-white p-6 shadow-md transition-all duration-150 hover:-translate-y-0.5 hover:shadow-lg"
+                  className="group block rounded-xl border border-gray-100 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md"
                 >
                   <h3 className="font-heading text-base font-semibold text-gray-900">
                     {cat[l].name}
@@ -339,7 +359,7 @@ export default function HomePage() {
                 <Link
                   key={svc.slug}
                   href={`${prefix}/servicios/${svc.slug}`}
-                  className="group block overflow-hidden rounded-xl bg-white shadow-md transition-all duration-150 hover:shadow-lg"
+                  className="group block overflow-hidden rounded-xl border border-gray-100 bg-white shadow-sm transition-all duration-300 hover:shadow-md"
                 >
                   <div className="relative h-48 overflow-hidden">
                     <Image
@@ -430,8 +450,10 @@ export default function HomePage() {
       {/* ═══ SECTION 6: CTA FINAL ══════════════════════ */}
       <CTABanner
         heading={ctaFinal.h2[l]}
+        subtext={ctaFinal.subtext[l]}
         ctaText={ctaFinal.cta[l]}
         ctaLink={`${prefix}${ctaFinal.ctaLink}`}
+        ctaIcon={<Phone size={18} />}
       />
     </>
   );

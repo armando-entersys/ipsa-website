@@ -75,7 +75,7 @@ export default async function ProductCategoryPage({
       {/* ═══ HERO ═══ */}
       <section className="relative overflow-hidden" style={{ minHeight: '50vh' }}>
         <Image
-          src={category.image}
+          src={category.heroImage}
           alt=""
           fill
           priority

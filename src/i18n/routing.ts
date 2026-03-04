@@ -29,13 +29,13 @@ export const routing = defineRouting({
       es: "/industrias/[slug]",
       en: "/industries/[slug]",
     },
-    "/proveedores": {
-      es: "/proveedores",
-      en: "/suppliers",
+    "/fabricantes": {
+      es: "/fabricantes",
+      en: "/manufacturers",
     },
-    "/proveedores/[slug]": {
-      es: "/proveedores/[slug]",
-      en: "/suppliers/[slug]",
+    "/fabricantes/[slug]": {
+      es: "/fabricantes/[slug]",
+      en: "/manufacturers/[slug]",
     },
     "/nosotros": {
       es: "/nosotros",

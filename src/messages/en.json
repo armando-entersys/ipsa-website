@@ -18,27 +18,27 @@
   },
   "hero": {
     "title": "Engineering, automation and industrial valves",
-    "subtitle": "Over 38 years supporting the Mexican industry with integral solutions in valves, actuators and process automation.",
-    "cta": "Discover our services",
+    "subtitle": "38+ years supporting Mexican industry with valves, actuators and automation.",
+    "cta": "Our services",
     "ctaSecondary": "Request a quote"
   },
   "pillars": {
     "title": "Why choose IPSA",
     "experience": {
       "title": "38+ years of experience",
-      "description": "Since 1986 serving the oil & gas, petrochemical and process industries in Mexico."
+      "description": "Since 1986 in the oil & gas, petrochemical and process industries in Mexico."
     },
     "stock": {
       "title": "24/7 available stock",
-      "description": "Valve and actuator inventory valued at over $5M USD, ready for immediate delivery."
+      "description": "Valve and actuator inventory +$5M USD, ready for immediate delivery."
     },
     "engineering": {
       "title": "In-house engineering",
-      "description": "Design, automation, testing and repair at our Automation and Distribution Center."
+      "description": "Design, automation, testing and repair at our operations center."
     },
     "presence": {
       "title": "National presence",
-      "description": "6 strategic locations in Mexico and Houston, TX to be close to your operation."
+      "description": "6 strategic locations in Mexico to be close to your operation."
     }
   },
   "products": {
@@ -56,7 +56,7 @@
   },
   "services": {
     "title": "Specialized services",
-    "subtitle": "Automation, engineering and in-house technical support for the process industry.",
+    "subtitle": "Automation, engineering and in-house technical support.",
     "viewAll": "View all services",
     "learnMore": "Learn more",
     "process": "Our process",
@@ -67,7 +67,7 @@
   },
   "industries": {
     "title": "Industries we serve",
-    "subtitle": "Specialized solutions for the most demanding sectors of the process industry.",
+    "subtitle": "Solutions for the most demanding industry sectors.",
     "viewAll": "View all industries",
     "challenge": "The challenge",
     "solution": "Our solution",
@@ -90,22 +90,40 @@
     "downloadCatalog": "Download catalog"
   },
   "aboutPage": {
-    "title": "About IPSA",
-    "subtitle": "Since 1986, integrating industrial solutions with engineering, automation and quality service.",
+    "title": "38+ years ensuring the continuity of industry in Mexico.",
+    "subtitle": "Since 1986, the strategic partner that guarantees cutting-edge technology and immediate on-site response.",
+    "heroCta": "Explore Infrastructure",
+    "historyTitle": "Commitment to operational sovereignty.",
+    "historyText": "IPSA was born to solve critical procurement and service needs for the energy sector. What began as a response to immediate requirements transformed into a comprehensive EPC company. Today we design the future of industrial efficiency through global alliances and specialized human capital.",
+    "timeline1986": "IPSA founded as a specialized supplier for the energy sector.",
+    "timelineExpansion": "Expansion into the Oil & Gas sector with international representations.",
+    "timelineEPC": "Consolidation as an EPC company with detailed engineering capability.",
+    "timelineAlliances": "Global strategic alliances and presence in Houston, TX.",
     "whoWeAre": "Who we are",
     "whoWeAreText": "Ingenieria de Partes S.A. de C.V. is an organization founded in 1986, fully oriented to serving the industry. We provide our Service Division in the area of Automation and Control and our Engineering Division, with specialized technical force including project coordinators, application engineers, field engineers and product specialist technicians.",
-    "group": "An integrated group",
-    "groupText": "IPSA, MAEPSA and Certus Process Solutions form a complete supply chain, from engineering and procurement to manufacturing and after-sales service.",
+    "capacityTitle": "Where your operation needs us.",
+    "capacityNacional": "Distribution Centers",
+    "capacityNacionalText": "Strategic stock in State of Mexico, Villahermosa and Ciudad del Carmen for immediate deliveries.",
+    "capacityHouston": "Houston Connection",
+    "capacityHoustonText": "Texas presence to streamline the international supply chain and high-specification procurement.",
+    "capacityTecnica": "Field Experts",
+    "capacityTecnicaText": "Application engineers and resident specialists ready for on-site consultation.",
+    "alliancesTitle": "Global technology, local availability.",
+    "alliancesText": "Exclusive representations of world-leading manufacturers. Official channel connecting brands like Perar, Masoneilan and Versa with Mexican industry.",
+    "alliancesCerts": "Products certified under the strictest standards.",
+    "group": "Integrated supply chain.",
+    "groupText": "With MAEPSA and CERTUS, IPSA offers a 360° solution: from engineering to actuator manufacturing and parts commercialization.",
     "ipsa": "IPSA",
-    "ipsaDesc": "Automation, distribution and representation of international brands",
+    "ipsaDesc": "Automation, distribution and representation of international brands.",
     "maepsa": "MAEPSA",
-    "maepsaDesc": "Maintenance, repair and technical support of process equipment",
+    "maepsaDesc": "Maintenance, repair and technical support of process equipment.",
     "certus": "Certus",
-    "certusDesc": "Self-contained actuator manufacturing in Houston, TX",
+    "certusDesc": "Self-contained actuator manufacturing in Houston, TX.",
     "locations": "Strategic presence",
     "values": "Our values",
     "certTitle": "Certifications and accreditations",
-    "ctaWork": "Work with us"
+    "ctaFinalTitle": "Looking for a partner for your next big project?",
+    "ctaFinalButton": "Talk to a Specialist"
   },
   "alliances": {
     "title": "Strategic alliances",

@@ -148,7 +148,7 @@ export const suppliers: Supplier[] = [
       { name: 'SIL 3', description: { es: 'Nivel de integridad de seguridad III', en: 'Safety Integrity Level III' } },
     ],
     heroBadges: ['API 6D', 'API 6A', 'API 6DSS'],
-    relatedProducts: ['valvulas-bola-trunnion', 'valvulas-bola-soldadas'],
+    relatedProducts: ['valvulas-bola-trunnion-atornillado', 'valvulas-bola-trunnion-soldado'],
     isPriority: true,
     heroH1: { es: 'Perar: El estándar global en válvulas de bola para servicios severos.', en: 'Perar: The global standard in ball valves for severe service.' },
     heroH2: {
@@ -163,21 +163,21 @@ export const suppliers: Supplier[] = [
         uso: { es: 'Aislamiento crítico en ductos de transporte y estaciones de compresión. Diseñadas para un mantenimiento sencillo y una vida útil prolongada.', en: 'Critical isolation in transportation pipelines and compression stations. Designed for easy maintenance and extended service life.' },
         industrias: ['oil-gas', 'energetico'],
         cta: { es: 'Ver Ficha Técnica Trunnion', en: 'View Trunnion Data Sheet' },
-        ctaLink: '/productos/valvulas-bola-trunnion',
+        ctaLink: '/productos/valvulas-bola-trunnion-atornillado',
       },
       {
         title: { es: 'Soluciones Subsea (API 6DSS)', en: 'Subsea Solutions (API 6DSS)' },
         uso: { es: 'Ingeniería especializada para el lecho marino. Válvulas diseñadas para operar bajo presiones hidrostáticas extremas durante décadas.', en: 'Specialized engineering for the seabed. Valves designed to operate under extreme hydrostatic pressures for decades.' },
         industrias: ['oil-gas'],
         cta: { es: 'Explorar Capacidades Subsea', en: 'Explore Subsea Capabilities' },
-        ctaLink: '/productos/valvulas-bola-trunnion',
+        ctaLink: '/productos/valvulas-bola-trunnion-atornillado',
       },
       {
         title: { es: 'Válvulas para Servicios Severos (Alta Temp / Corrosión)', en: 'Severe Service Valves (High Temp / Corrosion)' },
         uso: { es: 'Configuraciones con Inconel, Duplex para fluidos amargos y temperaturas extremas.', en: 'Configurations with Inconel, Duplex for sour fluids and extreme temperatures.' },
         industrias: ['oil-gas', 'privado'],
         cta: { es: 'Ver Materiales Especiales', en: 'View Special Materials' },
-        ctaLink: '/productos/valvulas-bola-trunnion',
+        ctaLink: '/productos/valvulas-bola-trunnion-atornillado',
       },
     ],
     pas: {
@@ -235,7 +235,7 @@ export const suppliers: Supplier[] = [
       { name: 'ISO 9001', description: { es: 'Sistema de gestión de calidad', en: 'Quality management system' } },
     ],
     heroBadges: ['Especialistas en Hidrógeno y Servicios Severos'],
-    relatedProducts: ['valvulas-bola-trunnion', 'valvulas-bola-flotante'],
+    relatedProducts: ['valvulas-bola-trunnion-atornillado', 'valvulas-bola-flotante'],
     isPriority: true,
     heroH1: { es: 'Della Foglia: Soluciones avanzadas para los procesos industriales más exigentes.', en: 'Della Foglia: Advanced solutions for the most demanding industrial processes.' },
     heroH2: {
@@ -250,7 +250,7 @@ export const suppliers: Supplier[] = [
         uso: { es: 'Diseñadas para servicios abrasivos y temperaturas que exceden los límites de los sellos blandos convencionales.', en: 'Designed for abrasive services and temperatures exceeding the limits of conventional soft seals.' },
         industrias: ['energetico'],
         cta: { es: 'Ver Detalles Técnicos', en: 'View Technical Details' },
-        ctaLink: '/productos/valvulas-bola-trunnion',
+        ctaLink: '/productos/valvulas-bola-trunnion-atornillado',
       },
       {
         title: { es: 'Válvulas para Hidrógeno y Descarbonización', en: 'Hydrogen & Decarbonization Valves' },

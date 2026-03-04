@@ -21,14 +21,25 @@ const productCategories = {
   es: [
     // ── A: Aislamiento y Bloqueo ──
     {
-      title: "Válvulas de Bola Trunnion",
-      href: "/productos/valvulas-bola-trunnion",
+      title: "Trunnion Cuerpo Soldado",
+      href: "/productos/valvulas-bola-trunnion-soldado",
+      image: "/images/products/df-trunnion-wb.jpg",
+      block: "Aislamiento y Bloqueo",
+      items: [
+        { label: "Para Enterramiento", href: "/productos/valvulas-bola-trunnion-soldado/enterramiento" },
+        { label: "Instalación Aérea", href: "/productos/valvulas-bola-trunnion-soldado/aerea" },
+        { label: "Subsea (API 6DSS)", href: "/productos/valvulas-bola-trunnion-soldado/subsea" },
+      ],
+    },
+    {
+      title: "Trunnion Cuerpo Atornillado",
+      href: "/productos/valvulas-bola-trunnion-atornillado",
       image: "/images/products/dhv-trunnion-2pc.jpg",
       block: "Aislamiento y Bloqueo",
       items: [
-        { label: "Cuerpo Atornillado", href: "/productos/valvulas-bola-trunnion/atornillado" },
-        { label: "Cuerpo Soldado", href: "/productos/valvulas-bola-trunnion/soldado" },
-        { label: "Subsea (API 6DSS)", href: "/productos/valvulas-bola-trunnion/subsea" },
+        { label: "2 Piezas", href: "/productos/valvulas-bola-trunnion-atornillado/2-piezas" },
+        { label: "3 Piezas", href: "/productos/valvulas-bola-trunnion-atornillado/3-piezas" },
+        { label: "Top Entry", href: "/productos/valvulas-bola-trunnion-atornillado/top-entry" },
       ],
     },
     {
@@ -63,7 +74,7 @@ const productCategories = {
       ],
     },
     {
-      title: "Válvulas Check",
+      title: "Válvulas Check o Retención",
       href: "/productos/valvulas-check",
       image: "/images/products/dhv-check.jpg",
       block: "Regulación y Retención",
@@ -84,7 +95,7 @@ const productCategories = {
       ],
     },
     {
-      title: "Válvulas de Seguridad",
+      title: "Válvulas de Seguridad, Alivio o Relevo",
       href: "/productos/valvulas-seguridad",
       image: "/images/products/consolidated-safety.jpg",
       block: "Control y Seguridad",
@@ -115,28 +126,29 @@ const productCategories = {
         { label: "Paquetes de Control", href: "/productos/valvulas-automatizadas/paquete-control" },
       ],
     },
-    {
-      title: "Válvulas de Bola Soldadas",
-      href: "/productos/valvulas-bola-soldadas",
-      image: "/images/products/df-trunnion-wb.jpg",
-      block: "Soluciones Integradas",
-      items: [
-        { label: "Soldada para Enterramiento", href: "/productos/valvulas-bola-soldadas/enterramiento" },
-        { label: "Soldada Instalación Aérea", href: "/productos/valvulas-bola-soldadas/aerea" },
-      ],
-    },
   ],
   en: [
     // ── A: Isolation & Shutoff ──
     {
-      title: "Trunnion Ball Valves",
-      href: "/productos/valvulas-bola-trunnion",
+      title: "Welded Body Trunnion",
+      href: "/productos/valvulas-bola-trunnion-soldado",
+      image: "/images/products/df-trunnion-wb.jpg",
+      block: "Isolation & Shutoff",
+      items: [
+        { label: "Buried Welded", href: "/productos/valvulas-bola-trunnion-soldado/enterramiento" },
+        { label: "Above Ground", href: "/productos/valvulas-bola-trunnion-soldado/aerea" },
+        { label: "Subsea (API 6DSS)", href: "/productos/valvulas-bola-trunnion-soldado/subsea" },
+      ],
+    },
+    {
+      title: "Bolted Body Trunnion",
+      href: "/productos/valvulas-bola-trunnion-atornillado",
       image: "/images/products/dhv-trunnion-2pc.jpg",
       block: "Isolation & Shutoff",
       items: [
-        { label: "Bolted Body Trunnion", href: "/productos/valvulas-bola-trunnion/atornillado" },
-        { label: "Welded Body Trunnion", href: "/productos/valvulas-bola-trunnion/soldado" },
-        { label: "Subsea (API 6DSS)", href: "/productos/valvulas-bola-trunnion/subsea" },
+        { label: "2-Piece Trunnion", href: "/productos/valvulas-bola-trunnion-atornillado/2-piezas" },
+        { label: "3-Piece Trunnion", href: "/productos/valvulas-bola-trunnion-atornillado/3-piezas" },
+        { label: "Top Entry Trunnion", href: "/productos/valvulas-bola-trunnion-atornillado/top-entry" },
       ],
     },
     {
@@ -171,7 +183,7 @@ const productCategories = {
       ],
     },
     {
-      title: "Check Valves",
+      title: "Check / Non-Return Valves",
       href: "/productos/valvulas-check",
       image: "/images/products/dhv-check.jpg",
       block: "Regulation & Retention",
@@ -192,7 +204,7 @@ const productCategories = {
       ],
     },
     {
-      title: "Safety Valves",
+      title: "Safety & Relief Valves",
       href: "/productos/valvulas-seguridad",
       image: "/images/products/consolidated-safety.jpg",
       block: "Control & Safety",
@@ -223,16 +235,6 @@ const productCategories = {
         { label: "Control Packages", href: "/productos/valvulas-automatizadas/paquete-control" },
       ],
     },
-    {
-      title: "Welded Ball Valves",
-      href: "/productos/valvulas-bola-soldadas",
-      image: "/images/products/df-trunnion-wb.jpg",
-      block: "Integrated Solutions",
-      items: [
-        { label: "Buried Welded Valve", href: "/productos/valvulas-bola-soldadas/enterramiento" },
-        { label: "Above Ground Welded", href: "/productos/valvulas-bola-soldadas/aerea" },
-      ],
-    },
   ],
 };
 
@@ -246,12 +248,10 @@ const otherNavItems = [
       es: [
         { label: "Automatización de Válvulas", href: "/servicios/automatizacion", desc: "Paquetes completos de automatización" },
         { label: "Ingeniería y Proyectos EPC", href: "/servicios/ingenieria", desc: "Ingeniería conceptual hasta la entrega" },
-        { label: "Centro de Automatización (CAD)", href: "/servicios/automatizacion", desc: "Reparación, pruebas NDE, almacén 24/7" },
       ],
       en: [
         { label: "Valve Automation", href: "/servicios/automatizacion", desc: "Complete automation packages" },
         { label: "Engineering & EPC Projects", href: "/servicios/ingenieria", desc: "From concept to delivery" },
-        { label: "Automation Center (CAD)", href: "/servicios/automatizacion", desc: "Repair, NDE testing, 24/7 warehouse" },
       ],
     },
   },

@@ -22,17 +22,25 @@ const offices = [
     address:
       "Convento de Actopan No. 33, Col. Jardines de Sta. Monica, 54050 Tlalnepantla, Edo. Mex.",
     phone: "+52 55 5397 3703",
+    phoneDetail: "Ext. 408, 402, 406",
   },
-  { city: "Cd. del Carmen", role: "CAD", address: "Campeche, México", phone: "" },
-  { city: "Paraíso", role: "Taller", address: "Tabasco, México", phone: "" },
+  {
+    city: "Cd. del Carmen",
+    role: "CAD",
+    address: "Calle 19, No. 210, Col. Salitral, CP 24130, Cd. del Carmen, Campeche",
+    phone: "+52 938 138 0550",
+    phoneDetail: "",
+  },
+  { city: "Paraíso", role: "Taller", address: "Tabasco, México", phone: "", phoneDetail: "" },
   {
     city: "Houston, TX",
     role: "Intl. Sales",
     address: "1601 Peach Leaf St, Houston TX 77039, USA",
     phone: "",
+    phoneDetail: "",
   },
-  { city: "Villahermosa", role: "Ventas", address: "Tabasco, México", phone: "" },
-  { city: "Tampico", role: "Ventas", address: "Tamaulipas, México", phone: "" },
+  { city: "Villahermosa", role: "Ventas", address: "Tabasco, México", phone: "", phoneDetail: "" },
+  { city: "Tampico", role: "Ventas", address: "Tamaulipas, México", phone: "", phoneDetail: "" },
 ];
 
 export default function ContactPage() {
@@ -226,7 +234,10 @@ export default function ContactPage() {
                       className="flex items-center gap-3 hover:text-gold-light transition-colors"
                     >
                       <Phone size={18} className="text-gold" />
-                      <span className="text-sm">+52 55 5397 3703</span>
+                      <div>
+                        <span className="text-sm block">+52 55 5397 3703</span>
+                        <span className="text-[11px] text-white/50">Ext. 408, 402, 406</span>
+                      </div>
                     </a>
                   </li>
                   <li>
@@ -265,12 +276,17 @@ export default function ContactPage() {
                       </div>
                       <p className="text-xs text-gray-500">{office.address}</p>
                       {office.phone && (
-                        <a
-                          href={`tel:${office.phone.replace(/\s/g, "")}`}
-                          className="text-xs text-gold mt-1 block"
-                        >
-                          {office.phone}
-                        </a>
+                        <div className="mt-1">
+                          <a
+                            href={`tel:${office.phone.replace(/\s/g, "")}`}
+                            className="text-xs text-gold"
+                          >
+                            {office.phone}
+                          </a>
+                          {office.phoneDetail && (
+                            <span className="text-[10px] text-gray-400 ml-1.5">{office.phoneDetail}</span>
+                          )}
+                        </div>
                       )}
                     </div>
                   ))}

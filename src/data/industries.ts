@@ -78,8 +78,8 @@ export const industriasHub = {
     en: 'Engineering solutions for the most demanding environments in Mexico.',
   },
   heroH2: {
-    es: 'Desde aplicaciones submarinas en alta mar hasta la precisión de la industria alimentaria, protegemos la continuidad de su operación con tecnología certificada y presencia experta en sitio.',
-    en: 'From subsea offshore applications to the precision of the food industry, we protect the continuity of your operation with certified technology and expert on-site presence.',
+    es: 'Desde aplicaciones subsea hasta la industria alimentaria: tecnología certificada y presencia experta en sitio.',
+    en: 'From subsea applications to the food industry: certified technology and expert on-site presence.',
   },
   ctaHero: {
     es: 'Explorar Sectores',
@@ -90,24 +90,24 @@ export const industriasHub = {
     en: 'Technical mastery for industries where failure is not an option.',
   },
   enfoqueCuerpo: {
-    es: 'En IPSA, dividimos nuestra capacidad operativa en dos fuerzas: Automatización e Ingeniería de Procesos. Esta estructura nos permite abordar cada industria desde la seguridad funcional y la eficiencia térmica, garantizando que cada válvula, solenoide o sistema de control cumpla con las normativas internacionales más estrictas.',
-    en: 'At IPSA, we divide our operational capacity into two forces: Automation and Process Engineering. This structure allows us to approach each industry from functional safety and thermal efficiency, ensuring that every valve, solenoid, or control system complies with the most stringent international standards.',
+    es: 'Dos fuerzas: Automatización e Ingeniería de Procesos. Cada válvula, solenoide o sistema de control cumple con las normativas internacionales más estrictas.',
+    en: 'Two forces: Automation and Process Engineering. Every valve, solenoid, or control system meets the most stringent international standards.',
   },
   matrizH2: {
     es: 'El respaldo de las marcas líderes en el mundo.',
     en: 'Backed by the world\'s leading brands.',
   },
   matrizMicrocopy: {
-    es: 'No solo suministramos el componente; integramos el sistema de control y la seguridad del proceso bajo un mismo sello de confianza.',
-    en: 'We don\'t just supply the component; we integrate the control system and process safety under a single seal of trust.',
+    es: 'Integramos el sistema de control y la seguridad del proceso bajo un mismo sello de confianza.',
+    en: 'We integrate the control system and process safety under a single seal of trust.',
   },
   inHouseH2: {
     es: 'Presencia física en cada sector.',
     en: 'Physical presence in every sector.',
   },
   inHouseCuerpo: {
-    es: 'Nuestros especialistas residen donde su industria lo necesita. Ya sea en una refinería o en una planta de manufactura, el Soporte In-House de IPSA garantiza que la ingeniería de detalle y el mantenimiento preventivo ocurran en tiempo real.',
-    en: 'Our specialists are stationed where your industry needs them. Whether at a refinery or a manufacturing plant, IPSA\'s In-House Support ensures that detailed engineering and preventive maintenance happen in real time.',
+    es: 'Especialistas donde su industria lo necesita. En refinería o planta de manufactura, ingeniería de detalle y mantenimiento preventivo en tiempo real.',
+    en: 'Specialists where your industry needs them. At refinery or manufacturing plant, detailed engineering and preventive maintenance in real time.',
   },
   ctaFinalH2: {
     es: '¿Su industria exige el más alto estándar de seguridad?',
@@ -141,7 +141,7 @@ export const industries: Industry[] = [
       en: 'Specialists in severe conditions: high pressure, corrosion, and Subsea applications.',
     },
     icon: 'Droplets',
-    image: '/images/industries/oil-gas.jpg',
+    image: '/images/heroes/oil-gas.jpg',
 
     heroH1: {
       es: 'Continuidad operativa en los entornos más hostiles del sector energético.',
@@ -206,7 +206,7 @@ export const industries: Industry[] = [
           es: 'Ver Ficha Técnica de Válvulas Trunnion',
           en: 'View Trunnion Valves Data Sheet',
         },
-        ctaLink: '/productos/valvulas-bola-trunnion',
+        ctaLink: '/productos/valvulas-bola-trunnion-atornillado',
       },
       {
         title: {
@@ -296,7 +296,7 @@ export const industries: Industry[] = [
     },
 
     relatedProducts: [
-      'valvulas-bola-trunnion',
+      'valvulas-bola-trunnion-atornillado',
       'valvulas-bola-flotante',
       'valvulas-compuerta',
       'valvulas-seguridad',
@@ -320,7 +320,7 @@ export const industries: Industry[] = [
       en: 'Critical fluid management in combined cycles and the new Hydrogen frontier.',
     },
     icon: 'Zap',
-    image: '/images/industries/energetico.jpg',
+    image: '/images/heroes/gas.jpg',
 
     heroH1: {
       es: 'Ingeniería de alta precisión para la estabilidad del sector eléctrico.',
@@ -498,7 +498,7 @@ export const industries: Industry[] = [
       en: 'Versatility and immediate stock for process plants and water treatment.',
     },
     icon: 'Factory',
-    image: '/images/industries/privado.jpg',
+    image: '/images/heroes/oils.jpg',
 
     heroH1: {
       es: 'Suministro inmediato y modernización para la industria privada en México.',

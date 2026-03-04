@@ -223,6 +223,8 @@ export default async function ServicePage({
         body={service.inHouse.body[l]}
         ctaText={l === 'es' ? 'Hablar con un Especialista' : 'Talk to a Specialist'}
         ctaLink={`${prefix}/contacto`}
+        benefitKey={service.inHouse.benefitKey?.[l]}
+        promise={service.inHouse.promise?.[l]}
       />
 
       {/* ═══ BENEFITS ═══ */}

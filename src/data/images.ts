@@ -31,12 +31,11 @@ export const stockImages = {
 
   // Products
   valves: "/images/products/df-factory-valves.jpg",
-  pipeline: "/images/heroes/oil-gas.jpg",
-  industrial: "/images/heroes/gas.jpg",
+  industrial: "/images/heroes/df-facility.jpg",
 
   // About / team
   team: "/images/heroes/about-hero.jpg",
-  office: "/images/heroes/suppliers-hero.jpg",
+  office: "/images/heroes/df-facility.jpg",
 
   // Contact
   contact: "/images/heroes/contact-hero.jpg",
