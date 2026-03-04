@@ -41,7 +41,7 @@ export default function CatalogPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative min-h-[420px] flex items-center">
+      <section className="relative min-h-[300px] md:min-h-[420px] flex items-center">
         <Image
           src={stockImages.catalogHero}
           alt=""

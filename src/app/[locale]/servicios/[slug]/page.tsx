@@ -100,7 +100,7 @@ export default async function ServicePage({
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       {faqJsonLd && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />}
       {/* ═══ HERO ═══ */}
-      <section className="relative overflow-hidden" style={{ minHeight: '55vh' }}>
+      <section className="relative overflow-hidden min-h-[40vh] md:min-h-[55vh]">
         <Image
           src={stockImages.servicesHero}
           alt=""

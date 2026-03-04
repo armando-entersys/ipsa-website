@@ -17,19 +17,19 @@ import { stockImages, getBlur } from "@/data/images";
 
 const offices = [
   {
+    city: "Cd. del Carmen",
+    role: "CAD",
+    address: "Calle 19, No. 210, Col. Salitral, CP 24130, Cd. del Carmen, Campeche",
+    phone: "+52 938 138 0550",
+    phoneDetail: "",
+  },
+  {
     city: "Ciudad de México",
     role: "HQ",
     address:
       "Convento de Actopan No. 33, Col. Jardines de Sta. Monica, 54050 Tlalnepantla, Edo. Mex.",
     phone: "+52 55 5397 3703",
     phoneDetail: "Ext. 408, 402, 406",
-  },
-  {
-    city: "Cd. del Carmen",
-    role: "CAD",
-    address: "Calle 19, No. 210, Col. Salitral, CP 24130, Cd. del Carmen, Campeche",
-    phone: "+52 938 138 0550",
-    phoneDetail: "",
   },
   { city: "Paraíso", role: "Taller", address: "Tabasco, México", phone: "", phoneDetail: "" },
   {
@@ -57,7 +57,7 @@ export default function ContactPage() {
   return (
     <>
       {/* Hero - Contact (clean, inviting with gold accent) */}
-      <section className="relative min-h-[380px] flex items-end overflow-hidden">
+      <section className="relative min-h-[280px] md:min-h-[380px] flex items-end overflow-hidden">
         <Image
           src={stockImages.contactHero}
           alt=""

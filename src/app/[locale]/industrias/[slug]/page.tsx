@@ -63,7 +63,7 @@ export default async function IndustryPage({
   return (
     <>
       {/* ═══ HERO ═══ */}
-      <section className="relative overflow-hidden" style={{ minHeight: '55vh' }}>
+      <section className="relative overflow-hidden min-h-[40vh] md:min-h-[55vh]">
         <Image
           src={industry.image}
           alt=""

@@ -75,7 +75,7 @@ export default function AboutPage() {
   return (
     <>
       {/* ═══ HERO ═══ */}
-      <section className="relative overflow-hidden" style={{ minHeight: '50vh' }}>
+      <section className="relative overflow-hidden min-h-[38vh] md:min-h-[50vh]">
         <Image
           src={stockImages.aboutHero}
           alt=""
@@ -90,8 +90,7 @@ export default function AboutPage() {
         <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/60 via-navy-dark/20 to-transparent" />
 
         <div
-          className="relative mx-auto flex max-w-[1600px] items-end px-5 md:px-10"
-          style={{ minHeight: '50vh' }}
+          className="relative mx-auto flex min-h-[38vh] md:min-h-[50vh] max-w-[1600px] items-end px-5 md:px-10"
         >
           <div className="max-w-3xl pb-12 pt-28 lg:pb-16">
             <nav className="mb-5 text-sm text-white/60">

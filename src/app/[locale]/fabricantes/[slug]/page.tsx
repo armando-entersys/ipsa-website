@@ -64,7 +64,7 @@ export default async function SupplierPage({
   return (
     <>
       {/* ═══ HERO ═══ */}
-      <section className="relative overflow-hidden" style={{ minHeight: '45vh' }}>
+      <section className="relative overflow-hidden min-h-[35vh] md:min-h-[45vh]">
         <Image
           src={supplier.image || stockImages.suppliersHero}
           alt=""

@@ -134,7 +134,7 @@ export default async function ProductCategoryPage({
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       {faqJsonLd && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />}
       {/* ═══ HERO ═══ */}
-      <section className="relative overflow-hidden" style={{ minHeight: '50vh' }}>
+      <section className="relative overflow-hidden min-h-[38vh] md:min-h-[50vh]">
         <Image
           src={category.heroImage}
           alt=""

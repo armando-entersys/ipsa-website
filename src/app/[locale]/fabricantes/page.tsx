@@ -48,7 +48,7 @@ export default function SuppliersHub() {
   return (
     <>
       {/* ═══ HERO ═══ */}
-      <section className="relative overflow-hidden" style={{ minHeight: '45vh' }}>
+      <section className="relative overflow-hidden min-h-[35vh] md:min-h-[45vh]">
         <Image
           src={stockImages.suppliersHero}
           alt=""
@@ -63,8 +63,7 @@ export default function SuppliersHub() {
         <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/50 via-navy-dark/15 to-transparent" />
 
         <div
-          className="relative mx-auto flex max-w-[1600px] items-end px-5 md:px-10"
-          style={{ minHeight: '45vh' }}
+          className="relative mx-auto flex min-h-[35vh] md:min-h-[45vh] max-w-[1600px] items-end px-5 md:px-10"
         >
           <div className="max-w-3xl pb-10 pt-28 lg:pb-14">
             <nav className="mb-5 text-sm text-white/60">

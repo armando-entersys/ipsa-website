@@ -40,7 +40,7 @@ export default function HomePage() {
   return (
     <>
       {/* ═══ SECTION 1: HERO ═══════════════════════════ */}
-      <section className="relative overflow-hidden bg-navy-dark" style={{ minHeight: '80vh' }}>
+      <section className="relative overflow-hidden bg-navy-dark min-h-[65vh] md:min-h-[80vh]">
         <video
           autoPlay
           muted
@@ -54,10 +54,9 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/60 via-navy-dark/20 to-transparent" />
 
         <div
-          className="relative mx-auto flex max-w-[1600px] items-end px-5 md:px-10"
-          style={{ minHeight: '80vh' }}
+          className="relative mx-auto flex min-h-[65vh] md:min-h-[80vh] max-w-[1600px] items-end px-5 md:px-10"
         >
-          <div className="max-w-3xl pb-16 pt-32 lg:pb-24">
+          <div className="max-w-3xl pb-10 pt-28 md:pb-16 md:pt-32 lg:pb-24">
             <div className="mb-8 h-1.5 w-20 rounded-full bg-gold" />
             <h1
               className="font-heading mb-6 leading-tight text-white"

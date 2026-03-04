@@ -83,7 +83,7 @@ export default async function SubtypeDetailPage({
   return (
     <>
       {/* ======== HERO (subtype-specific image) ======== */}
-      <section className="relative overflow-hidden" style={{ minHeight: "50vh" }}>
+      <section className="relative overflow-hidden min-h-[38vh] md:min-h-[50vh]">
         <Image
           src={subtypeData.image || stockImages.productsHero}
           alt=""

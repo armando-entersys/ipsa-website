@@ -48,7 +48,7 @@ export default function IndustriesHub() {
   return (
     <>
       {/* ═══ HERO ═══ */}
-      <section className="relative overflow-hidden" style={{ minHeight: '55vh' }}>
+      <section className="relative overflow-hidden min-h-[40vh] md:min-h-[55vh]">
         <Image
           src={stockImages.industriesHero}
           alt=""
@@ -63,8 +63,7 @@ export default function IndustriesHub() {
         <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/50 via-navy-dark/15 to-transparent" />
 
         <div
-          className="relative mx-auto flex max-w-[1600px] items-end px-5 md:px-10"
-          style={{ minHeight: '55vh' }}
+          className="relative mx-auto flex min-h-[40vh] md:min-h-[55vh] max-w-[1600px] items-end px-5 md:px-10"
         >
           <div className="max-w-3xl pb-12 pt-32 lg:pb-16">
             <nav className="mb-5 text-sm text-white/60">
@@ -140,8 +139,7 @@ export default function IndustriesHub() {
               <Link
                 key={industry.slug}
                 href={`${prefix}/industrias/${industry.slug}`}
-                className="group relative block overflow-hidden rounded-xl shadow-lg transition-all duration-200 hover:scale-[1.02]"
-                style={{ minHeight: '380px' }}
+                className="group relative block overflow-hidden rounded-xl shadow-lg transition-all duration-200 hover:scale-[1.02] min-h-[280px] md:min-h-[380px]"
               >
                 <Image
                   src={industry.image}
