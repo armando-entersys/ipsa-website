@@ -6,6 +6,9 @@ services:
     environment:
       - NODE_ENV=production
       - NEXT_TELEMETRY_DISABLED=1
+      - GA_MEASUREMENT_ID=${GA_MEASUREMENT_ID:-}
+      - GOOGLE_SITE_VERIFICATION=${GOOGLE_SITE_VERIFICATION:-}
+      - BING_SITE_VERIFICATION=${BING_SITE_VERIFICATION:-}
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.ipsa-web.rule=Host(`ipsa.scram2k.com`)"

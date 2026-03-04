@@ -5,6 +5,7 @@ import { getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { hasLocale } from "next-intl";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import BackToTop from "@/components/layout/BackToTop";
@@ -74,6 +75,14 @@ export async function generateMetadata({
         en: `${SITE_URL}/en`,
       },
     },
+    ...(process.env.GOOGLE_SITE_VERIFICATION || process.env.BING_SITE_VERIFICATION
+      ? {
+          verification: {
+            ...(process.env.GOOGLE_SITE_VERIFICATION && { google: process.env.GOOGLE_SITE_VERIFICATION }),
+            ...(process.env.BING_SITE_VERIFICATION && { other: { "msvalidate.01": process.env.BING_SITE_VERIFICATION } }),
+          },
+        }
+      : {}),
   };
 }
 
@@ -224,6 +233,9 @@ export default async function LocaleLayout({
           <BackToTop />
         </NextIntlClientProvider>
       </body>
+      {process.env.GA_MEASUREMENT_ID && (
+        <GoogleAnalytics gaId={process.env.GA_MEASUREMENT_ID} />
+      )}
     </html>
   );
 }
