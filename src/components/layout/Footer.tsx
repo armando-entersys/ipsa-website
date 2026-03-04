@@ -25,7 +25,7 @@ export default function Footer() {
         <div
           className="grid gap-10 mb-16"
           style={{
-            gridTemplateColumns: "2fr 1.5fr 1.5fr 1fr",
+            gridTemplateColumns: "2fr 1.5fr 1fr",
           }}
         >
           {/* Col 1: Brand + Tagline */}
@@ -46,39 +46,7 @@ export default function Footer() {
             />
           </div>
 
-          {/* Col 2: Mexico HQ */}
-          <div className="hidden lg:block">
-            <h3
-              className="text-white font-semibold mb-4 text-lg font-heading"
-            >
-              IPSA (México)
-            </h3>
-            <p className="text-white/85 text-sm leading-relaxed">
-              Convento de Actopan No. 33,
-              <br />
-              Col. Jardines de Sta. Monica,
-              <br />
-              54050 Tlalnepantla, Edo. Mex.
-            </p>
-            <p className="mt-3">
-              <a
-                href="tel:+525553973703"
-                className="text-white/85 text-sm hover:text-gold-light transition-colors duration-150"
-              >
-                +52 55 5397 3703
-              </a>
-            </p>
-            <p className="mt-1">
-              <a
-                href="mailto:ventas.mexico@ipsa-cv.com.mx"
-                className="text-white/85 text-sm hover:text-gold-light transition-colors duration-150"
-              >
-                ventas.mexico@ipsa-cv.com.mx
-              </a>
-            </p>
-          </div>
-
-          {/* Col 3: Cd. del Carmen */}
+          {/* Col 2: Cd. del Carmen */}
           <div className="hidden lg:block">
             <h3
               className="text-white font-semibold mb-4 text-lg font-heading"
