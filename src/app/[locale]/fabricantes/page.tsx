@@ -1,11 +1,42 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useLocale } from 'next-intl';
+import { getTranslations } from 'next-intl/server';
 import { ChevronRight, ArrowRight, MapPin, ShieldCheck } from 'lucide-react';
 import { stockImages, getBlur } from '@/data/images';
 import { marcasHub, suppliers } from '@/data/suppliers';
 import Button from '@/components/ui/Button';
 import CTABanner from '@/components/ui/CTABanner';
+
+const SITE_URL = 'https://ipsacv.com.mx';
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'seo.suppliers' });
+  return {
+    title: t('title'),
+    description: t('description'),
+    keywords: t('keywords'),
+    alternates: {
+      canonical: `${SITE_URL}/${locale}/${locale === 'es' ? 'fabricantes' : 'manufacturers'}`,
+      languages: {
+        es: `${SITE_URL}/es/fabricantes`,
+        en: `${SITE_URL}/en/manufacturers`,
+      },
+    },
+    openGraph: {
+      title: t('title'),
+      description: t('description'),
+      locale: locale === 'es' ? 'es_MX' : 'en_US',
+      images: [{ url: `${SITE_URL}/images/heroes/suppliers-hero.jpg`, width: 1200, height: 630 }],
+    },
+  };
+}
 
 export default function SuppliersHub() {
   const locale = useLocale();

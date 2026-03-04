@@ -183,6 +183,49 @@
     "terms": "Terms and Conditions",
     "rights": "All rights reserved."
   },
+  "seo": {
+    "products": {
+      "title": "Certified Industrial Valves | Stock in Mexico",
+      "description": "Trunnion ball, gate, globe, check, safety and control valves. API 6D, ASME and SIL 3 certified stock in Mexico. 38+ years of experience.",
+      "keywords": "industrial valves Mexico, trunnion ball valves, API 6D valves, valve distributor Mexico, industrial valve stock"
+    },
+    "services": {
+      "title": "Industrial Automation and Engineering Services",
+      "description": "PLC/SCADA automation, process engineering and in-house technical support for industry in Mexico. Resident plant specialists.",
+      "keywords": "industrial automation Mexico, process engineering, PLC SCADA, valve technical support, industrial services"
+    },
+    "industries": {
+      "title": "Industry Solutions | Oil & Gas, Energy, Manufacturing",
+      "description": "Specialized valve and automation solutions for Oil & Gas, power generation and private industry. API, ASME, SIL regulatory compliance.",
+      "keywords": "oil gas valves Mexico, petrochemical valves, refinery automation, power generation valves"
+    },
+    "suppliers": {
+      "title": "World-Class Manufacturers | DHV, Perar, Della Foglia, Versa",
+      "description": "Authorized distributor in Mexico for DHV, Della Foglia, Perar, Versa and Masoneilan. Valves and actuators from world-leading manufacturers.",
+      "keywords": "DHV distributor Mexico, Perar actuators, Della Foglia valves, Versa solenoid, Masoneilan control"
+    },
+    "about": {
+      "title": "38+ Years of Industrial Valve Experience",
+      "description": "Ingeniería de Partes S.A. de C.V. Since 1986, supplying valves, actuators and automation services for industry in Mexico.",
+      "keywords": "IPSA Mexico, Ingenieria de Partes, industrial valves Mexico, valve company 38 years"
+    },
+    "contact": {
+      "title": "Contact | Quotes and Technical Support",
+      "description": "Contact IPSA for industrial valve quotes, technical support and consulting. Response within 24 business hours."
+    },
+    "catalog": {
+      "title": "Product Catalog | Valves and Actuators",
+      "description": "Browse IPSA's catalog of industrial valves, actuators and automation equipment. Technical sheets and specifications."
+    },
+    "history": {
+      "title": "Our History | Since 1986",
+      "description": "Over three decades of IPSA building lasting relationships with industry and world-class manufacturers. Discover our journey."
+    },
+    "alliances": {
+      "title": "Strategic Alliances | Exclusive Representations",
+      "description": "Long-term alliances with leading manufacturers like DHV, Perar, Della Foglia, Versa and Masoneilan. Official channel in Mexico."
+    }
+  },
   "common": {
     "readMore": "Read more",
     "viewDetails": "View details",

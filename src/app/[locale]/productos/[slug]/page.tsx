@@ -29,12 +29,22 @@ export async function generateMetadata({
   const category = productCategories[slug];
   if (!category) return {};
   const l = locale as 'es' | 'en';
+  const SITE_URL = 'https://ipsacv.com.mx';
   return {
-    title: category[l].name,
+    title: `${category[l].name} | IPSA`,
     description: category.heroH2[l],
+    alternates: {
+      canonical: `${SITE_URL}/${locale}/productos/${slug}`,
+      languages: {
+        es: `${SITE_URL}/es/productos/${slug}`,
+        en: `${SITE_URL}/en/products/${slug}`,
+      },
+    },
     openGraph: {
       title: category.heroH1[l],
       description: category.heroH2[l],
+      locale: locale === 'es' ? 'es_MX' : 'en_US',
+      images: category.image ? [{ url: `${SITE_URL}${category.image}`, width: 1200, height: 630 }] : undefined,
     },
   };
 }
@@ -70,8 +80,59 @@ export default async function ProductCategoryPage({
     return { slug: indSlug, name: ind?.name[l] ?? indSlug };
   });
 
+  // Build JSON-LD structured data
+  const SITE_URL = 'https://ipsacv.com.mx';
+  const productJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: data.name,
+    description: category.heroH2[l],
+    image: category.image ? `${SITE_URL}${category.image}` : undefined,
+    brand: categorySuppliers.length > 0
+      ? categorySuppliers.map((s: { name: string }) => ({ '@type': 'Brand', name: s.name }))
+      : undefined,
+    category: l === 'es' ? 'Válvulas Industriales' : 'Industrial Valves',
+    ...(category.sizes && {
+      additionalProperty: [
+        { '@type': 'PropertyValue', name: l === 'es' ? 'Tamaños' : 'Sizes', value: category.sizes },
+        ...(category.pressureClasses ? [{ '@type': 'PropertyValue', name: l === 'es' ? 'Clases de Presión' : 'Pressure Classes', value: category.pressureClasses }] : []),
+        ...(standards.length > 0 ? [{ '@type': 'PropertyValue', name: l === 'es' ? 'Normas' : 'Standards', value: standards.join(', ') }] : []),
+      ],
+    }),
+    offers: {
+      '@type': 'Offer',
+      availability: 'https://schema.org/InStock',
+      areaServed: { '@type': 'Country', name: 'Mexico' },
+      seller: { '@id': `${SITE_URL}/#organization` },
+    },
+  };
+
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: l === 'es' ? 'Inicio' : 'Home', item: `${SITE_URL}/${locale}` },
+      { '@type': 'ListItem', position: 2, name: l === 'es' ? 'Productos' : 'Products', item: `${SITE_URL}/${locale}/${l === 'es' ? 'productos' : 'products'}` },
+      { '@type': 'ListItem', position: 3, name: data.name, item: `${SITE_URL}/${locale}/productos/${slug}` },
+    ],
+  };
+
+  const faqs = category.faqs;
+  const faqJsonLd = faqs && faqs.length > 0 ? {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question[l],
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer[l] },
+    })),
+  } : null;
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
+      {faqJsonLd && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />}
       {/* ═══ HERO ═══ */}
       <section className="relative overflow-hidden" style={{ minHeight: '50vh' }}>
         <Image

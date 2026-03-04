@@ -183,6 +183,49 @@
     "terms": "Términos y Condiciones",
     "rights": "Todos los derechos reservados."
   },
+  "seo": {
+    "products": {
+      "title": "Válvulas Industriales Certificadas | Stock en México",
+      "description": "Válvulas de bola trunnion, compuerta, globo, check, seguridad y control. Stock certificado API 6D, ASME y SIL 3 en México. +38 años de experiencia.",
+      "keywords": "válvulas industriales México, válvulas de bola trunnion, válvulas API 6D, distribuidor válvulas México, stock válvulas industriales"
+    },
+    "services": {
+      "title": "Automatización Industrial y Servicios de Ingeniería",
+      "description": "Automatización PLC/SCADA, ingeniería de procesos y soporte técnico in-house para la industria en México. Especialistas residentes en planta.",
+      "keywords": "automatización industrial México, ingeniería de procesos, PLC SCADA, soporte técnico válvulas, servicios industriales"
+    },
+    "industries": {
+      "title": "Soluciones por Industria | Oil & Gas, Energía, Manufactura",
+      "description": "Soluciones especializadas en válvulas y automatización para Oil & Gas, generación de energía e industria privada. Cumplimiento normativo API, ASME, SIL.",
+      "keywords": "válvulas oil gas México, válvulas petroquímica, automatización refinería, válvulas generación energía"
+    },
+    "suppliers": {
+      "title": "Fabricantes de Clase Mundial | DHV, Perar, Della Foglia, Versa",
+      "description": "Distribuidor autorizado en México de DHV, Della Foglia, Perar, Versa y Masoneilan. Válvulas y actuadores de fabricantes líderes mundiales.",
+      "keywords": "distribuidor DHV México, Perar actuadores, Della Foglia válvulas, Versa solenoides, Masoneilan control"
+    },
+    "about": {
+      "title": "+38 Años de Experiencia en Válvulas Industriales",
+      "description": "Ingeniería de Partes S.A. de C.V. Desde 1986, suministrando válvulas, actuadores y servicios de automatización para la industria en México.",
+      "keywords": "IPSA México, Ingeniería de Partes, válvulas industriales México, empresa válvulas 38 años"
+    },
+    "contact": {
+      "title": "Contacto | Cotizaciones y Soporte Técnico",
+      "description": "Contacte a IPSA para cotizaciones de válvulas industriales, soporte técnico y consultoría. Respuesta en 24 horas hábiles."
+    },
+    "catalog": {
+      "title": "Catálogo de Productos | Válvulas y Actuadores",
+      "description": "Consulte el catálogo de válvulas industriales, actuadores y equipos de automatización de IPSA. Fichas técnicas y especificaciones."
+    },
+    "history": {
+      "title": "Nuestra Historia | Desde 1986",
+      "description": "Más de tres décadas de IPSA construyendo relaciones con la industria y fabricantes de clase mundial. Conozca nuestra trayectoria."
+    },
+    "alliances": {
+      "title": "Alianzas Estratégicas | Representaciones Exclusivas",
+      "description": "Alianzas de largo plazo con fabricantes líderes como DHV, Perar, Della Foglia, Versa y Masoneilan. Canal oficial en México."
+    }
+  },
   "common": {
     "readMore": "Ver más",
     "viewDetails": "Ver detalles",

@@ -1,6 +1,8 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useLocale } from 'next-intl';
+import { getTranslations } from 'next-intl/server';
 import { ChevronRight, ArrowRight } from 'lucide-react';
 import { stockImages, getBlur } from '@/data/images';
 import { industriasHub, industries } from '@/data/industries';
@@ -8,6 +10,35 @@ import Button from '@/components/ui/Button';
 import CertBadges from '@/components/ui/CertBadges';
 import InHouseBanner from '@/components/ui/InHouseBanner';
 import CTABanner from '@/components/ui/CTABanner';
+
+const SITE_URL = 'https://ipsacv.com.mx';
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'seo.industries' });
+  return {
+    title: t('title'),
+    description: t('description'),
+    keywords: t('keywords'),
+    alternates: {
+      canonical: `${SITE_URL}/${locale}/${locale === 'es' ? 'industrias' : 'industries'}`,
+      languages: {
+        es: `${SITE_URL}/es/industrias`,
+        en: `${SITE_URL}/en/industries`,
+      },
+    },
+    openGraph: {
+      title: t('title'),
+      description: t('description'),
+      locale: locale === 'es' ? 'es_MX' : 'en_US',
+      images: [{ url: `${SITE_URL}/images/heroes/industries-hero.jpg`, width: 1200, height: 630 }],
+    },
+  };
+}
 
 export default function IndustriesHub() {
   const locale = useLocale();

@@ -28,12 +28,22 @@ export async function generateMetadata({
   const service = services.find((s) => s.slug === slug);
   if (!service) return {};
   const l = locale as 'es' | 'en';
+  const SITE_URL = 'https://ipsacv.com.mx';
   return {
-    title: service.name[l],
+    title: `${service.name[l]} | IPSA`,
     description: service.description[l],
+    alternates: {
+      canonical: `${SITE_URL}/${locale}/servicios/${slug}`,
+      languages: {
+        es: `${SITE_URL}/es/servicios/${slug}`,
+        en: `${SITE_URL}/en/services/${slug}`,
+      },
+    },
     openGraph: {
       title: service.heroH1[l],
       description: service.heroH2[l],
+      locale: locale === 'es' ? 'es_MX' : 'en_US',
+      images: service.image ? [{ url: `${SITE_URL}${service.image}`, width: 1200, height: 630 }] : undefined,
     },
   };
 }
@@ -51,8 +61,44 @@ export default async function ServicePage({
   const prefix = `/${locale}`;
   const otherServices = services.filter((s) => s.slug !== slug);
 
+  // JSON-LD structured data
+  const SITE_URL = 'https://ipsacv.com.mx';
+  const serviceJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    serviceType: service.name[l],
+    name: service.heroH1[l],
+    description: service.description[l],
+    provider: { '@id': `${SITE_URL}/#organization` },
+    areaServed: { '@type': 'Country', name: 'Mexico' },
+  };
+
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: l === 'es' ? 'Inicio' : 'Home', item: `${SITE_URL}/${locale}` },
+      { '@type': 'ListItem', position: 2, name: l === 'es' ? 'Servicios' : 'Services', item: `${SITE_URL}/${locale}/${l === 'es' ? 'servicios' : 'services'}` },
+      { '@type': 'ListItem', position: 3, name: service.name[l], item: `${SITE_URL}/${locale}/servicios/${slug}` },
+    ],
+  };
+
+  const faqs = service.faqs;
+  const faqJsonLd = faqs && faqs.length > 0 ? {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question[l],
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer[l] },
+    })),
+  } : null;
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
+      {faqJsonLd && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />}
       {/* ═══ HERO ═══ */}
       <section className="relative overflow-hidden" style={{ minHeight: '55vh' }}>
         <Image

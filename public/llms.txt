@@ -1,0 +1,73 @@
+# IPSA - Ingenieria de Partes S.A. de C.V.
+
+> IPSA is a Mexico-based B2B industrial company with 38+ years of experience supplying industrial valves, actuators, automation systems, and engineering services for critical infrastructure in oil & gas, energy, and manufacturing sectors.
+
+## About
+
+IPSA (Ingenieria de Partes S.A. de C.V., also known as Instrumentacion y Proyectos) was founded in 1986 and is headquartered in Tlalnepantla, Estado de Mexico, Mexico. The company is the exclusive representative in Mexico for leading European and American valve and actuator manufacturers. IPSA maintains strategic inventory valued at over $5M USD for immediate delivery, and deploys resident engineers directly at client facilities. Group companies include MAEPSA (maintenance and repair) and Certus (actuator manufacturing, Houston TX).
+
+## Products
+
+- Welded Body Trunnion Ball Valves: Fully welded body for maximum integrity in pipelines, oil lines, and subsea applications. Sizes 2"-48", ANSI 150-900. Standards: API 6D, API 6DSS, NACE MR0175. Brands: Perar, Della Foglia.
+- Bolted Body Trunnion Ball Valves: Bolted body for field maintenance without welding. Sizes 2"-48", ANSI 150-2500. Standards: API 6D, API 6A, API 607. Brands: Perar, Della Foglia, DHV.
+- Floating Ball Valves: Compact and economical for auxiliary lines, general services, and instrumentation. Sizes 1/2"-12", ANSI 150-600. Standards: API 6D, ISO 17292. Brands: Della Foglia, DHV.
+- Gate Valves: Full bore unobstructed flow for primary isolation in refineries and pipelines. Sizes 2"-36", ANSI 150-2500. Standards: API 600, API 6D, ASME B16.34. Brand: DHV.
+- Globe Valves: Flow regulation and throttling in steam, liquid, and industrial gas services. Sizes 2"-24", ANSI 150-2500. Standards: API 600, ASME B16.34, BS 1873. Brand: DHV.
+- Check / Non-Return Valves: Backflow prevention in pumping, compression, and distribution systems. Sizes 2"-36", ANSI 150-2500. Standards: API 6D, API 594, ASME B16.34. Brand: DHV.
+- Safety, Relief & Pressure Relief Valves: Overpressure protection for equipment and processes. Sizes 1"-12", ANSI 150-2500. Standards: ASME Section VIII, API 520, API 526. Brand: Consolidated (Emerson).
+- Pneumatic & Solenoid Valves: Directional control for actuator automation and safety systems. Sizes 1/4"-2", up to 6000 psi. Standards: NAMUR, IEC 61508, ATEX, SIL 3. Brand: Versa.
+- Control Valves: Process control with smart positioners for precise flow, pressure, and temperature regulation. Sizes 1"-24", ANSI 150-2500. Standards: IEC 61511, ASME B16.34, ISA 75.01. Brand: Masoneilan (Baker Hughes).
+- Automated Valves: Complete valve + actuator + control accessories assemblies, ready-to-install packages with integrated engineering and FAT testing. Sizes 1"-48", ANSI 150-2500. Standards: API 6D, IEC 61511, NAMUR. Brands: Perar, Della Foglia, Versa, Masoneilan.
+
+## Services
+
+- Technical Automation: PLC/SCADA integration, legacy system migration, sensor and actuator integration, control panel design and assembly, Factory Acceptance Tests (FAT). Resident programmers at client facilities.
+- Engineering & Processes: Industrial layout design, asset management and mapping, detailed engineering and EPC, regulatory compliance assurance. Resident consultants for on-site project supervision.
+
+## Brands We Represent
+
+- Perar (Italy): Trunnion mounted ball valves with welded body, sizes 2"-48", ANSI 150-2500. API 6D, API 6A, API 6DSS, SIL 3 certified.
+- Della Foglia (Italy): Ball valves since 1962, sizes 1/2"-64", including subsea, cryogenic, hydrogen-ready, and high pressure up to 15,000 psi. API 6D, API 6A, API 6DSS certified.
+- DHV Valve Group (International): Gate, globe, check, and floating ball valves. Own foundry of 26,500 m2. API Q1, API 600, API 6D, NORSOK M-650 certified.
+- Versa Valves (USA): Solenoid valves, pneumatic and hydraulic directional control, NAMUR mount valves. SIL 3, ATEX, UL Listed, CSA certified.
+- Masoneilan / Baker Hughes (USA): Globe and rotary control valves, smart positioners, pressure regulators. IEC 61511, ASME B16.34, SIL 3, ISA 75.01 certified.
+- Consolidated / Emerson (USA): Safety and pressure relief valves.
+
+## Certifications
+
+- API 6D (Pipeline Valves)
+- API 6A (Wellhead Equipment)
+- API 6DSS (Subsea Valves)
+- API 600 (Bolted Bonnet Steel Gate Valves)
+- API 520/526 (Pressure Relief Valves)
+- ASME B16.34 (Valves - Flanged, Threaded, and Welding End)
+- ASME Section VIII (Pressure Vessels)
+- SIL 3 (Safety Integrity Level III - IEC 61508/61511)
+- ISO 9001 (Quality Management)
+- NACE MR0175 (Sour Service)
+- ISO 15848 (Fugitive Emissions)
+- ATEX (Explosive Atmospheres)
+- NAMUR (Automation Standards)
+
+## Industries Served
+
+- Oil & Gas: High-pressure valves, subsea applications, sour service, emergency shutdown (ESD) systems, pipeline infrastructure.
+- Energy / Power Generation: Steam cycle control, combined cycle plants, turbine control, boiler safety, hydrogen and energy transition technologies.
+- Private Sector / Manufacturing: Process plants, water treatment, production line modernization, pneumatic control, general industrial services.
+
+## Coverage
+
+- Headquarters: Tlalnepantla, Estado de Mexico, Mexico (engineering, sales, main warehouse, assembly and testing workshop)
+- Southeast Distribution: Ciudad del Carmen, Campeche (offshore operations support, storage and distribution center)
+- Workshop: Paraiso, Tabasco (machine shop, hydrostatic testing, valve repair)
+- Regional Offices: Villahermosa (Tabasco), Tampico (Tamaulipas)
+- International: Houston, Texas, USA (international sales, manufacturer coordination, Certus actuator manufacturing)
+- Coverage: Mexico nationwide and LATAM
+
+## Contact
+
+- Website: https://ipsacv.com.mx
+- Email: ventas.mexico@ipsa-cv.com.mx
+- Phone (Mexico): +52 55 5397 3703
+- Phone (Carmen): +52 938 138 0550
+- Address: Convento de Actopan No. 33, Col. Jardines de Santa Monica, Tlalnepantla, Estado de Mexico, C.P. 54050, Mexico

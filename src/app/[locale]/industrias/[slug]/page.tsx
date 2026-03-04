@@ -28,12 +28,22 @@ export async function generateMetadata({
   const industry = industries.find((i) => i.slug === slug);
   if (!industry) return {};
   const l = locale as 'es' | 'en';
+  const SITE_URL = 'https://ipsacv.com.mx';
   return {
-    title: industry.name[l],
+    title: `${industry.name[l]} | IPSA`,
     description: industry.heroH2[l],
+    alternates: {
+      canonical: `${SITE_URL}/${locale}/industrias/${slug}`,
+      languages: {
+        es: `${SITE_URL}/es/industrias/${slug}`,
+        en: `${SITE_URL}/en/industries/${slug}`,
+      },
+    },
     openGraph: {
       title: industry.heroH1[l],
       description: industry.heroH2[l],
+      locale: locale === 'es' ? 'es_MX' : 'en_US',
+      images: industry.image ? [{ url: `${SITE_URL}${industry.image}`, width: 1200, height: 630 }] : undefined,
     },
   };
 }

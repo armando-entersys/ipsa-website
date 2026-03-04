@@ -1,7 +1,36 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import { ChevronRight, ArrowRight } from "lucide-react";
+
+const SITE_URL = "https://ipsacv.com.mx";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "seo.alliances" });
+  return {
+    title: t("title"),
+    description: t("description"),
+    alternates: {
+      canonical: `${SITE_URL}/${locale}/${locale === "es" ? "nosotros/alianzas" : "about/alliances"}`,
+      languages: {
+        es: `${SITE_URL}/es/nosotros/alianzas`,
+        en: `${SITE_URL}/en/about/alliances`,
+      },
+    },
+    openGraph: {
+      title: t("title"),
+      description: t("description"),
+      locale: locale === "es" ? "es_MX" : "en_US",
+    },
+  };
+}
 
 const alliances = [
   { name: "DHV Valve Group", years: "10+", country: "International", slug: "dhv" },

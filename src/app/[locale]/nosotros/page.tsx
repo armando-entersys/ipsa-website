@@ -1,6 +1,8 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useLocale, useTranslations } from 'next-intl';
+import { getTranslations } from 'next-intl/server';
 import {
   ChevronRight,
   ArrowRight,
@@ -18,6 +20,35 @@ import { stockImages, getBlur } from '@/data/images';
 import Button from '@/components/ui/Button';
 import CertBadges from '@/components/ui/CertBadges';
 import CTABanner from '@/components/ui/CTABanner';
+
+const SITE_URL = 'https://ipsacv.com.mx';
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'seo.about' });
+  return {
+    title: t('title'),
+    description: t('description'),
+    keywords: t('keywords'),
+    alternates: {
+      canonical: `${SITE_URL}/${locale}/${locale === 'es' ? 'nosotros' : 'about'}`,
+      languages: {
+        es: `${SITE_URL}/es/nosotros`,
+        en: `${SITE_URL}/en/about`,
+      },
+    },
+    openGraph: {
+      title: t('title'),
+      description: t('description'),
+      locale: locale === 'es' ? 'es_MX' : 'en_US',
+      images: [{ url: `${SITE_URL}/images/heroes/about-hero.jpg`, width: 1200, height: 630 }],
+    },
+  };
+}
 
 const brandLogos = [
   { name: 'Perar', logo: '/images/logos/perar-official.png', slug: 'perar' },

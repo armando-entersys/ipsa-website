@@ -1,8 +1,37 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import { ChevronRight, ArrowRight, BookOpen } from "lucide-react";
 import { stockImages, getBlur } from "@/data/images";
+
+const SITE_URL = "https://ipsacv.com.mx";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "seo.catalog" });
+  return {
+    title: t("title"),
+    description: t("description"),
+    alternates: {
+      canonical: `${SITE_URL}/${locale}/${locale === "es" ? "catalogo" : "catalog"}`,
+      languages: {
+        es: `${SITE_URL}/es/catalogo`,
+        en: `${SITE_URL}/en/catalog`,
+      },
+    },
+    openGraph: {
+      title: t("title"),
+      description: t("description"),
+      locale: locale === "es" ? "es_MX" : "en_US",
+    },
+  };
+}
 
 export default function CatalogPage() {
   const t = useTranslations("catalog");

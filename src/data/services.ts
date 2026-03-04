@@ -27,6 +27,11 @@ export interface ProcessStep {
   description: { es: string; en: string };
 }
 
+export interface FAQ {
+  question: { es: string; en: string };
+  answer: { es: string; en: string };
+}
+
 export interface Service {
   slug: string;
   name: { es: string; en: string };
@@ -56,6 +61,8 @@ export interface Service {
   };
   // Legacy process steps (kept for compatibility)
   processSteps: ProcessStep[];
+  // FAQs
+  faqs?: FAQ[];
   // Cross-references
   relatedProducts: string[];
   relatedIndustries: string[];
@@ -418,6 +425,69 @@ export const services: Service[] = [
       },
     ],
 
+    faqs: [
+      {
+        question: {
+          es: '¿Qué incluye el servicio de automatización industrial de IPSA?',
+          en: 'What does IPSA\'s industrial automation service include?',
+        },
+        answer: {
+          es: 'Nuestro servicio abarca programación de PLC, sistemas SCADA/HMI, integración de sensores y actuadores, migración de sistemas heredados y diseño y ensamble de paneles de control. Cada proyecto se adapta a la arquitectura existente de su planta.',
+          en: 'Our service covers PLC programming, SCADA/HMI systems, sensor and actuator integration, legacy system migration, and control panel design and assembly. Each project is tailored to your plant\'s existing architecture.',
+        },
+      },
+      {
+        question: {
+          es: '¿IPSA puede migrar sistemas de control obsoletos?',
+          en: 'Can IPSA migrate legacy control systems?',
+        },
+        answer: {
+          es: 'Sí, nos especializamos en migrar sistemas DCS y PLC heredados a plataformas modernas sin interrumpir la producción. Realizamos un diagnóstico previo para garantizar una transición fluida y sin riesgos operativos.',
+          en: 'Yes, we specialize in migrating legacy DCS and PLC systems to modern platforms without production interruption. We perform a prior diagnosis to ensure a smooth transition with no operational risks.',
+        },
+      },
+      {
+        question: {
+          es: '¿Qué marcas de instrumentación y control manejan?',
+          en: 'What instrumentation and control brands do you work with?',
+        },
+        answer: {
+          es: 'Integramos equipos de Versa (válvulas solenoides), Masoneilan (válvulas de control), Perar (actuadores), además de las principales plataformas de PLC y SCADA del mercado. Nuestra representación exclusiva garantiza soporte técnico directo de fábrica.',
+          en: 'We integrate equipment from Versa (solenoid valves), Masoneilan (control valves), Perar (actuators), plus major PLC and SCADA platforms in the market. Our exclusive representation guarantees direct factory technical support.',
+        },
+      },
+      {
+        question: {
+          es: '¿Ofrecen soporte técnico en planta (in-house)?',
+          en: 'Do you offer in-plant (in-house) technical support?',
+        },
+        answer: {
+          es: 'Sí, desplegamos programadores y técnicos residentes directamente en las instalaciones de nuestros clientes. Esto permite ajustes en tiempo real, mantenimiento preventivo y respuesta inmediata ante cualquier eventualidad.',
+          en: 'Yes, we deploy resident programmers and technicians directly at client facilities. This enables real-time adjustments, preventive maintenance, and immediate response to any eventuality.',
+        },
+      },
+      {
+        question: {
+          es: '¿En qué industrias aplica el servicio de automatización?',
+          en: 'What industries does the automation service apply to?',
+        },
+        answer: {
+          es: 'Nuestras soluciones de automatización se aplican en Oil & Gas (upstream, midstream, downstream), generación de energía, petroquímica y manufactura privada. Adaptamos cada arquitectura al entorno normativo y operativo de cada sector.',
+          en: 'Our automation solutions apply to Oil & Gas (upstream, midstream, downstream), power generation, petrochemical, and private manufacturing. We adapt each architecture to the regulatory and operational environment of each sector.',
+        },
+      },
+      {
+        question: {
+          es: '¿Qué certificaciones cumplen los sistemas automatizados?',
+          en: 'What certifications do automated systems comply with?',
+        },
+        answer: {
+          es: 'Nuestras soluciones de automatización cumplen con IEC 61511 (SIL 3), ISA-84 y NFPA 85 para seguridad funcional en procesos críticos. Cada proyecto incluye documentación de cumplimiento normativo.',
+          en: 'Our automation solutions comply with IEC 61511 (SIL 3), ISA-84, and NFPA 85 for functional safety in critical processes. Each project includes regulatory compliance documentation.',
+        },
+      },
+    ],
+
     relatedProducts: [
       'valvulas-neumaticas-solenoides',
       'valvulas-control',
@@ -598,6 +668,69 @@ export const services: Service[] = [
         description: {
           es: 'Pruebas de aceptación, documentación as-built, capacitación y cierre administrativo.',
           en: 'Acceptance tests, as-built documentation, training, and administrative closeout.',
+        },
+      },
+    ],
+
+    faqs: [
+      {
+        question: {
+          es: '¿Qué tipo de ingeniería ofrece IPSA?',
+          en: 'What type of engineering does IPSA offer?',
+        },
+        answer: {
+          es: 'Ofrecemos ingeniería conceptual, básica y de detalle para infraestructura industrial. Cubrimos diseño de layouts, gestión de activos, proyectos EPC completos y aseguramiento de cumplimiento normativo bajo estándares internacionales.',
+          en: 'We offer conceptual, basic, and detailed engineering for industrial infrastructure. We cover layout design, asset management, complete EPC projects, and regulatory compliance assurance under international standards.',
+        },
+      },
+      {
+        question: {
+          es: '¿IPSA ejecuta proyectos EPC completos?',
+          en: 'Does IPSA execute complete EPC projects?',
+        },
+        answer: {
+          es: 'Sí, gestionamos proyectos desde la ingeniería conceptual hasta la procura, construcción y puesta en marcha, incluyendo documentación as-built. Cada fase se ejecuta con supervisión técnica especializada.',
+          en: 'Yes, we manage projects from conceptual engineering through procurement, construction, and commissioning, including as-built documentation. Each phase is executed with specialized technical supervision.',
+        },
+      },
+      {
+        question: {
+          es: '¿Pueden auditar mi planta para cumplimiento normativo?',
+          en: 'Can you audit my plant for regulatory compliance?',
+        },
+        answer: {
+          es: 'Sí, realizamos auditorías contra estándares API, ASME e ISO, identificando brechas y proporcionando planes de acción correctiva. Nuestro objetivo es que su planta cumpla con los más altos estándares de seguridad y calidad.',
+          en: 'Yes, we perform audits against API, ASME, and ISO standards, identifying gaps and providing corrective action plans. Our goal is to ensure your plant meets the highest safety and quality standards.',
+        },
+      },
+      {
+        question: {
+          es: '¿Qué es el servicio de gestión de activos de IPSA?',
+          en: 'What is IPSA\'s asset management service?',
+        },
+        answer: {
+          es: 'Consiste en un análisis profundo de la salud de equipos críticos, planificación de mantenimiento preventivo y optimización de costos de ciclo de vida para prevenir fallas catastróficas y extender la vida útil de sus activos.',
+          en: 'It consists of deep analysis of critical equipment health, preventive maintenance planning, and lifecycle cost optimization to prevent catastrophic failures and extend the useful life of your assets.',
+        },
+      },
+      {
+        question: {
+          es: '¿Ofrecen consultores residentes para proyectos?',
+          en: 'Do you offer resident consultants for projects?',
+        },
+        answer: {
+          es: 'Sí, desplegamos ingenieros de campo especializados directamente en sus instalaciones para supervisión de proyectos en tiempo real, gestión de planos y optimización de procesos sin demoras por traslados.',
+          en: 'Yes, we deploy specialized field engineers at your facilities for real-time project supervision, drawing management, and process optimization without delays from travel.',
+        },
+      },
+      {
+        question: {
+          es: '¿En qué se diferencia IPSA de otras empresas de ingeniería?',
+          en: 'What differentiates IPSA from other engineering firms?',
+        },
+        answer: {
+          es: 'Nuestros más de 38 años de experiencia especializada en válvulas y equipos de proceso, combinados con representaciones exclusivas de fabricantes, nos dan una profundidad técnica única. No somos solo consultores: somos una extensión de su equipo técnico.',
+          en: 'Our 38+ years of specialized experience in valves and process equipment, combined with exclusive manufacturer representations, gives us unique technical depth. We\'re not just consultants—we\'re an extension of your technical team.',
         },
       },
     ],

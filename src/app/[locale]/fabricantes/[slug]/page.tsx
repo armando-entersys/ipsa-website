@@ -28,12 +28,22 @@ export async function generateMetadata({
   const supplier = suppliers.find((s) => s.slug === slug);
   if (!supplier) return {};
   const l = locale as 'es' | 'en';
+  const SITE_URL = 'https://ipsacv.com.mx';
   return {
-    title: supplier.name[l],
+    title: `${supplier.name[l]} | IPSA`,
     description: supplier.description[l],
+    alternates: {
+      canonical: `${SITE_URL}/${locale}/fabricantes/${slug}`,
+      languages: {
+        es: `${SITE_URL}/es/fabricantes/${slug}`,
+        en: `${SITE_URL}/en/manufacturers/${slug}`,
+      },
+    },
     openGraph: {
       title: supplier.heroH1[l],
       description: supplier.heroH2[l],
+      locale: locale === 'es' ? 'es_MX' : 'en_US',
+      images: supplier.logo ? [{ url: `${SITE_URL}${supplier.logo}`, width: 400, height: 200 }] : undefined,
     },
   };
 }

@@ -1,0 +1,441 @@
+# IPSA - Ingenieria de Partes S.A. de C.V. (Comprehensive Reference)
+
+> IPSA is a Mexico-based B2B industrial company with 38+ years of experience supplying industrial valves, actuators, automation systems, and engineering services for critical infrastructure in oil & gas, energy, and manufacturing sectors. Founded in 1986, IPSA is the exclusive Mexican representative for leading European and American valve manufacturers, maintaining strategic inventory valued at over $5M USD for immediate delivery.
+
+---
+
+## Company Overview
+
+### Identity
+- **Legal Name:** Ingenieria de Partes S.A. de C.V.
+- **Trade Names:** IPSA, Instrumentacion y Proyectos
+- **Founded:** 1986
+- **Headquarters:** Tlalnepantla, Estado de Mexico, Mexico
+- **Type:** B2B industrial supplier and engineering services company
+- **Brand Archetype:** The Guardian (with Sage/Mage nuances)
+
+### Mission
+IPSA acts as the quality filter and logistical insurance that the Mexican industrial market requires, providing world-class valve technology with in-house engineering, automation services, and resident technical support directly at client facilities.
+
+### Competitive Advantages
+- **38+ years of experience** in oil & gas, petrochemical, and process industries in Mexico
+- **Strategic stock in Mexico** valued at over $5M USD, ready for immediate delivery (eliminates 40-week European lead times)
+- **In-house engineering** capabilities: design, automation, testing, and repair at own operations center
+- **Resident specialists**: engineers and technicians deployed directly at client plants for on-site support
+- **Exclusive representations** of world-leading valve manufacturers in Mexico
+- **Factory Acceptance Testing (FAT)** performed in own workshop before delivery
+- **6 strategic locations** in Mexico for nationwide coverage
+- **Direct factory warranty** support and full traceability on all products
+
+### Group Companies
+- **IPSA** - Main company: valve supply, automation, and engineering services
+- **MAEPSA** - Maintenance, repair, and overhaul services for industrial valves
+- **Certus** - Actuator manufacturing and assembly (Houston, TX, USA)
+
+---
+
+## Products (10 Categories in 4 Macro-Blocks)
+
+### Block A: Isolation & Shutoff Valves (On/Off)
+Designed to ensure tight and secure closure, stopping or allowing fluid flow in main lines, headers, and pig traps.
+
+#### 1. Welded Body Trunnion Ball Valves
+- **Description:** Trunnion valves with fully welded body for maximum integrity in pipelines, oil lines, and subsea applications. The welded construction eliminates flanged joints and potential leak points.
+- **Sizes:** 2" to 48"
+- **Pressure Classes:** ANSI 150-900
+- **Standards:** API 6D, API 6DSS, NACE MR0175, ISO 15848
+- **Brands:** Perar, Della Foglia
+- **Industries:** Oil & Gas, Energy
+- **Subtypes:**
+  - Buried Welded Valve: Anti-corrosion protection for direct underground installation in transmission pipelines (4"-48")
+  - Above Ground Welded: For regulation and metering stations (2"-36")
+  - Subsea Trunnion (API 6DSS): Seabed installation with remote ROV operation under extreme hydrostatic pressures
+- **Key Value:** IPSA maintains strategic stock in Mexico, eliminating 40-week European lead times. Full API 6D/6DSS certification and traceability.
+
+#### 2. Bolted Body Trunnion Ball Valves
+- **Description:** Trunnion valves with bolted body enabling field maintenance without welding. Ideal for refineries, compression stations, and applications where maintenance access is critical.
+- **Sizes:** 2" to 48"
+- **Pressure Classes:** ANSI 150-2500
+- **Standards:** API 6D, API 6A, API 607, NACE MR0175, ISO 15848
+- **Brands:** Perar, Della Foglia, DHV
+- **Industries:** Oil & Gas, Energy
+- **Subtypes:**
+  - 2-Piece Trunnion: Standard field maintenance (2"-48", ANSI 150-2500)
+  - 3-Piece Trunnion: Full access to internals without removing from line (2"-36", ANSI 150-2500)
+  - Top Entry Trunnion: Top access for in-line maintenance without pipe dismantling (4"-36")
+- **Certifications:** API 6D, API 6A, API 607, NACE MR0175, ISO 15848, SIL 3
+
+#### 3. Floating Ball Valves
+- **Description:** Floating ball valves for isolation in auxiliary lines, general services, instrumentation, drains, and vents. Simple and economical design for low to medium pressure.
+- **Sizes:** 1/2" to 12"
+- **Pressure Classes:** ANSI 150-600
+- **Standards:** API 6D, API 607, ISO 17292
+- **Brands:** Della Foglia, DHV
+- **Industries:** Oil & Gas, Energy, Private/Manufacturing
+- **Subtypes:**
+  - Standard Floating Ball: General services and auxiliary lines (1/2"-12", ANSI 150-600)
+  - Top Entry Floating Ball: In-line maintenance without pipe dismantling (2"-24")
+  - Cryogenic Floating Ball: LNG, ethylene, and liquefied gases with stem extension per BS 6364
+
+#### 4. Gate Valves
+- **Description:** Gate valves for primary isolation in refineries, pipelines, and power generation. Full bore unobstructed flow with minimum pressure drop.
+- **Sizes:** 2" to 36"
+- **Pressure Classes:** ANSI 150-2500
+- **Standards:** API 600, API 6D, ASME B16.34
+- **Brand:** DHV Valve Group
+- **Industries:** Oil & Gas, Energy
+- **Subtypes:**
+  - Slab Gate Valve: Flat disc for gas and oil transmission pipelines (2"-36", ANSI 150-2500)
+  - Wedge Gate Valve: Flexible or solid wedge for refinery and process plant service (2"-24", ANSI 150-1500)
+
+### Block B: Regulation & Retention Valves
+Essential equipment for directing flow in one direction to protect critical equipment, or for manually throttling and dosing process flow rates.
+
+#### 5. Globe Valves
+- **Description:** Globe valves for flow regulation and throttling in steam, liquid, and industrial gas services. Precise flow control for thermal and chemical processes.
+- **Sizes:** 2" to 24"
+- **Pressure Classes:** ANSI 150-2500
+- **Standards:** API 600, ASME B16.34, BS 1873
+- **Brand:** DHV Valve Group
+- **Industries:** Energy, Private/Manufacturing
+- **Subtypes:**
+  - Standard Globe: Flow regulation in process lines and general services (2"-24", ANSI 150-2500)
+
+#### 6. Check / Non-Return Valves
+- **Description:** Check valves to prevent backflow in pumping, compression, and distribution systems. Essential protection against water hammer and reverse flow.
+- **Sizes:** 2" to 36"
+- **Pressure Classes:** ANSI 150-2500
+- **Standards:** API 6D, ASME B16.34, API 594
+- **Brand:** DHV Valve Group
+- **Industries:** Oil & Gas, Energy, Private/Manufacturing
+- **Subtypes:**
+  - Swing Check: For process lines with low pressure drop (2"-36", ANSI 150-2500)
+  - Piston Check: For high-pressure and steam services (2"-16", ANSI 150-2500)
+
+### Block C: Control, Safety & Automation
+Precision components that automatically regulate and protect critical pressure, flow, and temperature variables, integrating with functional safety systems.
+
+#### 7. Control Valves
+- **Description:** Process control valves with smart positioners for precise regulation of flow, pressure, and temperature. The heart of industrial automation and control loops.
+- **Sizes:** 1" to 24"
+- **Pressure Classes:** ANSI 150-2500
+- **Standards:** IEC 61131, IEC 61511, ASME B16.34, ISA 75.01
+- **Brand:** Masoneilan (Baker Hughes)
+- **Industries:** Energy, Private/Manufacturing, Oil & Gas
+- **Subtypes:**
+  - Globe Control Valve: Precise regulation in steam, liquid, and gas services. Includes the iconic cage-guided 41005 series (1"-24")
+  - Rotary Control Valve: Butterfly and V-ball for high flow and fast response
+- **Signal Protocols:** 4-20 mA, HART, Fieldbus
+- **Certifications:** IEC 61511, ASME B16.34, SIL 3, ISA 75.01
+
+#### 8. Safety, Relief & Pressure Relief Valves
+- **Description:** Pressure relief valves that automatically open when system pressure exceeds set pressure, protecting equipment and personnel. The last physical barrier against explosion or catastrophic failure.
+- **Sizes:** 1" to 12"
+- **Pressure Classes:** ANSI 150-2500
+- **Standards:** ASME Section VIII, API 520, API 526, API 527
+- **Brand:** Consolidated (Emerson)
+- **Industries:** Energy, Oil & Gas
+- **Subtypes:**
+  - Conventional Safety: For steam, air, and gas services (1"-12")
+  - Balanced Safety: Balanced bellows for service with variable backpressure
+
+#### 9. Pneumatic & Solenoid Valves
+- **Description:** Solenoid and directional control valves for precise actuator automation and safety systems. Essential for remote actuator control, emergency shutdown (ESD), and functional safety.
+- **Sizes:** 1/4" to 2"
+- **Pressure Rating:** Up to 6,000 psi
+- **Standards:** NAMUR, VDI/VDE 3845, IEC 61508, ATEX
+- **Brand:** Versa Valves
+- **Industries:** Oil & Gas, Energy, Private/Manufacturing
+- **Subtypes:**
+  - Series V Solenoid: Industry standard for actuator control in 3 and 4-way configurations
+  - Pilot & Directional Control Valves: High-speed pneumatic and hydraulic control with manual or automatic reset for safety systems
+  - Modular Air Packages (MAP): Compact control stations integrating filters, regulators, and valves in a single block
+- **Certifications:** SIL 3, ATEX, IEC 61508, NAMUR
+
+### Block D: Integrated Solutions
+Engineering assemblies combining valves, actuators, and controls in ready-to-install packages.
+
+#### 10. Automated Valves (Engineered Assemblies)
+- **Description:** Complete valve + actuator + control accessories assemblies. Ready-to-install packages with integrated engineering. An automated valve is composed of three elements: the process valve (mechanical body), the actuator (motive force), and control accessories (nervous system).
+- **Sizes:** 1" to 48"
+- **Pressure Classes:** ANSI 150-2500
+- **Standards:** API 6D, IEC 61511, ISA 75.01, NAMUR
+- **Brands:** Perar, Della Foglia, Versa, Masoneilan
+- **Industries:** Oil & Gas, Energy, Private/Manufacturing
+- **Subtypes:**
+  - ESD Packages: Complete emergency shutdown systems with valve, actuator, solenoid, and SIL 3 safety logic
+  - Control Packages: Control valve assemblies with smart positioner and integrated diagnostic accessories
+- **Certifications:** API 6D, IEC 61511, SIL 3, NAMUR, ATEX
+- **Key Value:** IPSA performs Factory Acceptance Tests (FAT) in its own workshop, calibrating the complete assembly to ensure the valve opens and closes exactly within the time required by the client's safety protocol.
+
+---
+
+## Services
+
+### 1. Technical Automation (Automatizacion Tecnica)
+
+Intelligent control systems, PLC/SCADA integration, and legacy system migration. IPSA designs intelligent ecosystems for total process monitoring, integrating cutting-edge technology with existing infrastructure for risk-free Smart Manufacturing transitions.
+
+**Capabilities:**
+- **Programmable Logic Control (PLC):** Programming and configuration of logic architectures for precise control of machinery and critical processes
+- **SCADA & HMI Systems:** Intuitive interfaces for real-time monitoring, enabling total supervision from any point in the plant
+- **Sensor & Actuator Integration:** Advanced instrumentation deployment for data capture and command execution
+- **Legacy System Migration:** Upgrading legacy technology to modern platforms without disrupting business continuity
+
+**In-House Differential:**
+Resident programmers physically integrated at client facilities for fine-tuning, immediate responses, preventive maintenance of control systems, and real-time logic adjustments to prevent unplanned shutdowns.
+
+**Process:**
+1. Requirement Analysis - Review of specifications, operating conditions, standards, and client requirements
+2. Engineering Design - Valve and actuator sizing, material selection, control panel design, drawings
+3. Procurement & Assembly - Equipment from top manufacturers, package assembly, technical documentation
+4. Testing - Functional, hydrostatic, torque, leak tests, and operation time verification
+5. Commissioning - On-site installation, final adjustments, acceptance tests, personnel training
+
+**Benefits:** Scalability, industrial safety (functional safety protocols), energy efficiency (intelligent control algorithms)
+
+### 2. Engineering & Processes (Ingenieria y Procesos)
+
+Critical infrastructure design, asset management, and regulatory compliance. IPSA approaches every project under Continuous Improvement, designing layouts that maximize material and energy flow while reducing operating costs and extending asset lifespan.
+
+**Capabilities:**
+- **Industrial Layout Design:** Reconfiguring physical spaces to optimize internal logistics and cycle times in production lines
+- **Asset Management & Mapping:** Deep analysis of critical component and equipment health to prevent catastrophic failures
+- **Detailed Engineering & EPC:** Projects from conceptual engineering to delivery of functional facilities ready to operate
+- **Regulatory Compliance:** Every process and infrastructure meets international safety and quality audits and standards
+
+**In-House Differential:**
+Resident consultants deployed directly at client facilities for real-time project supervision, drawing management, installation supervision, and process adjustments without delays.
+
+**Process:**
+1. Conceptual Engineering - Scope definition, feasibility studies, cost estimation, preliminary schedules
+2. Basic Engineering - PFDs, P&IDs, technical specifications, data sheets
+3. Detailed Engineering - Construction drawings, piping isometrics, bills of materials, construction procedures
+4. Procurement & Construction - Purchasing management, factory inspection, site construction, installation supervision
+5. Delivery & Closeout - Acceptance tests, as-built documentation, training, administrative closeout
+
+**Benefits:** ROI maximization, standardized quality (repeatable processes), physical scalability (infrastructure for future expansions)
+
+---
+
+## Brands We Represent (Detailed)
+
+### Perar (Italy) - Priority Brand
+- **Tagline:** High Performance Valves
+- **Specialty:** Trunnion mounted ball valves with welded body
+- **Products:** Trunnion ball valves (bolted and welded body), subsea solutions (API 6DSS), severe service valves (high temp / corrosion with Inconel, Duplex materials)
+- **Sizes:** 2" to 48"
+- **Pressure Classes:** ANSI 150 to 2500
+- **Certifications:** API 6D, API 6A, API 6DSS, ISO 9001, SIL 3
+- **Website:** https://perar.net
+- **IPSA Role:** Exclusive representative in Mexico. Technical arm of Perar from sizing and trim selection to post-sale maintenance.
+
+### Della Foglia (Italy) - Priority Brand
+- **Tagline:** Extreme Service Solutions
+- **Specialty:** Ball valves since 1962, including subsea, cryogenic, hydrogen-ready, and high pressure
+- **Products:** Floating ball valves, trunnion mounted ball valves, top entry ball valves, subsea valves, cryogenic valves, metal-seated ball valves, hydrogen & decarbonization valves
+- **Sizes:** 1/2" to 64"
+- **Pressure:** Up to 15,000 psi
+- **Certifications:** API 6D, API 6A, API 6DSS, ISO 9001
+- **Website:** https://www.dellafoglia.it
+- **IPSA Role:** Resident engineers collaborate on alloy and seat configuration selection for specific process demands.
+
+### DHV Valve Group (International) - Priority Brand
+- **Tagline:** Reliability & Versatility
+- **Specialty:** Gate, globe, check, and floating ball valves. Own foundry of 26,500 m2 with 8,000 tons/year production capacity.
+- **Products:** Slab and wedge gate valves, globe valves, swing and piston check valves, floating ball valves
+- **Sizes:** 2" to 36" (varies by type)
+- **Pressure Classes:** ANSI 150-2500
+- **Certifications:** API Q1, API 600, API 6D, ISO 9001, NORSOK M-650
+- **Website:** https://www.dhvindustries.com
+- **IPSA Role:** Permanent inventory in Mexico with full traceability and factory support. Resident engineers for material selection and valve sizing.
+
+### Versa Valves (USA) - Priority Brand
+- **Tagline:** Precision Control
+- **Specialty:** Solenoid valves, pneumatic and hydraulic directional control, NAMUR mount valves
+- **Products:** Series V solenoid valves, pilot and directional control valves, Modular Air Packages (MAP), air preparation systems
+- **Sizes:** 1/4" to 2"
+- **Pressure:** Up to 6,000 psi
+- **Certifications:** SIL 3, ATEX, UL Listed, CSA
+- **Website:** https://www.versa-valves.com
+- **IPSA Role:** In-house specialists design pneumatic control architecture ensuring total compatibility with actuators. Control panel and electrohydraulic panel assembly with documented FAT.
+
+### Masoneilan / Baker Hughes (USA) - Priority Brand
+- **Tagline:** Process Control & Regulation
+- **Specialty:** Control valves, intelligent instrumentation, smart positioners, pressure regulators. Over 140 years of process control innovation.
+- **Products:** Globe-type control valves (including iconic cage-guided 41005 series), rotary control valves (butterfly, V-ball), smart positioners (non-contact position sensing), pressure regulators
+- **Sizes:** 1" to 24"
+- **Pressure Classes:** ANSI 150-2500
+- **Certifications:** IEC 61511, ASME B16.34, SIL 3, ISA 75.01
+- **Website:** https://valves.bakerhughes.com/masoneilan
+- **IPSA Role:** Resident automation specialists perform predictive diagnostics at client plants using ValVue diagnostic software and original OEM parts. Loop tuning and calibration services.
+
+### Consolidated / Emerson (USA) - Complementary Brand
+- **Specialty:** Safety and pressure relief valves
+- **Standards:** ASME Section VIII, API 520, API 526
+- **Website:** https://www.emerson.com
+
+### Additional Partners
+- **Yokogawa (Japan):** Process instrumentation
+- **Emerson / Bettis / Shafer (USA):** Actuators and automation
+- **Hudson:** Complementary products
+- **Certus (IPSA Group, Houston TX):** Custom actuator manufacturing
+
+---
+
+## Industries Served (Detailed)
+
+### Oil & Gas
+- **Focus:** High-pressure valves, subsea applications, sour service, emergency shutdown (ESD) systems, pipeline infrastructure
+- **Key Standards:** API 6D, API 6A, API 6DSS, SIL 3, NACE MR0175
+- **Solutions:**
+  - Trunnion valves for pipeline transportation (Perar, Della Foglia)
+  - SIL 3 solenoids for actuator control in explosive environments (Versa)
+  - Safety valves and control systems for asset protection (Consolidated, Masoneilan)
+  - ESD packages for emergency shutdown systems
+- **Applications:** Pipelines, compression stations, refineries, offshore platforms, pig traps, subsea installations
+- **IPSA Advantage:** Strategic stock of API 6D certified valves in Mexico with complete traceability, eliminating 40-week European lead times
+
+### Energy / Power Generation
+- **Focus:** Steam cycle control, combined cycle plants, turbine control, boiler safety, hydrogen and energy transition
+- **Key Standards:** ASME B16.34, SIL 3, ISO 9001, IEC 61511
+- **Solutions:**
+  - Process control valves for steam and cooling systems (Masoneilan)
+  - High-pressure safety valves for boilers (Consolidated)
+  - Special valves for hydrogen and CO2 capture (Della Foglia, Versa)
+  - High-reliability solenoids for gas turbines (Versa)
+- **Applications:** Combined cycle plants, hydroelectric facilities, gas turbines, steam cycles, boilers, thermal protection, energy transition projects
+- **IPSA Advantage:** Resident consultants supervise installation and maintenance of relief systems, eliminating bottlenecks in power generation
+
+### Private Sector / Manufacturing
+- **Focus:** Process plants, water treatment, production line modernization, pneumatic control
+- **Key Standards:** ASME, ISO 9001
+- **Solutions:**
+  - Directional control valves for production line automation (Versa)
+  - Floating ball and check valves for water treatment (DHV, Perar)
+  - Pressure regulators for steam and industrial gas stabilization (Masoneilan)
+  - Line modernization with pneumatic and electronic control upgrades
+- **Applications:** Continuous production lines, water treatment plants, chemical processes, food industry, pulp and paper, general industrial services
+- **IPSA Advantage:** Immediate stock availability, cost-efficient certified solutions, on-site technicians for efficiency audits and control system modernization
+
+---
+
+## Locations
+
+### Mexico
+
+**Headquarters - Tlalnepantla, Estado de Mexico**
+- Address: Convento de Actopan No. 33, Col. Jardines de Santa Monica, C.P. 54050
+- Phone: +52 55 5397 3703
+- Facilities: Engineering and sales offices, main warehouse, assembly and testing workshop, training room, corporate administration
+- Coordinates: 19.5406, -99.2119
+
+**Ciudad del Carmen, Campeche**
+- Type: Storage and Distribution Center (CAD)
+- Facilities: Valve and actuator warehouse, sales and technical support office, logistics for offshore operations
+- Coordinates: 18.6513, -91.8245
+
+**Paraiso, Tabasco**
+- Type: Workshop
+- Facilities: Machine shop, hydrostatic test bench, spare parts warehouse, valve repair area, field technical support
+- Coordinates: 18.3968, -93.2152
+
+**Villahermosa, Tabasco**
+- Type: Sales and technical support office
+- Focus: Southeast region, direct service to Tabasco oil zone clients
+- Coordinates: 17.9892, -92.9475
+
+**Tampico, Tamaulipas**
+- Type: Sales office
+- Focus: Northeast region, refineries, petrochemical plants, maritime terminals
+- Coordinates: 22.2331, -97.8611
+
+### United States
+
+**Houston, Texas**
+- Address: 1601 Peach Leaf St, Houston, TX 77039
+- Type: International sales office
+- Facilities: Manufacturer coordination, import logistics support, North American client service
+- Also home to Certus (group company) for actuator manufacturing
+- Coordinates: 29.8631, -95.3342
+
+---
+
+## Technical Capabilities
+
+### Assembly & Testing Workshop
+- Valve + actuator + accessories assembly
+- Factory Acceptance Tests (FAT)
+- Hydrostatic testing
+- Torque testing
+- Leak testing
+- Operation time verification
+- Set point calibration for safety valves
+- Control loop calibration and tuning
+
+### Engineering
+- PFD and P&ID development
+- Piping isometrics and construction drawings
+- Bills of materials
+- Valve sizing and Cv calculation
+- Actuator torque calculation
+- Material selection for sour service (NACE MR0175)
+- Fugitive emissions compliance (ISO 15848)
+
+### Automation
+- PLC programming and configuration
+- SCADA and HMI system design
+- Control panel design and assembly
+- Electrohydraulic panel assembly
+- Sensor and actuator integration
+- Legacy system migration
+- Loop tuning
+- ValVue diagnostic software (for Masoneilan equipment)
+
+---
+
+## Certifications and Standards Reference
+
+### Product Standards
+- **API 6D:** Pipeline valves
+- **API 6A:** Wellhead and christmas tree equipment
+- **API 6DSS:** Subsea pipeline valves
+- **API 600:** Bolted bonnet steel gate valves for petroleum and natural gas industries
+- **API 602:** Compact steel gate valves
+- **API 594:** Check valves (wafer, wafer-lug, and double flanged)
+- **API 607:** Fire test for quarter-turn valves
+- **API 520/526/527:** Pressure relief devices
+- **ASME B16.34:** Valves - flanged, threaded, and welding end
+- **ASME Section VIII:** Pressure vessels / boiler and pressure vessel code
+- **BS 1873:** Globe and globe stop and check valves
+- **ISO 17292:** Metal ball valves for petroleum, petrochemical, and allied industries
+
+### Safety and Environmental Standards
+- **SIL 3 (IEC 61508/61511):** Safety Integrity Level III - functional safety
+- **ATEX:** Equipment for explosive atmospheres
+- **NACE MR0175:** Sulfide stress cracking resistant metallic materials for oilfield equipment (sour service)
+- **ISO 15848:** Fugitive emissions testing and qualification
+- **IEC 61131:** Programmable controllers
+
+### Automation Standards
+- **NAMUR:** Standardized signal interfaces for automation
+- **VDI/VDE 3845:** Mounting interfaces for actuator accessories
+- **ISA 75.01:** Control valve sizing
+- **HART/Fieldbus:** Communication protocols for smart instruments
+
+### Quality Management
+- **ISO 9001:** Quality management systems
+- **API Q1:** Quality management system requirements for manufacturing organizations
+- **NORSOK M-650:** Manufacturer qualification
+
+---
+
+## Contact Information
+
+- **Website:** https://ipsacv.com.mx
+- **Email:** ventas.mexico@ipsa-cv.com.mx
+- **Phone (Mexico HQ):** +52 55 5397 3703
+- **Phone (Cd. del Carmen):** +52 938 138 0550
+- **Headquarters Address:** Convento de Actopan No. 33, Col. Jardines de Santa Monica, Tlalnepantla, Estado de Mexico, C.P. 54050, Mexico
+- **Houston Office:** 1601 Peach Leaf St, Houston, TX 77039, USA
+- **Languages:** Spanish, English
