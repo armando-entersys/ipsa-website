@@ -27,7 +27,7 @@ export const stockImages = {
   // Services
   automation: "/images/heroes/automation-hero.jpg",
   engineering: "/images/heroes/engineering-hero.jpg",
-  workshop: "/images/products/ipsa-tablero-1.jpg",
+  workshop: "/images/products/ipsa-pneumatic-panel.jpg",
 
   // Products
   valves: "/images/products/df-factory-valves.jpg",
@@ -43,6 +43,6 @@ export const stockImages = {
 
 /** Get blur placeholder for a stockImages path */
 export function getBlur(src: string): string {
-  const filename = src.split("/").pop()?.replace(".jpg", "") || "";
+  const filename = src.split("/").pop()?.replace(/\.(jpg|jpeg|png|webp|svg)$/, "") || "";
   return blurDataURLs[filename] || blurDataURLs["industries-hero"];
 }
