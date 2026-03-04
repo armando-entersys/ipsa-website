@@ -75,8 +75,7 @@ const timeline = [
   },
 ];
 
-const aboutHeroUrl =
-  "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1920&q=80&auto=format";
+const aboutHeroUrl = "/images/heroes/df-facility-exterior.jpg";
 
 export default function HistoryPage() {
   const t = useTranslations("history");

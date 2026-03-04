@@ -25,17 +25,17 @@ export const stockImages = {
   oils: "/images/heroes/oils.jpg",
 
   // Services
-  automation: "/images/heroes/automation-hero.jpg",
-  engineering: "/images/heroes/engineering-hero.jpg",
+  automation: "/images/heroes/df-actuator-test.jpg",
+  engineering: "/images/heroes/df-cnc-machining.jpg",
   workshop: "/images/products/ipsa-pneumatic-panel.jpg",
 
   // Products
-  valves: "/images/products/df-factory-valves.jpg",
-  industrial: "/images/heroes/df-facility.jpg",
+  valves: "/images/heroes/df-trunnion-valves-row.jpg",
+  industrial: "/images/heroes/df-massive-bodies-factory.jpg",
 
   // About / team
   team: "/images/heroes/about-hero.jpg",
-  office: "/images/heroes/df-facility.jpg",
+  office: "/images/heroes/df-facility-exterior.jpg",
 
   // Contact
   contact: "/images/heroes/contact-hero.jpg",

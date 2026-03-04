@@ -141,7 +141,7 @@ export const industries: Industry[] = [
       en: 'Specialists in severe conditions: high pressure, corrosion, and Subsea applications.',
     },
     icon: 'Droplets',
-    image: '/images/heroes/oil-gas.jpg',
+    image: '/images/heroes/df-pipeline-station.jpg',
 
     heroH1: {
       es: 'Continuidad operativa en los entornos más hostiles del sector energético.',

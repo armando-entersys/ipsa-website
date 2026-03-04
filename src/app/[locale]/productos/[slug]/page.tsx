@@ -381,22 +381,69 @@ export default async function ProductCategoryPage({
                     {l === 'es' ? 'Normas y certificaciones' : 'Standards & certifications'}
                   </h2>
                   <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4">
-                    {standards.map((std) => (
-                      <div
-                        key={std}
-                        className="flex items-center gap-3 rounded-xl border border-gray-100 bg-white p-4"
-                      >
+                    {standards.map((std) => {
+                      const logoMap: Record<string, string> = {
+                        'API 6D': '/images/logos/api.png',
+                        'API 6A': '/images/logos/api.png',
+                        'API 6DSS': '/images/logos/api.png',
+                        'API 607': '/images/logos/api.png',
+                        'API 6FA': '/images/logos/api.png',
+                        'API 600': '/images/logos/api.png',
+                        'API 602': '/images/logos/api.png',
+                        'API 594': '/images/logos/api.png',
+                        'API 526': '/images/logos/api.png',
+                        'API 527': '/images/logos/api.png',
+                        'API 520': '/images/logos/api.png',
+                        'API 553': '/images/logos/api.png',
+                        'NACE MR0175': '/images/logos/nace.svg',
+                        'ISO 15848': '/images/logos/iso.png',
+                        'ISO 10497': '/images/logos/iso.png',
+                        'ISO 17292': '/images/logos/iso.png',
+                        'ISO 5211': '/images/logos/iso.png',
+                        'ASME B16.34': '/images/logos/asme.svg',
+                        'ASME Section VIII': '/images/logos/asme.svg',
+                        'ASME VIII': '/images/logos/asme.svg',
+                        'BS 1873': '/images/logos/asme.svg',
+                        'BS 6364': '/images/logos/asme.svg',
+                        'NORSOK M-650': '/images/logos/norsok.svg',
+                        'ATEX': '/images/logos/atex.png',
+                        'SIL': '/images/logos/sil.png',
+                        'SIL 3': '/images/logos/sil.png',
+                        'NAMUR': '/images/logos/namur.svg',
+                        'VDI/VDE 3845': '/images/logos/namur.svg',
+                        'CSA': '/images/logos/csa.svg',
+                        'ISA 75.01': '/images/logos/isa.svg',
+                        'ISA 84': '/images/logos/isa.svg',
+                        'IEC 61508': '/images/logos/iec.svg',
+                        'IEC 61511': '/images/logos/iec.svg',
+                        'IEC 61131': '/images/logos/iec.svg',
+                        'NFPA 70': '/images/logos/nfpa.svg',
+                      };
+                      const logo = logoMap[std];
+                      return (
                         <div
-                          className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg"
-                          style={{ background: 'linear-gradient(135deg, #141733, #203c88)' }}
+                          key={std}
+                          className="flex items-center gap-3 rounded-xl border border-gray-100 bg-white p-4"
                         >
-                          <Shield size={14} className="text-gold-light" strokeWidth={1.5} />
+                          {logo ? (
+                            <div className="flex h-8 w-8 shrink-0 items-center justify-center">
+                              {/* eslint-disable-next-line @next/next/no-img-element */}
+                              <img src={logo} alt={std} width={32} height={32} className="object-contain" />
+                            </div>
+                          ) : (
+                            <div
+                              className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg"
+                              style={{ background: 'linear-gradient(135deg, #141733, #203c88)' }}
+                            >
+                              <Shield size={14} className="text-gold-light" strokeWidth={1.5} />
+                            </div>
+                          )}
+                          <span className="text-sm font-semibold tracking-wide text-gray-900">
+                            {std}
+                          </span>
                         </div>
-                        <span className="text-sm font-semibold tracking-wide text-gray-900">
-                          {std}
-                        </span>
-                      </div>
-                    ))}
+                      );
+                    })}
                   </div>
                 </div>
               )}

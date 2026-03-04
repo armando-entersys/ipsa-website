@@ -43,8 +43,7 @@ const alliances = [
   { name: "Emerson / Bettis / Shafer", years: "15+", country: "USA", slug: "" },
 ];
 
-const suppliersHeroUrl =
-  "https://images.unsplash.com/photo-1565043666747-69f6646db940?w=1920&q=80&auto=format";
+const suppliersHeroUrl = "/images/heroes/df-factory-warehouse.jpg";
 
 export default function AlliancesPage() {
   const t = useTranslations("alliances");

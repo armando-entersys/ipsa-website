@@ -263,7 +263,7 @@ export const services: Service[] = [
       en: 'Intelligent control systems, PLC/SCADA integration, and legacy system migration.',
     },
     icon: 'Settings',
-    image: '/images/heroes/automation-hero.jpg',
+    image: '/images/heroes/df-actuator-test.jpg',
 
     heroH1: {
       es: 'Control inteligente: Menos error humano, más producción.',
@@ -510,7 +510,7 @@ export const services: Service[] = [
       en: 'Critical infrastructure design, asset management, and regulatory compliance.',
     },
     icon: 'PenTool',
-    image: '/images/heroes/engineering-hero.jpg',
+    image: '/images/heroes/df-cnc-machining.jpg',
 
     heroH1: {
       es: 'Infraestructura crítica: Su ingeniería como activo rentable.',
