@@ -320,7 +320,7 @@ export const industries: Industry[] = [
       en: 'Critical fluid management in power generation and the new Hydrogen frontier.',
     },
     icon: 'Zap',
-    image: '/images/heroes/gas.jpg',
+    image: '/images/industries/energetico-hero.webp',
 
     heroH1: {
       es: 'Ingeniería de alta precisión para la estabilidad del sector eléctrico.',
