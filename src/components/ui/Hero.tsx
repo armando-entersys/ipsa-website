@@ -39,7 +39,7 @@ export default function Hero(props: HeroProps) {
 
 function HeroHome({ title, subtitle, ctaPrimary, ctaSecondary, backgroundImage }: HeroHomeProps) {
   return (
-    <section className="relative flex min-h-[55vh] md:min-h-[70vh] items-center justify-center overflow-hidden">
+    <section className="relative flex min-h-[55vh] md:min-h-[70vh] items-center justify-center overflow-hidden bg-navy-deep">
       {backgroundImage && (
         <Image
           src={backgroundImage}
@@ -83,7 +83,7 @@ function HeroHome({ title, subtitle, ctaPrimary, ctaSecondary, backgroundImage }
 
 function HeroInternal({ title, subtitle, backgroundImage, breadcrumbs }: HeroInternalProps) {
   return (
-    <section className="relative flex min-h-[35vh] md:min-h-[40vh] items-center overflow-hidden">
+    <section className="relative flex min-h-[35vh] md:min-h-[40vh] items-center overflow-hidden bg-navy-deep">
       {backgroundImage ? (
         <>
           <Image

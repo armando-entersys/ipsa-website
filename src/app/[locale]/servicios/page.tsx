@@ -186,7 +186,7 @@ export default function ServicesHub() {
                 ))}
               </ul>
               <Link
-                href={`${prefix}/servicios/ingenieria`}
+                href={`${prefix}/servicios/pruebas-hidrostaticas`}
                 className="inline-flex items-center gap-1.5 text-sm font-medium text-gold transition-colors hover:text-gold-dark"
               >
                 {serviciosHub.lineaB.cta[l]}

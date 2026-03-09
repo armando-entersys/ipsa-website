@@ -186,7 +186,7 @@ export const suppliers: Supplier[] = [
       agitacion: { es: 'Los entornos con presencia de arenas o agentes corrosivos degradan rápidamente los equipos estándar, provocando paros no programados millonarios.', en: 'Environments with sand or corrosive agents rapidly degrade standard equipment, causing multimillion-dollar unplanned shutdowns.' },
       solucion: { es: 'IPSA suministra tecnología Perar con stock estratégico en México, asegurando que cada componente cumpla con las pruebas de fuego y presión más rigurosas del mundo.', en: 'IPSA supplies Perar technology with strategic stock in Mexico, ensuring every component passes the world\'s most rigorous fire and pressure tests.' },
       ctaInterconnect: { es: 'Asegure la selección correcta de materiales con nuestra División de Ingeniería', en: 'Ensure correct material selection with our Engineering Division' },
-      ctaInterconnectLink: '/servicios/ingenieria',
+      ctaInterconnectLink: '/servicios/automatizacion',
     },
     navCircular: [
       { label: { es: 'Soberanía en Ductos', en: 'Pipeline Sovereignty' }, description: { es: 'Cumplimiento total API 6D para transporte nacional de hidrocarburos.', en: 'Full API 6D compliance for national hydrocarbon transport.' }, link: '/industrias/oil-gas' },
@@ -273,7 +273,7 @@ export const suppliers: Supplier[] = [
       agitacion: { es: 'Un error en la selección de materiales en procesos térmicos o de hidrógeno puede comprometer no solo la rentabilidad, sino la seguridad estructural de la planta.', en: 'A material selection error in thermal or hydrogen processes can compromise not only profitability, but the structural safety of the plant.' },
       solucion: { es: 'IPSA suministra tecnología Della Foglia, probada en los laboratorios más exigentes del mundo para garantizar un rendimiento impecable en servicios severos.', en: 'IPSA supplies Della Foglia technology, tested in the world\'s most demanding laboratories to guarantee impeccable performance in severe service.' },
       ctaInterconnect: { es: 'Asegure su cumplimiento normativo con nuestra División de Ingeniería', en: 'Ensure your regulatory compliance with our Engineering Division' },
-      ctaInterconnectLink: '/servicios/ingenieria',
+      ctaInterconnectLink: '/servicios/automatizacion',
     },
     navCircular: [
       { label: { es: 'Energía de Próxima Generación', en: 'Next-Gen Energy' }, description: { es: 'Válvulas listas para la economía del hidrógeno.', en: 'Valves ready for the hydrogen economy.' }, link: '/industrias/energetico' },
@@ -361,7 +361,7 @@ export const suppliers: Supplier[] = [
       agitacion: { es: 'Instalar componentes sin respaldo técnico o de origen dudoso puede comprometer la integridad de la planta tras el arranque.', en: 'Installing components without technical backing or of dubious origin can compromise plant integrity after startup.' },
       solucion: { es: 'IPSA mantiene un inventario permanente de DHV Valve Group, asegurando que cada válvula instalada cuente con trazabilidad total y respaldo de fábrica.', en: 'IPSA maintains permanent DHV Valve Group inventory, ensuring every installed valve has full traceability and factory support.' },
       ctaInterconnect: { es: 'Optimice su gestión de activos con nuestra División de Ingeniería', en: 'Optimize your asset management with our Engineering Division' },
-      ctaInterconnectLink: '/servicios/ingenieria',
+      ctaInterconnectLink: '/servicios/automatizacion',
     },
     navCircular: [
       { label: { es: 'Para Refinerías', en: 'For Refineries' }, description: { es: 'Cumplimiento estricto de API 600 para condiciones de alta temperatura.', en: 'Strict API 600 compliance for high-temperature conditions.' }, link: '/industrias/oil-gas' },

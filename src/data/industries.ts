@@ -189,7 +189,7 @@ export const industries: Industry[] = [
         es: 'Descubra cómo nuestra División de Ingeniería dimensiona materiales para servicios amargos',
         en: 'Discover how our Engineering Division sizes materials for sour service',
       },
-      ctaInterconnectLink: '/servicios/ingenieria',
+      ctaInterconnectLink: '/servicios/automatizacion',
     },
 
     ecosystem: [
@@ -246,7 +246,7 @@ export const industries: Industry[] = [
         tecnologia: { es: 'Válvulas Trunnion API 6D', en: 'Trunnion Valves API 6D' },
         marca: 'Perar',
         servicio: { es: 'Ingeniería de Layouts', en: 'Layout Engineering' },
-        servicioLink: '/servicios/ingenieria',
+        servicioLink: '/servicios/automatizacion',
       },
       {
         proceso: { es: 'Control de Actuadores', en: 'Actuator Control' },
@@ -260,7 +260,7 @@ export const industries: Industry[] = [
         tecnologia: { es: 'Válvulas de Seguridad', en: 'Safety Valves' },
         marca: 'Consolidated',
         servicio: { es: 'Auditoría de Alivio', en: 'Relief Auditing' },
-        servicioLink: '/servicios/ingenieria',
+        servicioLink: '/servicios/automatizacion',
       },
     ],
 
@@ -339,7 +339,7 @@ export const industries: Industry[] = [
       es: 'Agendar Auditoría de Eficiencia',
       en: 'Schedule Efficiency Audit',
     },
-    ctaSecondaryLink: '/servicios/ingenieria',
+    ctaSecondaryLink: '/servicios/automatizacion',
 
     summary: {
       es: 'Gestión de fluidos críticos en generación de energía y la nueva frontera del Hidrógeno.',
@@ -432,14 +432,14 @@ export const industries: Industry[] = [
         tecnologia: { es: 'Válvulas de Control de Proceso', en: 'Process Control Valves' },
         marca: 'Masoneilan',
         servicio: { es: 'Optimización de Procesos', en: 'Process Optimization' },
-        servicioLink: '/servicios/ingenieria',
+        servicioLink: '/servicios/automatizacion',
       },
       {
         proceso: { es: 'Protección Térmica', en: 'Thermal Protection' },
         tecnologia: { es: 'Válvulas de Seguridad', en: 'Safety Valves' },
         marca: 'Consolidated',
         servicio: { es: 'Auditoría de Activos', en: 'Asset Auditing' },
-        servicioLink: '/servicios/ingenieria',
+        servicioLink: '/servicios/automatizacion',
       },
     ],
 
@@ -456,7 +456,7 @@ export const industries: Industry[] = [
         es: 'Conozca nuestra Ingeniería de Procesos',
         en: 'Learn about our Process Engineering',
       },
-      ctaLink: '/servicios/ingenieria',
+      ctaLink: '/servicios/automatizacion',
     },
 
     ctaFinal: {
@@ -546,7 +546,7 @@ export const industries: Industry[] = [
         es: 'Descubra cómo nuestra División de Ingeniería rediseña sus flujos de trabajo',
         en: 'Discover how our Engineering Division redesigns your workflows',
       },
-      ctaInterconnectLink: '/servicios/ingenieria',
+      ctaInterconnectLink: '/servicios/automatizacion',
     },
 
     ecosystem: [
@@ -610,14 +610,14 @@ export const industries: Industry[] = [
         tecnologia: { es: 'Válvulas Check y Bola', en: 'Check & Ball Valves' },
         marca: 'DHV / Perar',
         servicio: { es: 'Auditoría de Flujos', en: 'Flow Auditing' },
-        servicioLink: '/servicios/ingenieria',
+        servicioLink: '/servicios/automatizacion',
       },
       {
         proceso: { es: 'Servicios Generales', en: 'General Services' },
         tecnologia: { es: 'Reguladores de Presión', en: 'Pressure Regulators' },
         marca: 'Masoneilan',
         servicio: { es: 'Mantenimiento Preventivo', en: 'Preventive Maintenance' },
-        servicioLink: '/servicios/ingenieria',
+        servicioLink: '/servicios/automatizacion',
       },
     ],
 

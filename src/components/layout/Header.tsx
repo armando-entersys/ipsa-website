@@ -247,11 +247,13 @@ const otherNavItems = [
     children: {
       es: [
         { label: "Automatización de Válvulas", href: "/servicios/automatizacion", desc: "Paquetes completos de automatización" },
-        { label: "Ingeniería y Proyectos EPC", href: "/servicios/ingenieria", desc: "Ingeniería conceptual hasta la entrega" },
+        { label: "Pruebas Hidrostáticas", href: "/servicios/pruebas-hidrostaticas", desc: "Certificación y confiabilidad garantizadas" },
+        { label: "Stock y Suministro", href: "/servicios/stock-suministro", desc: "Inventario nacional disponible" },
       ],
       en: [
         { label: "Valve Automation", href: "/servicios/automatizacion", desc: "Complete automation packages" },
-        { label: "Engineering & EPC Projects", href: "/servicios/ingenieria", desc: "From concept to delivery" },
+        { label: "Hydrostatic Testing", href: "/servicios/pruebas-hidrostaticas", desc: "Guaranteed certification and reliability" },
+        { label: "Stock & Supply", href: "/servicios/stock-suministro", desc: "National inventory available" },
       ],
     },
   },

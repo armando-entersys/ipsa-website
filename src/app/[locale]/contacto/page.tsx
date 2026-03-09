@@ -106,7 +106,7 @@ export default function ContactPage() {
   return (
     <>
       {/* Hero - Contact (clean, inviting with gold accent) */}
-      <section className="relative min-h-[280px] md:min-h-[380px] flex items-end overflow-hidden">
+      <section className="relative min-h-[280px] md:min-h-[380px] flex items-end overflow-hidden bg-navy-deep">
         <Image
           src={stockImages.contactHero}
           alt=""
