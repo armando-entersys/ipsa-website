@@ -83,7 +83,7 @@ export default async function SubtypeDetailPage({
   return (
     <>
       {/* ======== HERO (subtype-specific image) ======== */}
-      <section className="relative overflow-hidden min-h-[38vh] md:min-h-[50vh]">
+      <section className={`relative overflow-hidden ${subtypeData.heroImage ? 'min-h-[28vh] md:min-h-[35vh]' : 'min-h-[38vh] md:min-h-[50vh]'}`}>
         <Image
           src={subtypeData.heroImage || subtypeData.image || stockImages.productsHero}
           alt=""
@@ -91,15 +91,15 @@ export default async function SubtypeDetailPage({
           priority
           placeholder="blur"
           blurDataURL={getBlur(subtypeData.heroImage || subtypeData.image || stockImages.productsHero)}
-          className="object-cover"
+          className={subtypeData.heroImage ? 'object-cover object-center' : 'object-cover'}
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-black/50" />
-        <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/60 via-navy-dark/20 to-transparent" />
+        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/70 via-navy-dark/20 to-transparent" />
 
         <div
           className="relative mx-auto max-w-[1600px] px-5 md:px-10 flex items-end"
-          style={{ minHeight: "50vh" }}
+          style={{ minHeight: subtypeData.heroImage ? "35vh" : "50vh" }}
         >
           <div className="max-w-3xl pb-12 lg:pb-16 pt-28">
             {/* Breadcrumb */}
