@@ -316,8 +316,8 @@ export const industries: Industry[] = [
       en: 'Energy Sector',
     },
     description: {
-      es: 'Gestión de fluidos críticos en ciclos combinados y la nueva frontera del Hidrógeno.',
-      en: 'Critical fluid management in combined cycles and the new Hydrogen frontier.',
+      es: 'Gestión de fluidos críticos en generación de energía y la nueva frontera del Hidrógeno.',
+      en: 'Critical fluid management in power generation and the new Hydrogen frontier.',
     },
     icon: 'Zap',
     image: '/images/heroes/gas.jpg',
@@ -327,8 +327,8 @@ export const industries: Industry[] = [
       en: 'High-precision engineering for the stability of the power sector.',
     },
     heroH2: {
-      es: 'Gestionamos fluidos críticos en plantas de ciclo combinado, hidroeléctricas y nuevas fronteras energéticas. Tecnología certificada para garantizar el suministro sin interrupciones.',
-      en: 'We manage critical fluids in combined cycle plants, hydroelectric facilities, and new energy frontiers. Certified technology to ensure uninterrupted supply.',
+      es: 'Gestionamos fluidos críticos en plantas de generación de energía, hidroeléctricas y nuevas fronteras energéticas. Tecnología certificada para garantizar el suministro sin interrupciones.',
+      en: 'We manage critical fluids in power generation plants, hydroelectric facilities, and new energy frontiers. Certified technology to ensure uninterrupted supply.',
     },
     ctaPrimary: {
       es: 'Explorar Válvulas de Control y Alivio',
@@ -342,8 +342,8 @@ export const industries: Industry[] = [
     ctaSecondaryLink: '/servicios/ingenieria',
 
     summary: {
-      es: 'Gestión de fluidos críticos en ciclos combinados y la nueva frontera del Hidrógeno.',
-      en: 'Critical fluid management in combined cycles and the new Hydrogen frontier.',
+      es: 'Gestión de fluidos críticos en generación de energía y la nueva frontera del Hidrógeno.',
+      en: 'Critical fluid management in power generation and the new Hydrogen frontier.',
     },
     criticalSolution: {
       es: 'Control preciso de flujo y temperatura con válvulas de seguridad para alta presión.',
@@ -494,8 +494,8 @@ export const industries: Industry[] = [
       en: 'Private Sector',
     },
     description: {
-      es: 'Versatilidad y stock inmediato para plantas de proceso y tratamiento de aguas.',
-      en: 'Versatility and immediate stock for process plants and water treatment.',
+      es: 'Industria alimenticia, farmacéutica, pulpa y papel, minería, metalmecánica, plantas de proceso y tratamiento de aguas.',
+      en: 'Food, pharmaceutical, pulp and paper, mining, metalworking, process plants, and water treatment.',
     },
     icon: 'Factory',
     image: '/images/heroes/oils.jpg',
@@ -520,8 +520,8 @@ export const industries: Industry[] = [
     ctaSecondaryLink: '/servicios/automatizacion',
 
     summary: {
-      es: 'Versatilidad y stock inmediato para plantas de proceso y tratamiento de aguas.',
-      en: 'Versatility and immediate stock for process plants and water treatment.',
+      es: 'Industria alimenticia, farmacéutica, pulpa y papel, minería, metalmecánica, plantas de proceso y tratamiento de aguas.',
+      en: 'Food, pharmaceutical, pulp and paper, mining, metalworking, process plants, and water treatment.',
     },
     criticalSolution: {
       es: 'Modernización de líneas con control neumático y reguladores de presión de alta disponibilidad.',

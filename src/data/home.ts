@@ -26,8 +26,8 @@ export const homeData = {
   // SECCION 1: Hero Section
   hero: {
     h1: {
-      es: 'El mayor stock de componentes certificados en México.',
-      en: 'The largest stock of certified components in Mexico.',
+      es: 'El mayor stock de válvulas de bola de cuerpo soldado y equipos relacionados en México.',
+      en: 'The largest stock of welded body ball valves and related equipment in Mexico.',
     },
     h2: {
       es: 'Disponibilidad inmediata de válvulas de alta especificación bajo normas API, ASME y SIL 3.',
@@ -107,8 +107,8 @@ export const homeData = {
           en: 'Control & Automation',
         },
         pas: {
-          es: 'El reemplazo urgente en ambientes corrosivos requiere máxima fiabilidad. No arriesgue su seguridad con componentes genéricos. Acceda al stock permanente de control direccional líder en confiabilidad operativa.',
-          en: 'Urgent replacement in corrosive environments requires maximum reliability. Don\'t risk your safety with generic components. Access the permanent stock of directional control leading in operational reliability.',
+          es: 'El reemplazo urgente en ambientes corrosivos requiere máxima fiabilidad. No arriesgue su seguridad con componentes genéricos. Acceda al stock permanente de equipos e instrumentos de fabricantes líderes y especializados para diversos procesos, asegurando y manteniendo la confiabilidad operativa que requiere.',
+          en: 'Urgent replacement in corrosive environments requires maximum reliability. Don\'t risk your safety with generic components. Access the permanent stock of equipment and instruments from leading specialized manufacturers for diverse processes, ensuring and maintaining the operational reliability you require.',
         },
         image: '/images/heroes/services-hero.jpg',
       },

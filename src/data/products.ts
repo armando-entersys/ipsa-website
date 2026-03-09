@@ -142,12 +142,12 @@ export const manufacturers: Record<
     website: 'https://www.versaproducts.com',
   },
   consolidated: {
-    name: 'Consolidated (Emerson)',
+    name: 'Consolidated (Baker Hughes)',
     slug: '',
     image: '/images/products/consolidated-safety.jpg',
     logo: '/images/logos/consolidated.svg',
     country: 'USA',
-    website: 'https://www.emerson.com',
+    website: 'https://www.bakerhughes.com',
   },
   masoneilan: {
     name: 'Masoneilan (Baker Hughes)',
@@ -166,12 +166,12 @@ export const manufacturers: Record<
     website: 'https://www.yokogawa.com',
   },
   emerson: {
-    name: 'Emerson / Bettis / Shafer',
+    name: 'Baker Hughes / Bettis / Shafer',
     slug: '',
     image: '',
     logo: '/images/logos/emerson.svg',
     country: 'USA',
-    website: 'https://www.emerson.com',
+    website: 'https://www.bakerhughes.com',
   },
 };
 
@@ -200,8 +200,8 @@ export const productCategories: Record<string, ProductCategory> = {
   // A1 - Válvulas de Bola Trunnion Cuerpo Soldado
   'valvulas-bola-trunnion-soldado': {
     slug: 'valvulas-bola-trunnion-soldado',
-    es: { name: 'Válvulas de Bola Trunnion Cuerpo Soldado', desc: 'Válvulas trunnion con cuerpo totalmente soldado para máxima integridad en ductos, oleoductos y aplicaciones subsea.' },
-    en: { name: 'Welded Body Trunnion Ball Valves', desc: 'Trunnion valves with fully welded body for maximum integrity in pipelines, oil lines, and subsea applications.' },
+    es: { name: 'Válvulas de Bola Trunnion Cuerpo Soldado', desc: 'Válvulas trunnion con cuerpo totalmente soldado para máxima integridad en ductos marinos y terrestres.' },
+    en: { name: 'Welded Body Trunnion Ball Valves', desc: 'Trunnion valves with fully welded body for maximum integrity in marine and onshore pipelines.' },
     image: '/images/products/df-trunnion-wb-studio.jpg',
     heroImage: '/images/products/hero-trunnion-soldado.webp',
     sizes: '2" a 48"',
@@ -289,24 +289,6 @@ export const productCategories: Record<string, ProductCategory> = {
       },
     ],
     subtypes: [
-      {
-        slug: 'enterramiento',
-        es: { name: 'Soldada para Enterramiento', desc: 'Diseño con protección anticorrosiva para instalación subterránea directa en ductos de transmisión.' },
-        en: { name: 'Buried Welded Valve', desc: 'Design with anti-corrosion protection for direct underground installation in transmission pipelines.' },
-        manufacturers: ['perar', 'della-foglia'],
-        image: '/images/products/trunnion-soldado-enterramiento.webp',
-        heroImage: '/images/products/trunnion-soldado-enterramiento-banner.webp',
-        sizes: '4" to 48"',
-      },
-      {
-        slug: 'aerea',
-        es: { name: 'Soldada Instalación Aérea', desc: 'Configuración para instalación aérea en estaciones de regulación y medición.' },
-        en: { name: 'Above Ground Welded', desc: 'Configuration for above-ground installation at regulation and metering stations.' },
-        manufacturers: ['perar', 'della-foglia'],
-        image: '/images/products/trunnion-soldado-aerea.webp',
-        heroImage: '/images/products/trunnion-soldado-aerea-banner.webp',
-        sizes: '2" to 36"',
-      },
       {
         slug: 'subsea',
         es: { name: 'Trunnion Subsea (API 6DSS)', desc: 'Válvulas para instalación en el fondo marino. Operación remota mediante ROV bajo presiones hidrostáticas extremas.' },
@@ -436,14 +418,6 @@ export const productCategories: Record<string, ProductCategory> = {
         sizes: '2" to 36"',
         pressureClasses: 'ANSI 150-2500',
       },
-      {
-        slug: 'top-entry',
-        es: { name: 'Trunnion Top Entry', desc: 'Acceso superior para mantenimiento en línea sin desmontaje de tubería.' },
-        en: { name: 'Top Entry Trunnion', desc: 'Top access for in-line maintenance without pipe dismantling.' },
-        manufacturers: ['della-foglia'],
-        image: '/images/products/df-trunnion-rtj-factory.jpg',
-        sizes: '4" to 36"',
-      },
     ],
   },
 
@@ -534,15 +508,6 @@ export const productCategories: Record<string, ProductCategory> = {
         heroImage: '/images/products/flotante-estandar-banner.webp',
         sizes: '1/2" to 12"',
         pressureClasses: 'ANSI 150-600',
-      },
-      {
-        slug: 'top-entry',
-        es: { name: 'Bola Flotante Top Entry', desc: 'Válvulas con acceso superior para mantenimiento en línea sin desmontaje de tubería.' },
-        en: { name: 'Top Entry Floating Ball', desc: 'Valves with top access for in-line maintenance without pipe dismantling.' },
-        manufacturers: ['della-foglia'],
-        image: '/images/products/flotante-top-entry.webp',
-        heroImage: '/images/products/flotante-top-entry-banner.webp',
-        sizes: '2" to 24"',
       },
       {
         slug: 'criogenica',
@@ -835,16 +800,6 @@ export const productCategories: Record<string, ProductCategory> = {
         sizes: '2" to 36"',
         pressureClasses: 'ANSI 150-2500',
       },
-      {
-        slug: 'piston',
-        es: { name: 'Check Tipo Pistón', desc: 'Válvulas check tipo pistón para servicios de alta presión y vapor.' },
-        en: { name: 'Piston Check', desc: 'Piston check valves for high-pressure and steam services.' },
-        manufacturers: ['dhv'],
-        image: '/images/products/check-piston.webp',
-        heroImage: '/images/products/check-piston-banner.webp',
-        sizes: '2" to 16"',
-        pressureClasses: 'ANSI 150-2500',
-      },
     ],
   },
 
@@ -956,7 +911,7 @@ export const productCategories: Record<string, ProductCategory> = {
     es: { name: 'Válvulas de Seguridad, Alivio o Relevo', desc: 'Válvulas de alivio de presión para la protección de equipos y procesos contra sobrepresiones catastróficas.' },
     en: { name: 'Safety, Relief & Pressure Relief Valves', desc: 'Pressure relief valves for equipment and process protection against catastrophic overpressure.' },
     image: '/images/products/consolidated-safety.jpg',
-    heroImage: '/images/products/hero-seguridad.webp',
+    heroImage: '/images/heroes/oil-gas.jpg',
     sizes: '1" a 12"',
     pressureClasses: 'ANSI 150–2500',
     standards: ['ASME Section VIII', 'API 520', 'API 526', 'API 527'],

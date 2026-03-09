@@ -25,7 +25,7 @@ export default function Footer() {
         <div
           className="grid gap-10 mb-16"
           style={{
-            gridTemplateColumns: "2fr 1.5fr 1fr",
+            gridTemplateColumns: "2fr 1.2fr 1.2fr 1fr",
           }}
         >
           {/* Col 1: Brand + Tagline */}
@@ -46,12 +46,12 @@ export default function Footer() {
             />
           </div>
 
-          {/* Col 2: Cd. del Carmen */}
+          {/* Col 2: HQ */}
           <div className="hidden lg:block">
             <h3
               className="text-white font-semibold mb-4 text-lg font-heading"
             >
-              IPSA (Cd. del Carmen)
+              IPSA – HQ
             </h3>
             <p className="text-white/85 text-sm leading-relaxed">
               Calle 19, No. 210,
@@ -67,6 +67,22 @@ export default function Footer() {
               >
                 +52 938 138 0550
               </a>
+            </p>
+          </div>
+
+          {/* Col 3: CAD */}
+          <div className="hidden lg:block">
+            <h3
+              className="text-white font-semibold mb-4 text-lg font-heading"
+            >
+              IPSA – CAD
+            </h3>
+            <p className="text-white/85 text-sm leading-relaxed">
+              Calle 55 No. 70,
+              <br />
+              Col. Electricistas, CP 24120,
+              <br />
+              Cd. del Carmen, Campeche
             </p>
           </div>
 

@@ -31,7 +31,7 @@ export const stockImages = {
 
   // Products
   valves: "/images/heroes/df-trunnion-valves-row.jpg",
-  industrial: "/images/heroes/df-massive-bodies-factory.jpg",
+  industrial: "/images/products/ipsa-control-panel-1.jpg",
 
   // About / team
   team: "/images/heroes/about-hero.jpg",

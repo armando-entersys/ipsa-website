@@ -353,7 +353,7 @@ export default function HomePage() {
                 {l === 'es' ? 'Ver todos' : 'View all'} <ArrowRight size={16} />
               </Link>
             </div>
-            <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
               {services.map((svc) => (
                 <Link
                   key={svc.slug}

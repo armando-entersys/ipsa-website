@@ -261,13 +261,13 @@ export default function AboutPage() {
           <div className="mt-12 grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-6">
             {[
               { city: 'CDMX', label: 'HQ', full: 'Ciudad de México' },
-              { city: 'Cd. del Carmen', label: 'CAD', full: 'Campeche' },
+              { city: 'Cd. del Carmen', label: 'HQ', full: 'Campeche' },
               {
                 city: 'Paraíso',
                 label: l === 'es' ? 'Taller' : 'Workshop',
                 full: 'Tabasco',
               },
-              { city: 'Houston', label: 'Intl.', full: 'Texas, USA' },
+              { city: 'Cd. del Carmen', label: 'CAD', full: 'Campeche' },
               {
                 city: 'Villahermosa',
                 label: l === 'es' ? 'Ventas' : 'Sales',

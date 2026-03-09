@@ -21,7 +21,7 @@ import { trackEvent } from "@/lib/analytics";
 const offices = [
   {
     city: "Cd. del Carmen",
-    role: "CAD",
+    role: "HQ",
     address: "Calle 19, No. 210, Col. Salitral, CP 24130, Cd. del Carmen, Campeche",
     phone: "+52 938 138 0550",
     phoneDetail: "",
@@ -36,9 +36,9 @@ const offices = [
   },
   { city: "Paraíso", role: "Taller", address: "Tabasco, México", phone: "", phoneDetail: "" },
   {
-    city: "Houston, TX",
-    role: "Intl. Sales",
-    address: "1601 Peach Leaf St, Houston TX 77039, USA",
+    city: "Cd. del Carmen",
+    role: "CAD",
+    address: "Calle 55 No. 70, Col. Electricistas, CP 24120, Cd. del Carmen, Campeche",
     phone: "",
     phoneDetail: "",
   },

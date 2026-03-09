@@ -114,28 +114,55 @@ export const serviciosHub = {
   // Línea B summary (for hub card)
   lineaB: {
     h2: {
-      es: 'Optimización de infraestructura para una rentabilidad constante.',
-      en: 'Infrastructure optimization for constant profitability.',
+      es: 'Pruebas Hidrostáticas: Certificación y confiabilidad garantizadas.',
+      en: 'Hydrostatic Testing: Guaranteed certification and reliability.',
     },
     body: {
-      es: 'Reconfiguramos flujos de trabajo para eliminar cuellos de botella. Cada activo al máximo de capacidad bajo cumplimiento normativo.',
-      en: 'We reconfigure workflows to eliminate bottlenecks. Every asset at maximum capacity under regulatory compliance.',
+      es: 'Pruebas de presión hidrostática de cuerpo y asiento, pruebas neumáticas y verificación funcional conforme a normas API, ASME e ISO.',
+      en: 'Body and seat hydrostatic pressure tests, pneumatic tests, and functional verification per API, ASME, and ISO standards.',
     },
     features: {
       es: [
-        'Diseño avanzado de layouts industriales y líneas de producción.',
-        'Gestión integral de activos y mejora continua de flujos.',
-        'Auditoría y aseguramiento de cumplimiento normativo internacional.',
+        'Pruebas hidrostáticas de cuerpo y asiento bajo normas API e ISO.',
+        'Verificación funcional de actuación y tiempos de respuesta.',
+        'Documentación y certificación completa de resultados.',
       ],
       en: [
-        'Advanced industrial layout and production line design.',
-        'Comprehensive asset management and continuous flow improvement.',
-        'Auditing and international regulatory compliance assurance.',
+        'Body and seat hydrostatic tests per API and ISO standards.',
+        'Functional actuation and response time verification.',
+        'Complete results documentation and certification.',
       ],
     },
     cta: {
-      es: 'Consultar Consultoría en Ingeniería',
-      en: 'Request Engineering Consulting',
+      es: 'Consultar Pruebas Hidrostáticas',
+      en: 'Request Hydrostatic Testing',
+    },
+  },
+  // Línea C summary (for hub card)
+  lineaC: {
+    h2: {
+      es: 'Stock y suministro: Disponibilidad inmediata en México.',
+      en: 'Stock & supply: Immediate availability in Mexico.',
+    },
+    body: {
+      es: 'Inventario estratégico de válvulas certificadas de los principales fabricantes europeos y americanos, listas para entrega inmediata.',
+      en: 'Strategic inventory of certified valves from leading European and American manufacturers, ready for immediate delivery.',
+    },
+    features: {
+      es: [
+        'Inventario permanente de válvulas Trunnion, compuerta, globo y control.',
+        'Trazabilidad completa y certificaciones originales de fábrica.',
+        'Distribución nacional desde centros estratégicos.',
+      ],
+      en: [
+        'Permanent inventory of Trunnion, gate, globe, and control valves.',
+        'Full traceability and original factory certifications.',
+        'National distribution from strategic centers.',
+      ],
+    },
+    cta: {
+      es: 'Consultar Inventario',
+      en: 'Check Inventory',
     },
   },
   // In-House Transversal (hub level)
@@ -255,12 +282,12 @@ export const services: Service[] = [
   {
     slug: 'automatizacion',
     name: {
-      es: 'Automatización Técnica',
-      en: 'Technical Automation',
+      es: 'Automatización de Válvulas y Sistemas de Paro de Emergencia',
+      en: 'Valve Automation & Emergency Shutdown Systems',
     },
     description: {
-      es: 'Sistemas de control inteligente, integración PLC/SCADA, y migración de sistemas obsoletos.',
-      en: 'Intelligent control systems, PLC/SCADA integration, and legacy system migration.',
+      es: 'Integración de actuadores neumáticos, hidráulicos y eléctricos con válvulas de proceso. Diseño y ensamble de paquetes ESD (Emergency Shutdown) certificados SIL 3 con pruebas FAT documentadas.',
+      en: 'Integration of pneumatic, hydraulic, and electric actuators with process valves. Design and assembly of SIL 3 certified ESD (Emergency Shutdown) packages with documented FAT testing.',
     },
     icon: 'Settings',
     image: '/images/heroes/df-actuator-test.jpg',
@@ -500,16 +527,16 @@ export const services: Service[] = [
   // INGENIERIA Y PROCESOS
   // =========================================================================
   {
-    slug: 'ingenieria',
+    slug: 'pruebas-hidrostaticas',
     name: {
-      es: 'Ingeniería y Procesos',
-      en: 'Engineering & Processes',
+      es: 'Pruebas Hidrostáticas para Válvulas',
+      en: 'Hydrostatic Valve Testing',
     },
     description: {
-      es: 'Diseño de infraestructura crítica, gestión de activos y aseguramiento normativo.',
-      en: 'Critical infrastructure design, asset management, and regulatory compliance.',
+      es: 'Pruebas de presión hidrostática de cuerpo y asiento, pruebas neumáticas, verificación funcional de actuación y pruebas especializadas conforme a normas API, ASME e ISO.',
+      en: 'Body and seat hydrostatic pressure tests, pneumatic tests, functional actuation verification, and specialized testing per API, ASME, and ISO standards.',
     },
-    icon: 'PenTool',
+    icon: 'Gauge',
     image: '/images/heroes/df-cnc-machining.jpg',
 
     heroH1: {
@@ -742,5 +769,111 @@ export const services: Service[] = [
       'valvulas-globo',
     ],
     relatedIndustries: ['oil-gas', 'energetico', 'privado'],
+  },
+
+  // =========================================================================
+  // STOCK Y SUMINISTRO
+  // =========================================================================
+  {
+    slug: 'stock-suministro',
+    name: {
+      es: 'Stock y Suministro de Válvulas',
+      en: 'Valve Stock & Supply',
+    },
+    description: {
+      es: 'Inventario estratégico de válvulas de alta especificación en México. Disponibilidad inmediata de componentes certificados API, ASME y SIL 3 para reducir tiempos de espera en proyectos críticos.',
+      en: 'Strategic inventory of high-specification valves in Mexico. Immediate availability of API, ASME, and SIL 3 certified components to reduce lead times on critical projects.',
+    },
+    icon: 'Warehouse',
+    image: '/images/heroes/products-hero.jpg',
+
+    heroH1: {
+      es: 'Stock permanente de válvulas certificadas en México.',
+      en: 'Permanent stock of certified valves in Mexico.',
+    },
+    heroH2: {
+      es: 'Reducimos los meses de espera en componentes críticos europeos a semanas de logística nacional.',
+      en: 'We reduce months of waiting for critical European components to weeks of national logistics.',
+    },
+    ctaHero: {
+      es: 'Consultar Inventario',
+      en: 'Check Inventory',
+    },
+
+    introduction: {
+      h2: {
+        es: 'Su inventario estratégico en México',
+        en: 'Your strategic inventory in Mexico',
+      },
+      body: {
+        es: 'IPSA mantiene un stock permanente de válvulas Trunnion, compuerta, globo, check y control de los principales fabricantes europeos y americanos, disponibles para entrega inmediata.',
+        en: 'IPSA maintains permanent stock of Trunnion, gate, globe, check, and control valves from leading European and American manufacturers, available for immediate delivery.',
+      },
+    },
+
+    featureBlocks: [
+      {
+        title: { es: 'Inventario Certificado', en: 'Certified Inventory' },
+        detail: { es: 'Válvulas con trazabilidad completa y certificaciones originales de fábrica.', en: 'Valves with full traceability and original factory certifications.' },
+        icon: 'ShieldCheck',
+      },
+      {
+        title: { es: 'Entrega Nacional', en: 'National Delivery' },
+        detail: { es: 'Distribución desde centros estratégicos en México.', en: 'Distribution from strategic centers in Mexico.' },
+        icon: 'Truck',
+      },
+      {
+        title: { es: 'Soporte Técnico', en: 'Technical Support' },
+        detail: { es: 'Asesoría en selección de materiales y especificaciones.', en: 'Advice on material selection and specifications.' },
+        icon: 'Headphones',
+      },
+      {
+        title: { es: 'Marcas Líderes', en: 'Leading Brands' },
+        detail: { es: 'Perar, Della Foglia, DHV, Versa, Masoneilan y Consolidated.', en: 'Perar, Della Foglia, DHV, Versa, Masoneilan, and Consolidated.' },
+        icon: 'Award',
+      },
+    ],
+
+    inHouse: {
+      h2: {
+        es: 'Logística nacional acelerada',
+        en: 'Accelerated national logistics',
+      },
+      body: {
+        es: 'Nuestros centros de distribución en Estado de México, Cd. del Carmen y Villahermosa permiten entregas directas a cualquier punto del país.',
+        en: 'Our distribution centers in State of Mexico, Cd. del Carmen, and Villahermosa enable direct deliveries to any point in the country.',
+      },
+    },
+
+    benefits: [
+      { title: { es: 'Entrega inmediata', en: 'Immediate delivery' } },
+      { title: { es: 'Trazabilidad completa', en: 'Full traceability' } },
+      { title: { es: 'Certificaciones originales', en: 'Original certifications' } },
+    ],
+
+    ctaFinal: {
+      h2: {
+        es: '¿Necesita disponibilidad inmediata?',
+        en: 'Need immediate availability?',
+      },
+      subtexto: {
+        es: 'Consulte inventario actualizado y tiempos de entrega.',
+        en: 'Check updated inventory and delivery times.',
+      },
+      cta: {
+        es: 'Consultar Stock',
+        en: 'Check Stock',
+      },
+    },
+
+    processSteps: [],
+    faqs: [],
+
+    relatedProducts: [
+      'valvulas-bola-trunnion-soldado',
+      'valvulas-bola-trunnion-atornillado',
+      'valvulas-compuerta',
+    ],
+    relatedIndustries: ['oil-gas', 'energetico'],
   },
 ];
