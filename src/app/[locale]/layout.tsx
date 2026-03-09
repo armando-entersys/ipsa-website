@@ -13,7 +13,7 @@ import WhatsAppButton from "@/components/layout/WhatsAppButton";
 import AnalyticsTracker from "@/components/layout/AnalyticsTracker";
 import "../globals.css";
 
-const SITE_URL = "https://ipsacv.com.mx";
+const SITE_URL = process.env.SITE_URL || "https://ipsa.scram2k.com";
 
 const montaguSlab = Montagu_Slab({
   subsets: ["latin"],
@@ -36,7 +36,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "meta" });
-  const ogImage = `${SITE_URL}/images/heroes/products-hero.jpg`;
+  const ogImage = `${SITE_URL}/og-image.jpg`;
   return {
     title: {
       default: t("title"),
