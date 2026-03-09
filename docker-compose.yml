@@ -18,9 +18,10 @@ services:
       - "traefik.http.routers.ipsa-web.rule=Host(`ipsa.scram2k.com`)"
       - "traefik.http.routers.ipsa-web.entrypoints=websecure"
       - "traefik.http.routers.ipsa-web.tls.certresolver=letsencrypt"
-      # HTTP router for ipsacv.com.mx (Cloudflare handles SSL)
+      # HTTPS router for ipsacv.com.mx (Cloudflare handles public SSL, connects to Traefik via HTTPS)
       - "traefik.http.routers.ipsa-web-cf.rule=Host(`ipsacv.com.mx`) || Host(`www.ipsacv.com.mx`)"
-      - "traefik.http.routers.ipsa-web-cf.entrypoints=web,websecure"
+      - "traefik.http.routers.ipsa-web-cf.entrypoints=websecure"
+      - "traefik.http.routers.ipsa-web-cf.tls=true"
       - "traefik.http.routers.ipsa-web-cf.middlewares=ipsa-www-redirect"
       # Redirect www to non-www
       - "traefik.http.middlewares.ipsa-www-redirect.redirectregex.regex=^https?://www\\.ipsacv\\.com\\.mx/(.*)"
