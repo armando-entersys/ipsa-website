@@ -70,7 +70,23 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Col 3: CAD */}
+          {/* Col 3: EdoMex */}
+          <div className="hidden lg:block">
+            <h3
+              className="text-white font-semibold mb-4 text-lg font-heading"
+            >
+              IPSA – Edo. de México
+            </h3>
+            <p className="text-white/85 text-sm leading-relaxed">
+              Convento de Actopan 33,
+              <br />
+              Jardines de Santa Mónica, CP 54050,
+              <br />
+              Tlalnepantla de Baz, Edo. de México
+            </p>
+          </div>
+
+          {/* Col 4: CAD */}
           <div className="hidden lg:block">
             <h3
               className="text-white font-semibold mb-4 text-lg font-heading"
