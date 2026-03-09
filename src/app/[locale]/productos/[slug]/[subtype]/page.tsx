@@ -85,12 +85,12 @@ export default async function SubtypeDetailPage({
       {/* ======== HERO (subtype-specific image) ======== */}
       <section className="relative overflow-hidden min-h-[38vh] md:min-h-[50vh]">
         <Image
-          src={subtypeData.image || stockImages.productsHero}
+          src={subtypeData.heroImage || subtypeData.image || stockImages.productsHero}
           alt=""
           fill
           priority
           placeholder="blur"
-          blurDataURL={getBlur(subtypeData.image || stockImages.productsHero)}
+          blurDataURL={getBlur(subtypeData.heroImage || subtypeData.image || stockImages.productsHero)}
           className="object-cover"
           sizes="100vw"
         />
