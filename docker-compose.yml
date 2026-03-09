@@ -14,16 +14,20 @@ services:
       - RESEND_FROM=${RESEND_FROM:-IPSA Web <onboarding@resend.dev>}
     labels:
       - "traefik.enable=true"
-      # Main router - all domains
-      - "traefik.http.routers.ipsa-web.rule=Host(`ipsacv.com.mx`) || Host(`www.ipsacv.com.mx`) || Host(`ipsa.scram2k.com`)"
+      # HTTPS router for ipsa.scram2k.com (Let's Encrypt)
+      - "traefik.http.routers.ipsa-web.rule=Host(`ipsa.scram2k.com`)"
       - "traefik.http.routers.ipsa-web.entrypoints=websecure"
       - "traefik.http.routers.ipsa-web.tls.certresolver=letsencrypt"
-      - "traefik.http.services.ipsa-web.loadbalancer.server.port=3000"
+      # HTTP router for ipsacv.com.mx (Cloudflare handles SSL)
+      - "traefik.http.routers.ipsa-web-cf.rule=Host(`ipsacv.com.mx`) || Host(`www.ipsacv.com.mx`)"
+      - "traefik.http.routers.ipsa-web-cf.entrypoints=web,websecure"
+      - "traefik.http.routers.ipsa-web-cf.middlewares=ipsa-www-redirect"
       # Redirect www to non-www
-      - "traefik.http.middlewares.ipsa-www-redirect.redirectregex.regex=^https://www\\.ipsacv\\.com\\.mx/(.*)"
+      - "traefik.http.middlewares.ipsa-www-redirect.redirectregex.regex=^https?://www\\.ipsacv\\.com\\.mx/(.*)"
       - "traefik.http.middlewares.ipsa-www-redirect.redirectregex.replacement=https://ipsacv.com.mx/$${1}"
       - "traefik.http.middlewares.ipsa-www-redirect.redirectregex.permanent=true"
-      - "traefik.http.routers.ipsa-web.middlewares=ipsa-www-redirect"
+      # Service
+      - "traefik.http.services.ipsa-web.loadbalancer.server.port=3000"
     networks:
       - traefik
     deploy:
