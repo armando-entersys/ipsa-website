@@ -99,7 +99,7 @@ export const homeData = {
           es: '¿Proyectos en pausa por plazos de fabricación europea? Cada día de inactividad compromete sus metas de producción. Ofrecemos disponibilidad de válvulas Trunnion listas para su instalación.',
           en: 'Projects on hold due to European manufacturing timelines? Every day of downtime compromises your production goals. We offer Trunnion valves available and ready for installation.',
         },
-        image: '/images/heroes/products-hero.jpg',
+        image: '/images/products/ipsa-productos-stock.webp',
       },
       {
         title: {

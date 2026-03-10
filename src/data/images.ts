@@ -8,16 +8,16 @@ import { blurDataURLs } from "./blur-placeholders";
 export const stockImages = {
   // Hero / banners
   hero: "/images/heroes/industries-hero.jpg",
-  heroAlt: "/images/heroes/products-hero.jpg",
+  heroAlt: "/images/heroes/products-stock-hero.webp",
 
   // Inner page heroes
-  productsHero: "/images/heroes/products-hero.jpg",
+  productsHero: "/images/heroes/products-stock-hero.webp",
   servicesHero: "/images/heroes/services-hero.jpg",
   industriesHero: "/images/heroes/industries-hero.jpg",
   suppliersHero: "/images/heroes/suppliers-hero.jpg",
-  aboutHero: "/images/heroes/about-hero.jpg",
-  contactHero: "/images/heroes/contact-hero.jpg",
-  catalogHero: "/images/heroes/products-hero.jpg",
+  aboutHero: "/images/heroes/about-hero-new.jpg",
+  contactHero: "/images/heroes/contact-hero.webp",
+  catalogHero: "/images/heroes/products-stock-hero.webp",
 
   // Industries
   oilGas: "/images/heroes/oil-gas.jpg",
@@ -31,10 +31,10 @@ export const stockImages = {
 
   // Products
   valves: "/images/heroes/df-trunnion-valves-row.jpg",
-  industrial: "/images/products/ipsa-control-panel-1.jpg",
+  industrial: "/images/products/ipsa-ingenieria-valvulas.webp",
 
   // About / team
-  team: "/images/heroes/about-hero.jpg",
+  team: "/images/heroes/ipsa-servicio.webp",
   office: "/images/heroes/df-facility-exterior.jpg",
 
   // Contact

@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
-import { Phone, Mail, MapPin } from "lucide-react";
 
 export default function Footer() {
   const t = useTranslations("footer");
@@ -21,63 +20,50 @@ export default function Footer() {
   return (
     <footer className="bg-navy-deep text-white pt-16 pb-8">
       <div className="mx-auto max-w-[1600px] px-5 md:px-10">
-        {/* ── Main grid ────────────────────────────── */}
-        <div
-          className="grid gap-10 mb-16"
-          style={{
-            gridTemplateColumns: "2fr 1.2fr 1.2fr 1fr",
-          }}
-        >
-          {/* Col 1: Brand + Tagline */}
-          <div className="col-span-full lg:col-span-1" style={{ gridColumn: "1" }}>
-            <p
-              className="font-heading font-normal leading-tight mb-20 max-w-[80%] text-3xl text-white/95"
-            >
-              {locale === "es"
-                ? "Tus expertos en válvulas y automatización industrial"
-                : "Your valve and industrial automation experts"}
-            </p>
-            <Image
-              src="/images/logos/ipsa-logo.png"
-              alt="IPSA - Ingeniería de Partes"
-              width={180}
-              height={45}
-              className="h-[45px] w-auto"
-            />
-          </div>
+        {/* ── Row 1: Brand + Tagline ─────────────── */}
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12">
+          <p className="font-heading font-normal leading-tight max-w-md text-2xl md:text-3xl text-white/95">
+            {locale === "es"
+              ? "Tus expertos en válvulas y automatización industrial"
+              : "Your valve and industrial automation experts"}
+          </p>
+          <Image
+            src="/images/logos/ipsa-logo.png"
+            alt="IPSA - Ingeniería de Partes"
+            width={160}
+            height={40}
+            className="h-10 w-auto"
+          />
+        </div>
 
-          {/* Col 2: HQ */}
-          <div className="hidden lg:block">
-            <h3
-              className="text-white font-semibold mb-4 text-lg font-heading"
-            >
-              IPSA – HQ
+        {/* ── Row 2: Offices + Links ─────────────── */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+          {/* HQ */}
+          <div>
+            <h3 className="text-white font-semibold mb-3 text-sm uppercase tracking-wider">
+              {locale === "es" ? "Oficina Principal" : "Headquarters"}
             </h3>
-            <p className="text-white/85 text-sm leading-relaxed">
+            <p className="text-white/70 text-sm leading-relaxed">
               Calle 19, No. 210,
               <br />
               Col. Salitral, CP 24130,
               <br />
               Cd. del Carmen, Campeche
             </p>
-            <p className="mt-3">
-              <a
-                href="tel:+529381380550"
-                className="text-white/85 text-sm hover:text-gold-light transition-colors duration-150"
-              >
-                +52 938 138 0550
-              </a>
-            </p>
+            <a
+              href="tel:+529381380550"
+              className="text-white/70 text-sm hover:text-gold-light transition-colors duration-150 mt-2 inline-block"
+            >
+              +52 938 138 0550
+            </a>
           </div>
 
-          {/* Col 3: EdoMex */}
-          <div className="hidden lg:block">
-            <h3
-              className="text-white font-semibold mb-4 text-lg font-heading"
-            >
-              IPSA – Edo. de México
+          {/* EdoMex */}
+          <div>
+            <h3 className="text-white font-semibold mb-3 text-sm uppercase tracking-wider">
+              {locale === "es" ? "Edo. de México" : "Mexico State"}
             </h3>
-            <p className="text-white/85 text-sm leading-relaxed">
+            <p className="text-white/70 text-sm leading-relaxed">
               Convento de Actopan 33,
               <br />
               Jardines de Santa Mónica, CP 54050,
@@ -86,14 +72,12 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Col 4: CAD */}
-          <div className="hidden lg:block">
-            <h3
-              className="text-white font-semibold mb-4 text-lg font-heading"
-            >
-              IPSA – CAD
+          {/* CAD */}
+          <div>
+            <h3 className="text-white font-semibold mb-3 text-sm uppercase tracking-wider">
+              {locale === "es" ? "Centro de Distribución" : "Distribution Center"}
             </h3>
-            <p className="text-white/85 text-sm leading-relaxed">
+            <p className="text-white/70 text-sm leading-relaxed">
               Calle 55 No. 70,
               <br />
               Col. Electricistas, CP 24120,
@@ -102,11 +86,9 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Col 4: Discover */}
+          {/* Discover */}
           <div>
-            <h3
-              className="text-white font-semibold mb-4 text-lg font-heading"
-            >
+            <h3 className="text-white font-semibold mb-3 text-sm uppercase tracking-wider">
               {locale === "es" ? "Descubre" : "Discover"}
             </h3>
             <ul className="space-y-2">
@@ -114,7 +96,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-white/85 text-sm hover:text-gold-light transition-colors duration-150 block leading-relaxed"
+                    className="text-white/70 text-sm hover:text-gold-light transition-colors duration-150 block leading-relaxed"
                   >
                     {link.label}
                   </Link>
@@ -125,23 +107,21 @@ export default function Footer() {
         </div>
 
         {/* ── Bottom bar ───────────────────────────── */}
-        <div
-          className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-white/15"
-        >
-          <p className="text-white/70 text-sm">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-white/15">
+          <p className="text-white/50 text-xs">
             &copy; {new Date().getFullYear()} Ingeniería de Partes S.A. de C.V.{" "}
             {t("rights")}
           </p>
           <div className="flex items-center gap-6 flex-wrap">
             <Link
               href={`${prefix}/nosotros`}
-              className="text-white/70 hover:text-gold-light transition-colors duration-150 whitespace-nowrap text-sm"
+              className="text-white/50 hover:text-gold-light transition-colors duration-150 whitespace-nowrap text-xs"
             >
               {t("privacy")}
             </Link>
             <Link
               href={`${prefix}/nosotros`}
-              className="text-white/70 hover:text-gold-light transition-colors duration-150 whitespace-nowrap text-sm"
+              className="text-white/50 hover:text-gold-light transition-colors duration-150 whitespace-nowrap text-xs"
             >
               {t("terms")}
             </Link>

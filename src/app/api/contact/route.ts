@@ -37,7 +37,7 @@ export async function POST(request: Request) {
     }
 
     const contactEmail =
-      process.env.CONTACT_EMAIL || "ventas.mexico@ipsa-cv.com.mx";
+      process.env.CONTACT_EMAIL || "armando.cortes@scram2k.com";
     const fromAddress =
       process.env.RESEND_FROM || "IPSA Web <onboarding@resend.dev>";
 

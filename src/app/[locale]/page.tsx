@@ -48,7 +48,7 @@ export default function HomePage() {
           playsInline
           className="absolute inset-0 h-full w-full object-cover"
         >
-          <source src="/videos/hero-warehouse.mp4" type="video/mp4" />
+          <source src="/videos/hero-ipsa-ingenieria.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-black/50" />
         <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/60 via-navy-dark/20 to-transparent" />
