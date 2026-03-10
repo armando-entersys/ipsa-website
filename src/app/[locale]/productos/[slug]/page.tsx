@@ -527,17 +527,17 @@ export default async function ProductCategoryPage({
               </div>
 
               {/* Product image */}
-              <div className="relative overflow-hidden rounded-xl bg-gray-50" style={{ aspectRatio: '1/1' }}>
+              <div className="relative overflow-hidden rounded-xl bg-gray-50" style={{ aspectRatio: '4/3' }}>
                 <Image
                   src={category.image}
                   alt={data.name}
                   fill
-                  className="object-contain"
+                  className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 33vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/60 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/40 via-transparent to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-5">
-                  <p className="font-heading text-sm font-semibold text-white">{data.name}</p>
+                  <p className="font-heading text-sm font-semibold text-white drop-shadow-md">{data.name}</p>
                 </div>
               </div>
 
