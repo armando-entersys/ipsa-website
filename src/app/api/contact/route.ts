@@ -141,13 +141,14 @@ export async function POST(request: Request) {
           <p style="color:#999;font-size:11px;margin-top:16px;text-align:center">IPSA - Instrumentaci&oacute;n y Proyectos S.A. de C.V. | ipsacv.com.mx</p>
         </div>`;
 
-    await resend.emails.send({
+    const confirmResult = await resend.emails.send({
       from: fromAddress,
       to: [email],
       replyTo: contactEmail,
       subject: confirmSubject,
       html: confirmHtml,
     });
+    console.log("Confirmation email result:", JSON.stringify(confirmResult));
 
     return NextResponse.json({ success: true });
   } catch (error) {
