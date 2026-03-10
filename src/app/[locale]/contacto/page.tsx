@@ -244,9 +244,9 @@ export default function ContactPage() {
                         className="input-field rounded-xl w-full px-4 py-3 text-sm bg-white"
                       >
                         <option value="">{t("selectOption")}</option>
-                        <option value="oil">{t("industries.oil")}</option>
-                        <option value="oils">{t("industries.oils")}</option>
-                        <option value="gas">{t("industries.gas")}</option>
+                        <option value="oil-gas">{t("industries.oilGas")}</option>
+                        <option value="energetico">{t("industries.energetico")}</option>
+                        <option value="privado">{t("industries.privado")}</option>
                         <option value="other">{t("industries.other")}</option>
                       </select>
                     </div>

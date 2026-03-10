@@ -153,9 +153,9 @@
     "hours": "Lunes a Viernes, 08:00 - 18:00",
     "selectOption": "Seleccionar...",
     "industries": {
-      "oil": "Petroleras",
-      "oils": "Aceites",
-      "gas": "Gas",
+      "oilGas": "Oil & Gas",
+      "energetico": "Sector Energético",
+      "privado": "Sector Privado",
       "other": "Otra"
     },
     "queryTypes": {

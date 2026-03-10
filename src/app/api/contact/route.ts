@@ -37,14 +37,15 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Invalid email" }, { status: 400 });
     }
 
-    const contactEmail = "armando.cortes@scram2k.com";
+    const contactEmail =
+      process.env.CONTACT_EMAIL || "ventas.mexico@ipsa-cv.com.mx";
     const fromAddress =
-      process.env.RESEND_FROM || "IPSA Web <onboarding@resend.dev>";
+      process.env.RESEND_FROM || "IPSA Web <contacto@ipsacv.com.mx>";
 
     const industryLabels: Record<string, string> = {
-      oil: "Oil & Gas",
-      oils: "Petroquímica / Refinación",
-      gas: "Energético",
+      "oil-gas": "Oil & Gas",
+      energetico: "Sector Energético",
+      privado: "Sector Privado",
       other: "Otro",
     };
 

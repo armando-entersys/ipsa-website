@@ -785,7 +785,7 @@ export const services: Service[] = [
       en: 'Strategic inventory of high-specification valves in Mexico. Immediate availability of API, ASME, and SIL 3 certified components to reduce lead times on critical projects.',
     },
     icon: 'Warehouse',
-    image: '/images/heroes/products-hero.jpg',
+    image: '/images/heroes/hero-stock-suministro.webp',
 
     heroH1: {
       es: 'Stock permanente de válvulas certificadas en México.',
