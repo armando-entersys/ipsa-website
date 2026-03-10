@@ -30,9 +30,9 @@ export default function Footer() {
           <Image
             src="/images/logos/ipsa-logo.png"
             alt="IPSA - Ingeniería de Partes"
-            width={160}
-            height={40}
-            className="h-10 w-auto"
+            width={162}
+            height={60}
+            className="h-[60px] w-auto shrink-0"
           />
         </div>
 
