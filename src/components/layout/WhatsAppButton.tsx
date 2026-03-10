@@ -1,14 +1,20 @@
 "use client";
 
 import { useState } from "react";
+import { useLocale } from "next-intl";
 
 const PHONE = "5215541886380";
-const MESSAGE = "Hola, me gustaría obtener más información sobre sus productos y servicios.";
+const MESSAGES = {
+  es: "Hola, me gustaría obtener más información sobre sus productos y servicios.",
+  en: "Hello, I would like to get more information about your products and services.",
+};
 
 export default function WhatsAppButton() {
   const [hovered, setHovered] = useState(false);
+  const locale = useLocale();
+  const message = MESSAGES[locale as keyof typeof MESSAGES] || MESSAGES.es;
 
-  const url = `https://wa.me/${PHONE}?text=${encodeURIComponent(MESSAGE)}`;
+  const url = `https://wa.me/${PHONE}?text=${encodeURIComponent(message)}`;
 
   return (
     <a
