@@ -1,7 +1,8 @@
 # IPSA Website - Deployment Guide
 
 **Application:** IPSA Corporate Website (Next.js)
-**Domain:** https://ipsa.scram2k.com
+**Production Domain:** https://ipsacv.com.mx
+**Staging Domain:** https://ipsa.scram2k.com
 **Repository:** https://github.com/armando-entersys/ipsa-website
 **Branch:** master
 **Server:** prod-server (GCP e2-standard-4, us-central1-c)
@@ -13,10 +14,47 @@
 
 - **Framework:** Next.js 16.1.6 with `output: "standalone"`
 - **Runtime:** Node.js 20 Alpine
-- **Proxy:** Traefik v2.10 (auto SSL via Let's Encrypt)
-- **Container:** `ipsa-web` on `traefik-public` network
+- **Proxy:** Traefik v2.10
+- **SSL:** Let's Encrypt via Traefik (all domains) + Cloudflare proxy
+- **Container:** `ipsa-web` on `traefik` network
 - **Port:** 3000 (internal only, exposed via Traefik)
 - **Resources:** 512MB RAM max, 0.5 CPU max
+
+### Traefik Routing
+
+Single router `ipsa-web` handles all domains with Let's Encrypt:
+- `ipsacv.com.mx` (production)
+- `www.ipsacv.com.mx` → 301 redirect to `ipsacv.com.mx`
+- `ipsa.scram2k.com` (staging)
+
+---
+
+## Deploy from Local Machine (Recommended)
+
+This is how we deploy. No need to SSH manually.
+
+### Standard deploy (code changes only, no Dockerfile changes)
+
+```bash
+cd C:\IPSA\ipsa-web
+git push origin master
+gcloud compute ssh prod-server --zone=us-central1-c --command="cd /srv/IPSA/Website && git pull && docker compose up -d"
+```
+
+### Full rebuild (Dockerfile or dependency changes)
+
+```bash
+cd C:\IPSA\ipsa-web
+git push origin master
+gcloud compute ssh prod-server --zone=us-central1-c --command="cd /srv/IPSA/Website && git pull && docker compose build --no-cache && docker compose up -d"
+```
+
+### Verify after deploy
+
+```bash
+gcloud compute ssh prod-server --zone=us-central1-c --command="docker ps | grep ipsa-web && docker inspect --format='{{.State.Health.Status}}' ipsa-web"
+curl -sI https://ipsacv.com.mx/es | head -5
+```
 
 ---
 
@@ -45,12 +83,12 @@ git clone https://github.com/armando-entersys/ipsa-website.git .
 ### 4. Verify Traefik network exists
 
 ```bash
-docker network ls | grep traefik-public
+docker network ls | grep traefik
 ```
 
 If it doesn't exist (unlikely on prod-server):
 ```bash
-docker network create traefik-public
+docker network create traefik
 ```
 
 ### 5. Build and deploy
@@ -62,47 +100,9 @@ docker compose up -d --build
 ### 6. Verify deployment
 
 ```bash
-# Check container is running
 docker compose ps
-
-# Check logs
-docker compose logs -f ipsa-web
-
-# Check health
 docker inspect --format='{{.State.Health.Status}}' ipsa-web
-
-# Test the site
-curl -s -o /dev/null -w "%{http_code}" https://ipsa.scram2k.com
-```
-
----
-
-## Update Deployment (Subsequent Deploys)
-
-### Quick update (recommended)
-
-```bash
-cd /srv/IPSA/Website
-git pull origin master
-docker compose up -d --build
-```
-
-### Full rebuild (if something is stuck)
-
-```bash
-cd /srv/IPSA/Website
-git pull origin master
-docker compose down
-docker compose build --no-cache
-docker compose up -d
-```
-
-### Verify after update
-
-```bash
-docker compose ps
-docker compose logs --tail=20 ipsa-web
-curl -s -o /dev/null -w "%{http_code}" https://ipsa.scram2k.com
+curl -s -o /dev/null -w "%{http_code}" https://ipsacv.com.mx
 ```
 
 ---
@@ -112,14 +112,10 @@ curl -s -o /dev/null -w "%{http_code}" https://ipsa.scram2k.com
 If something goes wrong after an update:
 
 ```bash
-cd /srv/IPSA/Website
+gcloud compute ssh prod-server --zone=us-central1-c --command="cd /srv/IPSA/Website && git log --oneline -5"
 
-# Find the previous working commit
-git log --oneline -5
-
-# Rollback to specific commit
-git checkout <commit-hash> .
-docker compose up -d --build
+# Then rollback to specific commit:
+gcloud compute ssh prod-server --zone=us-central1-c --command="cd /srv/IPSA/Website && git checkout <commit-hash> . && docker compose up -d --build"
 ```
 
 ---
@@ -135,75 +131,94 @@ docker compose up -d --build
 
 ---
 
+## DNS Configuration
+
+### ipsacv.com.mx (Production - Cloudflare)
+
+DNS managed in Cloudflare. Server IP: `34.59.193.54`
+
+| Type | Name | Content | Proxy |
+|------|------|---------|-------|
+| A | `ipsacv.com.mx` | `34.59.193.54` | Proxied (orange) |
+| A | `www` | `34.59.193.54` | Proxied (orange) |
+
+Cloudflare SSL/TLS mode: **Full (Strict)**
+
+SSL certificate is issued by Let's Encrypt via Traefik HTTP challenge.
+
+**If the Let's Encrypt cert expires or needs renewal:**
+1. Set both A records to DNS only (grey cloud) temporarily
+2. Restart ipsa-web container: `docker restart ipsa-web`
+3. Wait 30s for Traefik to renew the cert
+4. Set both A records back to Proxied (orange cloud)
+
+### ipsa.scram2k.com (Staging)
+
+Managed via existing Cloudflare zone for scram2k.com. Uses Let's Encrypt certificate via Traefik.
+
+---
+
 ## Troubleshooting
 
 ### Container won't start
 ```bash
-docker compose logs ipsa-web
+gcloud compute ssh prod-server --zone=us-central1-c --command="cd /srv/IPSA/Website && docker compose logs ipsa-web"
 ```
 
 ### Out of memory
 The container is limited to 512MB. If it crashes with OOM:
 ```bash
-# Check memory usage
-docker stats ipsa-web --no-stream
-
-# Increase limit temporarily in docker-compose.yml
-# memory: 768M
+gcloud compute ssh prod-server --zone=us-central1-c --command="docker stats ipsa-web --no-stream"
 ```
 
 ### SSL certificate issues
-Traefik handles SSL automatically. If certificate isn't working:
+- **ipsacv.com.mx:** SSL is handled by Cloudflare. Check Cloudflare dashboard.
+- **ipsa.scram2k.com:** Traefik handles SSL via Let's Encrypt:
 ```bash
-# Check Traefik logs
-docker logs traefik 2>&1 | grep ipsa
+gcloud compute ssh prod-server --zone=us-central1-c --command="docker logs traefik 2>&1 | grep ipsa"
 ```
 
 ### Build fails
 ```bash
-# Clear Docker build cache
-docker builder prune -f
-
-# Rebuild from scratch
-docker compose build --no-cache
+gcloud compute ssh prod-server --zone=us-central1-c --command="docker builder prune -f && cd /srv/IPSA/Website && docker compose build --no-cache"
 ```
 
----
-
-## DNS Configuration
-
-The domain `ipsa.scram2k.com` must point to the production server's IP.
-DNS is already configured. If it needs to be updated:
-- Type: A record
-- Name: ipsa
-- Value: (prod-server external IP)
+### 522 error on ipsacv.com.mx
+This means Cloudflare can't reach the server. Check:
+1. CNAME `ipsacv.com.mx` -> `ipsa.scram2k.com` exists and is proxied
+2. Cloudflare SSL mode is "Full" (not Flexible, not Full Strict)
+3. Container is running: `docker ps | grep ipsa-web`
 
 ---
 
 ## Monitoring
 
-- Container metrics are automatically collected by cAdvisor + Prometheus
-- Logs are aggregated via Loki
+- Container metrics: cAdvisor + Prometheus (automatic)
+- Logs: Loki (automatic)
 - Dashboard: https://monitoring.entersys.mx
-- Health check runs every 30s via `wget http://localhost:3000`
+- Health check: every 30s via `wget http://localhost:3000`
 
 ---
 
 ## For Claude Code Agents
 
 ```
-DEPLOYMENT SUMMARY:
-1. SSH: gcloud compute ssh prod-server --zone=us-central1-c
-2. Navigate: cd /srv/IPSA/Website
-3. Pull: git pull origin master
-4. Deploy: docker compose up -d --build
-5. Verify: docker compose ps && curl -s -o /dev/null -w "%{http_code}" https://ipsa.scram2k.com
+DEPLOYMENT STEPS:
+1. Push: git push origin master
+2. Deploy: gcloud compute ssh prod-server --zone=us-central1-c --command="cd /srv/IPSA/Website && git pull && docker compose up -d"
+3. Verify: curl -sI https://ipsacv.com.mx/es | head -3
 
-IMPORTANT:
-- Always git pull before building
+FULL REBUILD (if Dockerfile or deps changed):
+1. Push: git push origin master
+2. Deploy: gcloud compute ssh prod-server --zone=us-central1-c --command="cd /srv/IPSA/Website && git pull && docker compose build --no-cache && docker compose up -d"
+3. Verify: curl -sI https://ipsacv.com.mx/es | head -3
+
+KEY INFO:
 - Container name: ipsa-web
-- Domain: ipsa.scram2k.com
-- Network: traefik-public (external)
+- Production: ipsacv.com.mx (Cloudflare SSL)
+- Staging: ipsa.scram2k.com (Let's Encrypt SSL)
+- Network: traefik (external)
 - Max memory: 512MB
+- Server path: /srv/IPSA/Website
 - Health check: wget http://localhost:3000
 ```
