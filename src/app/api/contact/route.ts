@@ -37,8 +37,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Invalid email" }, { status: 400 });
     }
 
-    const contactEmail =
-      process.env.CONTACT_EMAIL || "armando.cortes@scram2k.com";
+    const contactEmail = "armando.cortes@scram2k.com";
     const fromAddress =
       process.env.RESEND_FROM || "IPSA Web <onboarding@resend.dev>";
 
@@ -67,7 +66,7 @@ export async function POST(request: Request) {
     // 1. Internal notification email
     await resend.emails.send({
       from: fromAddress,
-      to: [contactEmail, "armando.cortes@scram2k.com"],
+      to: [contactEmail],
       replyTo: email,
       subject: `[IPSA Web] Nueva consulta: ${n} - ${c}`,
       html: `
