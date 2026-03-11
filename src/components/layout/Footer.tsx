@@ -114,13 +114,13 @@ export default function Footer() {
           </p>
           <div className="flex items-center gap-6 flex-wrap">
             <Link
-              href={`${prefix}/nosotros`}
+              href={`${prefix}/legal#privacidad`}
               className="text-white/50 hover:text-gold-light transition-colors duration-150 whitespace-nowrap text-xs"
             >
               {t("privacy")}
             </Link>
             <Link
-              href={`${prefix}/nosotros`}
+              href={`${prefix}/legal#terminos`}
               className="text-white/50 hover:text-gold-light transition-colors duration-150 whitespace-nowrap text-xs"
             >
               {t("terms")}

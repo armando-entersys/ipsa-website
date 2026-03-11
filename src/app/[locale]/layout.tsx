@@ -10,6 +10,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import BackToTop from "@/components/layout/BackToTop";
 import WhatsAppButton from "@/components/layout/WhatsAppButton";
+import CookieBanner from "@/components/layout/CookieBanner";
 import AnalyticsTracker from "@/components/layout/AnalyticsTracker";
 import "../globals.css";
 
@@ -232,6 +233,7 @@ export default async function LocaleLayout({
           <Footer />
           <WhatsAppButton />
           <BackToTop />
+          <CookieBanner />
           <AnalyticsTracker />
         </NextIntlClientProvider>
       </body>

@@ -223,8 +223,8 @@ export const productCategories: Record<string, ProductCategory> = {
     ctaPrimary: { es: 'Consultar Inventario', en: 'Check Inventory' },
     ctaSecondary: { es: 'Solicitar Ingeniería', en: 'Request Engineering' },
     definition: {
-      es: 'Una válvula trunnion de cuerpo soldado es un dispositivo de aislamiento donde la bola está soportada por ejes superior e inferior (trunnion) y el cuerpo está sellado permanentemente mediante soldadura, eliminando juntas bridadas y posibles puntos de fuga. Su construcción compacta la hace ideal para enterramiento directo y líneas de transmisión de gas y petróleo.',
-      en: 'A welded body trunnion valve is an isolation device where the ball is supported by upper and lower shafts (trunnion) and the body is permanently sealed by welding, eliminating flanged joints and potential leak points. Its compact construction makes it ideal for direct burial and gas and oil transmission lines.',
+      es: 'Una válvula trunnion de cuerpo soldado es un dispositivo de aislamiento donde la bola está soportada por ejes superior e inferior (trunnion) y el cuerpo está sellado permanentemente mediante soldadura, eliminando juntas bridadas y posibles puntos de fuga. Su construcción compacta la hace ideal para ductos marinos y terrestres de transmisión de gas y petróleo.',
+      en: 'A welded body trunnion valve is an isolation device where the ball is supported by upper and lower shafts (trunnion) and the body is permanently sealed by welding, eliminating flanged joints and potential leak points. Its compact construction makes it ideal for marine and onshore gas and oil transmission pipelines.',
     },
     pas: {
       problema: {
@@ -255,8 +255,8 @@ export const productCategories: Record<string, ProductCategory> = {
       {
         question: { es: '¿Qué es una válvula de bola trunnion de cuerpo soldado?', en: 'What is a welded body trunnion ball valve?' },
         answer: {
-          es: 'Es una válvula de aislamiento donde la bola está soportada por ejes superiores e inferiores (trunnion) y el cuerpo está sellado permanentemente mediante soldadura, eliminando juntas bridadas y posibles puntos de fuga. Su construcción monolítica la hace ideal para enterramiento directo y líneas de transmisión de alta presión.',
-          en: 'It is an isolation valve where the ball is supported by upper and lower shafts (trunnion) and the body is permanently sealed by welding, eliminating flanged joints and potential leak points. Its monolithic construction makes it ideal for direct burial and high-pressure transmission lines.',
+          es: 'Es una válvula de aislamiento donde la bola está soportada por ejes superiores e inferiores (trunnion) y el cuerpo está sellado permanentemente mediante soldadura, eliminando juntas bridadas y posibles puntos de fuga. Su construcción monolítica la hace ideal para ductos marinos y terrestres de transmisión de alta presión.',
+          en: 'It is an isolation valve where the ball is supported by upper and lower shafts (trunnion) and the body is permanently sealed by welding, eliminating flanged joints and potential leak points. Its monolithic construction makes it ideal for marine and onshore high-pressure transmission pipelines.',
         },
       },
       {
@@ -276,8 +276,8 @@ export const productCategories: Record<string, ProductCategory> = {
       {
         question: { es: '¿Qué tamaños y clases de presión están disponibles?', en: 'What sizes and pressure classes are available?' },
         answer: {
-          es: 'Las válvulas trunnion de cuerpo soldado que manejamos están disponibles en diámetros de 2" a 60" y clases de presión ANSI 150 a 2500. Para aplicaciones subsea, los rangos típicos son 4" a 36" en clases 600 a 2500 con recubrimientos especiales anticorrosión.',
-          en: 'The welded body trunnion valves we supply are available in diameters from 2" to 60" and pressure classes ANSI 150 to 2500. For subsea applications, typical ranges are 4" to 36" in classes 600 to 2500 with special anti-corrosion coatings.',
+          es: 'Las válvulas trunnion de cuerpo soldado que manejamos están disponibles en diámetros de 2" a 48" y clases de presión ANSI 150 a 2500. Para aplicaciones subsea, los rangos típicos son 4" a 36" en clases 600 a 2500 con recubrimientos especiales anticorrosión.',
+          en: 'The welded body trunnion valves we supply are available in diameters from 2" to 48" and pressure classes ANSI 150 to 2500. For subsea applications, typical ranges are 4" to 36" in classes 600 to 2500 with special anti-corrosion coatings.',
         },
       },
       {
@@ -290,17 +290,17 @@ export const productCategories: Record<string, ProductCategory> = {
     ],
     subtypes: [
       {
-        slug: 'enterramiento',
-        es: { name: 'Soldada para Enterramiento', desc: 'Válvulas trunnion de cuerpo soldado diseñadas para instalación enterrada en ductos de transmisión.' },
-        en: { name: 'Buried Installation', desc: 'Welded body trunnion valves designed for buried installation in transmission pipelines.' },
+        slug: 'ductos-terrestres',
+        es: { name: 'Ductos Terrestres', desc: 'Válvulas trunnion de cuerpo soldado para ductos terrestres de transmisión de gas y petróleo.' },
+        en: { name: 'Onshore Pipelines', desc: 'Welded body trunnion valves for onshore gas and oil transmission pipelines.' },
         manufacturers: ['della-foglia'],
         image: '/images/products/trunnion-soldado-enterramiento.webp',
         heroImage: '/images/products/trunnion-soldado-enterramiento-banner.webp',
       },
       {
-        slug: 'instalacion-aerea',
-        es: { name: 'Instalación Aérea', desc: 'Válvulas trunnion de cuerpo soldado para instalación sobre superficie en estaciones y terminales.' },
-        en: { name: 'Above-Ground Installation', desc: 'Welded body trunnion valves for above-ground installation in stations and terminals.' },
+        slug: 'ductos-marinos',
+        es: { name: 'Ductos Marinos y Offshore', desc: 'Válvulas trunnion de cuerpo soldado para ductos marinos, plataformas offshore y terminales costeras.' },
+        en: { name: 'Marine & Offshore Pipelines', desc: 'Welded body trunnion valves for marine pipelines, offshore platforms, and coastal terminals.' },
         manufacturers: ['della-foglia'],
         image: '/images/products/trunnion-soldado-aerea.webp',
         heroImage: '/images/products/trunnion-soldado-aerea-banner.webp',
@@ -389,8 +389,8 @@ export const productCategories: Record<string, ProductCategory> = {
       {
         question: { es: '¿Qué configuraciones existen para las trunnion atornilladas?', en: 'What configurations exist for bolted trunnion valves?' },
         answer: {
-          es: 'Existen tres configuraciones principales: 2 piezas (side entry) para mantenimiento estándar, 3 piezas para acceso completo a los internos sin retirar de la línea, y top entry para mantenimiento desde la parte superior sin desmontar la tubería. La elección depende del espacio disponible y la frecuencia de mantenimiento requerida.',
-          en: 'There are three main configurations: 2-piece (side entry) for standard maintenance, 3-piece for full access to internals without removing from the line, and top entry for maintenance from above without dismantling piping. The choice depends on available space and required maintenance frequency.',
+          es: 'Existen dos configuraciones principales: 2 piezas (side entry) para mantenimiento estándar, y 3 piezas para acceso completo a los internos sin retirar de la línea. La elección depende del espacio disponible y la frecuencia de mantenimiento requerida.',
+          en: 'There are two main configurations: 2-piece (side entry) for standard maintenance, and 3-piece for full access to internals without removing from the line. The choice depends on available space and required maintenance frequency.',
         },
       },
       {
@@ -403,15 +403,15 @@ export const productCategories: Record<string, ProductCategory> = {
       {
         question: { es: '¿Qué tamaños están disponibles en trunnion atornilladas?', en: 'What sizes are available in bolted trunnion valves?' },
         answer: {
-          es: 'Manejamos válvulas trunnion atornilladas de 2" a 48" en clases ANSI 150 a 2500, con fabricantes Perar, Della Foglia y DHV. Las configuraciones de 2 piezas cubren hasta 48", las de 3 piezas hasta 36", y las top entry de 4" a 36". Los materiales incluyen acero al carbono, inoxidable, dúplex y aleaciones especiales.',
-          en: 'We supply bolted trunnion valves from 2" to 48" in ANSI classes 150 to 2500, from manufacturers Perar, Della Foglia, and DHV. 2-piece configurations cover up to 48", 3-piece up to 36", and top entry from 4" to 36". Materials include carbon steel, stainless steel, duplex, and special alloys.',
+          es: 'Manejamos válvulas trunnion atornilladas de 2" a 48" en clases ANSI 150 a 2500, con fabricantes Perar, Della Foglia y DHV. Las configuraciones de 2 piezas cubren hasta 48" y las de 3 piezas hasta 36". Los materiales incluyen acero al carbono, inoxidable, dúplex y aleaciones especiales.',
+          en: 'We supply bolted trunnion valves from 2" to 48" in ANSI classes 150 to 2500, from manufacturers Perar, Della Foglia, and DHV. 2-piece configurations cover up to 48" and 3-piece up to 36". Materials include carbon steel, stainless steel, duplex, and special alloys.',
         },
       },
       {
-        question: { es: '¿Cómo seleccionar entre 2 piezas, 3 piezas y top entry?', en: 'How to choose between 2-piece, 3-piece, and top entry?' },
+        question: { es: '¿Cómo seleccionar entre 2 piezas y 3 piezas?', en: 'How to choose between 2-piece and 3-piece?' },
         answer: {
-          es: 'La selección depende del tipo de mantenimiento requerido: 2 piezas es la opción más económica para mantenimiento periódico estándar; 3 piezas permite acceso total a la bola y los asientos sin retirar la válvula de la línea; top entry es ideal cuando el espacio lateral es limitado o la tubería no puede desmontarse, como en plataformas offshore.',
-          en: 'Selection depends on the type of maintenance required: 2-piece is the most economical option for standard periodic maintenance; 3-piece allows full access to ball and seats without removing the valve from the line; top entry is ideal when lateral space is limited or piping cannot be dismantled, such as on offshore platforms.',
+          es: 'La selección depende del tipo de mantenimiento requerido: 2 piezas es la opción más económica para mantenimiento periódico estándar; 3 piezas permite acceso total a la bola y los asientos sin retirar la válvula de la línea, ideal para refinerías y plantas de proceso.',
+          en: 'Selection depends on the type of maintenance required: 2-piece is the most economical option for standard periodic maintenance; 3-piece allows full access to ball and seats without removing the valve from the line, ideal for refineries and process plants.',
         },
       },
     ],
@@ -534,14 +534,6 @@ export const productCategories: Record<string, ProductCategory> = {
         manufacturers: ['della-foglia'],
         image: '/images/products/flotante-criogenica.webp',
         heroImage: '/images/products/flotante-criogenica-banner.webp',
-      },
-      {
-        slug: 'top-entry',
-        es: { name: 'Bola Flotante Top Entry', desc: 'Válvulas flotantes con acceso superior para mantenimiento en línea sin desmontar la tubería.' },
-        en: { name: 'Top Entry Floating Ball', desc: 'Floating ball valves with top access for in-line maintenance without dismantling the piping.' },
-        manufacturers: ['dhv'],
-        image: '/images/products/flotante-top-entry.webp',
-        heroImage: '/images/products/flotante-top-entry-banner.webp',
       },
     ],
   },
@@ -789,8 +781,8 @@ export const productCategories: Record<string, ProductCategory> = {
       {
         question: { es: '¿Qué tipos de válvulas check existen?', en: 'What types of check valves exist?' },
         answer: {
-          es: 'Los principales tipos son: swing check (bisagra), con un disco que pivota y ofrece baja caída de presión; dual plate (doble disco o wafer), compacta y liviana para instalación entre bridas; y piston check (pistón), con cierre rápido para servicios de alta presión y vapor donde se necesita minimizar el golpe de ariete.',
-          en: 'The main types are: swing check, with a pivoting disc offering low pressure drop; dual plate (double disc or wafer), compact and lightweight for installation between flanges; and piston check, with fast closure for high-pressure and steam services where water hammer must be minimized.',
+          es: 'Los principales tipos son: swing check (bisagra), con un disco que pivota y ofrece baja caída de presión; y dual plate (doble disco o wafer), compacta y liviana para instalación entre bridas. La elección depende del espacio disponible, la caída de presión permisible y las condiciones de servicio.',
+          en: 'The main types are: swing check, with a pivoting disc offering low pressure drop; and dual plate (double disc or wafer), compact and lightweight for installation between flanges. The choice depends on available space, permissible pressure drop, and service conditions.',
         },
       },
       {
@@ -810,8 +802,8 @@ export const productCategories: Record<string, ProductCategory> = {
       {
         question: { es: '¿Cómo seleccionar la válvula check correcta?', en: 'How to select the right check valve?' },
         answer: {
-          es: 'La selección depende de la velocidad de cierre requerida (el piston check cierra más rápido que el swing), el espacio disponible (el dual plate es más compacto), la caída de presión permisible (el swing ofrece menor restricción), y el servicio (presión, temperatura, fluido). Para sistemas con riesgo de golpe de ariete, se recomienda check con resorte o amortiguador.',
-          en: 'Selection depends on required closing speed (piston check closes faster than swing), available space (dual plate is more compact), permissible pressure drop (swing offers less restriction), and service conditions (pressure, temperature, fluid). For systems with water hammer risk, spring-loaded or dampened check valves are recommended.',
+          es: 'La selección depende del espacio disponible (el dual plate es más compacto), la caída de presión permisible (el swing ofrece menor restricción), y el servicio (presión, temperatura, fluido). Para sistemas con riesgo de golpe de ariete, se recomienda check con resorte o amortiguador.',
+          en: 'Selection depends on available space (dual plate is more compact), permissible pressure drop (swing offers less restriction), and service conditions (pressure, temperature, fluid). For systems with water hammer risk, spring-loaded or dampened check valves are recommended.',
         },
       },
     ],
@@ -824,16 +816,6 @@ export const productCategories: Record<string, ProductCategory> = {
         image: '/images/products/check-swing.webp',
         heroImage: '/images/products/check-swing-banner.webp',
         sizes: '2" to 36"',
-        pressureClasses: 'ANSI 150-2500',
-      },
-      {
-        slug: 'piston',
-        es: { name: 'Check Tipo Pistón', desc: 'Válvulas check tipo pistón para cierre rápido y protección contra golpe de ariete en líneas críticas.' },
-        en: { name: 'Piston Check', desc: 'Piston check valves for fast closure and water hammer protection in critical lines.' },
-        manufacturers: ['dhv'],
-        image: '/images/products/check-piston.webp',
-        heroImage: '/images/products/check-piston-banner.webp',
-        sizes: '2" to 24"',
         pressureClasses: 'ANSI 150-2500',
       },
     ],

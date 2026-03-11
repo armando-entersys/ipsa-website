@@ -26,8 +26,8 @@ const productCategories = {
       image: "/images/products/df-trunnion-wb.jpg",
       block: "Aislamiento y Bloqueo",
       items: [
-        { label: "Para Enterramiento", href: "/productos/valvulas-bola-trunnion-soldado/enterramiento" },
-        { label: "Instalación Aérea", href: "/productos/valvulas-bola-trunnion-soldado/aerea" },
+        { label: "Ductos Terrestres", href: "/productos/valvulas-bola-trunnion-soldado/ductos-terrestres" },
+        { label: "Ductos Marinos y Offshore", href: "/productos/valvulas-bola-trunnion-soldado/ductos-marinos" },
         { label: "Subsea (API 6DSS)", href: "/productos/valvulas-bola-trunnion-soldado/subsea" },
       ],
     },
@@ -39,7 +39,6 @@ const productCategories = {
       items: [
         { label: "2 Piezas", href: "/productos/valvulas-bola-trunnion-atornillado/2-piezas" },
         { label: "3 Piezas", href: "/productos/valvulas-bola-trunnion-atornillado/3-piezas" },
-        { label: "Top Entry", href: "/productos/valvulas-bola-trunnion-atornillado/top-entry" },
       ],
     },
     {
@@ -49,7 +48,6 @@ const productCategories = {
       block: "Aislamiento y Bloqueo",
       items: [
         { label: "Flotante Estándar", href: "/productos/valvulas-bola-flotante/estandar" },
-        { label: "Flotante Top Entry", href: "/productos/valvulas-bola-flotante/top-entry" },
         { label: "Flotante Criogénica", href: "/productos/valvulas-bola-flotante/criogenica" },
       ],
     },
@@ -80,7 +78,6 @@ const productCategories = {
       block: "Regulación y Retención",
       items: [
         { label: "Check Tipo Swing", href: "/productos/valvulas-check/swing" },
-        { label: "Check Tipo Pistón", href: "/productos/valvulas-check/piston" },
       ],
     },
     // ── C: Control, Seguridad y Automatización ──
@@ -135,8 +132,8 @@ const productCategories = {
       image: "/images/products/df-trunnion-wb.jpg",
       block: "Isolation & Shutoff",
       items: [
-        { label: "Buried Welded", href: "/productos/valvulas-bola-trunnion-soldado/enterramiento" },
-        { label: "Above Ground", href: "/productos/valvulas-bola-trunnion-soldado/aerea" },
+        { label: "Onshore Pipelines", href: "/productos/valvulas-bola-trunnion-soldado/ductos-terrestres" },
+        { label: "Marine & Offshore", href: "/productos/valvulas-bola-trunnion-soldado/ductos-marinos" },
         { label: "Subsea (API 6DSS)", href: "/productos/valvulas-bola-trunnion-soldado/subsea" },
       ],
     },
@@ -148,7 +145,6 @@ const productCategories = {
       items: [
         { label: "2-Piece Trunnion", href: "/productos/valvulas-bola-trunnion-atornillado/2-piezas" },
         { label: "3-Piece Trunnion", href: "/productos/valvulas-bola-trunnion-atornillado/3-piezas" },
-        { label: "Top Entry Trunnion", href: "/productos/valvulas-bola-trunnion-atornillado/top-entry" },
       ],
     },
     {
@@ -158,7 +154,6 @@ const productCategories = {
       block: "Isolation & Shutoff",
       items: [
         { label: "Standard Floating Ball", href: "/productos/valvulas-bola-flotante/estandar" },
-        { label: "Top Entry Floating Ball", href: "/productos/valvulas-bola-flotante/top-entry" },
         { label: "Cryogenic Floating Ball", href: "/productos/valvulas-bola-flotante/criogenica" },
       ],
     },
@@ -189,7 +184,6 @@ const productCategories = {
       block: "Regulation & Retention",
       items: [
         { label: "Swing Check", href: "/productos/valvulas-check/swing" },
-        { label: "Piston Check", href: "/productos/valvulas-check/piston" },
       ],
     },
     // ── C: Control, Safety & Automation ──
@@ -263,12 +257,12 @@ const otherNavItems = [
     children: {
       es: [
         { label: "Oil & Gas", href: "/industrias/oil-gas", desc: "Alta presión, corrosión y aplicaciones Subsea" },
-        { label: "Sector Energético", href: "/industrias/energetico", desc: "Ciclos combinados, hidroeléctricas y renovables" },
+        { label: "Sector Energético", href: "/industrias/energetico", desc: "Generación de energía, hidroeléctricas y renovables" },
         { label: "Sector Privado", href: "/industrias/privado", desc: "Química, alimentos y manufactura" },
       ],
       en: [
         { label: "Oil & Gas", href: "/industrias/oil-gas", desc: "High pressure, corrosion and Subsea applications" },
-        { label: "Energy Sector", href: "/industrias/energetico", desc: "Combined cycles, hydroelectric and renewables" },
+        { label: "Energy Sector", href: "/industrias/energetico", desc: "Power generation, hydroelectric and renewables" },
         { label: "Private Sector", href: "/industrias/privado", desc: "Chemical, food and manufacturing" },
       ],
     },

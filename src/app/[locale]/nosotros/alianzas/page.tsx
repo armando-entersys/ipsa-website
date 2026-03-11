@@ -37,7 +37,7 @@ const alliances = [
   { name: "Della Foglia", years: "15+", country: "Italia", slug: "della-foglia" },
   { name: "Perar", years: "20+", country: "Italia", slug: "perar" },
   { name: "Versa Valves", years: "15+", country: "USA", slug: "versa" },
-  { name: "Consolidated (Emerson)", years: "10+", country: "USA", slug: "" },
+  { name: "Consolidated (Baker Hughes)", years: "10+", country: "USA", slug: "" },
   { name: "Masoneilan (Baker Hughes)", years: "10+", country: "USA", slug: "" },
   { name: "Yokogawa", years: "10+", country: "Japan", slug: "" },
   { name: "Emerson / Bettis / Shafer", years: "15+", country: "USA", slug: "" },
