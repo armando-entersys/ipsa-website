@@ -37,7 +37,7 @@ export default function Footer() {
         </div>
 
         {/* ── Row 2: Offices + Links ─────────────── */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
           {/* HQ */}
           <div>
             <h3 className="text-white font-semibold mb-3 text-sm uppercase tracking-wider">
@@ -102,6 +102,39 @@ export default function Footer() {
                   </Link>
                 </li>
               ))}
+            </ul>
+          </div>
+
+          {/* Legal */}
+          <div>
+            <h3 className="text-white font-semibold mb-3 text-sm uppercase tracking-wider">
+              Legal
+            </h3>
+            <ul className="space-y-2">
+              <li>
+                <Link
+                  href={`${prefix}/legal#privacidad`}
+                  className="text-white/70 text-sm hover:text-gold-light transition-colors duration-150 block leading-relaxed"
+                >
+                  {locale === "es" ? "Aviso de Privacidad" : "Privacy Notice"}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href={`${prefix}/legal#terminos`}
+                  className="text-white/70 text-sm hover:text-gold-light transition-colors duration-150 block leading-relaxed"
+                >
+                  {locale === "es" ? "Términos y Condiciones" : "Terms & Conditions"}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href={`${prefix}/legal#cookies`}
+                  className="text-white/70 text-sm hover:text-gold-light transition-colors duration-150 block leading-relaxed"
+                >
+                  {locale === "es" ? "Política de Cookies" : "Cookie Policy"}
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
