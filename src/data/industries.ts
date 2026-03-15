@@ -498,7 +498,7 @@ export const industries: Industry[] = [
       en: 'Food, pharmaceutical, pulp and paper, mining, metalworking, process plants, and water treatment.',
     },
     icon: 'Factory',
-    image: '/images/heroes/oils.jpg',
+    image: '/images/industries/privado-hero.webp',
 
     heroH1: {
       es: 'Suministro inmediato y modernización para la industria privada en México.',
