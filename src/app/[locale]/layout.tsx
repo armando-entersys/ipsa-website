@@ -5,7 +5,7 @@ import { getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { hasLocale } from "next-intl";
-import { GoogleTagManager } from "@next/third-parties/google";
+import { GoogleTagManager, GoogleAnalytics } from "@next/third-parties/google";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import BackToTop from "@/components/layout/BackToTop";
@@ -223,6 +223,7 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} className={`${montaguSlab.variable} ${gantari.variable}`}>
       <GoogleTagManager gtmId="GTM-WL6RXLS3" />
+      <GoogleAnalytics gaId="G-1Q92FVJHZ8" />
       <body className="font-body antialiased">
         <noscript>
           <iframe
