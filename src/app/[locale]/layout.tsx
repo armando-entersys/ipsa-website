@@ -5,7 +5,7 @@ import { getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { hasLocale } from "next-intl";
-import { GoogleAnalytics } from "@next/third-parties/google";
+import { GoogleTagManager } from "@next/third-parties/google";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import BackToTop from "@/components/layout/BackToTop";
@@ -222,7 +222,16 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} className={`${montaguSlab.variable} ${gantari.variable}`}>
+      <GoogleTagManager gtmId="GTM-WL6RXLS3" />
       <body className="font-body antialiased">
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-WL6RXLS3"
+            height="0"
+            width="0"
+            style={{ display: 'none', visibility: 'hidden' }}
+          />
+        </noscript>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -237,9 +246,6 @@ export default async function LocaleLayout({
           <AnalyticsTracker />
         </NextIntlClientProvider>
       </body>
-      {process.env.GA_MEASUREMENT_ID && (
-        <GoogleAnalytics gaId={process.env.GA_MEASUREMENT_ID} />
-      )}
     </html>
   );
 }
