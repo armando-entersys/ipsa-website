@@ -148,8 +148,6 @@ export async function POST(request: Request) {
       subject: confirmSubject,
       html: confirmHtml,
     });
-    console.log("Confirmation email result:", JSON.stringify(confirmResult));
-
     return NextResponse.json({ success: true });
   } catch (error) {
     console.error("Contact form error:", error);
